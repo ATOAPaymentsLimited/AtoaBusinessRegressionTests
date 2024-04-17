@@ -1,0 +1,70 @@
+output.yourBusinessDetailsPage = {
+    businessType: 'What kind of Business are you?',
+    businessTypeDropDownTitle: 'Business Type*',    
+    soleTrader: 'Sole Trader',
+    limitedCompany: 'Limited Company',
+    charity: 'Charity',
+    
+    businessName: 'Business Name*',
+    charityName: 'Charity Name*',
+
+    crn: 'Company Registration Number*',
+    charityNumber: 'Charity Number*',
+
+    industryType: 'Select Industry*',
+    industryTypeSearchBox: 'Search Industry',
+    industry1: 'Accommodation',
+    industryNotFoundText: 'No results found!',
+    describeYourBusiness: 'Describe your business*',
+    addressLine1: 'Address Line 1*',
+    addressLine2: 'Address Line 2 (Optional)',
+    city: 'Town/City*',
+    postCode: 'Post Code*',
+    utr: 'UTR Number (Optional)',
+    website: 'Website URL (Optional)',
+    vat: 'Do you charge taxes?',
+    vatText: 'VAT',
+    vatToggle: 'VAT Custom Switch',
+    vatOptionsTitle: 'Tax charges (%)',
+    vatOption1: '0.0',
+    vatOption2: '5.0',
+    vatOption3: '20.0',
+    serviceCharge: 'Do you add service charges?',
+    serviceChargeText: 'Service Tax',
+    serviceChargeToggle: 'Service Tax Custom Switch',
+    turnover: 'Average monthly turnover*',
+    continueButton: 'Continue',
+
+    businessNameEmptyError: 'Please provide a business name',
+    businessNameSpecialCharactersError: 'Special characters are not allowed',
+    businessNameMinLengthError: 'Business Name should be at least 3 characters long',
+    businessNameExistingError: 'Merchant with this legal business name already exists',
+
+    addressLine1EmptyError: 'Please enter the first line of your address',
+    addressLine1SpecialCharactersError: `Only , & : ' - are allowed`,
+    addressLine1MinLengthError: 'Address Line 1 should be at least 3 characters long',
+
+    addressLine2EmptyError: 'Please enter the second line of your address',
+    addressLine2SpecialCharactersError: `Only , & : ' - are allowed`,
+    addressLine2MinLengthError: 'Address Line 2 should be at least 3 characters long',
+    
+    cityEmptyError: 'Please enter your town or city',
+    citySpecialCharactersError: `Only , & : ' - are allowed`,
+    cityMinLengthError: 'Town/City should be at least 3 characters long',
+
+    postCodeEmptyError: 'Please provide a post code',
+    postCodeSpecialCharactersError: 'Post Code is invalid',
+    postCodeMinLengthError: 'Post Code should be at least 3 characters long',
+
+    emptyVATError: `Deactivate VAT if you haven't applied any VAT.`,
+    serviceChargeMoreThan100Error: 'Service charges should not be more than 100%',
+    emptyServiceChargeError: `Turn off service charges if you don't include any service charge.`,
+
+    describeBusinessMinLengthError: 'Your business description should be at least 5 characters long',
+    describeBusinessEmptyError: 'Briefly outline what your business does',
+
+    closeAddBusinessHeader: 'Are you sure you want to leave now?',
+    closeAddBusinessDescription: '',
+    keepButton: 'Keep',
+    discardButton: 'Discard',
+}

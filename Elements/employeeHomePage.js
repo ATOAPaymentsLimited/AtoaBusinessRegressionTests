@@ -1,0 +1,25 @@
+output.employeeHomePage = {
+    storeLocationTile: 'Store Location Tile',
+    myAccountButton: 'My Account button',
+    notificationButton: 'Notification Icon button',
+    acceptPaymentButton: 'Accept Payment',
+    transactionsButton: 'Payments',
+    linksButton: 'Links',
+    employeesButton: 'Staff',
+    referAndEarnButton: 'Invite',
+    showQRButton: 'Show QR',
+    tipsButton: 'Tipping',
+    offerBanner: 'Offer Banner',
+    copyrightText: '©2023 Atoa Payments Ltd. All logos and trademarks are property of their respective owners. Atoa Payments Ltd operates under a license issued to Yapily Connect Ltd (#827001) which are regulated by the UK Financial Conduct Authority under the Payment Services Regulations 2017 as an Authorized Payment Institution to provide account information services and payment initiation services.',
+    
+    disabledStoreAcceptPaymentErrorTitle: 'Location is currently disabled,\ncannot accept payments',
+    disabledMessage: 'This store location is currently disabled. Please visit your profile settings to enable it before accepting payments.',
+    cancelButton: 'Cancel',
+
+    employeeRequestTile: 'Employee Request Tile',
+    employeeProfileImage: 'Employee Image Blank',
+    declineButton: 'Decline',
+    acceptButton: 'Accept',
+    supervisorTab: 'Supervisor',
+    cashierTab: 'Cashier',
+}
