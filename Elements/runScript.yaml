@@ -8,7 +8,7 @@ appId: ${APP_ID}
 - runScript: employeeHomePage.js
 - runScript: enableAppLockPage.js
 - runScript: enterAmountPage.js
-- runScript: enterMobileNumberPage.js
+- runScript: signupPage.js
 - runScript: env.js
 - runScript: kybInProgresPage.js
 - runScript: kybStepsInfoPage.js

@@ -1,0 +1,7 @@
+appId: ${APP_ID}
+---
+- tapOn:
+    text: ${ELEMENT}
+    retryTapIfNoChange: false
+
+

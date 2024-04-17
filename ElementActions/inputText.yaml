@@ -1,0 +1,9 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: tapOn.yaml
+    env:
+        ELEMENT: ${ELEMENT}
+- inputText: ${TEXT}
+- hideKeyboard
+

@@ -1,0 +1,9 @@
+appId: ${output.env.APP_ID}
+name: 
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../Elements/runScript.yaml
+---
+
+- runFlow: ../SubFlows/Signup/emailOrMobileNumberFieldValidations.yaml

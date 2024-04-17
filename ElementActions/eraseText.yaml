@@ -1,0 +1,18 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: tapOn.yaml
+    env:
+        ELEMENT: ${ELEMENT}
+- eraseText
+- hideKeyboard
+
+- runFlow:
+    file: tapOn.yaml
+    env:
+        ELEMENT: ${ELEMENT}
+- eraseText
+- hideKeyboard
+
+
+

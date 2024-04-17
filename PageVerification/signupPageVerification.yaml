@@ -1,0 +1,39 @@
+appId: ${APP_ID}
+--- 
+
+- assertVisible: ${FIELDVALUE}
+- assertVisible: 
+    text: ${output.signupPage.termsOfUseLink}
+    enabled: true 
+- assertVisible: 
+    text: ${output.signupPage.termsOfServiceLink}
+    enabled: true 
+- assertVisible: 
+    text: ${output.signupPage.privacyPolicyLink}
+    enabled: true 
+
+- runFlow:
+    when:
+      visible: ${output.signupPage.signupPageTitle}
+    commands:
+      - assertVisible: ${output.signupPage.signupButton}
+      - assertVisible: 
+          text: ${output.signupPage.googleSignupButton}
+          enabled: true 
+      - assertVisible: 
+          text: ${output.signupPage.loginLink}
+          enabled: true 
+
+- runFlow:
+    when:
+      visible: ${output.signupPage.loginPageTitle}
+    commands:
+      - assertVisible: ${output.signupPage.loginButton}
+      - assertVisible: 
+          text: ${output.signupPage.googleLoginButton}
+          enabled: true 
+      - assertVisible: 
+          text: ${output.signupPage.signupLink}
+          enabled: true 
+
+

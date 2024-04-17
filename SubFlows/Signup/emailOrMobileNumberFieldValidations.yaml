@@ -1,0 +1,236 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../../PageVerification/signupPageVerification.yaml
+    env:
+        FIELDVALUE: ${output.signupPage.mobileOrEmailTextField}
+
+# 9 digits
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+        TEXT: ${output.env.digits9}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env: 
+        ELEMENT: ${output.signupPage.signupButton}
+
+- runFlow:
+    file: ../../PageVerification/signupPageVerification.yaml
+    env:
+        FIELDVALUE: ${output.env.digits9}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+
+# 12 digits
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+        TEXT: ${output.env.digits12}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env: 
+        ELEMENT: ${output.signupPage.signupButton}
+
+- runFlow:
+    file: ../../PageVerification/signupPageVerification.yaml
+    env:
+        FIELDVALUE: ${output.env.digits12}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+
+# 2 digits
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+        TEXT: ${output.env.digits2}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env: 
+        ELEMENT: ${output.signupPage.signupButton}
+
+- runFlow:
+    file: ../../PageVerification/signupPageVerification.yaml
+    env:
+        FIELDVALUE: ${output.env.digits2}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+
+# Special characters
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+        TEXT: ${output.env.specialCharacters}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env: 
+        ELEMENT: ${output.signupPage.signupButton}
+
+- runFlow:
+    file: ../../PageVerification/signupPageVerification.yaml
+    env:
+        FIELDVALUE: ${output.env.specialCharacters}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+
+# Alphabets
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+        TEXT: ${output.env.alphabets}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env: 
+        ELEMENT: ${output.signupPage.signupButton}
+
+- runFlow:
+    file: ../../PageVerification/signupPageVerification.yaml
+    env:
+        FIELDVALUE: ${output.env.alphabets}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+
+# Invalid email id 1
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+        TEXT: ${output.env.invalidEmail1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env: 
+        ELEMENT: ${output.signupPage.signupButton}
+
+- runFlow:
+    file: ../../PageVerification/signupPageVerification.yaml
+    env:
+        FIELDVALUE: ${output.env.invalidEmail1}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+
+# Invalid email id 2
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+        TEXT: ${output.env.invalidEmail2}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env: 
+        ELEMENT: ${output.signupPage.signupButton}
+
+- runFlow:
+    file: ../../PageVerification/signupPageVerification.yaml
+    env:
+        FIELDVALUE: ${output.env.invalidEmail2}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+
+# Invalid email id 3
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+        TEXT: ${output.env.invalidEmail3}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env: 
+        ELEMENT: ${output.signupPage.signupButton}
+
+- runFlow:
+    file: ../../PageVerification/signupPageVerification.yaml
+    env:
+        FIELDVALUE: ${output.env.invalidEmail3}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+
+# Invalid email id 4
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+        TEXT: ${output.env.invalidEmail4}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env: 
+        ELEMENT: ${output.signupPage.signupButton}
+
+- runFlow:
+    file: ../../PageVerification/signupPageVerification.yaml
+    env:
+        FIELDVALUE: ${output.env.invalidEmail4}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+
+# Invalid email id 5
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+        TEXT: ${output.env.invalidEmail5}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env: 
+        ELEMENT: ${output.signupPage.signupButton}
+
+- runFlow:
+    file: ../../PageVerification/signupPageVerification.yaml
+    env:
+        FIELDVALUE: ${output.env.invalidEmail5}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+
+
