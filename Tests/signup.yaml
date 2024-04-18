@@ -4,6 +4,12 @@ tags:
     - dev
 onFlowStart:
   - runFlow: ../Elements/runScript.yaml
+  - runFlow: ../SubFlows/GeneralFlows/launchAppClearState.yaml
 ---
+- runFlow: ../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
 
-- runFlow: ../SubFlows/Signup/emailOrMobileNumberFieldValidations.yaml
+- runFlow: ../SubTests/Signup/emailOrMobileNumberFieldValidations.yaml

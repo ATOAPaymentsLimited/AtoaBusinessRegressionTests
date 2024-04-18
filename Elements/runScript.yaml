@@ -1,12 +1,13 @@
 appId: ${APP_ID}
 ---
+- runScript: annotations.js
 - runScript: cashierCoachMarks.js
 - runScript: commonElements.js
 - runScript: connectYourBankPage.js
 - runScript: dynamicQRPage.js
 - runScript: earnMoreWithTipsPage.js
 - runScript: employeeHomePage.js
-- runScript: enableAppLockPage.js
+- runScript: secureAtoaPage.js
 - runScript: enterAmountPage.js
 - runScript: signupPage.js
 - runScript: env.js

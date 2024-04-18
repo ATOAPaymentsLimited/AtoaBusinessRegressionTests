@@ -14,19 +14,7 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-      visible: ${output.signupPage.signupPageTitle}
-    commands:
-      - assertVisible: ${output.signupPage.signupButton}
-      - assertVisible: 
-          text: ${output.signupPage.googleSignupButton}
-          enabled: true 
-      - assertVisible: 
-          text: ${output.signupPage.loginLink}
-          enabled: true 
-
-- runFlow:
-    when:
-      visible: ${output.signupPage.loginPageTitle}
+       true: ${LOGIN}
     commands:
       - assertVisible: ${output.signupPage.loginButton}
       - assertVisible: 
@@ -36,4 +24,14 @@ appId: ${APP_ID}
           text: ${output.signupPage.signupLink}
           enabled: true 
 
-
+- runFlow:
+    when:
+      visible: ${SIGNUP}
+    commands:
+      - assertVisible: ${output.signupPage.signupButton}
+      - assertVisible: 
+          text: ${output.signupPage.googleSignupButton}
+          enabled: true 
+      - assertVisible: 
+          text: ${output.signupPage.loginLink}
+          enabled: true 

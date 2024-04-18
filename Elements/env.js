@@ -70,42 +70,16 @@ output.env = {
    //-----------------------------------------------------
   //-----------------------------------------------------
   //-----------------------------------------------------  
-   MERCHANT_M0001: 'M0001',
-   MERCHANT_MOBILE_M0001: '90019001900',
-   BUSINESS_NAME_M0001: 'Business 9001900',
-   CRN_M0001: '90019001',
-   MERCHANT_EMAIL_M0001: 'atoabusiness9001900@gmail.com',
-   
-   MERCHANT_M0002: 'M0002',
-   MERCHANT_MOBILE_M0002: '80018001800',
-   BUSINESS_NAME_M0002: 'Business 8001800',
-   CRN_M0002: '80018001',
-   MERCHANT_EMAIL_M0002: 'atoabusiness8001800@gmail.com',
-   UTR_M0002: '8001800180',
-   WEBSITE_MOOO2: 'https://paywithatoa.co.uk',   
-
-   MERCHANT_M0003: 'M0003',
-   MERCHANT_MOBILE_M0003: '70017001700',
-   BUSINESS_NAME_M0003: 'Business 7001700',
-   CRN_M0003: '70017001',
-   MERCHANT_EMAIL_M0003: 'atoabusiness7001700@gmail.com',
-   
-   MERCHANT_M0004: 'M0004',
-   MERCHANT_MOBILE_M0004: '60016001600',
-   BUSINESS_NAME_M0004: 'Business 6001600',
-   CRN_M0004: '60016001',
-   MERCHANT_EMAIL_M0004: 'atoabusiness6001600@gmail.com',
-   EMPLOYEE_MOBILE_E0004: '72011313016',
-
-   MERCHANT_M0005: 'M0005',
-   MERCHANT_MOBILE_M0005: '50015001500',
-   BUSINESS_NAME_M0005: 'Business 5001500',
-   CRN_M0005: '50015001',
-   MERCHANT_EMAIL_M0005: 'atoabusiness5001500@gmail.com',
-   EMPLOYEE_MOBILE_E0005: '50025002500',
+   MERCHANT_1: 'M0001',
+   MERCHANT_MOBILE_1: '93938460001',
+   BUSINESS_NAME_M0001: 'B93938460001',
+   CRN_M0001: '93938460',
+   MERCHANT_EMAIL_M0001: 'ab93938460001@gmail.com',
    
 //--------------------------------------------   
-   TEST_NUMBER: '7789409696',   
+   TEST_NUMBER: '07789409696', 
+   TEST_EMAIL_1: 'amit@gmail.com',
+   TEST_EMAIL_2: 'amit@paywithatoa.co.uk',  
 
    STORE_NAME_1: 'Store 1',
    STORE_NAME_2: 'Store 2',

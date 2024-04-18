@@ -1,0 +1,5 @@
+appId: ${output.env.APP_ID}
+onFlowStart:
+  - runFlow: Elements/runScript.yaml
+---
+- assertVisible: ${output.otpPage.otpTextField}

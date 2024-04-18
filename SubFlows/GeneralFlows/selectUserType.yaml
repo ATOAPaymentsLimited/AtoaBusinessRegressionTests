@@ -1,0 +1,13 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+        true: ${USER == 'BUSINESSOWNER'}
+    commands: 
+        - tapOn: ${output.userTypeSelectionPage.businessOwnerButton}
+
+- runFlow:
+    when:
+        true: ${USER == 'STAFFMEMBER'}
+    commands: 
+        - tapOn: ${output.userTypeSelectionPage.employeeButton}

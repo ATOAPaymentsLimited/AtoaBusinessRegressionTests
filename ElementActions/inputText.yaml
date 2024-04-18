@@ -1,9 +1,16 @@
 appId: ${APP_ID}
 ---
 - runFlow:
+    when:
+        true: ${ELEMENT}
     file: tapOn.yaml
     env:
         ELEMENT: ${ELEMENT}
 - inputText: ${TEXT}
-- hideKeyboard
+
+- runFlow:
+    when:
+        true: ${KEYBOARD == 'true'}
+    commands:
+        - hideKeyboard
 

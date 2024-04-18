@@ -1,5 +1,5 @@
 output.otpPage = {
-    otpTextField: 'OTP Input',
+    otpTextField: 'OTP input',
     okButton: 'OK',
     sendAgainButton: 'Resend Code',
 
