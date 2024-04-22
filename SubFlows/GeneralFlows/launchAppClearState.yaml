@@ -2,6 +2,6 @@ appId: ${APP_ID}
 ---
 - launchApp:
     appId: ${output.env.APP_ID}
-    clearState: true
+    #clearState: true
     stopApp: true
     permissions: { all: allow }

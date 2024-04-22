@@ -1,5 +1,17 @@
 appId: ${APP_ID}
+name: SubTests/Signup/emailOrMobileNumberFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
 ---
+- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
+
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
     env:
@@ -8,16 +20,10 @@ appId: ${APP_ID}
 
 # 9 digits
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.digits9}
-        KEYBOARD: true
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env: 
-        ELEMENT: ${output.signupPage.signupButton}
+        SIGNUP: true
 
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
@@ -32,16 +38,10 @@ appId: ${APP_ID}
 
 # 12 digits
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.digits12}
-        KEYBOARD: true
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env: 
-        ELEMENT: ${output.signupPage.signupButton}
+        SIGNUP: true
 
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
@@ -57,16 +57,10 @@ appId: ${APP_ID}
 # 2 digits
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.digits2}
-        KEYBOARD: true
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env: 
-        ELEMENT: ${output.signupPage.signupButton}
+        SIGNUP: true
 
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
@@ -82,16 +76,10 @@ appId: ${APP_ID}
 # Special characters
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.specialCharacters}
-        KEYBOARD: true
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env: 
-        ELEMENT: ${output.signupPage.signupButton}
+        SIGNUP: true
 
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
@@ -107,16 +95,10 @@ appId: ${APP_ID}
 # Alphabets
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.alphabets}
-        KEYBOARD: true
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env: 
-        ELEMENT: ${output.signupPage.signupButton}
+        SIGNUP: true
 
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
@@ -132,15 +114,10 @@ appId: ${APP_ID}
 # Invalid email id 1
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.invalidEmail1}
-        KEYBOARD: true
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env: 
-        ELEMENT: ${output.signupPage.signupButton}
+        SIGNUP: true
 
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
@@ -156,15 +133,10 @@ appId: ${APP_ID}
 # Invalid email id 2
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.invalidEmail2}
-        KEYBOARD: true
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env: 
-        ELEMENT: ${output.signupPage.signupButton}
+        SIGNUP: true
 
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
@@ -180,15 +152,10 @@ appId: ${APP_ID}
 # Invalid email id 3
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.invalidEmail3}
-        KEYBOARD: true
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env: 
-        ELEMENT: ${output.signupPage.signupButton}
+        SIGNUP: true
 
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
@@ -203,22 +170,15 @@ appId: ${APP_ID}
 # Invalid email id 4
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.invalidEmail4}
-        KEYBOARD: true
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env: 
-        ELEMENT: ${output.signupPage.signupButton}
+        SIGNUP: true
 
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
     env:
         FIELDVALUE: ${output.env.invalidEmail4}
-        SIGNUP: true
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -228,16 +188,10 @@ appId: ${APP_ID}
 # Invalid email id 5
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.invalidEmail5}
-        KEYBOARD: true
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env: 
-        ELEMENT: ${output.signupPage.signupButton}
+        SIGNUP: true
 
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
@@ -253,23 +207,16 @@ appId: ${APP_ID}
 # Existing employee's mobile number
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.EMPLOYEE_MOBILE_A}
-        KEYBOARD: true
+        SIGNUP: true
 
 - runFlow:
-    file: ../../ElementActions/tapOn.yaml
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
-        ELEMENT: ${output.signupPage.signupButton}
-
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
         TEXT: ${output.env.validOtp}
-        KEYBOARD: false
+
 - assertVisible: ${output.signupPage.existingEmployeeNumberErrorToast}
 
 - runFlow:
@@ -286,22 +233,15 @@ appId: ${APP_ID}
 # Existing employee's email
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.EMPLOYEE_EMAIL_A}
-        KEYBOARD: true
+        SIGNUP: true
 
 - runFlow:
-    file: ../../ElementActions/tapOn.yaml
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
-        ELEMENT: ${output.signupPage.signupButton}
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
         TEXT: ${output.env.validOtp}
-        KEYBOARD: false
 
 - assertVisible: ${output.signupPage.existingEmployeeEmailErrorToast}
 - runFlow:
@@ -318,22 +258,20 @@ appId: ${APP_ID}
 # Valid number 1
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
-        TEXT: ${output.env.MERCHANT_MOBILE_1}
-        KEYBOARD: true
+        TEXT: ${output.env.MERCHANT_MOBILE_A}
+        SIGNUP: true
 
 - runFlow:
-    file: ../../ElementActions/tapOn.yaml
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
-        ELEMENT: ${output.signupPage.signupButton}
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
         TEXT: ${output.env.validOtp}
-        KEYBOARD: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
 
 - assertVisible: ${output.secureAtoaPage.enableAppLockTitle}
 
@@ -346,22 +284,15 @@ appId: ${APP_ID}
         USER: ${output.annotations.businessOwner}
 
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.TEST_NUMBER}
-        KEYBOARD: true
+        SIGNUP: true
 
 - runFlow:
-    file: ../../ElementActions/tapOn.yaml
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
-        ELEMENT: ${output.signupPage.signupButton}
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
         TEXT: ${output.env.validOtp}
-        KEYBOARD: true
 
 - assertVisible: ${output.secureAtoaPage.enableAppLockTitle}
 
@@ -374,22 +305,15 @@ appId: ${APP_ID}
         USER: ${output.annotations.businessOwner}
         
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.TEST_EMAIL_1}
-        KEYBOARD: true
+        SIGNUP: true
 
 - runFlow:
-    file: ../../ElementActions/tapOn.yaml
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
-        ELEMENT: ${output.signupPage.signupButton}
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
         TEXT: ${output.env.validOtp}
-        KEYBOARD: true
 
 - assertVisible: ${output.secureAtoaPage.enableAppLockTitle}
 
@@ -402,21 +326,14 @@ appId: ${APP_ID}
         USER: ${output.annotations.businessOwner}
         
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
         TEXT: ${output.env.TEST_EMAIL_2}
-        KEYBOARD: true
+        SIGNUP: true
 
 - runFlow:
-    file: ../../ElementActions/tapOn.yaml
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
-        ELEMENT: ${output.signupPage.signupButton}
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
         TEXT: ${output.env.validOtp}
-        KEYBOARD: true
 
 - assertVisible: ${output.secureAtoaPage.enableAppLockTitle}

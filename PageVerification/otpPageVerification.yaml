@@ -1,0 +1,10 @@
+appId: ${APP_ID}
+---
+- assertVisible: ${output.otpPage.otpPageTitle}
+- assertVisible: ${output.otpPage.enterCodeText}
+- assertVisible: ${output.otpPage.countryCode} ${MOBILENUMBER}
+
+- assertVisible: 
+    text: ${output.otpPage.otpTextField}
+    enabled: true 
+

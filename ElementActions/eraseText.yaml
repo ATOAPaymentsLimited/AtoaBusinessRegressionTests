@@ -5,14 +5,23 @@ appId: ${APP_ID}
     env:
         ELEMENT: ${ELEMENT}
 - eraseText
-- hideKeyboard
+
+- runFlow:
+    when:
+        true: ${KEYBOARD}
+    commands:
+        - hideKeyboard
 
 - runFlow:
     file: tapOn.yaml
     env:
         ELEMENT: ${ELEMENT}
 - eraseText
-- hideKeyboard
+- runFlow:
+    when:
+        true: ${KEYBOARD}
+    commands:
+        - hideKeyboard
 
 
 

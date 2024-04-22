@@ -1,0 +1,166 @@
+appId: ${APP_ID}
+name: SubTests/Signup/otpFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env: 
+        TEXT: ${output.env.MERCHANT_MOBILE_2}
+        SIGNUP: true
+
+- runFlow:
+    file: ../../PageVerification/otpPageVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+
+# # 5 Digits
+# - runFlow: 
+#     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+#     env: 
+#         TEXT: ${output.env.digits5}
+
+# - runFlow:
+#     file: ../../PageVerification/otpPageVerification.yaml
+#     env:
+#         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+
+# - runFlow:
+#     file: ../../ElementActions/eraseText.yaml
+#     env: 
+#         ELEMENT: ${output.otpPage.otpTextField}
+
+# # Alphabets
+# - runFlow: 
+#     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+#     env: 
+#         TEXT: ${output.env.alphabets}
+
+# - runFlow:
+#     file: ../../PageVerification/otpPageVerification.yaml
+#     env:
+#         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+
+# - runFlow:
+#     file: ../../ElementActions/eraseText.yaml
+#     env: 
+#         ELEMENT: ${output.otpPage.otpTextField}
+
+# invalid 1
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.digits10}
+
+- runFlow:
+    file: ../../PageVerification/otpPageVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+- assertVisible: ${output.otpPage.invalidOtpError1}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.otpPage.otpTextField}
+
+# invalid 2
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.digits10}
+- assertVisible: ${output.otpPage.invalidOtpError2}
+
+- runFlow:
+    file: ../../PageVerification/otpPageVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.otpPage.otpTextField}
+
+# invalid 3
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.digits10}
+- assertVisible: ${output.otpPage.invalidOtpError3}
+- runFlow:
+    file: ../../PageVerification/otpPageVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.otpPage.otpTextField}
+
+# invalid 4
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.digits10}
+- assertVisible: ${output.otpPage.invalidOtpError4}
+- runFlow:
+    file: ../../PageVerification/otpPageVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.otpPage.otpTextField}
+
+# invalid 5
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.digits10}
+- assertVisible: ${output.otpPage.invalidOtpError5}
+- runFlow:
+    file: ../../PageVerification/otpPageVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.otpPage.otpTextField}
+
+# valid after 5 invalid
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
+- assertVisible: ${output.otpPage.invalidOtpError6}
+- runFlow:
+    file: ../../PageVerification/otpPageVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.otpPage.otpTextField}
+
+# valid after Resend code
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.otpPage.resendButton}
+
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
+- assertVisible: ${output.secureAtoaPage.enableAppLockTitle}

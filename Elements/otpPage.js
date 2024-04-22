@@ -1,14 +1,19 @@
 output.otpPage = {
+    otpPageTitle: 'Enter Code',
+    enterCodeText: 'Enter the secret code sent to your phone at',
+    countryCode: '+44',
+    
     otpTextField: 'OTP input',
-    okButton: 'OK',
-    sendAgainButton: 'Resend Code',
+
+    resendButton: 'Resend Code',
 
     incorrectOTPError: `You've entered an incorrect code`,
     otpExpiredToast: 'The OTP has expired',
-    invalidOtpToast1: 'The entered otp is wrong',
-    invalidOtpToast2: 'The entered otp is wrong. 3 attempts left',
-    invalidOtpToast3: 'The entered otp is wrong. 2 attempts left',
-    invalidOtpToast4: 'The entered otp is wrong. 1 attempts left',
-    invalidOtpToast5: 'The entered otp is wrong. 0 attempts left',
-    invalidOtpToast6: 'Maximum number of attempts reached. Please generate a new OTP',
+    invalidOtpError1: 'The entered otp is wrong',
+    invalidOtpError2: 'The entered otp is wrong. 4 attempts left',
+    invalidOtpError3: 'The entered otp is wrong. 3 attempts left',
+    invalidOtpError4: 'The entered otp is wrong. 2 attempts left',
+    invalidOtpError5: 'The entered otp is wrong. 1 attempts left',
+    invalidOtpError5: 'The entered otp is wrong. 0 attempts left',
+    invalidOtpError6: 'Maximum number of attempts reached. Please generate a new OTP',
 }

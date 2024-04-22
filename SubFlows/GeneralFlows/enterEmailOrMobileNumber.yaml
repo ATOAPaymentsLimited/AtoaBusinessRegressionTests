@@ -1,0 +1,22 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env: 
+        ELEMENT: ${output.signupPage.mobileOrEmailTextField}
+        TEXT: ${TEXT}
+        KEYBOARD: true
+
+- runFlow:
+    when:
+        true: ${SIGNUP}  
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.signupPage.signupButton}
+
+- runFlow:
+    when:
+        true: ${LOGIN}  
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.signupPage.loginButton}   
