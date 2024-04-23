@@ -88,6 +88,12 @@ output.env = {
    CRN_3: '98770001',
    MERCHANT_EMAIL_3: 'ab9877960001@gmail.com',
    
+   MERCHANT_4: '4',
+   MERCHANT_MOBILE_4: '9777960001',
+   BUSINESS_NAME_4: 'B9777960001',
+   CRN_4: '97770001',
+   MERCHANT_EMAIL_4: 'ab9777960001@gmail.com',
+   
 //--------------------------------------------   
    TEST_NUMBER: '07789409696', 
    TEST_EMAIL_1: 'amit@gmail.com',
@@ -130,7 +136,7 @@ output.env = {
 
    ADDRESS_LINE1_1: 'Test',
    ADDRESS_LINE2_1: 'Test',
-   POST_CODE_1: 'IN1 947',
+   POST_CODE_1: 'ATO A77',
    CITY_1: 'Banglore',
    INDUSTRY_1: 'Accommodation',
    SORT_CODE_1: '40-47-65',
@@ -147,7 +153,7 @@ output.env = {
 
    ADDRESS_LINE1_2: 'Automation',
    ADDRESS_LINE2_2: 'Automation',
-   POST_CODE_2: 'UK1 947',
+   POST_CODE_2: 'ATO A81',
    CITY_2: 'London',
    SORT_CODE_2: '04-00-07',
 

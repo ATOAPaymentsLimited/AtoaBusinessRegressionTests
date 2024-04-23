@@ -158,7 +158,7 @@ onFlowStart:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.otpPage.resendButton}
-
+        INDEX: 0
 - runFlow: 
     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 

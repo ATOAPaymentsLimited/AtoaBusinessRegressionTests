@@ -2,7 +2,7 @@ appId: ${output.env.APP_ID}
 onFlowStart:
   - runFlow: Elements/runScript.yaml
 ---
-- assertVisible:
-    text: ${output.yourBusinessDetailsPage.businessName}
+- assertVisible: 
+    text: ${output.yourBusinessDetailsPage.businessNameField}
     containsDescendants: 
-      - ${output.yourBusinessDetailsPage.limitedCompany}
+      - ${output.yourBusinessDetailsPage.businessNameEmptyError}

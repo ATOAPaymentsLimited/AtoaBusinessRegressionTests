@@ -3,5 +3,5 @@ appId: ${APP_ID}
 - runFlow: 
     file: ../../ElementActions/tapOn.yaml
     env: 
-        ELEMENT: ${output.onboardingPage.continueButton}
+        ELEMENT: ${output.yourBusinessDetailsPage.continueButton}
         INDEX: 0

@@ -6,6 +6,7 @@ appId: ${APP_ID}
     file: tapOn.yaml
     env:
         ELEMENT: ${ELEMENT}
+        INDEX: 0
 - inputText: ${TEXT}
 
 - runFlow:

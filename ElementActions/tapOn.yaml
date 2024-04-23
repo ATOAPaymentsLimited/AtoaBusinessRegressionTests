@@ -2,6 +2,7 @@ appId: ${APP_ID}
 ---
 - tapOn:
     text: ${ELEMENT}
+    index: ${INDEX}
     retryTapIfNoChange: false
 
 

@@ -1,0 +1,21 @@
+appId: ${APP_ID}
+---
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.turnoverDropdown}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.turnoverDropdown}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${TURNOVER}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.businessNameField}
+    direction: UP

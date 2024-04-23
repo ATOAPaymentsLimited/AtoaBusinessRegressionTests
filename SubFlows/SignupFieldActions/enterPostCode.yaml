@@ -1,0 +1,9 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.postCodeField}
+        TEXT: ${POSTCODE}
+        KEYBOARD: true
+

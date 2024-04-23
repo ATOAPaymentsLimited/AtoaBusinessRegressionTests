@@ -1,0 +1,19 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'SOLETRADER' || BUSINESSTYPE == 'LIMITEDCOMPANY'}
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.businessNameField}
+        TEXT: ${BUSINESSNAME}
+        KEYBOARD: true
+
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'CHARITY'}
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.charityNameField}
+        TEXT: ${BUSINESSNAME}
+        KEYBOARD: true

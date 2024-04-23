@@ -24,7 +24,7 @@ onFlowStart:
         TEXT: ${output.env.validOtp}
 
 - runFlow:
-    file: ../../SubFlows/SignupFieldFlows/selectBusinessType.yaml
+    file: ../../SubFlows/SignupFieldActions/selectBusinessType.yaml
     env:
         BUSINESSTYPE: 'SOLETRADER'
 
@@ -47,7 +47,7 @@ onFlowStart:
     direction: UP
 
 - runFlow:
-    file: ../../SubFlows/SignupFieldFlows/selectBusinessType.yaml
+    file: ../../SubFlows/SignupFieldActions/selectBusinessType.yaml
     env:
         BUSINESSTYPE: 'LIMITEDCOMPANY'
 
@@ -69,7 +69,7 @@ onFlowStart:
     direction: UP
 
 - runFlow:
-    file: ../../SubFlows/SignupFieldFlows/selectBusinessType.yaml
+    file: ../../SubFlows/SignupFieldActions/selectBusinessType.yaml
     env:
         BUSINESSTYPE: 'CHARITY'
 

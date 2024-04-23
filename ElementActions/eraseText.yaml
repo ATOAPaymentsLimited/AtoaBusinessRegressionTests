@@ -4,6 +4,7 @@ appId: ${APP_ID}
     file: tapOn.yaml
     env:
         ELEMENT: ${ELEMENT}
+        INDEX: 0
 - eraseText
 
 - runFlow:
@@ -16,6 +17,7 @@ appId: ${APP_ID}
     file: tapOn.yaml
     env:
         ELEMENT: ${ELEMENT}
+        INDEX: 0
 - eraseText
 - runFlow:
     when:

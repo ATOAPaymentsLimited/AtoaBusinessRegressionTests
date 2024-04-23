@@ -1,0 +1,83 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../SignupFieldActions/selectBusinessType.yaml
+    env:
+        BUSINESSTYPE: ${BUSINESSTYPE}
+
+- runFlow:
+    file: ../SignupFieldActions/enterBusinessName.yaml
+    env:
+        BUSINESSTYPE: ${BUSINESSTYPE}
+        BUSINESSNAME: ${BUSINESSNAME}
+
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'SOLETRADER'||BUSINESSTYPE == 'LIMITEDCOMPANY'}
+    file: ../SignupFieldActions/selectIndustryType.yaml
+    env:
+        INDUSTRYTYPE: ${INDUSTRYTYPE}
+
+- runFlow:
+    file: ../SignupFieldActions/selectAnnualTurnover.yaml
+    env:
+        TURNOVER: ${TURNOVER}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.addressLine2Field}
+    direction: DOWN
+
+- runFlow:
+    file: ../SignupFieldActions/enterAddress1.yaml
+    env:
+        ADDRESS1: ${ADDRESS1}
+
+- runFlow:
+    when:
+      true: ${ADDRESS2}
+    file: ../SignupFieldActions/enterAddress2.yaml
+    env:
+        ADDRESS2: ${ADDRESS2}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.postCodeField}
+    direction: DOWN
+
+- runFlow:
+    file: ../SignupFieldActions/enterCity.yaml
+    env:
+        CITY: ${CITY}
+
+- runFlow:
+    file: ../SignupFieldActions/enterPostCode.yaml
+    env:
+        POSTCODE: ${POSTCODE}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+# - runFlow:
+#     when:
+#         true: ${VAT}
+#     file: ../SignupFieldActions/selectVat.yaml
+#     env:
+#         VAT: ${VAT}
+
+# - runFlow:
+#     when:
+#         true: ${SERVICECHARGE}
+#     file: ../SignupFieldActions/enterServiceCharge.yaml
+#     env:
+#         SERVICECHARGE: ${SERVICECHARGE}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+    
+- runFlow:
+    when:
+        true: ${CONTINUE}
+    file: ../SignupFieldActions/clickContinueButton.yaml
+
+
+

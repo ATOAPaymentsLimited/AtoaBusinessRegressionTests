@@ -13,10 +13,12 @@ appId: ${APP_ID}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.signupPage.signupButton}
+        INDEX: 1
 
 - runFlow:
     when:
         true: ${LOGIN}  
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.signupPage.loginButton}   
+        ELEMENT: ${output.signupPage.loginButton}
+        INDEX: 1   

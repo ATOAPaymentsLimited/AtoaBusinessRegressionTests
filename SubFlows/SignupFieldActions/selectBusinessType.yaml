@@ -4,6 +4,7 @@ appId: ${APP_ID}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
+        INDEX: 0
 
 - runFlow:
     when:
@@ -11,6 +12,7 @@ appId: ${APP_ID}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.soleTrader}
+        INDEX: 0
 
 - runFlow:
     when:
@@ -18,6 +20,7 @@ appId: ${APP_ID}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.limitedCompany}
+        INDEX: 0
 
 - runFlow:
     when:
@@ -25,3 +28,4 @@ appId: ${APP_ID}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.charity}
+        INDEX: 0
