@@ -13,6 +13,20 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
+        true: ${BUSINESSTYPE == 'LIMITEDCOMPANY'}
+    file: ../SignupFieldActions/enterCrn.yaml
+    env:
+        CRN: ${CRN}
+
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'CHARITY'}
+    file: ../SignupFieldActions/enterCharityNumber.yaml
+    env:
+        CHARITYNUMBER: ${CRN}
+
+- runFlow:
+    when:
         true: ${BUSINESSTYPE == 'SOLETRADER'||BUSINESSTYPE == 'LIMITEDCOMPANY'}
     file: ../SignupFieldActions/selectIndustryType.yaml
     env:
@@ -73,7 +87,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
-    
+
 - runFlow:
     when:
         true: ${CONTINUE}

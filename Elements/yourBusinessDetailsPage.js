@@ -53,6 +53,10 @@ output.yourBusinessDetailsPage = {
     businessNameMinLengthError: 'Business Name should be at least 3 characters long',
     businessNameExistingError: 'Merchant with this legal business name already exists',
 
+    crnEmptyError: 'Please provide a company number',
+    crnMinLengthError: 'Company Registration Number is invalid',
+    crnExistingError: 'Merchant with this CRN number already exists',
+
     addressLine1EmptyError: 'Please enter the first line of your address',
     addressLine1SpecialCharactersError: `Only , & : ' - are allowed`,
     addressLine1MinLengthError: 'Address Line 1 should be at least 3 characters long',

@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: SubTests/Signup/otpFieldValidations.yaml
+name: SubTests/Signup/businessTypeDropdownValidations.yaml
 tags:
     - dev
 onFlowStart:
