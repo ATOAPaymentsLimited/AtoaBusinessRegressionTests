@@ -1,0 +1,89 @@
+appId: ${APP_ID}
+name: SubTests/Signup/otpFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env: 
+        TEXT: ${output.env.MERCHANT_MOBILE_3}
+        SIGNUP: true
+
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
+    file: ../../SubFlows/SignupFieldFlows/selectBusinessType.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+
+- runFlow:
+    file: ../../PageVerification/businessDetailsPageVerification.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSNAME: ${output.yourBusinessDetailsPage.businessName}
+        INDUSTRYTYPE: ${output.yourBusinessDetailsPage.industryType}
+        TURNOVER: ${output.yourBusinessDetailsPage.turnover}
+        ADDRESS1: ${output.yourBusinessDetailsPage.addressLine1}
+        ADDRESS2: ${output.yourBusinessDetailsPage.addressLine2}
+        CITY: ${output.yourBusinessDetailsPage.city}
+        POSTCODE: ${output.yourBusinessDetailsPage.postCode}
+        UTRNUMBER: ${output.yourBusinessDetailsPage.utr}
+        WEBSITEURL: ${output.yourBusinessDetailsPage.website}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
+    direction: UP
+
+- runFlow:
+    file: ../../SubFlows/SignupFieldFlows/selectBusinessType.yaml
+    env:
+        BUSINESSTYPE: 'LIMITEDCOMPANY'
+
+- runFlow:
+    file: ../../PageVerification/businessDetailsPageVerification.yaml
+    env:
+        BUSINESSTYPE: 'LIMITEDCOMPANY'
+        BUSINESSNAME: ${output.yourBusinessDetailsPage.businessName}
+        CRN: ${output.yourBusinessDetailsPage.crn}
+        INDUSTRYTYPE: ${output.yourBusinessDetailsPage.industryType}
+        TURNOVER: ${output.yourBusinessDetailsPage.turnover}
+        ADDRESS1: ${output.yourBusinessDetailsPage.addressLine1}
+        ADDRESS2: ${output.yourBusinessDetailsPage.addressLine2}
+        CITY: ${output.yourBusinessDetailsPage.city}
+        POSTCODE: ${output.yourBusinessDetailsPage.postCode}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
+    direction: UP
+
+- runFlow:
+    file: ../../SubFlows/SignupFieldFlows/selectBusinessType.yaml
+    env:
+        BUSINESSTYPE: 'CHARITY'
+
+- runFlow:
+    file: ../../PageVerification/businessDetailsPageVerification.yaml
+    env:
+        BUSINESSTYPE: 'CHARITY'
+        BUSINESSNAME: ${output.yourBusinessDetailsPage.charityName}
+        CRN: ${output.yourBusinessDetailsPage.charityNumber}
+        TURNOVER: ${output.yourBusinessDetailsPage.turnover}
+        ADDRESS1: ${output.yourBusinessDetailsPage.addressLine1}
+        ADDRESS2: ${output.yourBusinessDetailsPage.addressLine2}
+        CITY: ${output.yourBusinessDetailsPage.city}
+        POSTCODE: ${output.yourBusinessDetailsPage.postCode}
+
+
+

@@ -1,0 +1,27 @@
+appId: ${APP_ID}
+---
+- runFlow: 
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
+
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'SOLETRADER'}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.soleTrader}
+
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'LIMITEDCOMPANY'}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.limitedCompany}
+
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'CHARITY'}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.charity}

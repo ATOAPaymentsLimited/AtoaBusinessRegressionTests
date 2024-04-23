@@ -1,0 +1,209 @@
+appId: ${APP_ID}
+---
+
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'SOLETRADER'}
+    commands:
+      - assertVisible: 
+          text: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
+          containsDescendants:
+            - ${output.yourBusinessDetailsPage.soleTrader}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.businessNameField}
+          containsDescendants:
+            - ${BUSINESSNAME}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.industryTypeDropdown}
+          containsDescendants:
+            - ${INDUSTRYTYPE}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.turnoverDropdown}
+          containsDescendants:
+            - ${TURNOVER}      
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.addressLine2Field}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.addressLine1Field}
+          containsDescendants:
+            - ${ADDRESS1}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.addressLine2Field}
+          containsDescendants:
+            - ${ADDRESS2}
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.postCodeField}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.cityField}
+          containsDescendants:
+            - ${CITY}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.postCodeField}
+          containsDescendants:
+            - ${POSTCODE}
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.websiteField}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.utrField}
+          containsDescendants:
+            - ${UTRNUMBER}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.websiteField}
+          containsDescendants:
+            - ${WEBSITEURL}
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.continueButton}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.vatToggle}
+          enabled: true
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.serviceChargeToggle}
+          enabled: true
+  
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'LIMITEDCOMPANY'}
+    commands:
+      - assertVisible: 
+          text: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
+          containsDescendants:
+            - ${output.yourBusinessDetailsPage.limitedCompany}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.crnField}
+          containsDescendants:
+            - ${CRN}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.businessNameField}
+          containsDescendants:
+            - ${BUSINESSNAME}
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.addressLine2Field}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.addressLine1Field}
+          containsDescendants:
+            - ${ADDRESS1}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.addressLine2Field}
+          containsDescendants:
+            - ${ADDRESS2}
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.postCodeField}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.cityField}
+          containsDescendants:
+            - ${CITY}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.postCodeField}
+          containsDescendants:
+            - ${POSTCODE}
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.turnoverDropdown}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.industryTypeDropdown}
+          containsDescendants:
+            - ${INDUSTRYTYPE}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.turnoverDropdown}
+          containsDescendants:
+            - ${TURNOVER} 
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.continueButton}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.vatToggle}
+          enabled: true
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.serviceChargeToggle}
+          enabled: true
+        
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'CHARITY'}
+    commands:
+      - assertVisible: 
+          text: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
+          containsDescendants:
+            - ${output.yourBusinessDetailsPage.charity}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.charityNumberField}
+          containsDescendants:
+            - ${CRN}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.charityNameField}
+          containsDescendants:
+            - ${BUSINESSNAME}
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.addressLine2Field}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.addressLine1Field}
+          containsDescendants:
+            - ${ADDRESS1}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.addressLine2Field}
+          containsDescendants:
+            - ${ADDRESS2}
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.postCodeField}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.cityField}
+          containsDescendants:
+            - ${CITY}
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.postCodeField}
+          containsDescendants:
+            - ${POSTCODE}
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.turnoverDropdown}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.turnoverDropdown}
+          containsDescendants:
+            - ${TURNOVER} 
+
+- runFlow:
+    when:
+        true: ${INDUSTRYTYPE == 'Other'}
+    commands:
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.describeYourBusiness}
+          containsDescendants:
+            - ${DESCRIPTION}
+
+- runFlow:
+    when:
+        true: ${VAT}
+    commands:
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.vat}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.vat}
+          containsDescendants:
+            - ${VAT}
+
+- runFlow:
+    when:
+        true: ${SERVICECHARGE}
+    commands:
+      - scrollUntilVisible:
+          element: ${output.yourBusinessDetailsPage.serviceCharge}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.yourBusinessDetailsPage.serviceCharge}
+          containsDescendants:
+            - ${SERVICECHARGE}
+
+- scroll
+
+- assertVisible:
+    text: ${output.yourBusinessDetailsPage.continueButton}
+    enabled: true 

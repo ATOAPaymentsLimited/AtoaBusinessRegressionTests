@@ -2,4 +2,7 @@ appId: ${output.env.APP_ID}
 onFlowStart:
   - runFlow: Elements/runScript.yaml
 ---
-- assertVisible: ${output.otpPage.otpTextField}
+- assertVisible:
+    text: ${output.yourBusinessDetailsPage.businessName}
+    containsDescendants: 
+      - ${output.yourBusinessDetailsPage.limitedCompany}

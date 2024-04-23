@@ -82,6 +82,12 @@ output.env = {
    CRN_2: '98960001',
    MERCHANT_EMAIL_2: 'ab9898960001@gmail.com',
    
+   MERCHANT_3: '3',
+   MERCHANT_MOBILE_3: '9877960001',
+   BUSINESS_NAME_3: 'B9877960001',
+   CRN_3: '98770001',
+   MERCHANT_EMAIL_3: 'ab9877960001@gmail.com',
+   
 //--------------------------------------------   
    TEST_NUMBER: '07789409696', 
    TEST_EMAIL_1: 'amit@gmail.com',
