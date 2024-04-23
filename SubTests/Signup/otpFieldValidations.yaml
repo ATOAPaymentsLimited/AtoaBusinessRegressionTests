@@ -23,37 +23,37 @@ onFlowStart:
     env:
         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
 
-# # 5 Digits
-# - runFlow: 
-#     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
-#     env: 
-#         TEXT: ${output.env.digits5}
+# 5 Digits
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.digits5}
 
-# - runFlow:
-#     file: ../../PageVerification/otpPageVerification.yaml
-#     env:
-#         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+- runFlow:
+    file: ../../PageVerification/otpPageVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
 
-# - runFlow:
-#     file: ../../ElementActions/eraseText.yaml
-#     env: 
-#         ELEMENT: ${output.otpPage.otpTextField}
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.otpPage.otpTextField}
 
-# # Alphabets
-# - runFlow: 
-#     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
-#     env: 
-#         TEXT: ${output.env.alphabets}
+# Alphabets
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.alphabets}
 
-# - runFlow:
-#     file: ../../PageVerification/otpPageVerification.yaml
-#     env:
-#         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+- runFlow:
+    file: ../../PageVerification/otpPageVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
 
-# - runFlow:
-#     file: ../../ElementActions/eraseText.yaml
-#     env: 
-#         ELEMENT: ${output.otpPage.otpTextField}
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env: 
+        ELEMENT: ${output.otpPage.otpTextField}
 
 # invalid 1
 - runFlow: 
