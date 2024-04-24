@@ -1,0 +1,111 @@
+appId: ${APP_ID}
+name: SubTests/Signup/businessNameTextFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env: 
+        TEXT: ${output.env.MERCHANT_MOBILE_6}
+        SIGNUP: true
+
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSNAME: ${output.env.BUSNIESS_NAME_5}
+        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
+        TURNOVER: ${output.env.turnoverOption1}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+        CITY: ${output.env.CITY_1}
+        POSTCODE: ${output.env.POST_CODE_1}
+        CONTINUE: true
+
+- assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPageTitle.backButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/selectIndustryType.yaml
+    env:
+        INDUSTRYTYPE: ${output.env.alphabets}
+
+- assertVisible: ${output.yourBusinessDetailsPage.invalidIndustryTypeError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.industryTypeSearchBoxField}
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT:  ${output.yourBusinessDetailsPage.industryTypeSearchBoxField}
+        TEXT: ${output.env.INDUSTRY_OTHER}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.env.INDUSTRY_OTHER}
+        INDEX: 1
+
+- assertVisible:
+    text: ${output.yourBusinessDetailsPage.describeYourBusinessField}
+    enabled: true 
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.describeYourBusinessField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.yourBusinessDetailsPage.describeYourBusinessField}
+    containsDescendants:
+        - ${output.yourBusinessDetailsPage.describeBusinessEmptyError}
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.describeYourBusinessField} 
+        TEXT: ${output.env.INDUSTRY_DESCRIPTION}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
+
+
+
+
+
+
+
+
+    
+

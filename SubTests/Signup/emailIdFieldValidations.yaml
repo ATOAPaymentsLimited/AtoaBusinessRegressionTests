@@ -1,0 +1,215 @@
+appId: ${APP_ID}
+name: SubTests/Signup/businessNameTextFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env: 
+        TEXT: ${output.env.MERCHANT_MOBILE_6}
+        SIGNUP: true
+
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_10}
+        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
+        TURNOVER: ${output.env.turnoverOption1}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+        CITY: ${output.env.CITY_1}
+        POSTCODE: ${output.env.POST_CODE_1}
+        CONTINUE: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterPersonalDetails.yaml
+    env:
+        FNAME: ${output.env.MERCHANT_FNAME}
+        LNAME: ${output.env.MERCHANT_LNAME}
+        EMAIL: ${output.env.blankSpace}
+        SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
+        CONTINUE: true 
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.emailField}
+    direction: UP
+- assertVisible:
+    text: ${output.yourPersonalDetailsPage.emailField}
+    containsDescendants: 
+        - ${output.yourPersonalDetailsPage.emailEmptyError}
+    
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.emailField}
+
+# Invalid Email 1
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterEmailId.yaml
+    env:
+        EMAIL: ${output.env.invalidEmail1}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.emailField}
+    direction: UP
+- assertVisible:
+    text: ${output.yourPersonalDetailsPage.emailField}
+    containsDescendants: 
+        - ${output.yourPersonalDetailsPage.invalidEmailError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.emailField}
+
+# Invalid Email 2
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterEmailId.yaml
+    env:
+        EMAIL: ${output.env.invalidEmail2}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.emailField}
+    direction: UP
+- assertVisible:
+    text: ${output.yourPersonalDetailsPage.emailField}
+    containsDescendants: 
+        - ${output.yourPersonalDetailsPage.invalidEmailError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.emailField}
+
+# Invalid Email 3
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterEmailId.yaml
+    env:
+        EMAIL: ${output.env.invalidEmail3}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.emailField}
+    direction: UP
+- assertVisible:
+    text: ${output.yourPersonalDetailsPage.emailField}
+    containsDescendants: 
+        - ${output.yourPersonalDetailsPage.invalidEmailError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.emailField}
+
+# Invalid Email 4
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterEmailId.yaml
+    env:
+        EMAIL: ${output.env.invalidEmail4}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.emailField}
+    direction: UP
+- assertVisible:
+    text: ${output.yourPersonalDetailsPage.emailField}
+    containsDescendants: 
+        - ${output.yourPersonalDetailsPage.invalidEmailError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.emailField}
+
+# Invalid Email 5
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterEmailId.yaml
+    env:
+        EMAIL: ${output.env.invalidEmail5}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.emailField}
+    direction: UP
+- assertVisible:
+    text: ${output.yourPersonalDetailsPage.emailField}
+    containsDescendants: 
+        - ${output.yourPersonalDetailsPage.invalidEmailError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.emailField}
+
+# Valid Email 1
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterEmailId.yaml
+    env:
+        EMAIL: ${output.env.MERCHANT_EMAIL_10A}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- assertVisible: ${output.connectYourBankPage.connectYourBankPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPageTitle.backButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.emailField}
+
+# Valid Email 2
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterEmailId.yaml
+    env:
+        EMAIL: ${output.env.MERCHANT_EMAIL_10B}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- assertVisible: ${output.connectYourBankPage.connectYourBankPageTitle}

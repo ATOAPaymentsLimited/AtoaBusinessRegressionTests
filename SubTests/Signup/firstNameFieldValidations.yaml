@@ -1,0 +1,95 @@
+appId: ${APP_ID}
+name: SubTests/Signup/businessNameTextFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env: 
+        TEXT: ${output.env.MERCHANT_MOBILE_11}
+        SIGNUP: true
+
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_11}
+        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
+        TURNOVER: ${output.env.turnoverOption1}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+        CITY: ${output.env.CITY_1}
+        POSTCODE: ${output.env.POST_CODE_1}
+        CONTINUE: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterPersonalDetails.yaml
+    env:
+        FNAME: ${output.env.blankSpace}
+        LNAME: ${output.env.MERCHANT_LNAME}
+        EMAIL: ${output.env.MERCHANT_EMAIL_11}
+        SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
+        CONTINUE: true 
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.firstNameField}
+    direction: UP
+- assertVisible:
+    text: ${output.yourPersonalDetailsPage.firstNameField}
+    containsDescendants: 
+        - ${output.yourPersonalDetailsPage.firstNameEmptyError}
+    
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.firstNameField}
+
+# Special characters
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterFirstName.yaml
+    env:
+        EMAIL: ${output.env.specialCharacters}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.firstNameField}
+    direction: UP
+- assertVisible:
+    text: ${output.yourPersonalDetailsPage.firstNameField}
+    containsDescendants: 
+        - ${output.yourPersonalDetailsPage.firstNameEmptyError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.firstNameField}
+
+# Valid 1
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterFirstName.yaml
+    env:
+        EMAIL: ${output.env.numbers}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- assertVisible: ${output.connectYourBankPage.connectYourBankPageTitle}

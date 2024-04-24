@@ -21,7 +21,7 @@ output.yourBusinessDetailsPage = {
     industryTypeSearchBox: 'Search Industry',
     industry1: 'Accommodation',
     industryNotFoundText: 'No results found!',
-    describeYourBusiness: 'Describe your business* TextFormField',
+    describeYourBusinessField: 'Describe your business* TextFormField',
     addressLine1Field: 'Address Line 1* TextFormField',
     addressLine1: 'Address Line 1*',
     addressLine2Field: 'Address Line 2 (Optional) TextFormField',
@@ -56,6 +56,8 @@ output.yourBusinessDetailsPage = {
     crnEmptyError: 'Please provide a company number',
     crnMinLengthError: 'Company Registration Number is invalid',
     crnExistingError: 'Merchant with this CRN number already exists',
+
+    invalidIndustryTypeError: 'No results found!',
 
     addressLine1EmptyError: 'Please enter the first line of your address',
     addressLine1SpecialCharactersError: `Only , & : ' - are allowed`,

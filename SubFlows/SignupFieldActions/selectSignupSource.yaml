@@ -1,0 +1,14 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.sourceOfReferenceDropdown}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${SIGNUPSOURCE}
+        INDEX: 0
+

@@ -141,6 +141,9 @@ output.env = {
    INDUSTRY_1: 'Accommodation',
    SORT_CODE_1: '40-47-65',
 
+   INDUSTRY_OTHER: 'Other',
+   INDUSTRY_DESCRIPTION: 'Hotel',
+
    MERCHANT_BANK_NAME_DEV: 'Lloyds Bank Sandbox',
    MERCHANT_BANK_NAME_UAT: 'Lloyds (Business)',
    MERCHANT_BANK_NAME_PROD: 'Lloyds (Business)',

@@ -1,0 +1,46 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../SignupFieldActions/enterFirstName.yaml
+    env:
+        FNAME: ${FNAME}
+
+- runFlow:
+    file: ../SignupFieldActions/enterLastName.yaml
+    env:
+        FNAME: ${LNAME}
+
+- runFlow:
+    when:
+      visible: ${output.yourPersonalDetailsPage.emailField}
+    file: ../SignupFieldActions/enterEmailId.yaml
+    env:
+        EMAIL: ${EMAIL}
+
+- runFlow:
+    when:
+      visible: ${output.yourPersonalDetailsPage.mobileNumberField}
+    file: ../SignupFieldActions/enterMobileNumber.yaml
+    env:
+        MOBILENUMBER: ${MOBILENUMBER}
+
+- runFlow:
+    file: ../SignupFieldActions/selectSignupSource.yaml
+    env:
+        SIGNUPSOURCE: ${SIGNUPSOURCE}
+
+- runFlow:
+    when:
+        true: ${REFERRALCODE}
+    file: ../SignupFieldActions/enterReferralCode.yaml
+    env:
+        REERRALCODE: ${REFERRALCODE}
+- scroll
+- runFlow: ../SignupFieldActions/checkUserAgreement.yaml
+
+- runFlow: ../SignupFieldActions/checkMarketing.yaml
+
+- runFlow: 
+    when:
+      true: ${CONTINUE}
+    file: ../SignupFieldActions.clickContinueButton.yaml
