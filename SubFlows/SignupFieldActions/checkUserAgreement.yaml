@@ -1,7 +1,7 @@
 appId: ${APP_ID}
 ---
 - runFlow:
-    file: ../../ElementAcitons/tapOn.yaml
+    file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.yourPersonalDetailsPage.termsCheckbox}
         INDEX: 0

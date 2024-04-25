@@ -193,7 +193,7 @@ onFlowStart:
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.yourPersonalDetailsPageTitle.backButton}
+        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
         INDEX: 0
 
 - runFlow:

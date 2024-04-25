@@ -43,4 +43,4 @@ appId: ${APP_ID}
 - runFlow: 
     when:
       true: ${CONTINUE}
-    file: ../SignupFieldActions.clickContinueButton.yaml
+    file: ../SignupFieldActions/clickContinueButton.yaml

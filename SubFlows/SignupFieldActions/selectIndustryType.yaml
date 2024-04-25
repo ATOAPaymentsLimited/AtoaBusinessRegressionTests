@@ -18,6 +18,8 @@ appId: ${APP_ID}
         KEYBOARD: true 
 
 - runFlow:
+    when:
+        notVisible: ${output.yourBusinessDetailsPage.industryNotFoundText}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${INDUSTRYTYPE}

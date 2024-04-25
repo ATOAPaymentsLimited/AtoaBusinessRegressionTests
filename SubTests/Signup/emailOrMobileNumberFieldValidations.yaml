@@ -268,10 +268,6 @@ onFlowStart:
     env: 
         TEXT: ${output.env.validOtp}
 
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
-    env: 
-        TEXT: ${output.env.validOtp}
 
 - assertVisible: ${output.secureAtoaPage.enableAppLockTitle}
 

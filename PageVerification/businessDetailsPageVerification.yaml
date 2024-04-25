@@ -162,7 +162,7 @@ appId: ${APP_ID}
           containsDescendants:
             - ${POSTCODE}
       - scrollUntilVisible:
-          element: ${output.yourBusinessDetailsPage.turnoverDropdown}
+          element: ${output.yourBusinessDetailsPage.continueButton}
           direction: DOWN
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.turnoverDropdown}

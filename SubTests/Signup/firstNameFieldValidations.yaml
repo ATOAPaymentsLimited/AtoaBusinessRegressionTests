@@ -61,7 +61,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterFirstName.yaml
     env:
-        EMAIL: ${output.env.specialCharacters}
+        FNAME: ${output.env.specialCharacters}
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
@@ -85,7 +85,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterFirstName.yaml
     env:
-        EMAIL: ${output.env.numbers}
+        FNAME: ${output.env.numbers}
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}

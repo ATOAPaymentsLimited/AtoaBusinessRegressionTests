@@ -53,7 +53,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterAddress1.yaml
     env:
-        BUSINESSNAME: ${output.env.specialCharacters}
+        ADDRESS1: ${output.env.specialCharacters}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
@@ -77,7 +77,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterAddress1.yaml
     env:
-        BUSINESSNAME: ${output.env.minLength}
+        ADDRESS1: ${output.env.minLength}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN

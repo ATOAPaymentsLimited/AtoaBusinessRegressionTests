@@ -51,9 +51,9 @@ onFlowStart:
 
 # Special characters
 - runFlow:
-    file: ../../SubFlows/SignupFieldActions/enterAddress1.yaml
+    file: ../../SubFlows/SignupFieldActions/enterCity.yaml
     env:
-        BUSINESSNAME: ${output.env.specialCharacters}
+        CITY: ${output.env.specialCharacters}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
@@ -75,9 +75,9 @@ onFlowStart:
         KEYBOARD: true
 
 - runFlow:
-    file: ../../SubFlows/SignupFieldActions/enterAddress1.yaml
+    file: ../../SubFlows/SignupFieldActions/enterCity.yaml
     env:
-        BUSINESSNAME: ${output.env.minLength}
+        CITY: ${output.env.minLength}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN

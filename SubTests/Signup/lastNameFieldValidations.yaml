@@ -45,7 +45,7 @@ onFlowStart:
         CONTINUE: true 
 
 - scrollUntilVisible:
-    element: ${output.yourPersonalDetailsPage.lastNameField}
+    element: ${output.yourPersonalDetailsPage.firstNameField}
     direction: UP
 - assertVisible:
     text: ${output.yourPersonalDetailsPage.lastNameField}
@@ -61,7 +61,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterLastName.yaml
     env:
-        EMAIL: ${output.env.specialCharacters}
+        LNAME: ${output.env.specialCharacters}
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
@@ -69,7 +69,7 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourPersonalDetailsPage.lastNameField}
+    element: ${output.yourPersonalDetailsPage.firstNameField}
     direction: UP
 - assertVisible:
     text: ${output.yourPersonalDetailsPage.lastNameField}
@@ -85,7 +85,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterLastName.yaml
     env:
-        EMAIL: ${output.env.numbers}
+        LNAME: ${output.env.numbers}
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}

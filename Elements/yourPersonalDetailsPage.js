@@ -11,7 +11,7 @@ output.yourPersonalDetailsPage = {
     firstName: 'First Name*',
     lastNameField: 'Last Name* TextFormField',
     lastName: 'Last Name*',
-    sourceOfReferenceDropdown: 'How did you hear about us?null TextFormField',
+    sourceOfReferenceDropdown: 'null TextFormField',
     source1: 'Web Search',
     termsCheckbox: 'Accept Terms Checkbox',
     marketingCheckbox: 'Accept Marketing Checkbox',

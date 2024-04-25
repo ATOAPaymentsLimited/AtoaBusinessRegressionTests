@@ -41,7 +41,7 @@ onFlowStart:
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.yourPersonalDetailsPageTitle.backButton}
+        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
         INDEX: 0
 
 - runFlow:
@@ -52,9 +52,9 @@ onFlowStart:
 
 # Special characters
 - runFlow:
-    file: ../../SubFlows/SignupFieldActions/enterAddress1.yaml
+    file: ../../SubFlows/SignupFieldActions/enterAddress2.yaml
     env:
-        BUSINESSNAME: ${output.env.specialCharacters}
+        ADDRESS2: ${output.env.specialCharacters}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN

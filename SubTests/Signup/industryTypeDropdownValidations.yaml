@@ -27,7 +27,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
     env:
         BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSNIESS_NAME_5}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_5}
         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
         TURNOVER: ${output.env.turnoverOption1}
         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
@@ -40,7 +40,7 @@ onFlowStart:
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.yourPersonalDetailsPageTitle.backButton}
+        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
         INDEX: 0
 
 - runFlow:
@@ -48,24 +48,10 @@ onFlowStart:
     env:
         INDUSTRYTYPE: ${output.env.alphabets}
 
-- assertVisible: ${output.yourBusinessDetailsPage.invalidIndustryTypeError}
-
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../SubFlows/SignupFieldActions/selectIndustryType.yaml
     env:
-        ELEMENT: ${output.yourBusinessDetailsPage.industryTypeSearchBoxField}
-
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env:
-        ELEMENT:  ${output.yourBusinessDetailsPage.industryTypeSearchBoxField}
-        TEXT: ${output.env.INDUSTRY_OTHER}
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.env.INDUSTRY_OTHER}
-        INDEX: 1
+        INDUSTRYTYPE: ${output.env.INDUSTRY_OTHER}
 
 - assertVisible:
     text: ${output.yourBusinessDetailsPage.describeYourBusinessField}

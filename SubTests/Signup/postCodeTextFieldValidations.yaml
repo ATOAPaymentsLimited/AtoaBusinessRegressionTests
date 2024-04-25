@@ -51,9 +51,9 @@ onFlowStart:
 
 # Special characters
 - runFlow:
-    file: ../../SubFlows/SignupFieldActions/enterAddress1.yaml
+    file: ../../SubFlows/SignupFieldActions/enterPostCode.yaml
     env:
-        BUSINESSNAME: ${output.env.specialCharacters}
+        POSTCODE: ${output.env.specialCharacters}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
@@ -65,7 +65,7 @@ onFlowStart:
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.postCodeField}
     containsDescendants: 
-      - ${output.yourBusinessDetailsPage.postCodeSpecialCharactersError}
+      - ${output.yourBusinessDetailsPage.postCodeEmptyError}
 
 # Min length 
 - runFlow:
@@ -75,9 +75,9 @@ onFlowStart:
         KEYBOARD: true
 
 - runFlow:
-    file: ../../SubFlows/SignupFieldActions/enterAddress1.yaml
+    file: ../../SubFlows/SignupFieldActions/enterPostCode.yaml
     env:
-        BUSINESSNAME: ${output.env.minLength}
+        POSTCODE: ${output.env.minLength}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN

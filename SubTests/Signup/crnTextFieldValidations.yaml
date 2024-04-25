@@ -27,7 +27,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
     env:
         BUSINESSTYPE: 'LIMITEDCOMPANY'
-        BUSINESSNAME: ${output.env.BUSNIESS_NAME_5}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_5}
         CRN: ${output.env.blankSpace}
         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
         TURNOVER: ${output.env.turnoverOption1}
@@ -68,6 +68,12 @@ onFlowStart:
     containsDescendants: 
       - ${output.yourBusinessDetailsPage.crnMinLengthError}
 
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.crnField}
+        KEYBOARD: true
+
 # Min length 
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterCrn.yaml
@@ -86,21 +92,24 @@ onFlowStart:
     containsDescendants: 
       - ${output.yourBusinessDetailsPage.crnMinLengthError}
 
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.crnField}
+        KEYBOARD: true
 
 # Existing crn
 
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterCrn.yaml
     env:
-        CRN: ${output.env.CRN_1}
+        CRN: ${output.env.CRN_A}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
-- assertVisible: ${output.yourBusinessDetailsPAge.crnExistingError}
-
-# Valid CRN
+- assertVisible: ${output.yourBusinessDetailsPage.crnExistingError}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.crnField}
     direction: UP
@@ -109,6 +118,8 @@ onFlowStart:
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.crnField}
         KEYBOARD: true
+
+# Valid CRN
 
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterCrn.yaml
