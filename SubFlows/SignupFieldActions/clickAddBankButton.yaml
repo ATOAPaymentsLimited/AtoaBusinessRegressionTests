@@ -1,0 +1,7 @@
+appId: ${APP_ID}
+---
+- runFlow: 
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.addBankAccountButton} 
+        INDEX: 0

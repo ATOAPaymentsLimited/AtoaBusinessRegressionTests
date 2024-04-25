@@ -1,0 +1,15 @@
+appId: ${APP_ID}
+---
+- runFlow: 
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.directDebitSwitch}
+        INDEX: 0
+
+- runFlow:
+    when: 
+        visible: ${output.connectYourBankPage.setupLaterButton}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.setupLaterButton}
+        INDEX: 0

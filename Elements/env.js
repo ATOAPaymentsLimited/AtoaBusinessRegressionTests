@@ -144,9 +144,9 @@ output.env = {
    INDUSTRY_OTHER: 'Other',
    INDUSTRY_DESCRIPTION: 'Hotel',
 
-   MERCHANT_BANK_NAME_DEV: 'Lloyds Bank Sandbox',
-   MERCHANT_BANK_NAME_UAT: 'Lloyds (Business)',
-   MERCHANT_BANK_NAME_PROD: 'Lloyds (Business)',
+   MERCHANT_BANK_NAME: 'Lloyds Bank Sandbox',
+   MERCHANT_BANK_NAME: 'Lloyds (Business)',
+   MERCHANT_BANK_NAME: 'Lloyds (Business)',
    MERCHANT_BANK_ACCOUNT_1: '28876851',
    MASKED_BANK_ACCOUNT_NUMBER_1: 'XXXXX851',
    MERCHANT_BANK_ACCOUNT_2: '',

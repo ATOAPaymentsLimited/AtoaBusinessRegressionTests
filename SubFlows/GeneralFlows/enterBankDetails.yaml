@@ -1,0 +1,35 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../SignupFieldActions/selectBankName.yaml
+    env:
+        BANKNAME: ${BANKNAME}
+
+- runFlow:
+    file: ../SignupFieldActions/enterAccountNumber.yaml
+    env:
+        ACCOUNTNUMBER: ${ACCOUNTNUMBER}
+
+- runFlow:
+    file: ../SignupFieldActions/enterConfirmAccountNumber.yaml
+    env:
+        CONFIRMACCOUNTNUMBER: ${CONFIRMACCOUNTNUMBER}
+
+- runFlow:
+    file: ../SignupFieldActions/enterSortCode.yaml
+    env:
+        SORTCODE: ${SORTCODE}
+
+- scrollUntilVisible:
+    element: ${output.connectYourBankPage.directDebitSwitch}
+    direction: DOWN
+
+- runFlow: ../SignupFieldActions/switchDirectDebitToggle.yaml
+
+- scrollUntilVisible:
+    element: ${output.connectYourBankPage.addBankAccountButton}
+    direction: DOWN
+
+- runFlow: ../SignupFieldActions/clickAddBankButton.yaml
+
+
