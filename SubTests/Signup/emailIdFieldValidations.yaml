@@ -15,7 +15,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_6}
+        TEXT: ${output.env.MERCHANT_MOBILE_13}
         SIGNUP: true
 
 - runFlow: 
@@ -27,7 +27,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
     env:
         BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_10}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_13}
         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
         TURNOVER: ${output.env.turnoverOption1}
         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
@@ -181,7 +181,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterEmailId.yaml
     env:
-        EMAIL: ${output.env.MERCHANT_EMAIL_10A}
+        EMAIL: ${output.env.MERCHANT_EMAIL_13A}
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
@@ -205,7 +205,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterEmailId.yaml
     env:
-        EMAIL: ${output.env.MERCHANT_EMAIL_10B}
+        EMAIL: ${output.env.MERCHANT_EMAIL_13B}
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}

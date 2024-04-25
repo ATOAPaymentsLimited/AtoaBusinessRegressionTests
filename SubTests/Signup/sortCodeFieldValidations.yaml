@@ -1,0 +1,132 @@
+appId: ${APP_ID}
+name: SubTests/Signup/businessNameTextFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env: 
+        TEXT: ${output.env.MERCHANT_MOBILE_15}
+        SIGNUP: true
+
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_15}
+        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
+        TURNOVER: ${output.env.turnoverOption1}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+        CITY: ${output.env.CITY_1}
+        POSTCODE: ${output.env.POST_CODE_1}
+        CONTINUE: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterPersonalDetails.yaml
+    env:
+        FNAME: ${output.env.MERCHANT_FNAME}
+        LNAME: ${output.env.MERCHANT_LNAME}
+        EMAIL: ${output.env.MERCHANT_EMAIL_15}
+        SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
+        CONTINUE: true 
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterBankDetails.yaml
+    env:
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME}
+        SORTCODE: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        CONFIRMSORTCODE: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        SORTCODE: ${output.env.blankSpace}
+
+- scrollUntilVisible:
+    element: ${output.connectYourBankPage.sortCodeField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.connectYourBankPage.sortCodeField}
+    containsDescendants:
+      - ${output.connectYourBankPage.sortCodeEmptyError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.sortCodeField}
+
+# digits 5
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterSortCode.yaml
+    env:
+        SORTCODE: ${output.env.digits5}
+
+- scrollUntilVisible:
+    element: ${output.connectYourBankPage.addBankAccountButton}
+    direction: DOWN
+
+- runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.connectYourBankPage.sortCodeField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.connectYourBankPage.sortCodeField}
+    containsDescendants:
+      - ${output.connectYourBankPage.sortCodeLessThan6Error}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.sortCodeField}
+
+# alphabets
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterSortCode.yaml
+    env:
+        SORTCODE: ${output.env.alphabets}
+
+- scrollUntilVisible:
+    element: ${output.connectYourBankPage.addBankAccountButton}
+    direction: DOWN
+
+- runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.connectYourBankPage.sortCodeField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.connectYourBankPage.sortCodeField}
+    containsDescendants:
+      - ${output.connectYourBankPage.bankAccountEmptyError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.sortCodeField}
+
+# valid 
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterSortCode.yaml
+    env:
+        SORTCODE: ${output.env.SORT_CODE_1}
+
+- scrollUntilVisible:
+    element: ${output.connectYourBankPage.addBankAccountButton}
+    direction: DOWN
+
+- runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
+

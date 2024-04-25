@@ -15,7 +15,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_13}
+        TEXT: ${output.env.MERCHANT_MOBILE_14}
         SIGNUP: true
 
 - runFlow: 
@@ -27,7 +27,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
     env:
         BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_13}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_14}
         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
         TURNOVER: ${output.env.turnoverOption1}
         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
@@ -40,7 +40,7 @@ onFlowStart:
     env:
         FNAME: ${output.env.MERCHANT_FNAME}
         LNAME: ${output.env.MERCHANT_LNAME}
-        EMAIL: ${output.env.MERCHANT_EMAIL_13}
+        EMAIL: ${output.env.MERCHANT_EMAIL_14}
         SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
         CONTINUE: true 
 
@@ -50,6 +50,7 @@ onFlowStart:
         BANKNAME: ${output.env.MERCHANT_BANK_NAME}
         ACCOUNTNUMBER: ${output.env.digits7}
         CONFIRMACCOUNTNUMBER: ${output.env.digits7}
+        SORTCODE: ${output.env.SORT_CODE_1}
 
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.accountNumberField}

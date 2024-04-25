@@ -15,7 +15,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_4}
+        TEXT: ${output.env.MERCHANT_MOBILE_5}
         SIGNUP: true
 
 - runFlow: 
