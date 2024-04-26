@@ -5,7 +5,7 @@ appId: ${APP_ID}
 - runScript: commonElements.js
 - runScript: connectYourBankPage.js
 - runScript: dynamicQRPage.js
-- runScript: earnMoreWithTipsPage.js
+- runScript: earnWithTipsPage.js
 - runScript: employeeHomePage.js
 - runScript: secureAtoaPage.js
 - runScript: enterAmountPage.js

@@ -1,0 +1,4 @@
+appId: ${APP_ID}
+---
+- clearState: ${output.env.APP_ID}
+- openLink: ${LINK}

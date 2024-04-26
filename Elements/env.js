@@ -124,7 +124,11 @@ output.env = {
    DEFAULT_PLAN: '0.6 %',
    CUSTOM_PLAN_DEV: '0.4 %',
    
-   MERCHANT_REFERRAL_CODE_DEV: '13223',
+   MERCHANT_REFERRAL_LINK_DEV: '',
+   MERCHANT_REFERRAL_LINK_UAT: '',
+   MERCHANT_REFERRAL_LINK_PROD: '',
+
+   MERCHANT_REFERRAL_CODE_DEV: '',
    MERCHANT_REFERRAL_CODE_UAT: '960',
    MERCHANT_REFERRAL_CODE_PROD: '5074',
 
@@ -194,6 +198,8 @@ output.env = {
    blankSpace: '          ',
    minLength: 'ab',
    validOtp: '123456',
+   validPin1: '1111',
+   validPin2: '2222',
    digits2: '12',
    digits5: '12345',
    digits7: '1234567',

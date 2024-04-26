@@ -1,0 +1,13 @@
+appId: ${APP_ID}
+---
+- runFlow: launchAppClearState.yaml
+- runFlow: clickGetStartedButton.yaml
+
+- runFlow:
+    file: selectUserType.yaml
+    env:
+        USER: ${USER}
+
+- runFlow:
+    file: 
+        TEXT: ${ID}
