@@ -1,0 +1,26 @@
+appId: ${APP_ID}
+---
+- runFlow: 
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.createdPaymentLinkPage.mobileNumberTextField}
+        TEXT: ${MOBILENUMBER}
+        KEYBOARD: true
+        
+- runFlow:
+    when:
+        true: ${ATOA}
+    commands:
+      - tapOn: ${output.createdPaymentLinkPage.atoaNumberTab}
+
+- runFlow:
+    when:
+        true: ${PERSONAL}
+    commands:
+      - tapOn: ${output.createdPaymentLinkPage.personalNumberTab}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.createdPaymentLinkPage.sendSMSButton}
+        INDEX: 0

@@ -1,0 +1,177 @@
+appId: ${APP_ID}
+name: SubTests/AcceptPayment/merchantAcceptPaymentWithKYB.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.EMPLOYEE_MOBILE_A1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.acceptPaymentButton} 
+        INDEX: 0
+
+#amount 0.5
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
+    env:
+        AMOUNT: ${output.env.amountLessThan1}
+        ACCEPTPAYMENT: true 
+
+- assertVisible: ${output.enterAmountPage.minAmountError}
+
+#amount 15001
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.amountTextField} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
+    env:
+        AMOUNT: ${output.env.amountGreaterThan15000}
+        ACCEPTPAYMENT: true 
+
+- assertVisible: ${output.enterAmountPage.maxAmountError}
+
+# amount 99999
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.amountTextField} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
+    env:
+        AMOUNT: ${output.env.amountUpperBoundary}
+        ACCEPTPAYMENT: true 
+
+- assertVisible: ${output.enterAmountPage.maxAmountError}
+
+# amount 1
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.amountTextField} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
+    env:
+        AMOUNT: ${output.env.amount1}
+        ACCEPTPAYMENT: true 
+
+- runFlow:
+    file: ../../PageVerification/paymentModePageVerification.yaml
+    env:
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_A}
+        AMOUNT: ${output.env.amount1}  
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.selectPaymentModePage.backButton}
+        INDEX: 0    
+
+# amount 15000
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.amountTextField} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
+    env:
+        AMOUNT: ${output.env.amount15000}
+        ACCEPTPAYMENT: true 
+
+- runFlow:
+    file: ../../PageVerification/paymentModePageVerification.yaml
+    env:
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_A}
+        AMOUNT: ${output.env.amount15000}  
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.selectPaymentModePage.backButton}
+        INDEX: 0    
+
+# amount decimal
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.amountTextField} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
+    env:
+        AMOUNT: ${output.env.amountDecimal}
+        ACCEPTPAYMENT: true 
+
+- runFlow:
+    file: ../../PageVerification/paymentModePageVerification.yaml
+    env:
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_A}
+        AMOUNT: ${output.env.amountDecimal}  
+
+-runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.selectPaymentModePage.QRCodeButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/QRcodePageVerification.yaml
+    env:
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_A}
+        AMOUNT: ${output.env.amountDecimal} 
+
+-runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.QRPage.backButton}
+        INDEX: 0
+
+-runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.selectPaymentModePage.paymentLinkButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/sendPaymentLinkPageVerification.yaml
+    env:
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_A}
+        AMOUNT: ${output.env.amountDecimal}
+
+-runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.createdPaymentLinkPage.smsButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/sendSmsPopupVerification.yaml
+    env:
+        MOBILENUMBER: ${output.createdPaymentLinkPage.mobileNumber}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/sendSms.yaml
+    env:
+        ATOA: true 
+        MOBILENUMBER: ${output.env.TEST_NUMBER}
+
+- assertVisible: ${output.createdPaymentLinkPage.smsSentToast}
+

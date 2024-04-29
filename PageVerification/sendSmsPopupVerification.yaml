@@ -1,0 +1,20 @@
+appId: ${APP_ID}
+---
+- assertVisible: 
+    text: ${output.createdPaymentLinkPage.mobileNumberTextField}
+    containsDescendants:
+      - ${MOBILENUMBER}
+
+- assertVisible:
+    text: ${output.createdPaymentLinkPage.contactsButton}
+    enabled: true 
+
+- assertVisible:
+    text: ${output.createdPaymentLinkPage.atoaNumberTab}
+    enabled: true 
+
+- assertVisible:
+    text: ${output.createdPaymentLinkPage.personalNumberTab}
+    enabled: true 
+
+- assertVisible: ${output.createdPaymentLinkPage.sendSMSButton} 

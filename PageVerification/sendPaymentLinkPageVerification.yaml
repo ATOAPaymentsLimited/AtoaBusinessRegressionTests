@@ -1,0 +1,18 @@
+appId: ${APP_ID}
+---
+- assertVisible: ${BUSINESSNAME}
+
+- assertVisible: ${output.createdPaymentLinkPage.poundSymbol}${AMOUNT}
+- assertVisible: ${output.createdPaymentLinkPage.paymentLinkCreatedText}
+
+- assertVisible:
+    text: ${output.createdPaymentLinkPage.smsButton}
+    enabled: true 
+
+- assertVisible:
+    text: ${output.createdPaymentLinkPage.copyLinkButton}
+    enabled: true 
+
+- assertVisible:
+    text: ${output.createdPaymentLinkPage.shareLinkButton}
+    enabled: true 

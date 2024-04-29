@@ -1,0 +1,24 @@
+appId: ${APP_ID}
+---
+- runFlow: 
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.amountTextField}
+        TEXT: ${AMOUNT}
+        KEYBOARD: true
+
+- runFlow:
+    when:
+        ture: ${ACCEPTPAYMENT}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.continueButton}
+        INDEX: 0
+
+- runFlow:
+    when:
+        ture: ${PAYMENTLINK}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.createPaymentLinkButton}
+        INDEX: 0

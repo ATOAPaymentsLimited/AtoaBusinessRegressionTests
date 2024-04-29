@@ -10,7 +10,9 @@ output.createdPaymentLinkPage = {
     trackableLinkMessage: 'This link is trackable and can only be used to pay once per customer',
 
     sendSMSTitle: 'Send SMS',
-    mobileNumberTextField: 'Mobile Number',
+    mobileNumberTextField: 'null TextFormField',
+    mobileNumber: 'Mobile Number',
+    contactsButton: 'Contacts button',
     personalNumberTab: 'Personal Number',
     personalNumberText: `Payment links can be difficult to open if the customer doesn't have your contact details. To avoid delay, send the SMS using Atoa's number.`,
     atoaNumberText: 'Send the SMS using a mobile number registered by Atoa to keep your privacy intact.',

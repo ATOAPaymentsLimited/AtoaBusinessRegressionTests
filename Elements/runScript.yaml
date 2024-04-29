@@ -4,7 +4,7 @@ appId: ${APP_ID}
 - runScript: cashierCoachMarks.js
 - runScript: commonElements.js
 - runScript: connectYourBankPage.js
-- runScript: dynamicQRPage.js
+- runScript: QRPage.js
 - runScript: earnWithTipsPage.js
 - runScript: employeeHomePage.js
 - runScript: secureAtoaPage.js

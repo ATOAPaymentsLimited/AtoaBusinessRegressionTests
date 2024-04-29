@@ -1,0 +1,11 @@
+appID: ${APP_ID}
+---
+- assertVisible: ${BUSINESSNAME}
+- assertVisible: ${output.selectPaymentModePage.poundSymbol}${AMOUNT}
+- assertVisible:
+    text: ${output.selectPaymentModePage.QRCodeButton}
+    enabled: true
+
+- assertVisible:
+    text: ${output.selectPaymentModePage.paymentLinkButton}
+    enabled: true  

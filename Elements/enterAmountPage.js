@@ -1,6 +1,7 @@
 output.enterAmountPage = {
     backButton: 'Back Button',
     enterAmountText: ' Enter amount',
+    amountTextField: 'null TextFormField',
     emptyAmountField: '0.00',
     poundSymbol: '£',
     noteTextField: 'Add a note (Optional)',

@@ -1,0 +1,8 @@
+appId: ${AP_ID}
+---
+- assertVisible: ${BUSINESSNAME}
+- assertVisible: ${output.QRPage.QR}
+
+- assertVisible: ${output.QRPage.poundSymbol}${AMOUNT}
+- assertVisible: ${output.QRPage.scanQRText}
+- assertVisible: ${output.QRPage.compatibilityText}
