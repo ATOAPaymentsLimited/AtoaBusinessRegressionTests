@@ -70,6 +70,21 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+
+- runFlow:
+    when:
+        true: ${UTR}
+    file: ../../SignupFieldActions/enterUtrNumber.yaml
+    env:
+        UTR: ${UTR}
+
+- runFlow:
+    when:
+        true: ${WEBSITE}
+    file: ../../SignupFieldActions/enterWebsiteUrl.yaml
+    env:
+        WEBSITE: ${WEBSITE}
+
 # - runFlow:
 #     when:
 #         true: ${VAT}

@@ -87,6 +87,11 @@ output.yourBusinessDetailsPage = {
     describeBusinessMinLengthError: 'Your business description should be at least 5 characters long',
     describeBusinessEmptyError: 'Briefly outline what your business does',
 
+    utrMinLengthError: 'UTR needs to be minimum 10 digits',
+    utrExistingError: 'UTR already registered. Try again with a unique number',
+
+    websiteInvalidError: 'Check URL format and retry',
+
     closeAddBusinessHeader: 'Are you sure you want to leave now?',
     closeAddBusinessDescription: '',
     keepButton: 'Keep',

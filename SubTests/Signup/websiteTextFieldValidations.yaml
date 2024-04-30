@@ -1,0 +1,136 @@
+appId: ${APP_ID}
+name: SubTests/Signup/businessNameTextFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env: 
+        TEXT: ${output.env.MERCHANT_MOBILE_24}
+        SIGNUP: true
+
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_24}
+        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
+        TURNOVER: ${output.env.turnoverOption1}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+        CITY: ${output.env.CITY_1}
+        POSTCODE: ${output.env.POST_CODE_1}
+        WEBSITE: ${output.env.digits5}
+        CONTINUE: true
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.websiteField}
+    direction: UP
+- assertVisible: 
+    text: ${output.yourBusinessDetailsPage.websiteField}
+    containsDescendants: 
+      - ${output.yourBusinessDetailsPage.websiteInvalidError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.websiteField}
+        KEYBOARD: true
+
+# Invalid 2 
+
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterWebsiteUrl.yaml
+    env:
+        WEBSITE: ${output.env.invalidUrl1}
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.websiteField}
+    direction: UP
+- assertVisible: 
+    text: ${output.yourBusinessDetailsPage.websiteField}
+    containsDescendants: 
+      - ${output.yourBusinessDetailsPage.websiteInvalidError}
+
+# Invalid 3
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.websiteField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterWebsiteUrl.yaml
+    env:
+        WEBSITE: ${output.env.invalidUrl2}
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.websiteField}
+    direction: UP
+- assertVisible: 
+    text: ${output.yourBusinessDetailsPage.websiteField}
+    containsDescendants: 
+      - ${output.yourBusinessDetailsPage.websiteInvalidError}
+
+# Invalid 4
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.websiteField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterWebsiteUrl.yaml
+    env:
+        WEBSITE: ${output.env.invalidUrl3}
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.websiteField}
+    direction: UP
+- assertVisible: 
+    text: ${output.yourBusinessDetailsPage.websiteField}
+    containsDescendants: 
+      - ${output.yourBusinessDetailsPage.websiteInvalidError}
+
+# Valid 
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.websiteField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterWebsiteUrl.yaml
+    env:
+        WEBSITE: ${output.env.validUrl}
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}

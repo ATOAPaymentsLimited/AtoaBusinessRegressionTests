@@ -219,6 +219,12 @@ output.env = {
    invalidEmail4: 'test.com',
    invalidEmail5: 'test.com@gmail',
 
+   invalidUrl1: 'google.com',
+   invalidUrl2: 'https://.com',
+   invalidUrl3: 'google',
+   validUrl: 'https://paywithatoa.co.uk',
+   
+
    poundSymbol: '£',
 
    amount0: '0.00',
