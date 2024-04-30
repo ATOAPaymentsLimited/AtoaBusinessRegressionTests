@@ -33,7 +33,7 @@ appId: ${APP_ID}
 - runScript: employeeDetailsPage.js
 - runScript: employeeSideMenu.js
 - runScript: employeeScanCamera.js
-- runScript: myBankAccountsPage.js
+- runScript: bankAccountsPage.js
 - runScript: addBankAccountPage.js
 - runScript: directDebitDetailsPage.js
 - runScript: directDebitPage.js

@@ -1,9 +1,14 @@
 output.addBankAccountPage = {
     addBankAccountPageTitle: 'Add Bank Account',
+    selectBankField: 'null TextFormField',
     selectBank: 'Select Bank*',
+    searchField: 'null TextFormField',
     search: 'Search',
+    accountNumberField: 'Bank Account Number TextFormField',
     accountNumber: 'Bank Account Number*',
+    confirmAccountNumberField: 'Confirm Bank Account Number TextFormField',
     confirmAccountNumber: 'Confirm Bank Account Number*',
+    sortCodeField: 'Sort Code TextFormField',
     sortCode: 'Sort Code*',
     billingCheckbox: 'Billing Checkbox',
     selectLocationDropdown: 'Select a Location',
@@ -12,6 +17,8 @@ output.addBankAccountPage = {
     continueButton: 'Continue',
     updateButton: 'Update',
     saveChangesButton: 'Save Changes',
+
+    bankNotFoundText: 'No results found. Please add as other banks.',
 
     addBankErrorTitle: 'Oops, Error adding your bank account',
     existingBankError: ' Oops, it looks like this bank account has already been added! Please give it another try with different details.',

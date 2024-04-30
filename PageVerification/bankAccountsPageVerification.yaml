@@ -1,0 +1,14 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${output.bankAccountsPage.bankAccountTile}
+    containsDescendants:
+        - ${BANKNAME}
+    containsDescendants:
+        - ${MASKEDACCOUNTNUMBER}
+    containsDescendants:
+        - ${SORTCODE}
+
+- assertVisible:
+    text: ${output.bankAccountsPage.addAnotherBankButton}
+    enabled: true 

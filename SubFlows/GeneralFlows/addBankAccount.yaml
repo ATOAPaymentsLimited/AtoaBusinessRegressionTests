@@ -1,0 +1,33 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../BankAccountFieldActions/selectBankName.yaml
+    env:
+        BANKNAME: ${BANKNAME}
+
+- runFlow:
+    file: ../BankAccountFieldActions/enterAccountNumber.yaml
+    env:
+        ACCOUNTNUMBER: ${ACCOUNTNUMBER}
+
+- runFlow:
+    file: ../BankAccountFieldActions/enterConfirmAccountNumber.yaml
+    env:
+        CONFIRMACCOUNTNUMBER: ${CONFIRMACCOUNTNUMBER}
+
+- runFlow:
+    file: ../BankAccountFieldActions/enterSortCode.yaml
+    env:
+        SORTCODE: ${SORTCODE}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.billingCheckbox}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0

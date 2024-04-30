@@ -1,0 +1,22 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.selectBankDropdown}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.searchField}
+        TEXT: $ {BANKNAME}
+        KEYBOARD: true
+
+- runFlow:
+    when:
+        notVisible: ${output.connectYourBankPage.bankNotFoundText}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${BANKNAME}
+        INDEX: 1

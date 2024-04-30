@@ -161,17 +161,19 @@ output.env = {
    POST_CODE_1: 'ATO A77',
    CITY_1: 'Banglore',
    INDUSTRY_1: 'Accommodation',
-   SORT_CODE_1: '40-47-65',
 
    INDUSTRY_OTHER: 'Other',
    INDUSTRY_DESCRIPTION: 'Hotel',
 
-   MERCHANT_BANK_NAME: 'Lloyds Bank Sandbox',
-   MERCHANT_BANK_NAME: 'Lloyds (Business)',
-   MERCHANT_BANK_NAME: 'Lloyds (Business)',
+   MERCHANT_BANK_NAME_1: 'Lloyds Bank Sandbox',
    MERCHANT_BANK_ACCOUNT_1: '28876851',
    MASKED_BANK_ACCOUNT_NUMBER_1: 'XXXXX851',
-   MERCHANT_BANK_ACCOUNT_2: '',
+   SORT_CODE_1: '40-47-65',
+   
+   MERCHANT_BANK_NAME_2: 'Wise',
+   MERCHANT_BANK_ACCOUNT_2: '77347358',
+   MASKED_BANK_ACCOUNT_NUMBER_2: 'XXXXX358',
+   SORT_CODE_2: '04-00-07',
 
    BACS_BANK_ACCOUNT: '00012345',
    BACS_SORT_CODE: '10-88-00',
@@ -180,7 +182,6 @@ output.env = {
    ADDRESS_LINE2_2: 'Automation',
    POST_CODE_2: 'ATO A81',
    CITY_2: 'London',
-   SORT_CODE_2: '04-00-07',
 
    EMPLOYEE_ROLE_1: 'Supervisor',
    EMPLOYEE_ROLE_2: 'Cashier',

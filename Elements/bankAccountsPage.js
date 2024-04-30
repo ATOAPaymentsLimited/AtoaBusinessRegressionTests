@@ -1,4 +1,4 @@
-output.myBankAccountsPage = {
+output.bankAccountsPage = {
     myBankAccountsPageTitle: 'Bank Accounts',
     backButton: 'Custom Back Button',
     bankAccountTile: 'Bank Account Tile',
