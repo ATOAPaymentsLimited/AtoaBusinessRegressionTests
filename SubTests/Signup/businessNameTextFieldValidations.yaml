@@ -49,6 +49,22 @@ onFlowStart:
         ELEMENT: ${output.yourBusinessDetailsPage.businessNameField}
         KEYBOARD: true
 
+# Empty field
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.businessNameField}
+    direction: UP
+- assertVisible: 
+    text: ${output.yourBusinessDetailsPage.businessNameField}
+    containsDescendants: 
+      - ${output.yourBusinessDetailsPage.businessNameEmptyError}
+
+
 # Special characters
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterBusinessName.yaml

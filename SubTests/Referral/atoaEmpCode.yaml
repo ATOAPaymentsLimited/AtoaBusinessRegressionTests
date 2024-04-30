@@ -16,14 +16,14 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_18}
+        TEXT: ${output.env.MERCHANT_MOBILE_20}
         SIGNUP: true
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
     env:
         BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_18}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_20}
         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
         TURNOVER: ${output.env.turnoverOption1}
         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
@@ -36,7 +36,7 @@ onFlowStart:
     env:
         FNAME: ${output.env.MERCHANT_FNAME}
         LNAME: ${output.env.MERCHANT_LNAME}
-        EMAIL: ${output.env.MERCHANT_EMAIL_18}
+        EMAIL: ${output.env.MERCHANT_EMAIL_20}
         SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
         REFERRALCODE: ${outut.env.EMP_CODE_DEV}
         CONTINUE: true 

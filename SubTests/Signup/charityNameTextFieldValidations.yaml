@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: SubTests/Signup/crnTextFieldValidations.yaml
+name: SubTests/Signup/charityNameTextFieldValidations.yaml
 tags:
     - dev
 onFlowStart:
@@ -15,7 +15,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_5}
+        TEXT: ${output.env.MERCHANT_MOBILE_22}
         SIGNUP: true
 
 - runFlow: 
@@ -26,9 +26,8 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
     env:
-        BUSINESSTYPE: 'LIMITEDCOMPANY'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_5}
-        CRN: ${output.env.blankSpace}
+        BUSINESSTYPE: 'CHARITY'
+        BUSINESSNAME: ${output.env.blankSpace}
         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
         TURNOVER: ${output.env.turnoverOption1}
         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
@@ -37,17 +36,17 @@ onFlowStart:
         CONTINUE: true
 
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.crnField}
+    element: ${output.yourBusinessDetailsPage.charityNameField}
     direction: UP
 - assertVisible: 
-    text: ${output.yourBusinessDetailsPage.crnField}
+    text: ${output.yourBusinessDetailsPage.charityNameField}
     containsDescendants: 
-      - ${output.yourBusinessDetailsPage.crnEmptyError}
+      - ${output.yourBusinessDetailsPage.charityNameEmptyError}
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
-        ELEMENT: ${output.yourBusinessDetailsPage.crnField}
+        ELEMENT: ${output.yourBusinessDetailsPage.charityNameField}
         KEYBOARD: true
 
 # Empty field
@@ -58,88 +57,89 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.crnField}
+    element: ${output.yourBusinessDetailsPage.charityNameField}
     direction: UP
 - assertVisible: 
-    text: ${output.yourBusinessDetailsPage.crnField}
+    text: ${output.yourBusinessDetailsPage.charityNameField}
     containsDescendants: 
-      - ${output.yourBusinessDetailsPage.crnEmptyError}
+      - ${output.yourBusinessDetailsPage.charityNameEmptyError}
+
 
 # Special characters
 - runFlow:
-    file: ../../SubFlows/SignupFieldActions/enterCrn.yaml
+    file: ../../SubFlows/SignupFieldActions/enterBusinessName.yaml
     env:
-        CRN: ${output.env.specialCharacters}
+        BUSINESSNAME: ${output.env.specialCharacters}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.crnField}
+    element: ${output.yourBusinessDetailsPage.charityNameField}
     direction: UP
 - assertVisible: 
-    text: ${output.yourBusinessDetailsPage.crnField}
+    text: ${output.yourBusinessDetailsPage.charityNameField}
     containsDescendants: 
-      - ${output.yourBusinessDetailsPage.crnMinLengthError}
-
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.yourBusinessDetailsPage.crnField}
-        KEYBOARD: true
+      - ${output.yourBusinessDetailsPage.charityNameSpecialCharactersError}
 
 # Min length 
 - runFlow:
-    file: ../../SubFlows/SignupFieldActions/enterCrn.yaml
+    file: ../../ElementActions/eraseText.yaml
     env:
-        CRN: ${output.env.digits2}
+        ELEMENT: ${output.yourBusinessDetailsPage.charityNameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterBusinessName.yaml
+    env:
+        BUSINESSNAME: ${output.env.minLength}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.crnField}
+    element: ${output.yourBusinessDetailsPage.charityNameField}
     direction: UP
 - assertVisible: 
-    text: ${output.yourBusinessDetailsPage.crnField}
+    text: ${output.yourBusinessDetailsPage.charityNameField}
     containsDescendants: 
-      - ${output.yourBusinessDetailsPage.crnMinLengthError}
+      - ${output.yourBusinessDetailsPage.charityNameMinLengthError}
+
+# Existing business name
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
-        ELEMENT: ${output.yourBusinessDetailsPage.crnField}
+        ELEMENT: ${output.yourBusinessDetailsPage.charityNameField}
         KEYBOARD: true
 
-# Existing crn
-
 - runFlow:
-    file: ../../SubFlows/SignupFieldActions/enterCrn.yaml
+    file: ../../SubFlows/SignupFieldActions/enterBusinessName.yaml
     env:
-        CRN: ${output.env.CRN_A}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_A}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
-- assertVisible: ${output.yourBusinessDetailsPage.crnExistingError}
+- assertVisible: ${output.yourBusinessDetailsPage.charityNameExistingError}
+
+# Valid business name
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.crnField}
+    element: ${output.yourBusinessDetailsPage.charityNameField}
     direction: UP
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
-        ELEMENT: ${output.yourBusinessDetailsPage.crnField}
+        ELEMENT: ${output.yourBusinessDetailsPage.charityNameField}
         KEYBOARD: true
 
-# Valid CRN
-
 - runFlow:
-    file: ../../SubFlows/SignupFieldActions/enterCrn.yaml
+    file: ../../SubFlows/SignupFieldActions/enterBusinessName.yaml
     env:
-        CRN: ${output.env.CRN_5}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_22}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
