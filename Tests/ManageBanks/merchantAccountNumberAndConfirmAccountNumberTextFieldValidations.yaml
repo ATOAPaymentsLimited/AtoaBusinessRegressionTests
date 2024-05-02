@@ -1,0 +1,293 @@
+appId: ${APP_ID}
+name: Tests/ManageBanks/merchantAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_C}
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.bankAccount}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/bankAccountsPageVerification.yaml
+    env:
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
+        SORTCODE: ${output.env.SORT_CODE_1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.env.addAnotherBankButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../GeneralFlows/addBankAccount.yaml
+    env:
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_2}
+        ACCOUNTNUMBER: ${output.env.digits7}
+        CONFIRMACCOUNTNUMBER: ${output.env.digits7}
+        SORTCODE: ${output.env.SORT_CODE_2}
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.accountNumberField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.addBankAccountPage.accountNumberField}
+    containsDescendants:
+      - ${output.addBankAccountPage.bankAccountLessThan8Error}
+- assertVisible:
+    text: ${output.addBankAccountPage.confirmAccountNumberField}
+    containsDescendants:
+      - ${output.addBankAccountPage.mismatchingAccountNumbersError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.accountNumberField}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.confirmAccountNumberField}
+        KEYBOARD: true
+
+# blank spaces
+
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterAccountNumber.yaml
+    env:
+        ACCOUNTNUMBER: ${output.env.blankSpace}
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterConfirmAccountNumber.yaml
+    env:
+        CONFIRMACCOUNTNUMBER: ${output.env.blankSpace}
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.accountNumberField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.addBankAccountPage.accountNumberField}
+    containsDescendants:
+      - ${output.addBankAccountPage.bankAccountEmptyError}
+- assertVisible:
+    text: ${output.addBankAccountPage.confirmAccountNumberField}
+    containsDescendants:
+      - ${output.addBankAccountPage.confirmBankAccountEmptyError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.accountNumberField}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.confirmAccountNumberField}
+        KEYBOARD: true
+
+
+# 8 digits and 7 digits
+
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterAccountNumber.yaml
+    env:
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_2}
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterConfirmAccountNumber.yaml
+    env:
+        CONFIRMACCOUNTNUMBER: ${output.env.digits7}
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.accountNumberField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.addBankAccountPage.confirmAccountNumberField}
+    containsDescendants:
+      - ${output.addBankAccountPage.mismatchingAccountNumbersError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.accountNumberField}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.confirmAccountNumberField}
+        KEYBOARD: true
+
+# 7 digits and 8 digits
+
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterAccountNumber.yaml
+    env:
+        ACCOUNTNUMBER: ${output.env.digits7}
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterConfirmAccountNumber.yaml
+    env:
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_2}
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.accountNumberField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.addBankAccountPage.accountNumberField}
+    containsDescendants:
+      - ${output.addBankAccountPage.bankAccountLessThan8Error}
+- assertVisible:
+    text: ${output.addBankAccountPage.confirmAccountNumberField}
+    containsDescendants:
+      - ${output.addBankAccountPage.mismatchingAccountNumbersError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.accountNumberField}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.confirmAccountNumberField}
+        KEYBOARD: true
+
+# Already existing bank account
+
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterAccountNumber.yaml
+    env:
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterConfirmAccountNumber.yaml
+    env:
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+
+- assertVisible: ${output.addBankAccountPage.addBankErrorTitle}
+- assertVisible: ${output.addBankAccountPage.existingBankError}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.goBackButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.accountNumberField}
+    direction: UP
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.accountNumberField}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.confirmAccountNumberField}
+        KEYBOARD: true
+
+# Valid bank account
+
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterAccountNumber.yaml
+    env:
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_2}
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterConfirmAccountNumber.yaml
+    env:
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_2}
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+- waitForAnimationToEnd
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/bankAccountsPageVerification.yaml
+    env:
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_2}
+        MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_2}
+        SORTCODE: ${output.env.SORT_CODE_2}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/deleteBank.yaml
+    env:
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_2}
+        MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_2}
+        SORTCODE: ${output.env.SORT_CODE_2}
+
+- waitForAnimationToEnd
+

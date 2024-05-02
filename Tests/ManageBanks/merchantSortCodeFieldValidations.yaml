@@ -1,0 +1,129 @@
+appId: ${APP_ID}
+name: Tests/ManageBanks/merchantSortCodeFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_C}
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.bankAccount}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/bankAccountsPageVerification.yaml
+    env:
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
+        SORTCODE: ${output.env.SORT_CODE_1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.env.addAnotherBankButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../GeneralFlows/addBankAccount.yaml
+    env:
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_2}
+        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_2}
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_2}
+        SORTCODE: ${output.env.digits5}
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.sortCodeField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.addBankAccountPage.sortCodeField}
+    containsDescendants:
+      - ${output.addBankAccountPage.sortCodeLessThan6Error}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.sortCodeField}
+        KEYBOARD: true
+
+# blank spaces
+
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterSortCode.yaml
+    env:
+        SORTCODE: ${output.env.blankSpace}
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.sortCodeField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.addBankAccountPage.sortCodeField}
+    containsDescendants:
+      - ${output.addBankAccountPage.sortCodeEmptyError}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.sortCodeField}
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.confirmAccountNumberField}
+
+# Valid sort code
+
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterSortCode.yaml
+    env:
+        SORTCODE: ${output.env.SORT_CODE_2}
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/bankAccountsPageVerification.yaml
+    env:
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_2}
+        MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_2}
+        SORTCODE: ${output.env.SORT_CODE_2}

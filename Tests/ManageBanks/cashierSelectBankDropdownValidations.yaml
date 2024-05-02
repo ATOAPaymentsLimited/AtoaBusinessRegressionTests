@@ -1,0 +1,80 @@
+appId: ${APP_ID}
+name: Tests/ManageBanks/merchantSelectBankDropdownValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_C2}
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.bankAccount}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.env.addBankButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.selectBankField}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.selectBankField}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.searchField}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true 
+
+- assertVisible: ${output.addBankAccountPage.bankNotFoundText}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.searchField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.searchField}
+        TEXT: ${output.env.EMPLOYEE_BANK_NAME_2}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.env.EMPLOYEE_BANK_NAME_2}
+        INDEX: 1
+
+- assertVisible:
+    text: ${output.addBankAccountPage.selectBankField}
+    containsDescendants:
+      - ${output.env.EMPLOYEE_BANK_NAME_2}
+
+

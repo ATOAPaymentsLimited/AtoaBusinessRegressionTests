@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: SubTests/Referral/atoaEmpCode.yaml
+name: Tests/ManageBanks/merchantSortCodeFieldValidations.yaml
 tags:
     - dev
 onFlowStart:
@@ -7,59 +7,11 @@ onFlowStart:
   - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
 ---
 
-- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
     env: 
-        USER: ${output.annotations.businessOwner}
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
-    env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_27}
-        SIGNUP: true
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
-    env:
-        BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_27}
-        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
-        TURNOVER: ${output.env.turnoverOption1}
-        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
-        CITY: ${output.env.CITY_1}
-        POSTCODE: ${output.env.POST_CODE_1}
-        CONTINUE: true
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterPersonalDetails.yaml
-    env:
-        FNAME: ${output.env.MERCHANT_FNAME}
-        LNAME: ${output.env.MERCHANT_LNAME}
-        EMAIL: ${output.env.MERCHANT_EMAIL_27}
-        SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
-        REFERRALCODE: ${outut.env.CUSTOM_REFERRAL_CODE_DEV}
-        CONTINUE: true 
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterBankDetails.yaml
-    env:
-        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        SORTCODE: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
-        CONFIRMSORTCODE: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
-        SORTCODE: ${output.env.SORT_CODE_1}
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.earnWithTipsPage.finishSetup}
-        INDEX: 0
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/setAppLock.yaml
-    env:
-        PIN1: ${output.env.validPin1}
-        PIN2: ${output.env.validPin1}
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_C2}
 - waitForAnimationToEnd
 
 - runFlow:
@@ -75,24 +27,17 @@ onFlowStart:
         INDEX: 0
 
 - runFlow:
-    file: ../../PageVerification/bankAccountsPageVerification.yaml
-    env:
-        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        MASKEDSORTCODE: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
-        SORTCODE: ${output.env.SORT_CODE_1}
-
-- runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.env.addAnotherBankButton}
+        ELEMENT: ${output.env.addBankButton}
         INDEX: 0
 
 - runFlow:
     file: ../../GeneralFlows/addBankAccount.yaml
     env:
-        BANKNAME: ${output.env.MERCHANT_BANK_NAME_2}
-        SORTCODE: ${output.env.MERCAHNT_BANK_ACCOUNT_2}
-        CONFIRMSORTCODE: ${output.env.MERCHANT_BANK_ACCOUNT_2}
+        BANKNAME: ${output.env.EMPLOYEE_BANK_NAME_2}
+        ACCOUNTNUMBER: ${output.env.EMPLOYEE_BANK_ACCOUNT_2}
+        CONFIRMACCOUNTNUMBER: ${output.env.EMPLOYEE_BANK_ACCOUNT_2}
         SORTCODE: ${output.env.digits5}
 
 - scrollUntilVisible:
@@ -172,6 +117,17 @@ onFlowStart:
 - runFlow:
     file: ../../PageVerification/bankAccountsPageVerification.yaml
     env:
-        BANKNAME: ${output.env.MERCHANT_BANK_NAME_2}
+        BANKNAME: ${output.env.EMPLOYEE_BANK_NAME_2}
         MASKEDSORTCODE: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_2}
         SORTCODE: ${output.env.SORT_CODE_2}
+
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/deleteBank.yaml
+    env:
+        BANKNAME: ${output.env.EMPLOYEE_BANK_NAME_2}
+        MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_2}
+        SORTCODE: ${output.env.SORT_CODE_2}
+
+- waitForAnimationToEnd

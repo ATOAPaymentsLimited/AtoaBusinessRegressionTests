@@ -1,0 +1,28 @@
+appId: ${APP_ID}
+---
+- tapOn:
+    text: ${output.bankAccountsPage.bankAccountTile}
+    containsDescendants:
+      - ${BANKNAME}
+    containsDescendants:
+      - ${MASKEDBANKACCOUNTNUMBER}
+    containsDescendants:
+      - ${SORTCODE}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.bankAccountsPage.forgetBankButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.bankAccountsPage.forgetButton}
+        INDEX: 0
+
+
+
+
+
+      

@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: SubTests/AcceptPayment/merchantAcceptPaymentWithKYB.yaml
+name: Tests/AcceptPayment/merchantAcceptPaymentWithKYB.yaml
 tags:
     - dev
 onFlowStart:

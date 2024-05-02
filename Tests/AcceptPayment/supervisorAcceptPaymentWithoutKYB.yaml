@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: SubTests/AcceptPayment/merchantAcceptPAymentWithoutKYB.yaml
+name: Tests/AcceptPayment/supervisorAcceptPaymentWithoutKYB.yaml
 tags:
     - dev
 onFlowStart:
@@ -9,7 +9,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/login.yaml
     env: 
-        USER: 'BUSINESSOWNER'
+        USER: 'STAFFMEMBER'
         ID: ${output.env.EMPLOYEE_MOBILE_B1}
 
 - runFlow:

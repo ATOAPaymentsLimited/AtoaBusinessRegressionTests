@@ -21,6 +21,8 @@ appId: ${APP_ID}
         SORTCODE: ${SORTCODE}
 
 - runFlow:
+    when:
+        true: ${USER == 'BUSINESSOWNER'}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.addBankAccountPage.billingCheckbox}
