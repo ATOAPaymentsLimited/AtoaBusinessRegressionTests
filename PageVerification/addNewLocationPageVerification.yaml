@@ -1,0 +1,42 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+      true: ${STOREIMAGE == 'true'}
+    commands:
+      - assertVisible: ${output.newLocationPage.defaultStoreImage}
+
+- runFlow:
+    when:
+      true: ${STOREIMAGE  == 'false'}
+    commands:
+      - assertVisible: ${output.newLocationPage.defaultStoreImage}
+
+- assertVisible:
+    text: ${output.newLocationPage.locationNameField}
+    containsDescendants: 
+      - ${LOCATIONNAME}
+
+- assertVisible:
+    text: ${output.newLocationPage.address1Field}
+    containsDescendants: 
+      - ${ADDRESS1}
+
+- assertVisible:
+    text: ${output.newLocationPage.address2Field}
+    containsDescendants: 
+      - ${ADDRESS2}
+  - scroll
+- assertVisible:
+    text: ${output.newLocationPage.cityField}
+    containsDescendants: 
+      - ${CITY}
+
+- assertVisible:
+    text: ${output.newLocationPage.postCodeField}
+    containsDescendants: 
+      - ${POSTCODE}
+
+- assertVisible:
+    text: ${output.newLocationPage.proceedButton}
+    enabled: true

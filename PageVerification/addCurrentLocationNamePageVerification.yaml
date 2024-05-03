@@ -1,0 +1,23 @@
+appId: ${APP_ID}
+---
+
+- runFlow:
+    when:
+      true: ${STOREIMAGE == 'true'}
+    commands:
+      - assertVisible: ${output.currentLocationNamePage.defaultStoreImage}
+
+- runFlow:
+    when:
+      true: ${STOREIMAGE  == 'false'}
+    commands:
+      - assertVisible: ${output.currentLocationNamePage.defaultStoreImage}
+
+- assertVisible:
+    text: ${output.currentLocationNamePage.currentLocationNameField}
+    containsDescendants:
+      - ${CURRENTLOCATIONNAME}
+
+- assertVisible:
+    text: ${output.currentLocationNamePage.finishButton}
+    enabled: true 

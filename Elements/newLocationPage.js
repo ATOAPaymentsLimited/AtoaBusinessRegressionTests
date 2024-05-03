@@ -1,9 +1,15 @@
 output.newLocationPage = {
     newLocationPageTitle: 'New Location',
+    defaultStoreImage: 'Default Store Avatar',
+    locationNameField: 'Location Name* TextFormField',
     locationName: 'Location Name*',
+    address1Field: 'Address Line 1* TextFormField',
     address1: 'Address Line 1*',
+    address2Field: 'Address Line 2 (Optional) TextFormField',
     address2: 'Address Line 2 (Optional)',
+    cityField: 'Town/City* TextFormField',
     city: 'Town/City*',
+    postCodeField: 'Post Code* TextFormField',
     postCode: 'Post Code*',
     proceedButton: 'Proceed',
 
