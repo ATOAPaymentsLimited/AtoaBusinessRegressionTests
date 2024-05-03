@@ -17,4 +17,7 @@ output.newLocationPage = {
     closeButton: 'Close Dialog Sheet Icon',
 
     addOnLocationLimitErrorToast: `You've hit the maximum store limit of 1 with your current plan. Contact sales and get your plan customized`,
+
+    emptyLocationNameError: 'Location Name should not be empty',
+    minLengthLocationNameError: 'Location Name should be at least 3 characters long',
 }

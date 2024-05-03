@@ -1,0 +1,14 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.currentLocationNamePage.currentLocationNameField}
+        TEXT: ${CURRENTLOCATIONNAME}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.currentLocationNamePage.finishButton}
+        INDEX: 0

@@ -1,0 +1,196 @@
+appId: ${APP_ID}
+name: Tests/MultiStore/locationNameTextFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env: 
+        TEXT: ${output.env.MERCHANT_MOBILE_25}
+        SIGNUP: true7
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_25}
+        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
+        TURNOVER: ${output.env.turnoverOption1}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+        CITY: ${output.env.CITY_1}
+        POSTCODE: ${output.env.POST_CODE_1}
+        CONTINUE: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterPersonalDetails.yaml
+    env:
+        FNAME: ${output.env.MERCHANT_FNAME}
+        LNAME: ${output.env.MERCHANT_LNAME}
+        EMAIL: ${output.env.MERCHANT_EMAIL_25}
+        SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
+        CONTINUE: true 
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterBankDetails.yaml
+    env:
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
+        SORTCODE: ${output.env.SORT_CODE_1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.earnWithTipsPage.finishSetup}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/setAppLock.yaml
+    env:
+        PIN1: ${output.env.validPin1}
+        PIN2: ${output.env.validPin1}
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.addLocationButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterCurrentLocationName.yaml
+    env:
+        CURRENTLOCATIONNAME: ${output.env.STORE_NAME_1}
+
+# BLANK SPACE
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/addNewLocation.yaml
+    env:
+        LOCATIONNAME: ${output.env.blankSpace}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+        CITY: ${output.env.CITY_1}
+        POSTCODE: ${output.env.POST_CODE_1}
+
+- scrollUntilVisible:
+    element: ${output.newLocationPage.locationNameField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.newLocationPage.locationNameField}
+    containsDescendants:
+        - ${output.newLocationPage.emptyLocationNameError}
+
+# EMPTY FIELD
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.locationNameField}
+        KEYBOARD: true
+- scroll
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.proceedButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.newLocationPage.locationNameField}
+    direction: UP
+- assertVisible:
+    text: ${output.newLocationPage.locationNameField}
+    containsDescendants:
+        - ${output.newLocationPage.emptyLocationNameError}
+
+# SPECIAL CHARACTERS
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.locationNameField}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true
+- scroll
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.proceedButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.newLocationPage.locationNameField}
+    direction: UP
+- assertVisible:
+    text: ${output.newLocationPage.locationNameField}
+    containsDescendants:
+        - ${output.newLocationPage.emptyLocationNameError}
+
+# min length
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.locationNameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.locationNameField}
+        TEXT: ${output.env.minLength}
+        KEYBOARD: true
+- scroll
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.proceedButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.newLocationPage.locationNameField}
+    direction: UP
+- assertVisible:
+    text: ${output.newLocationPage.locationNameField}
+    containsDescendants:
+        - ${output.newLocationPage.minLengthLocationNameError}
+
+# Valid text
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.locationNameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.locationNameField}
+        TEXT: ${output.env.STORE_NAME_2}
+        KEYBOARD: true
+- scroll
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.proceedButton}
+        INDEX: 0
+
+- runFlow: 
+    file: ../../PageVerification/addNewLocationPageVerification.yaml
+    env:
+        LOCATIONNAME: ${output.newLocationPage.locationName}
+        ADDRESS1: ${output.newLocationPage.address1}
+        ADDRESS2: ${output.newLocationPage.address2}
+        CITY: ${output.newLocationPage.city}
+        POSTCODE: ${output.newLocationPage.postCode} 

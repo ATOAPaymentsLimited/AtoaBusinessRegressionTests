@@ -1,0 +1,8 @@
+appId: ${APP_ID}
+---
+- runFlow: 
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.address2Field}
+        TEXT: ${ADDRESS2}
+        KEYBOARD: true

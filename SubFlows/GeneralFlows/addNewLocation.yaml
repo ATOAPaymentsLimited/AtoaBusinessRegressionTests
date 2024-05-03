@@ -1,0 +1,34 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../AddNewLocationFieldActions/enterLocationName.yaml
+    env:
+        LOCATIONNAME: ${LOCATIONNAME}
+
+- runFlow:
+    file: ../AddNewLocationFieldActions/enterAddress1.yaml
+    env:
+        LOCATIONNAME: ${ADDRESS1}
+
+- runFlow:
+    when:
+        true: ${ADDRESS2}
+    file: ../AddNewLocationFieldActions/enterAddress2.yaml
+    env:
+        LOCATIONNAME: ${ADDRESS2}
+- scroll
+- runFlow:
+    file: ../AddNewLocationFieldActions/enterCity.yaml
+    env:
+        LOCATIONNAME: ${CITY}
+
+- runFlow:
+    file: ../AddNewLocationFieldActions/enterPostCode.yaml
+    env:
+        LOCATIONNAME: ${POSTCODE}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.newLocationPage.proceedButton}
+        INDEX: 0
