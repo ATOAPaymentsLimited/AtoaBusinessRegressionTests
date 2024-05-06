@@ -16,7 +16,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
         TEXT: ${output.env.MERCHANT_MOBILE_25}
-        SIGNUP: true7
+        SIGNUP: true
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
@@ -186,11 +186,24 @@ onFlowStart:
         ELEMENT: ${output.newLocationPage.proceedButton}
         INDEX: 0
 
-- runFlow: 
-    file: ../../PageVerification/addNewLocationPageVerification.yaml
+- assertVisible:
+    text: ${ouptut.newLocationPage.bankAccountTile}
+    conatinsDescendants:
+      - ${output.env.MERCHANT_BANK_NAME_1}
+    containsDescendants:
+      - ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
+    containsDescendants:
+      - ${output.env.SORT_CODE_1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
     env:
-        LOCATIONNAME: ${output.newLocationPage.locationName}
-        ADDRESS1: ${output.newLocationPage.address1}
-        ADDRESS2: ${output.newLocationPage.address2}
-        CITY: ${output.newLocationPage.city}
-        POSTCODE: ${output.newLocationPage.postCode} 
+        ELEMENT: ${output.newLocationPage.finishButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/storeCreatedPopupVerification.yaml
+    env:
+        STORE: ${output.env.STORE_NAME_2}
+        ADDRESS: ${output.env.ADDRESS_LINE1_1} ${output.env.CITY_1} ${output.env.POST_CODE_1}
+        BANKNAME: ${output.env.MERCAHNT_BANK_NAME_1}

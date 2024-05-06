@@ -1,0 +1,17 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${STORE}
+- assertVisible:
+    text: ${ADDRESS}
+- assertVisible:
+    text: Connected to ${BANKNAME}
+
+- assertVisible:
+    text: ${output.newLocationPage.orderQRBanner}
+    containsDescendants:
+        - ${output.newLocationPage.freeQrText}
+    containsDescendants:
+        - ${output.newLocationPage.freeQrDescription}
+    containsDescendants:
+        - ${output.newLocationPage.orderNowText}
