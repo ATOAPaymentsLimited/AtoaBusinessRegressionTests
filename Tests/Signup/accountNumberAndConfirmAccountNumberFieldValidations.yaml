@@ -69,10 +69,12 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.accountNumberField}
+        KEYBOARD: true
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.confirmAccountNumberField}
+        KEYBOARD: true
 
 # blank space and blank space
 - runFlow:
@@ -107,10 +109,12 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.accountNumberField}
+        KEYBOARD: true
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.confirmAccountNumberField}
+        KEYBOARD: true
 
 # blank space and valid acc no.
 - runFlow:
@@ -145,10 +149,12 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.accountNumberField}
+        KEYBOARD: true
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.confirmAccountNumberField}
+        KEYBOARD: true
 
 # valid acc no and blankSpace
 - runFlow:
@@ -179,10 +185,12 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.accountNumberField}
+        KEYBOARD: true
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.confirmAccountNumberField}
+        KEYBOARD: true
 
 # 7 digits AND 8 digits
 - runFlow:
@@ -217,10 +225,12 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.accountNumberField}
+        KEYBOARD: true
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.confirmAccountNumberField}
+        KEYBOARD: true
 
 # 8 digits AND 7 digits
 - runFlow:
@@ -251,10 +261,12 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.accountNumberField}
+        KEYBOARD: true
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.confirmAccountNumberField}
+        KEYBOARD: true
 
 # alphabets
 - runFlow:
@@ -289,10 +301,12 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.accountNumberField}
+        KEYBOARD: true
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.confirmAccountNumberField}
+        KEYBOARD: true
 
 # valid 
 - runFlow:

@@ -65,6 +65,7 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.sortCodeField}
+        KEYBOARD: true
 
 # digits 5
 - runFlow:
@@ -91,6 +92,7 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.sortCodeField}
+        KEYBOARD: true
 
 # alphabets
 - runFlow:
@@ -117,6 +119,7 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.sortCodeField}
+        KEYBOARD: true
 
 # valid 
 - runFlow:

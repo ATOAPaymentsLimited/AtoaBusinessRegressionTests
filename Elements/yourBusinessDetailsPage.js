@@ -54,7 +54,7 @@ output.yourBusinessDetailsPage = {
     businessNameExistingError: 'Merchant with this legal business name already exists',
 
     limitedBusinessNameEmptyError: 'Please provide a company name',
-    limitedBusinessNameMinLengthError: 'Company namme should be at least 3 characters long',
+    limitedBusinessNameMinLengthError: 'Company name should be at least 3 characters long',
     limitedBusinessNameSpecialCharactersError: 'Special characters are not allowed',
 
     charityNameEmptyError: 'Please provide a charity name',

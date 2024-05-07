@@ -85,10 +85,7 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.addBankAccountPage.sortCodeField}
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.addBankAccountPage.confirmAccountNumberField}
+        KEYBOARD: true
 
 # Valid sort code
 

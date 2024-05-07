@@ -123,8 +123,3 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
-        INDEX: 0

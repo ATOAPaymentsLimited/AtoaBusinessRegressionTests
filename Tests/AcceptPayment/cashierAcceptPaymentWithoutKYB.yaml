@@ -32,7 +32,7 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.enterAmountPage.withoutKYBError} 
-        INDEX: 0
+        KEYBOARD: true
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterAmount.yaml
@@ -47,7 +47,7 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.enterAmountPage.amountTextField} 
-        INDEX: 0
+        KEYBOARD: true
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterAmount.yaml
@@ -62,7 +62,7 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.enterAmountPage.amountTextField} 
-        INDEX: 0
+        KEYBOARD: true
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterAmount.yaml
@@ -78,7 +78,7 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.enterAmountPage.amountTextField} 
-        INDEX: 0
+        KEYBOARD: true
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterAmount.yaml
@@ -103,7 +103,7 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.enterAmountPage.amountTextField} 
-        INDEX: 0
+        KEYBOARD: true
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterAmount.yaml
@@ -128,7 +128,7 @@ onFlowStart:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.enterAmountPage.amountTextField} 
-        INDEX: 0
+        KEYBOARD: true
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterAmount.yaml

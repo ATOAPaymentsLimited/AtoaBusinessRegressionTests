@@ -4,60 +4,37 @@ tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
-  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
 ---
-- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
-    env: 
-        USER: ${output.annotations.businessOwner}
 
+# Blank space
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
-    env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_12}
-        SIGNUP: true
-
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
-    env: 
-        TEXT: ${output.env.validOtp}
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    file: ../../ElementActions/eraseText.yaml
     env:
-        BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_12}
-        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
-        TURNOVER: ${output.env.turnoverOption1}
-        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
-        CITY: ${output.env.CITY_1}
-        POSTCODE: ${output.env.POST_CODE_1}
-        CONTINUE: true
-
+        ELEMENT: ${output.yourPersonalDetailsPage.lastNameField}
+        KEYBOARD: true
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/enterPersonalDetails.yaml
+    file: ../../SubFlows/SignupFieldActions/enterLastName.yaml
     env:
-        FNAME: ${output.env.MERCHANT_FNAME}
         LNAME: ${output.env.blankSpace}
-        EMAIL: ${output.env.MERCHANT_EMAIL_12}
-        SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
-        CONTINUE: true 
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourPersonalDetailsPage.firstNameField}
+    element: ${output.yourPersonalDetailsPage.lastNameField}
     direction: UP
 - assertVisible:
     text: ${output.yourPersonalDetailsPage.lastNameField}
     containsDescendants: 
         - ${output.yourPersonalDetailsPage.lastNameEmptyError}
-    
+
+# Special characters
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.yourPersonalDetailsPage.lastNameField}
-
-# Special characters
+        KEYBOARD: true
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterLastName.yaml
     env:
@@ -69,19 +46,21 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourPersonalDetailsPage.firstNameField}
+    element: ${output.yourPersonalDetailsPage.lastNameField}
     direction: UP
 - assertVisible:
     text: ${output.yourPersonalDetailsPage.lastNameField}
     containsDescendants: 
         - ${output.yourPersonalDetailsPage.lastNameEmptyError}
 
+# Valid 1
+
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.yourPersonalDetailsPage.lastNameField}
+        KEYBOARD: true
 
-# Valid 1
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterLastName.yaml
     env:
@@ -93,3 +72,35 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - assertVisible: ${output.connectYourBankPage.connectYourBankPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.backButton}
+        INDEX: 0
+
+# Valid 2
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.lastNameField}
+        KEYBOARD: true
+        
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterLastName.yaml
+    env:
+        LNAME: ${output.env.MERCHANT_LNAME}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- assertVisible: ${output.connectYourBankPage.connectYourBankPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.backButton}
+        INDEX: 0

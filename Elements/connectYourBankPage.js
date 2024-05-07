@@ -1,5 +1,7 @@
 output.connectYourBankPage = {
     connectYourBankPageTitle: 'Connect Your Bank',
+    backButton: 'Back button',
+
     connectText: 'Please connect your Bank in order to receive payments from customers.',
     selectBankDropdown: 'null TextFormField',
     selectBank: 'Select Bank*',
