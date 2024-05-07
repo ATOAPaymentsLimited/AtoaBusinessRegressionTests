@@ -1,6 +1,30 @@
 flows:
+  "Tests/Signup/*"
 
-includeTags:
-  - dev
+# includeTags:
+#   - dev
   # - uat
   # - prod
+
+executionOrder:
+    continueOnFailure: true 
+    flowsOrder:
+        - emailOrMobileNumberFieldValidations.yaml
+        - otpFieldValidations.yaml
+        - businessTypeDropdownValidations.yaml
+        - businessNameTextFieldValidations.yaml
+        - businessNameTextFieldValidationsLimitedCompany.yaml
+        - charityNameTextFieldValidations.yaml
+        - crnTextFieldValidations.yaml
+        - industryTypeDropdownValidations.yaml
+        - addressLine1TextFieldValidations.yaml
+        - addressLine2TextFieldValidations.yaml
+        - cityTextFieldValidations.yaml
+        - postCodeTextFieldValidations.yaml
+        - utrNumberTextFieldValidations.yaml
+        - websiteTextFieldValidations.yaml
+        - firstNameTextFieldValidations.yaml
+        - lastNameTextFieldValidations.yaml
+        - emailTextFieldValidations.yaml
+        - accountNumberAndConfirmAccountNumberFieldValidations.yaml
+        - sortCodeFieldValidations.yaml

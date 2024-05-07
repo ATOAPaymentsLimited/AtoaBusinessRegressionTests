@@ -142,7 +142,7 @@ onFlowStart:
         BUSINESSNAME: ${output.env.BUSINESS_NAME_B}
         AMOUNT: ${output.env.amountDecimal}  
 
--runFlow:
+- runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.selectPaymentModePage.QRCodeButton}
@@ -154,13 +154,13 @@ onFlowStart:
         BUSINESSNAME: ${output.env.BUSINESS_NAME_B}
         AMOUNT: ${output.env.amountDecimal} 
 
--runFlow:
+- runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.QRPage.backButton}
         INDEX: 0
 
--runFlow:
+- runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.selectPaymentModePage.paymentLinkButton}
@@ -172,7 +172,7 @@ onFlowStart:
         BUSINESSNAME: ${output.env.BUSINESS_NAME_B}
         AMOUNT: ${output.env.amountDecimal}
 
--runFlow:
+- runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.createdPaymentLinkPage.smsButton}

@@ -74,14 +74,14 @@ appId: ${APP_ID}
 - runFlow:
     when:
         true: ${UTR}
-    file: ../../SignupFieldActions/enterUtrNumber.yaml
+    file: ../SignupFieldActions/enterUtrNumber.yaml
     env:
         UTR: ${UTR}
 
 - runFlow:
     when:
         true: ${WEBSITE}
-    file: ../../SignupFieldActions/enterWebsiteUrl.yaml
+    file: ../SignupFieldActions/enterWebsiteUrl.yaml
     env:
         WEBSITE: ${WEBSITE}
 

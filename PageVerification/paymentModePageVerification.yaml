@@ -1,4 +1,4 @@
-appID: ${APP_ID}
+appId: ${APP_ID}
 ---
 - assertVisible: ${BUSINESSNAME}
 - assertVisible: ${output.selectPaymentModePage.poundSymbol}${AMOUNT}

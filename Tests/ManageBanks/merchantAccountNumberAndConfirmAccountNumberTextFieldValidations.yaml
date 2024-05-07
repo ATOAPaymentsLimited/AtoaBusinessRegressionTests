@@ -40,7 +40,7 @@ onFlowStart:
         INDEX: 0
 
 - runFlow:
-    file: ../../GeneralFlows/addBankAccount.yaml
+    file: ../../SubFlows/GeneralFlows/addBankAccount.yaml
     env:
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_2}
         ACCOUNTNUMBER: ${output.env.digits7}

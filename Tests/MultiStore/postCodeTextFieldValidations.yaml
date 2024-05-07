@@ -188,7 +188,7 @@ onFlowStart:
 
 - assertVisible:
     text: ${ouptut.newLocationPage.bankAccountTile}
-    conatinsDescendants:
+    containsDescendants:
       - ${output.env.MERCHANT_BANK_NAME_1}
     containsDescendants:
       - ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}

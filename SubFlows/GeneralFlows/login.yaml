@@ -9,5 +9,18 @@ appId: ${APP_ID}
         USER: ${USER}
 
 - runFlow:
-    file: 
+    file: enterEmailOrMobileNumber.yaml
+    env:
         TEXT: ${ID}
+        SIGNUP: true 
+
+- runFlow:
+    file: enterOtp.yaml
+    env:
+        TEXT: ${outpuut.env.validOtp}
+
+- runFlow:
+    file: setAppLock.yaml
+    env:
+        PIN1: ${output.env.validPin1}
+        PIN2: ${output.env.validPin1}

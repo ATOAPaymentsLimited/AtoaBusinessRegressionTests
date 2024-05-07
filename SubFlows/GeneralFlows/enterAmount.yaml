@@ -9,7 +9,7 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-        ture: ${ACCEPTPAYMENT}
+        true: ${ACCEPTPAYMENT}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.enterAmountPage.continueButton}
@@ -17,7 +17,7 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-        ture: ${PAYMENTLINK}
+        true: ${PAYMENTLINK}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.enterAmountPage.createPaymentLinkButton}
