@@ -4,45 +4,39 @@ tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
-  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
 ---
-- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
-    env: 
-        USER: ${output.annotations.businessOwner}
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.utrField}
+    direction: DOWN
+
+# Blank space
 
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
-    env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_23}
-        SIGNUP: true
-
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
-    env: 
-        TEXT: ${output.env.validOtp}
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    file: ../../ElementActions/eraseText.yaml
     env:
-        BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_23}
-        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
-        TURNOVER: ${output.env.turnoverOption1}
-        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
-        CITY: ${output.env.CITY_1}
-        POSTCODE: ${output.env.POST_CODE_1}
-        UTR: ${output.env.UTR_A}
-        CONTINUE: true
+        ELEMENT: ${output.yourBusinessDetailsPage.utrField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterUtrNumber.yaml
+    env:
+        UTR: ${output.env.blankSpace}
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
+        INDEX: 0
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.utrField}
-    direction: UP
-- assertVisible: 
-    text: ${output.yourBusinessDetailsPage.utrField}
-    containsDescendants: 
-      - ${output.yourBusinessDetailsPage.utrExistingError}
+    direction: DOWN
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -51,11 +45,6 @@ onFlowStart:
         KEYBOARD: true
 
 # Min length 
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.yourBusinessDetailsPage.utrField}
-        KEYBOARD: true
 
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterUtrNumber.yaml
@@ -74,7 +63,7 @@ onFlowStart:
     containsDescendants: 
       - ${output.yourBusinessDetailsPage.utrMinLengthError}
 
-# Valid utr
+# Valid 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.utrField}
     direction: UP
@@ -94,3 +83,8 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
+        INDEX: 0
