@@ -1,40 +1,41 @@
 appId: ${APP_ID}
-name: SubTests/Signup/charityNameTextFieldValidations.yaml
+name: Tests/Signup/charityNameTextFieldValidations.yaml
 tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
-  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
 ---
-- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
-    env: 
-        USER: ${output.annotations.businessOwner}
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
+    direction: UP
 
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
-    env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_22}
-        SIGNUP: true
-
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
-    env: 
-        TEXT: ${output.env.validOtp}
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    file: ../../SubFlows/SignupFieldActions/selectBusinessType.yaml
     env:
-        BUSINESSTYPE: 'CHARITY'
-        BUSINESSNAME: ${output.env.blankSpace}
-        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
-        TURNOVER: ${output.env.turnoverOption1}
-        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
-        CITY: ${output.env.CITY_1}
-        POSTCODE: ${output.env.POST_CODE_1}
-        CONTINUE: true
+        BUSINESSTYPE: ${output.annotations.charity}
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.charityNumberField}
+        TEXT: ${output.env.CRN_3}
+        KEYBOARD: true
 
+# Blank space
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.charityNameField}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.charityNameField}
+        TEXT: ${output.env.blankSpace}
+        KEYBOARD: true
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml     
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.charityNameField}
     direction: UP
@@ -43,11 +44,6 @@ onFlowStart:
     containsDescendants: 
       - ${output.yourBusinessDetailsPage.charityNameEmptyError}
 
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.yourBusinessDetailsPage.charityNameField}
-        KEYBOARD: true
 
 # Empty field
 
@@ -146,3 +142,9 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
+        INDEX: 0

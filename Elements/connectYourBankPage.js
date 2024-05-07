@@ -1,9 +1,9 @@
 output.connectYourBankPage = {
     connectYourBankPageTitle: 'Connect Your Bank',
     connectText: 'Please connect your Bank in order to receive payments from customers.',
-    selectBankDropdown: 'Select Bank* TextFormField',
+    selectBankDropdown: 'null TextFormField',
     selectBank: 'Select Bank*',
-    searchField: 'null TextFormField',
+    searchField: 'Search',
     search: 'Search',
     bankNotFoundText: 'No results found. Please add as other banks.',
     accountNumberField: 'Bank Account Number* TextFormField',

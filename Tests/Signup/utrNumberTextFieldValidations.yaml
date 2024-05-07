@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: SubTests/Signup/businessNameTextFieldValidations.yaml
+name: Tests/Signup/utrNumberTextFieldValidations.yaml
 tags:
     - dev
 onFlowStart:

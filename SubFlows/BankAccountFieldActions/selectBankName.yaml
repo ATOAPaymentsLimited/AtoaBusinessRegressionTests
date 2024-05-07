@@ -10,7 +10,7 @@ appId: ${APP_ID}
     file: ../../ElementActions/inputText.yaml
     env:
         ELEMENT: ${output.connectYourBankPage.searchField}
-        TEXT: $ {BANKNAME}
+        TEXT: ${BANKNAME}
         KEYBOARD: true
 
 - runFlow:

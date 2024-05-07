@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: SubTests/Signup/businessTypeDropdownValidations.yaml
+name: Tests/Signup/businessTypeDropdownValidations.yaml
 tags:
     - dev
 onFlowStart:
@@ -26,12 +26,12 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/selectBusinessType.yaml
     env:
-        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSTYPE: ${output.annotations.soleTrader}
 
 - runFlow:
     file: ../../PageVerification/businessDetailsPageVerification.yaml
     env:
-        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSTYPE: ${output.annotations.soleTrader}
         BUSINESSNAME: ${output.yourBusinessDetailsPage.businessName}
         INDUSTRYTYPE: ${output.yourBusinessDetailsPage.industryType}
         TURNOVER: ${output.yourBusinessDetailsPage.turnover}
@@ -49,12 +49,12 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/selectBusinessType.yaml
     env:
-        BUSINESSTYPE: 'LIMITEDCOMPANY'
+        BUSINESSTYPE: ${output.annotations.limitedCompany}
 
 - runFlow:
     file: ../../PageVerification/businessDetailsPageVerification.yaml
     env:
-        BUSINESSTYPE: 'LIMITEDCOMPANY'
+        BUSINESSTYPE: ${output.annotations.limitedCompany}
         BUSINESSNAME: ${output.yourBusinessDetailsPage.businessName}
         CRN: ${output.yourBusinessDetailsPage.crn}
         INDUSTRYTYPE: ${output.yourBusinessDetailsPage.industryType}
@@ -71,12 +71,12 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/selectBusinessType.yaml
     env:
-        BUSINESSTYPE: 'CHARITY'
+        BUSINESSTYPE: ${output.annotations.charity}
 
 - runFlow:
     file: ../../PageVerification/businessDetailsPageVerification.yaml
     env:
-        BUSINESSTYPE: 'CHARITY'
+        BUSINESSTYPE: ${output.annotations.charity}
         BUSINESSNAME: ${output.yourBusinessDetailsPage.charityName}
         CRN: ${output.yourBusinessDetailsPage.charityNumber}
         TURNOVER: ${output.yourBusinessDetailsPage.turnover}

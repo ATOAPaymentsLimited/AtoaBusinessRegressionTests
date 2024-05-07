@@ -1,39 +1,29 @@
 appId: ${APP_ID}
-name: SubTests/Signup/businessNameTextFieldValidations.yaml
+name: Tests/Signup/addressLine1TextFieldValidations.yaml
 tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
-  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
 ---
-- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
-    env: 
-        USER: ${output.annotations.businessOwner}
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.addressLine1Field}
+    direction: DOWN
 
+#Blank space
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
-    env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_7}
-        SIGNUP: true
-
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
-    env: 
-        TEXT: ${output.env.validOtp}
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    file: ../../ElementActions/eraseText.yaml
     env:
-        BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_7}
-        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
-        TURNOVER: ${output.env.turnoverOption1}
+        ELEMENT: ${output.yourBusinessDetailsPage.addressLine1Field}
+        KEYBOARD: true
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterAddress1.yaml
+    env:
         ADDRESS1: ${output.env.blankSpace}
-        CITY: ${output.env.CITY_1}
-        POSTCODE: ${output.env.POST_CODE_1}
-        CONTINUE: true
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.addressLine1Field}
@@ -43,13 +33,14 @@ onFlowStart:
     containsDescendants: 
       - ${output.yourBusinessDetailsPage.addressLine1EmptyError}
 
+# Special characters
+
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.addressLine1Field}
         KEYBOARD: true
 
-# Special characters
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterAddress1.yaml
     env:
@@ -90,3 +81,27 @@ onFlowStart:
     text: ${output.yourBusinessDetailsPage.addressLine1Field}
     containsDescendants: 
       - ${output.yourBusinessDetailsPage.addressLine1MinLengthError}
+
+# Valid
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.addressLine1Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../SubFlows/SignupFieldActions/enterAddress1.yaml
+    env:
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
+
+- assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
+        INDEX: 0

@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: SubTests/Signup/emailOrMobileNumberFieldValidations.yaml
+name: Tests/Signup/emailOrMobileNumberFieldValidations.yaml
 tags:
     - dev
 onFlowStart:

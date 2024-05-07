@@ -1,31 +1,20 @@
 appId: ${APP_ID}
-name: SubTests/Signup/businessNameTextFieldValidations.yaml
+name: Tests/Signup/businessNameTextFieldValidations.yaml
 tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
-- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
-    env: 
-        USER: ${output.annotations.businessOwner}
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
+    direction: UP
 
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
-    env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_4}
-        SIGNUP: true
-
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
-    env: 
-        TEXT: ${output.env.validOtp}
+# Blank spaces
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
     env:
-        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSTYPE: ${output.annotations.soleTrader}
         BUSINESSNAME: ${output.env.blankSpace}
         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
         TURNOVER: ${output.env.turnoverOption1}
@@ -37,18 +26,19 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.businessNameField}
     direction: UP
+
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.businessNameField}
     containsDescendants: 
       - ${output.yourBusinessDetailsPage.businessNameEmptyError}
+
+# Empty field
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.businessNameField}
         KEYBOARD: true
-
-# Empty field
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
@@ -62,7 +52,6 @@ onFlowStart:
     text: ${output.yourBusinessDetailsPage.businessNameField}
     containsDescendants: 
       - ${output.yourBusinessDetailsPage.businessNameEmptyError}
-
 
 # Special characters
 - runFlow:
@@ -138,10 +127,16 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterBusinessName.yaml
     env:
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_4}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_3}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
+        INDEX: 0
