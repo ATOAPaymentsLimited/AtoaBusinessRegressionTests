@@ -166,7 +166,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterEmailId.yaml
     env:
-        EMAIL: ${output.env.MERCHANT_EMAIL_13A}
+        EMAIL: ${output.env.MERCHANT_EMAIL_3A}
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
@@ -191,7 +191,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterEmailId.yaml
     env:
-        EMAIL: ${output.env.MERCHANT_EMAIL_13B}
+        EMAIL: ${output.env.MERCHANT_EMAIL_3B}
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
