@@ -1,0 +1,71 @@
+appId: ${APP_ID}
+---
+- runFlow: 
+    file: ../AddEmployeeFieldActions/enterFirstName.yaml
+    env:
+        FNAME: ${FNAME}
+
+- runFlow: 
+    file: ../AddEmployeeFieldActions/enterLastName.yaml
+    env:
+        LNAME: ${LNAME}
+
+- scrollUntilVisible:
+    element: ${output.employeeDetailsPage.mobileNumberField}
+    direction: DOWN
+- runFlow: 
+    when:
+      true: ${MOBILENUMBER}
+    file: ../AddEmployeeFieldActions/enterMobileNumber.yaml
+    env:
+        MOBILENUMBER: ${MOBILENUMBER}
+
+- scrollUntilVisible:
+    element: ${output.employeeDetailsPage.emailField}
+    direction: DOWN
+- runFlow: 
+    when:
+      true: ${EMAIL}
+    file: ../AddEmployeeFieldActions/enterEmail.yaml
+    env:
+        EMAIL: ${EMAIL}  
+
+
+- scrollUntilVisible:
+    element: ${output.employeeDetailsPage.supervisorTab}
+    direction: DOWN
+- runFlow:
+    when:
+        true: ${ROLE == 'SUPERVISOR'}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.supervisorTab}
+        INDEX: 0
+
+- runFlow:
+    when:
+        true: ${ROLE == 'CASHIER'}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.cashierTab}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.employeeDetailsPage.allowBillingCheckbox}
+    direction: DOWN
+- runFlow:
+    when:
+        true: ${ALLOWBILLINGS}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.allowBillingCheckbox}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.employeeDetailsPage.addEmployeeButton}
+    direction: DOWN
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.addEmployeeButton}
+        INDEX: 0
