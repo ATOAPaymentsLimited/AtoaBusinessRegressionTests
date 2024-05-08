@@ -31,6 +31,7 @@ output.employeeDetailsPage = {
 
     mobileNumberLessThan10Error: 'Mobile number should be of 10 digits',
    
+    emptyMobileNumberAndEmailErrorToast: 'Please enter an email or a mobile number',
     merchantMobileErrorToast: 'This phone number is already registered to a Merchant account. Please use a different phone number or reach out to us at hello@paywithatoa.co.uk',
     merchantEmailErrorToast: 'This email is already registered to a Merchant account. Please use a different email.',
    

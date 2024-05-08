@@ -284,6 +284,7 @@ output.env = {
    POST_CODE_2: 'ATO A81',
    CITY_2: 'London',
 
+   countryCode: '+44',
    EMPLOYEE_ROLE_1: 'Supervisor',
    EMPLOYEE_ROLE_2: 'Cashier',
 
