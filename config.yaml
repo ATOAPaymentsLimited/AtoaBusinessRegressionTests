@@ -1,5 +1,6 @@
 flows:
   "Tests/Signup/*"
+  "Tests/StaffManagement/*"
 
 # includeTags:
 #   - dev
@@ -27,3 +28,7 @@ executionOrder:
         - Tests/Signup/emailTextFieldValidations.yaml
         - Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
         - Tests/Signup/sortCodeFieldValidations.yaml
+    #StaffManagement
+        - Tests/StaffManagement/firstNameAndLastNameTextFieldValidations.yaml
+        - Tests/StaffManagement/mobileNumberTextFieldValidations.yaml
+        - Tests/StaffManagement/emailTextFieldValidations.yaml

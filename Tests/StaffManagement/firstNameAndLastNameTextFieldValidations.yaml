@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
+name: Tests/StaffManagement/firstNameAndLastNameTextFieldValidations.yaml
 tags:
     - dev
 onFlowStart:
