@@ -8,8 +8,7 @@ flows:
 
 executionOrder:
     continueOnFailure: true 
-    flowsOrder:
-    
+    flowsOrder:   
     #Signup
         - Tests/Signup/businessTypeDropdownValidations.yaml
         - Tests/Signup/businessNameTextFieldValidations.yaml
