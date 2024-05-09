@@ -4,6 +4,6 @@ appId: ${APP_ID}
 - runFlow: 
     file: ../../ElementActions/inputText.yaml
     env:
-        ELEMENT: ${output.connectYourBankPage.utrField}
+        ELEMENT: ${output.yourBusinessDetailsPage.utrField}
         TEXT: ${UTR}
         KEYBOARD: true

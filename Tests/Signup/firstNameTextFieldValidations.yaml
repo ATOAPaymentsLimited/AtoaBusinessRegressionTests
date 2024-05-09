@@ -10,9 +10,9 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterPersonalDetails.yaml
     env:
-        FNAME: ${output.env.MERCHANT_FNAME}
-        LNAME: ${output.env.blankSpace}
-        EMAIL: ${output.env.MERCHANT_EMAIL_3}
+        FNAME: ${output.env.blankSpace}
+        LNAME: ${output.env.MERCHANT_LNAME}
+        EMAIL: ${output.env.MERCHANT_EMAIL_3A}
         SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
         CONTINUE: true 
 
@@ -76,6 +76,9 @@ onFlowStart:
         INDEX: 0
 
 # Valid 2
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.firstNameField}
+    direction: UP
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml

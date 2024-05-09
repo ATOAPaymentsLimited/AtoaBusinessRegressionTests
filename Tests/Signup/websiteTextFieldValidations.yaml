@@ -4,10 +4,9 @@ tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
-  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
 ---
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.websiteField}
+    element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
 
 # Invalid 1

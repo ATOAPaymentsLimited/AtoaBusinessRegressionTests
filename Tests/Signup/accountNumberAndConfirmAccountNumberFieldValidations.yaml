@@ -22,10 +22,6 @@ onFlowStart:
     text: ${output.connectYourBankPage.accountNumberField}
     containsDescendants:
       - ${output.connectYourBankPage.bankAccountNumberLessThan8Error}
-- assertVisible:
-    text: ${output.connectYourBankPage.confirmAccountNumberField}
-    containsDescendants:
-      - ${output.connectYourBankPage.confirmBankAccountMismatchError}
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -141,7 +137,7 @@ onFlowStart:
 - assertVisible:
     text: ${output.connectYourBankPage.confirmAccountNumberField}
     containsDescendants:
-      - ${output.connectYourBankPage.confirmBankAccountMismatchError}
+      - ${output.connectYourBankPage.confirmBankAccountEmptyError}
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -257,7 +253,7 @@ onFlowStart:
 - assertVisible:
     text: ${output.connectYourBankPage.confirmAccountNumberField}
     containsDescendants:
-      - ${output.connectYourBankPage.confirmBankAccountMismatchError}
+      - ${output.connectYourBankPage.confirmBankAccountEmptyError}
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml

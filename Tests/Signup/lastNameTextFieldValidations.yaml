@@ -5,6 +5,9 @@ tags:
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.firstNameField}
+    direction: UP
 
 # Blank space
 - runFlow:
@@ -16,13 +19,14 @@ onFlowStart:
     file: ../../SubFlows/SignupFieldActions/enterLastName.yaml
     env:
         LNAME: ${output.env.blankSpace}
+
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourPersonalDetailsPage.lastNameField}
+    element: ${output.yourPersonalDetailsPage.firstNameField}
     direction: UP
 - assertVisible:
     text: ${output.yourPersonalDetailsPage.lastNameField}
@@ -46,7 +50,7 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourPersonalDetailsPage.lastNameField}
+    element: ${output.yourPersonalDetailsPage.firstNameField}
     direction: UP
 - assertVisible:
     text: ${output.yourPersonalDetailsPage.lastNameField}
@@ -80,7 +84,10 @@ onFlowStart:
         INDEX: 0
 
 # Valid 2
-
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.firstNameField}
+    direction: UP
+    
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:

@@ -4,6 +4,6 @@ appId: ${APP_ID}
 - runFlow: 
     file: ../../ElementActions/inputText.yaml
     env:
-        ELEMENT: ${output.connectYourBankPage.websiteField}
+        ELEMENT: ${output.yourBusinessDetailsPage.websiteField}
         TEXT: ${WEBSITE}
         KEYBOARD: true

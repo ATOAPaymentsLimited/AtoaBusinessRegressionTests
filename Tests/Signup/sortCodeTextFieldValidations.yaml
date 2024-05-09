@@ -78,7 +78,7 @@ onFlowStart:
 - assertVisible:
     text: ${output.connectYourBankPage.sortCodeField}
     containsDescendants:
-      - ${output.connectYourBankPage.bankAccountEmptyError}
+      - ${output.connectYourBankPage.sortCodeEmptyError}
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml

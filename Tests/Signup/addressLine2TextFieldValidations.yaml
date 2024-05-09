@@ -4,7 +4,6 @@ tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
-  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
 ---
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.addressLine2Field}
@@ -56,8 +55,9 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.addressLine2Field}
+    element: ${output.yourBusinessDetailsPage.addressLine1Field}
     direction: UP
+
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.addressLine2Field}
     containsDescendants: 

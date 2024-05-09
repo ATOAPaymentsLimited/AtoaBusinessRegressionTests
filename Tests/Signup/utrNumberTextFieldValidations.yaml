@@ -49,7 +49,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterUtrNumber.yaml
     env:
-        UTR: ${output.env.minLength}
+        UTR: ${output.env.digits2}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
@@ -76,7 +76,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterUtrNumber.yaml
     env:
-        UTR: ${output.env.UTR_23}
+        UTR: ${output.env.UTR_3}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN

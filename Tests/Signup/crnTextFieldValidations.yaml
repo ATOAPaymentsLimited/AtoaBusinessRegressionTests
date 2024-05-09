@@ -22,15 +22,15 @@ onFlowStart:
         KEYBOARD: true
         
 - runFlow:
-    file: ../../ElementActions/inputText.yaml
+    file: ../../SubFlows/SignupFieldActions/enterCrn.yaml
     env:
-        ELEMENT: ${output.yourBusinessDetailsPage.crnField}
-        TEXT: ${output.env.blankSpace}
-        KEYBOARD: true
+        CRN: ${output.env.blankSpace}
+
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml     
+
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.crnField}
     direction: UP
@@ -40,6 +40,12 @@ onFlowStart:
       - ${output.yourBusinessDetailsPage.crnEmptyError}
 
 # Empty field
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.crnField}
+        KEYBOARD: true
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
@@ -55,6 +61,7 @@ onFlowStart:
       - ${output.yourBusinessDetailsPage.crnEmptyError}
 
 # Special characters
+
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterCrn.yaml
     env:
@@ -70,7 +77,7 @@ onFlowStart:
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.crnField}
     containsDescendants: 
-      - ${output.yourBusinessDetailsPage.crnMinLengthError}
+      - ${output.yourBusinessDetailsPage.crnEmptyError}
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml

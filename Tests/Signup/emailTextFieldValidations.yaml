@@ -5,6 +5,10 @@ tags:
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.emailField}
+    direction: UP
+
 # Blank space
 - runFlow:
     file: ../../ElementActions/eraseText.yaml

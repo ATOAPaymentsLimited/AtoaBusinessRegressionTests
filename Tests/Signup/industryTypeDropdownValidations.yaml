@@ -6,7 +6,7 @@ onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.industryTypeDropdown}
+    element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
     direction: UP
 
 - runFlow:
@@ -14,6 +14,10 @@ onFlowStart:
     env:
         BUSINESSTYPE: ${output.annotations.soleTrader}
 
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.industryTypeDropdown}
+    direction: UP
+    
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/selectIndustryType.yaml
     env:

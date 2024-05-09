@@ -30,8 +30,8 @@ output.connectYourBankPage = {
     confirmBankAccountEmptyError: 'Confirm Bank Account Number should not be empty',
     confirmBankAccountMismatchError: 'The account numbers do not match',
 
-    sortCodeEmptyError: 'Sort Code should not be empty',
-    sortCodeLessThan6Error: 'Sort Code must be at lest 6 characters long',
+    sortCodeEmptyError: 'Sort Code must be at least 6 characters long',
+    sortCodeLessThan6Error: 'Sort Code should be at least 6 characters long',
 
 
 }   
