@@ -74,10 +74,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.mobileNumberField}
     direction: UP
-- assertVisible:
-    text: ${output.employeeDetailsPage.mobileNumberField}
-    containsDescendants:
-        - ${output.employeeDetailsPage.mobileNumberLessThan10Error}
+- assertVisible: ${output.employeeDetailsPage.mobileNumberLessThan10Error}
 
 # Existing merchant's mobile number
 

@@ -3,13 +3,13 @@ appId: ${APP_ID}
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.enableAppLockPage.pin}
+        ELEMENT: ${output.secureAtoaPage.pin}
         INDEX: 0
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.enableAppLockPage.continueButton}
+        ELEMENT: ${output.secureAtoaPage.continueButton}
         INDEX: 0
 
 - inputText: ${PIN1}

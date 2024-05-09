@@ -16,7 +16,7 @@ onFlowStart:
         ELEMENT: ${output.yourBusinessDetailsPage.postCodeField}
         KEYBOARD: true
 - runFlow:
-    file: ../../SubFlows/SignupFieldActions/enterPostCode.yaml.yaml
+    file: ../../SubFlows/SignupFieldActions/enterPostCode.yaml
     env:
         POSTCODE: ${output.env.blankSpace}
 

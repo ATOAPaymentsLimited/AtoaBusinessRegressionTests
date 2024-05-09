@@ -1,0 +1,32 @@
+appId: ${APP_ID}
+---
+
+- assertVisible: 
+    text: ${output.staticQRPage.shareButton}
+    enabled: true 
+
+- assertVisible: 
+    text: ${output.staticQRPage.backButton}
+    enabled: true 
+
+- assertVisible: ${BUSINESSNAME}
+
+- runFlow:
+    when:
+        true: ${STORENAME}
+    commands:
+       - assertVisible: ${STORENAME}
+
+- assertVisible: ${output.staticQRPage.QRcode}
+
+- assertVisible: ${output.staticQRPage.scanQRText}
+
+- assertVisible: ${output.staticQRPage.compatibilityText}
+
+- runFlow:
+    when:
+        true: ${USER == 'BUSINESSOWNER'}
+    commands:
+    - assertVisible: ${output.staticQRPage.needMoreStandsText}
+    - assertVisible: ${output.staticQRPage.supportText}
+    - assertVisible: ${output.staticQRPage.supportEmailId}

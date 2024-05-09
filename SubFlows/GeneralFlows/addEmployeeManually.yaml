@@ -51,7 +51,7 @@ appId: ${APP_ID}
         INDEX: 0
 
 - scrollUntilVisible:
-    element: ${output.employeeDetailsPage.allowBillingCheckbox}
+    element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
 - runFlow:
     when:

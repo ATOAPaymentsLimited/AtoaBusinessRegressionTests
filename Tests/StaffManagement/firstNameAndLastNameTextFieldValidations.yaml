@@ -4,14 +4,13 @@ tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
-  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
 ---
 
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/login.yaml
-    env: 
-        USER: 'BUSINESSOWNER'
-        ID: ${output.env.MERCHANT_MOBILE_D}
+# - runFlow:
+#     file: ../../SubFlows/GeneralFlows/login.yaml
+#     env: 
+#         USER: 'BUSINESSOWNER'
+#         ID: ${output.env.MERCHANT_MOBILE_D}
         
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

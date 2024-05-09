@@ -17,7 +17,7 @@ appId: ${APP_ID}
 - runFlow:
     file: enterOtp.yaml
     env:
-        TEXT: ${outpuut.env.validOtp}
+        TEXT: ${output.env.validOtp}
 
 - runFlow:
     file: setAppLock.yaml
