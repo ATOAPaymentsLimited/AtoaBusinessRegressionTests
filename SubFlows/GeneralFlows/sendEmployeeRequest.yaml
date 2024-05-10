@@ -1,0 +1,39 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../AddEmployeeFieldActions/enterFname.yaml
+    env:
+        FNAME: ${FNAME}
+
+- runFlow:
+    file: ../AddEmployeeFieldActions/enterLname.yaml
+    env:
+        LNAME: ${LNAME}
+
+- runFlow:
+    when:
+        true: ${EMAIL}
+    file: ../AddEmployeeFieldActions/enterEmailId.yaml
+    env:
+        EMAIL: ${EMAIL}
+
+- runFlow:
+    when:
+        true: ${MOBILENUMBER}
+    file: ../AddEmployeeFieldActions/enterMobile.yaml
+    env:
+        MOBILENUMBER: ${MOBILENUMBER}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.staffRequestPage.termsCheckbox}
+        INDEX: 0
+
+- runFlow: 
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.staffRequestPage.sendRequestButton}
+        INDEX: 0
+
+- waitForAnimationToEnd

@@ -1,8 +1,12 @@
 output.staffRequestPage = {
     staffRequestPageTitle: 'Staff Request',
+    firstNameField: 'First Name TextFormField',
     firstName: 'First Name',
+    lastNameField: 'Last Name TextFormField',
     lastName: 'Last Name',
+    emailField: 'Email Address (Optional) TextFormField',
     email: 'Email Address (Optional)',
+    mobileNumberField: 'Mobile Number TextFormField',
     termsCheckbox: 'Accepted Terms Checkbox',
     sendRequestButton: 'Send Request',
 

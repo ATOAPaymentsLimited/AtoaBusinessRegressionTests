@@ -6,11 +6,11 @@ onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
 
-# - runFlow:
-#     file: ../../SubFlows/GeneralFlows/login.yaml
-#     env: 
-#         USER: 'BUSINESSOWNER'
-#         ID: ${output.env.MERCHANT_MOBILE_D}
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_D}
         
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -24,6 +24,14 @@ onFlowStart:
         ELEMENT: ${output.employeesPage.addEmployeeButton}
         INDEX: 0
 
+- runFlow:
+    when:
+        visible: ${output.employeesPage.addEmployeeManuallyButton}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeesPage.addEmployeeManuallyButton}
+        INDEX: 0
+        
 # blank space
 - runFlow:
     file: ../../SubFlows/GeneralFlows/addEmployeeManually.yaml
