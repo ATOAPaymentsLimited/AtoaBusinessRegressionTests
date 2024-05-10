@@ -1,5 +1,6 @@
 flows:
-  "Tests/Signup/*"
+  # - "Tests/Signup/*"
+  - "Tests/StaffManagement/*"
 
 # includeTags:
 #   - dev
@@ -8,21 +9,27 @@ flows:
 
 executionOrder:
     continueOnFailure: true 
-    flowsOrder:
-        - Tests/Signup/businessTypeDropdownValidations.yaml
-        - Tests/Signup/businessNameTextFieldValidations.yaml
-        - Tests/Signup/businessNameTextFieldValidationsLimitedCompany.yaml
-        - Tests/Signup/charityNameTextFieldValidations.yaml
-        - Tests/Signup/crnTextFieldValidations.yaml
-        - Tests/Signup/industryTypeDropdownValidations.yaml
-        - Tests/Signup/addressLine1TextFieldValidations.yaml
-        - Tests/Signup/addressLine2TextFieldValidations.yaml
-        - Tests/Signup/cityTextFieldValidations.yaml
-        - Tests/Signup/postCodeTextFieldValidations.yaml
-        - Tests/Signup/utrNumberTextFieldValidations.yaml
-        - Tests/Signup/websiteTextFieldValidations.yaml
-        - Tests/Signup/firstNameTextFieldValidations.yaml
-        - Tests/Signup/lastNameTextFieldValidations.yaml
-        - Tests/Signup/emailTextFieldValidations.yaml
-        - Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
-        - Tests/Signup/sortCodeFieldValidations.yaml
+    flowsOrder:   
+    #Signup
+        # - Tests/Signup/businessTypeDropdownValidations.yaml
+        # - Tests/Signup/businessNameTextFieldValidations.yaml
+        # - Tests/Signup/businessNameTextFieldValidationsLimitedCompany.yaml
+        # - Tests/Signup/charityNameTextFieldValidations.yaml
+        # - Tests/Signup/crnTextFieldValidations.yaml
+        # - Tests/Signup/industryTypeDropdownValidations.yaml
+        # - Tests/Signup/addressLine1TextFieldValidations.yaml
+        # - Tests/Signup/addressLine2TextFieldValidations.yaml
+        # - Tests/Signup/cityTextFieldValidations.yaml
+        # - Tests/Signup/postCodeTextFieldValidations.yaml
+        # - Tests/Signup/utrNumberTextFieldValidations.yaml
+        # - Tests/Signup/websiteTextFieldValidations.yaml
+        # - Tests/Signup/firstNameTextFieldValidations.yaml
+        # - Tests/Signup/lastNameTextFieldValidations.yaml
+        # - Tests/Signup/emailTextFieldValidations.yaml
+        # - Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
+        # - Tests/Signup/sortCodeFieldValidations.yaml
+    #StaffManagement
+        - Tests/StaffManagement/firstNameAndLastNameTextFieldValidations.yaml
+        - Tests/StaffManagement/mobileNumberTextFieldValidations.yaml
+        - Tests/StaffManagement/emailTextFieldValidations.yaml
+        - Tests/StaffManagement/supervisorAddEmployee.yaml

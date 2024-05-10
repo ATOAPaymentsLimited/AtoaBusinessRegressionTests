@@ -1,0 +1,99 @@
+appId: ${APP_ID}
+name: Tests/StaffManagement/merchantAcceptEmployeeRequest.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/openLink.yaml
+    env:
+        LINK: ${output.env.ADD_EMPLOYEE_QR_DEV}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env:
+        TEXT: ${output.env.EMPLOYEE_MOBILE_D1}
+        SIGNUP: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env:
+        TEXT: ${output.env.validOtp}
+
+# Send employee request
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/sendEmployeeRequest.yaml
+    env:
+        FNAME: ${output.env.EMPLOYEE_FNAME}
+        LNAME: ${output.env.EMPLOYEE_LNAME}
+
+# Merchant approves employee request
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_D}
+
+- scrollUntilVisible:
+    element: ${output.merchantHomePage.employeeRequestTile}
+    direction: DOWN
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/approveEmployeeRequest.yaml
+    env:
+        ACCEPT: true
+        SUPERVISOR: true
+
+# Verify in added employee's account
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_D1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeHomePage.showQRButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/staticQRPageVerification.yaml
+    env:
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_D}
+
+
+# Delete the added employee
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_D}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.employeesButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/deleteEmployee.yaml
+    env:
+        MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_D1}
+
+- assertNotVisible:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - ${output.env.countryCode} ${output.env.EMPLOYEE_MOBILE_D1}
+
+  
+
+
+
+
+
+
+

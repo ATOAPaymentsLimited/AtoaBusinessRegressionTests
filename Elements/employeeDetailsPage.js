@@ -1,9 +1,14 @@
 output.employeeDetailsPage = {
     employeeDetailsPageTitle: 'Employee Details',
     employeeTile: 'Employee Tile',
+
+    firstNameField: 'First Name* TextFormField',
     firstName: 'First Name*',
+    lastNameField: 'Last Name* TextFormField',
     lastName: 'Last Name*',
+    mobileNumberField: 'Mobile Number TextFormField',
     mobileNumber: 'Mobile Number',
+    emailField: 'Email Address TextFormField',
     email: 'Email Address',
     employeeRole: 'Employee Role',
     supervisorTab: 'Supervisor',
@@ -12,6 +17,8 @@ output.employeeDetailsPage = {
     cashierTab: 'Cashier',
     cashierRole1: 'Can accept Payments',
     storeLocationText: 'Store Locations',
+
+    allowBillingCheckbox: 'Allow this employee\nto access billing selected',
     storeLocationDropdown: 'Select a Location',
     continueButton: 'Continue',
     addEmployeeButton: 'Add Employee',
@@ -24,6 +31,7 @@ output.employeeDetailsPage = {
 
     mobileNumberLessThan10Error: 'Mobile number should be of 10 digits',
    
+    emptyMobileNumberAndEmailErrorToast: 'Please enter an email or a mobile number',
     merchantMobileErrorToast: 'This phone number is already registered to a Merchant account. Please use a different phone number or reach out to us at hello@paywithatoa.co.uk',
     merchantEmailErrorToast: 'This email is already registered to a Merchant account. Please use a different email.',
    

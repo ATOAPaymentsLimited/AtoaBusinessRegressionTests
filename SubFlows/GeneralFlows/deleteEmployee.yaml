@@ -1,0 +1,18 @@
+appId: ${APP_ID}
+---
+- tapOn:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - ${output.env.countryCode} ${MOBILENUMBER}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.deleteEmployeeButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.confirmButton}
+        INDEX: 0

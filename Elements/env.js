@@ -32,6 +32,17 @@ output.env = {
    EMPLOYEE_MOBILE_C2: '9491441441',
    EMPLOYEE_EMAIL_C2: 'emp9491441441@gmail.com',
 
+   MERCHANT_D: 'D',
+   MERCHANT_MOBILE_D: '9151441441',
+   BUSINESS_NAME_D: 'B9151441441',
+   CRN_D: '91514414',
+   MERCHANT_EMAIL_D: 'ab9151441441@gmail.com',
+   EMPLOYEE_MOBILE_DS: '9251221221',
+   EMPLOYEE_MOBILE_D1: '9251441441',
+   EMPLOYEE_EMAIL_D1: 'emp9251441441@gmail.com',
+   EMPLOYEE_MOBILE_D2: '9591441441',
+   EMPLOYEE_EMAIL_D2: 'emp9591441441@gmail.com',
+
   //-----------------------------------------------------
   //-----------------------------------------------------
   //-----------------------------------------------------  
@@ -231,10 +242,8 @@ output.env = {
    CUSTOM_REFERRAL_CODE_UAT: 'custom7781',
    CUSTOM_REFERRAL_CODE_PROD: 'custom7781',
 
-   ADD_EMPLOYEE_QR_DEV: 'https://devlinks.atoa.me/employeesignup/?apn=com.atoa.merchantdev&ibi=com.atoa.merchantdev&isi=1618270399&link=https://devlinks.atoa.me/login?qrId=39c9eb21-7063-4b51-bf55-2d2b2df0f1f6&employeeSignup=true',
-   ADD_EMPLOYEE_QR_UAT: 'https://uatlinks.atoa.me/employeesignup/?apn=com.atoa.merchantuat&ibi=com.atoa.merchantuat&isi=1625242322&link=https://uatlinks.atoa.me/login?qrId=505c985b-77ee-4b54-8a77-65b4b757193e&employeeSignup=true',
-   ADD_EMPLOYEE_QR_PROD: 'https://links.atoa.me/employeesignup/?apn=com.atoa.merchant&ibi=com.atoa.merchant&isi=1620667507&link=https://links.atoa.me/login?qrId=07cb494b-bedd-4458-8ceb-060f3d12464c&employeeSignup=true',
- 
+   ADD_EMPLOYEE_QR_DEV: 'https://devlinks.atoa.me/employeesignup/?apn=com.atoa.merchantdev&ibi=com.atoa.merchantdev&isi=1618270399&link=https://devlinks.atoa.me/login?qrId=014bdb19-ce73-4087-8226-d5d5cb679d22&employeeSignup=true',
+  
    POINTONE_COMPANY_ID: 'A3DC8862-E01E-48C5-AA30-1146E78C54F6', 
    POINTONE_API_KEY: 'EC389AAD-B244-428D-BD8B-CEC6C34C87E8',
 
@@ -276,6 +285,7 @@ output.env = {
    POST_CODE_2: 'ATO A81',
    CITY_2: 'London',
 
+   countryCode: '+44',
    EMPLOYEE_ROLE_1: 'Supervisor',
    EMPLOYEE_ROLE_2: 'Cashier',
 
