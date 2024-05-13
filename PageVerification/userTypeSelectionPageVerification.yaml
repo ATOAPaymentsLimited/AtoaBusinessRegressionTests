@@ -1,0 +1,11 @@
+appId: ${APP_ID}
+---
+
+- assertVisible: 
+    text: ${output.userTypeSelectionPage.businessOwnerButton}
+    enabled: true 
+
+- assertVisible: 
+    text: ${output.userTypeSelectionPage.employeeButton}
+    enabled: true
+
