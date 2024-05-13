@@ -1,0 +1,67 @@
+appId: ${APP_ID}
+name: Tests/Settings/notesOnBankStatementToggle.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+# - runFlow:
+#     file: ../../SubFlows/GeneralFlows/login.yaml
+#     env:
+#         USER: 'BUSINESSOWNER'
+#         ID: ${output.env.MERCHANT_MOBILE_A}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.sideMenuPage.settingsText}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.settingsText}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.settingsPage.noteOnBankStatement}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.noteOnBankStatement}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.settingsPage.noteOnBankStatementToggle}
+    checked: false
+
+# Enable the notes toggle
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.noteOnBankStatementToggle}
+        INDEX: 0
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: ${output.settingsPage.noteOnBankStatementToggle}
+    checked: true 
+
+# Disable the notes toggle
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.noteOnBankStatementToggle}
+        INDEX: 0
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: ${output.settingsPage.noteOnBankStatementToggle}
+    checked: false 

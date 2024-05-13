@@ -32,7 +32,7 @@ output.settingsPage = {
     integration5: 'Xero Invoicing',
 
     noteOnBankStatementTitle: 'Notes on Bank Statements',
-    noteOnBankStatementToggle: 'Use Notes As Bank Payment Ref',
+    noteOnBankStatementToggle: 'Use Notes As Bank Payment Ref Switch',
     notesDescription1: 'Make your bank statements easier to reference with personalised notes. You can enable or disable this feature at any time on the slider below.',
     notesText: 'Add notes to your bank statements?',
 
