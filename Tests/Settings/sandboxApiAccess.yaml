@@ -1,0 +1,212 @@
+appId: ${APP_ID}
+name: Tests/Settings/sandboxApiAccess.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_A}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.sideMenuPage.settingsText}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.settingsText}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.apiAccess}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.enableApiAccessButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.sandboxToggle}
+        INDEX: 0
+
+# Invalid Redirect url 1
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.redirectUrlTextField}
+        TEXT: ${output.env.invalidUrl1}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.enableButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.apiAccessPage.redirectUrlTextField}
+    containsDescendants:
+        - ${output.apiAccessPage.invalidUrlError}
+
+# Invalid Redirect url 2
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.redirectUrlTextField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.redirectUrlTextField}
+        TEXT: ${output.env.invalidUrl2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.enableButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.apiAccessPage.redirectUrlTextField}
+    containsDescendants:
+        - ${output.apiAccessPage.invalidUrlError}
+
+# Invalid Redirect url 3
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.redirectUrlTextField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.redirectUrlTextField}
+        TEXT: ${output.env.invalidUrl3}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.enableButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.apiAccessPage.redirectUrlTextField}
+    containsDescendants:
+        - ${output.apiAccessPage.invalidUrlError}
+
+# Invalid Redirect url 4
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.redirectUrlTextField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.redirectUrlTextField}
+        TEXT: ${output.env.numbers}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.enableButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.apiAccessPage.redirectUrlTextField}
+    containsDescendants:
+        - ${output.apiAccessPage.invalidUrlError}
+
+# Valid Redirect url
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.redirectUrlTextField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.redirectUrlTextField}
+        TEXT: ${output.env.validUrl}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.enableButton}
+        INDEX: 0
+
+- assertVisible: 
+    text: ${output.apiAccessPage.copyButton}
+    enabled: true
+- assertVisible: 
+    text: ${output.apiAccessPage.shareButton}
+    enabled: true
+- assertVisible: 
+    text: ${output.apiAccessPage.closeButton}
+    enabled: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.closeButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.apiAccessPage.sandboxToggle} 
+    checked: true
+- assertVisible:
+    text: ${output.apiAccessPage.prodToggle} 
+    checked: false
+
+- assertVisible: ${output.apiAccessPage.accessIdField}
+- assertVisible: ${output.apiAccessPage.accessSecretField}
+- assertVisible: 
+    text: ${output.apiAccessPage.redirectUrlField}
+    containsDescendants: 
+        - ${output.env.validUrl}
+
+# Disable sandbox api access
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.sandboxToggle}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.apiAccessPage.disableButton}
+        INDEX: 0
+
+- assertNotVisible: ${output.apiAccessPage.accessIdField}
+- assertNotVisible: ${output.apiAccessPage.accessSecretField}
+- assertNotVisible: 
+    text: ${output.apiAccessPage.redirectUrlField}
+    containsDescendants: 
+        - ${output.env.validUrl}

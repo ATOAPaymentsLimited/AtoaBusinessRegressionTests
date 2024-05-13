@@ -67,3 +67,4 @@ appId: ${APP_ID}
 - runScript: manageQRCodesPage.js
 - runScript: linkDetailsPage.js
 - runScript: selectBankAccountPage.js
+- runScript: aipAccessPage.js
