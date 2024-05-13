@@ -1,4 +1,5 @@
 output.settingsPage = {
+    backButton: 'Back button',
     settingsPageTitle: 'Settings',
     directDebitBanner: 'Set Up',
     appLockToggle: 'App Lock Tile Custom Switch',
@@ -35,5 +36,15 @@ output.settingsPage = {
     noteOnBankStatementToggle: 'Use Notes As Bank Payment Ref Switch',
     notesDescription1: 'Make your bank statements easier to reference with personalised notes. You can enable or disable this feature at any time on the slider below.',
     notesText: 'Add notes to your bank statements?',
+
+    privacyPolicyTab: 'Privacy Policy',
+    privacyPolicyTitle: 'Atoa Business Privacy Policy',
+    termsOfUseTab: 'Terms of Use',
+    termsOfUseTitle: 'Platform Terms of Use',
+    termsOfServiceTab: 'Terms of Service',
+    termsOfServiceTitle: 'Terms of Service (for Consumers & Merchants)',
+    aboutAppTab: 'About app', 
+    aboutAppTitle: 'Atoa Business',
+
 
 }

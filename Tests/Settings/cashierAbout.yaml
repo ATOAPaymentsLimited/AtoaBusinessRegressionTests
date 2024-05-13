@@ -1,0 +1,84 @@
+appId: ${APP_ID}
+name: Tests/Settings/supervisorAbout.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_A1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.sideMenuPage.settingsText}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.settingsText}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.settingsPage.about}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.about}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.privacyPolicyTab}
+        INDEX: 0
+- assertVisible: ${output.settingsPage.privacyPolicyTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.backButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.termsOfUseTab}
+        INDEX: 0
+- assertVisible: ${output.settingsPage.termsOfUseTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.backButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.termsOfServiceTab}
+        INDEX: 0
+- assertVisible: ${output.settingsPage.termsOfServiceTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.backButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.aboutAppTab}
+        INDEX: 0
+- assertVisible: ${output.settingsPage.aboutAppTitle}
