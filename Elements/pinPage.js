@@ -1,5 +1,6 @@
 output.pinPage = {
     enterPinText: 'Confirm PIN to unlock',
+    pinTextField: 'App lock pin input',
     logoutButton: 'Logout Button',
     one: '1',
     two: '2',

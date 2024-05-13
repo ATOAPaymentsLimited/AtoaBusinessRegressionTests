@@ -1,0 +1,145 @@
+appId: ${APP_ID}
+name: Tests/Settings/merchantAppLock.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_A}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.sideMenuPage.settingsText}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.settingsText}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.appLockToggle}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.pinPage.pinTextField}
+        TEXT: ${output.env.validPin2}
+
+- assertVisible: ${output.settingsPage.incorrectPinToast}
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.pinPage.pinTextField}
+        TEXT: ${output.env.validPin1}
+
+- assertVisible: 
+    text: ${output.settingsPage.appLockToggle}
+    checked: false
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- assertVisible: 
+    text: ${output.merchantHomePage.acceptPaymentButton}
+    enabled: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.sideMenuPage.settingsText}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.settingsText}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.appLockToggle}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.secureAtoaPage.pin}
+        INDEX: 0
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.secureAtoaPage.continueButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.pinPage.pinTextField}
+        TEXT: ${output.env.validPin1}
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.pinPage.okButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.pinPage.pinTextField}
+        TEXT: ${output.env.validPin2}
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.pinPage.okButton}
+        INDEX: 0
+
+- assertVisible: ${output.pinPage.mismatchingPinToast}
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.pinPage.pinTextField}
+        TEXT: ${output.env.validPin1}
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.pinPage.okButton}
+        INDEX: 0
+
+- assertVisible: 
+    text: ${output.settingsPage.appLockToggle}
+    checked: true
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- assertVisible: ${output.pinPage.enterPinText}
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.pinPage.pinTextField}
+        TEXT: ${output.env.validPin1}
+
+- assertVisible: 
+    text: ${output.merchantHomePage.acceptPaymentButton}
+    enabled: true

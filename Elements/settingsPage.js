@@ -2,6 +2,7 @@ output.settingsPage = {
     settingsPageTitle: 'Settings',
     directDebitBanner: 'Set Up',
     appLockToggle: 'App Lock Tile Custom Switch',
+    pinTextField: 'App lock pin input',
     logoutButton: 'Log Out',
     confirmButton: 'Confirm',
     voiceNotificationToggle: 'Voice Notification Tile Custom Switch',
@@ -10,6 +11,8 @@ output.settingsPage = {
     integrations: 'Integrations',
     noteOnBankStatement: 'Notes on Bank Statements',
     about: 'About',
+
+    incorrectPinToast: 'Incorrect PIN. Try again.',
 
     directDebitPendingHeader: 'Direct Debit Pending',
     directDebitPendingDescription: 'To continue using Atoa please setup Direct Debit',
