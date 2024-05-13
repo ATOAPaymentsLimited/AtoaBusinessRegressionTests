@@ -57,9 +57,159 @@ onFlowStart:
 #         PIN2: ${output.env.validPin1}
 # - waitForAnimationToEnd
 
+
+
+- runFlow:
+    file: ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        KEYBOARD: true
+
 - runFlow:
     file: ElementActions/inputText.yaml
     env:
-        ELEMENT: ${output.apiAccessPage.redirectUrlField}
-        TEXT: ${output.env.invalidUrl1}
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        TEXT: ${output.env.amount0}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
+        INDEX: 0
+
+- assertVisible: ${output.tipPreferencesPage.emptyTipError}
+
+# Same values in two fields
+
+- runFlow:
+    file: ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
         KEYBOARD: true
+
+- runFlow:
+    file: ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        TEXT: ${output.env.amount1}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        TEXT: ${output.env.amount1}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
+        INDEX: 0
+
+- assertVisible: ${output.tipPreferencesPage.sameTipError}
+
+# Special characters
+
+- runFlow:
+    file: ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        KEYBOARD: true
+
+- runFlow:
+    file: ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption3}
+        KEYBOARD: true
+
+- runFlow:
+    file: ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption3}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
+        INDEX: 0
+
+- assertVisible: ${output.tipPreferencesPage.emptyTipError}
+
+# Alphabets
+
+- runFlow:
+    file: ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        KEYBOARD: true
+
+- runFlow:
+    file: ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption3}
+        KEYBOARD: true
+
+- runFlow:
+    file: ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption3}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
+        INDEX: 0
+
+- assertVisible: ${output.tipPreferencesPage.emptyTipError}

@@ -289,6 +289,14 @@ output.env = {
    EMPLOYEE_ROLE_1: 'Supervisor',
    EMPLOYEE_ROLE_2: 'Cashier',
 
+   tip1: '1',
+   tip2: '2',
+   tip3: '5',
+
+   tip1P: '5',
+   tip2P: '10',
+   tip3P: '15',
+
    turnoverOption1: '£1 - £10,000',
    turnoverOption2: '£10,000 - £25,000',
    turnoverOption3: '£25,000 - £50,000',
@@ -330,6 +338,7 @@ output.env = {
    
 
    poundSymbol: '£',
+   percentageSymbol: '%',
 
    amount0: '0.00',
    amount1: '1.00',

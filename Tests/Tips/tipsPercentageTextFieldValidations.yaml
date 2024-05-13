@@ -1,0 +1,299 @@
+appId: ${APP_ID}
+name: Tests/Tips/tipsPercentageTextFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_A}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.tipsButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/tipsPageVerification.yaml
+    env:
+        DISABLED: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipsPage.allowTipsSwitch}
+        INDEX: 0
+
+- runFlow:
+    when:
+        visible: ${output.tipsPage.enableButton}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipsPage.enableButton}
+        INDEX: 0
+
+- runFlow:
+    when:
+        visible: ${output.tipsPage.disableButton}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipsPage.disableButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.percentageCheckbox}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/tipPreferencesPageVerification.yaml
+    env:
+        ENABLEDCUSTOM: true
+        PERCENTAGE: true 
+        TIP1: ${output.env.tip1P}
+        TIP2: ${output.env.tip2P}
+        TIP3: ${output.env.tip3P}
+
+# Zero value in amount tip field
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        TEXT: ${output.env.amount0}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
+        INDEX: 0
+
+- assertVisible: ${output.tipPreferencesPage.emptyTipError}
+
+# Same values in two fields
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        TEXT: ${output.env.amount1}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        TEXT: ${output.env.amount1}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
+        INDEX: 0
+
+- assertVisible: ${output.tipPreferencesPage.sameTipError}
+
+# Special characters
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption3}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption3}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
+        INDEX: 0
+
+- assertVisible: ${output.tipPreferencesPage.emptyTipError}
+
+# Alphabets
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption3}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption3}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
+        INDEX: 0
+
+- assertVisible: ${output.tipPreferencesPage.emptyTipError}
+
+# valid
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption1}
+        TEXT: ${output.env.tip1P}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption2}
+        TEXT: ${output.env.tip2P}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption3}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.tipOption3}
+        TEXT: ${output.env.tip3P}
+        KEYBOARD: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/tipsPageVerification.yaml
+    env:
+        ENABLED: true
+
+# Disable tips
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipPage.allowTipsSwitch}
+        INDEX: 0
+
+- runFlow:
+    when:
+        visible: ${output.tipsPage.enableButton}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipsPage.enableButton}
+        INDEX: 0
+
+- runFlow:
+    when:
+        visible: ${output.tipsPage.disableButton}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.tipsPage.disableButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/tipsPageVerification.yaml
+    env:
+        DISABLED: true

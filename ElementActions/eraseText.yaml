@@ -1,10 +1,17 @@
 appId: ${APP_ID}
 ---
+
 - runFlow:
-    file: tapOn.yaml
+    file: longPressOn.yaml
     env:
         ELEMENT: ${ELEMENT}
         INDEX: 0
+
+- runFlow:
+    when:
+        visible: 'Select all'
+    commands: 
+        - tapOn: 'Select all'
 - eraseText
 
 - runFlow:
@@ -14,7 +21,7 @@ appId: ${APP_ID}
         - hideKeyboard
 
 - runFlow:
-    file: tapOn.yaml
+    file: longPressOn.yaml
     env:
         ELEMENT: ${ELEMENT}
         INDEX: 0

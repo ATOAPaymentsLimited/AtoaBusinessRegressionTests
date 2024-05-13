@@ -1,0 +1,25 @@
+appId: ${APP_ID}
+---
+- assertVisible: 
+    text: ${output.tipsPage.tipHistoryText}
+    enabled: true 
+
+- runFlow:
+    when:
+        true: ${ENABLED}
+    commands: 
+      - assertVisible: ${output.tipsPage.tipPreferencesText}
+      - assertVisible: 
+          text: ${output.tipsPage.allowTipsSwitch}
+          checked: true 
+
+- runFlow:
+    when:
+        true: ${DISABLED}
+    commands: 
+      - assertVisible: 
+          text: ${output.tipsPage.allowTipsSwitch}
+          checked: false 
+
+
+

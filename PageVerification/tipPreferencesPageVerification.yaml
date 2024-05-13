@@ -1,0 +1,41 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+        true: ${ENABLEDCUSTOM}
+    commands: 
+      - assertVisible: 
+          text: ${output.tipPreferencesPage.allowCustomTipSwitch}
+          checked: true 
+
+- runFlow:
+    when:
+        true: ${DISABLEDCUSTOM}
+    commands: 
+      - assertVisible: 
+          text: ${output.tipPreferencesPage.allowCustomTipSwitch}
+          checked: false
+
+- assertVisible:
+    text: ${output.tipPreferencesPage.amountCheckbox}
+    enabled: true 
+
+- assertVisible:
+    text: ${output.tipPreferencesPage.percentageCheckbox}
+    enabled: true 
+
+- runFlow:
+    when:
+      true: ${AMOUNT}
+    commands:
+      - assertVisible: ${output.env.poundSymbol}${TIP1}
+      - assertVisible: ${output.env.poundSymbol}${TIP2}
+      - assertVisible: ${output.env.poundSymbol}${TIP3}
+
+- runFlow:
+    when:
+      true: ${PERCENTAGE}
+    commands:
+      - assertVisible: ${TIP1}${output.env.percentageSymbol}
+      - assertVisible: ${TIP2}${output.env.percentageSymbol}
+      - assertVisible: ${TIP3}${output.env.percentageSymbol}

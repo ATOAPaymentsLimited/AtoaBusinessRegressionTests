@@ -1,0 +1,6 @@
+appId: ${APP_ID}
+---
+- longPressOn:
+    text: ${ELEMENT}
+    index: ${INDEX}
+    retryTapIfNoChange: false
