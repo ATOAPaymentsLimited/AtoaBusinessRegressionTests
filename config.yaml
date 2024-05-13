@@ -1,6 +1,8 @@
 flows:
-  # - "Tests/Signup/*"
+  - "Tests/Signup/*"
   - "Tests/StaffManagement/*"
+  - "Tests/Settings/*"
+
 
 # includeTags:
 #   - dev
@@ -11,25 +13,44 @@ executionOrder:
     continueOnFailure: true 
     flowsOrder:   
     #Signup
-        # - Tests/Signup/businessTypeDropdownValidations.yaml
-        # - Tests/Signup/businessNameTextFieldValidations.yaml
-        # - Tests/Signup/businessNameTextFieldValidationsLimitedCompany.yaml
-        # - Tests/Signup/charityNameTextFieldValidations.yaml
-        # - Tests/Signup/crnTextFieldValidations.yaml
-        # - Tests/Signup/industryTypeDropdownValidations.yaml
-        # - Tests/Signup/addressLine1TextFieldValidations.yaml
-        # - Tests/Signup/addressLine2TextFieldValidations.yaml
-        # - Tests/Signup/cityTextFieldValidations.yaml
-        # - Tests/Signup/postCodeTextFieldValidations.yaml
-        # - Tests/Signup/utrNumberTextFieldValidations.yaml
-        # - Tests/Signup/websiteTextFieldValidations.yaml
-        # - Tests/Signup/firstNameTextFieldValidations.yaml
-        # - Tests/Signup/lastNameTextFieldValidations.yaml
-        # - Tests/Signup/emailTextFieldValidations.yaml
-        # - Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
-        # - Tests/Signup/sortCodeFieldValidations.yaml
+        - Tests/Signup/businessTypeDropdownValidations.yaml
+        - Tests/Signup/businessNameTextFieldValidations.yaml
+        - Tests/Signup/businessNameTextFieldValidationsLimitedCompany.yaml
+        - Tests/Signup/charityNameTextFieldValidations.yaml
+        - Tests/Signup/crnTextFieldValidations.yaml
+        - Tests/Signup/industryTypeDropdownValidations.yaml
+        - Tests/Signup/addressLine1TextFieldValidations.yaml
+        - Tests/Signup/addressLine2TextFieldValidations.yaml
+        - Tests/Signup/cityTextFieldValidations.yaml
+        - Tests/Signup/postCodeTextFieldValidations.yaml
+        - Tests/Signup/utrNumberTextFieldValidations.yaml
+        - Tests/Signup/websiteTextFieldValidations.yaml
+        - Tests/Signup/firstNameTextFieldValidations.yaml
+        - Tests/Signup/lastNameTextFieldValidations.yaml
+        - Tests/Signup/emailTextFieldValidations.yaml
+        - Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
+        - Tests/Signup/sortCodeFieldValidations.yaml
     #StaffManagement
         - Tests/StaffManagement/firstNameAndLastNameTextFieldValidations.yaml
         - Tests/StaffManagement/mobileNumberTextFieldValidations.yaml
         - Tests/StaffManagement/emailTextFieldValidations.yaml
         - Tests/StaffManagement/supervisorAddEmployee.yaml
+    #Settings
+        - Tests/Settings/merchantAbout.yaml
+        - Tests/Settings/merchantAppLock.yaml
+        - Tests/Settings/merchantHowItWorks.yaml
+        - Tests/Settings/merchantVoiceNotificationToggle.yaml
+        - Tests/Settings/notesOnBankStatementToggle.yaml
+        - Tests/Settings/sandboxApiAccess.yaml
+        - Tests/Settings/productionApiAccess.yaml
+        - Tests/Settings/merchantLogout.yaml
+        - Tests/Settings/cashierAbout.yaml
+        - Tests/Settings/cashierAppLock.yaml
+        - Tests/Settings/cashierHowItWorks.yaml
+        - Tests/Settings/cashierVoiceNotificationToggle.yaml
+        - Tests/Settings/cashierLogout.yaml
+        - Tests/Settings/supervisorAbout.yaml
+        - Tests/Settings/supervisorAppLock.yaml
+        - Tests/Settings/supervisorHowItWorks.yaml
+        - Tests/Settings/supervisorVoiceNotificationToggle.yaml
+        - Tests/Settings/supervisorLogout.yaml

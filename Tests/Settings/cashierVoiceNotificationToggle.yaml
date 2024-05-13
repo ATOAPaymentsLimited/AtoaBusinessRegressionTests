@@ -6,11 +6,7 @@ onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
 
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/login.yaml
-    env:
-        USER: 'STAFFMEMBER'
-        ID: ${output.env.EMPLOYEE_MOBILE_A2}
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
