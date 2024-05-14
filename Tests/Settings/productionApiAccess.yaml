@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/Settings/sandboxApiAccess.yaml
+name: Tests/Settings/productionApiAccess.yaml
 tags:
     - dev
 onFlowStart:

@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/Settings/merchantAbout.yaml
+name: Tests/Settings/supervisorAbout.yaml
 tags:
     - dev
 onFlowStart:

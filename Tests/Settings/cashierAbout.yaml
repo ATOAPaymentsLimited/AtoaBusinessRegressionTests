@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/Settings/supervisorAbout.yaml
+name: Tests/Settings/cashierAbout.yaml
 tags:
     - dev
 onFlowStart:
