@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/Profile/address1TextFieldValidations.yaml
+name: Tests/Profile/firstNameAndLastNameTextFieldValidations.yaml
 tags:
     - dev
 onFlowStart:

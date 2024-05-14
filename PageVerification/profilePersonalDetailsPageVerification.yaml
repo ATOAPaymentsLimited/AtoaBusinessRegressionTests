@@ -1,5 +1,18 @@
 appId: ${APP_ID}
 ---
+
+- runFlow:
+    when:
+        true: ${USER == 'STAFFMEMBER'}
+    commands:
+      - assertVisible: 
+          text: ${output.employeeProfilePage.addPhoto}
+          enabled: true
+      - assertVisible:
+          text: ${output.employeeProfilePage.mobileField}
+          containsDescendants:
+            - ${MOBILENUMBER}
+
 - assertVisible:
     text: ${output.profilePage.firstNameField}
     containsDescendants:
@@ -10,10 +23,14 @@ appId: ${APP_ID}
     containsDescendants:
       - ${LNAME}
 
-- assertVisible:
-    text: ${output.profilePage.mobileNumberField}
-    containsDescendants:
-      - ${MOBILENUMBER}
+- runFlow:
+    when:
+        true: ${USER == 'BUSIENSSOWNER'}
+    commands:
+      - assertVisible:
+          text: ${output.profilePage.mobileNumberField}
+          containsDescendants:
+            - ${MOBILENUMBER}
 
 - assertVisible:
     text: ${output.profilePage.emailField}

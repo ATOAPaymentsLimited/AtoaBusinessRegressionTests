@@ -1,0 +1,32 @@
+appId: ${APP_ID}
+name: Tests/Profile/cashierProfileVerification.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_A2}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.profileText}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/profilePersonalDetailsPageVerification.yaml
+    env:
+        FNAME: ${output.env.EMPLOYEE_FNAME}
+        LNAME: ${output.env.EMPLOYEE_LNAME}
+        MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_A2}
+        EMAIL: ${output.env.EMPLOYEE_EMAIL_A2}
