@@ -2,6 +2,7 @@ flows:
   - "Tests/Signup/*"
   - "Tests/StaffManagement/*"
   - "Tests/Settings/*"
+  - "Tests/Analytics/*"
 
 
 # includeTags:
