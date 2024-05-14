@@ -1,0 +1,43 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${output.analyticsPage.dailyTab}
+    enabled: true 
+
+- assertVisible:
+    text: ${output.analyticsPage.reportsTab}
+    enabled: true 
+
+- assertVisible: 
+    text: ${output.env.poundSymbol}${output.env.amount0}
+    above: ${output.analyticsPage.totalAmountText}
+
+- assertVisible: 
+    text: ${output.env.poundSymbol}${output.env.amount0}
+    above: ${output.analyticsPage.avgPaymentValueText}
+
+- assertVisible: 
+    text: ${output.env.amount0}
+    above: ${output.analyticsPage.noOfPaymentsText}
+
+- assertVisible: 
+    text: ${output.env.amount0}
+    above: ${output.analyticsPage.noOfCustomersText}
+
+- runFlow:  
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.analyticsPage.reportsTab}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.analyticsPage.oneWeekTab}
+    enabled: true
+
+- assertVisible:
+    text: ${output.analyticsPage.fourWeekTab}
+    enabled: true
+
+- assertVisible:
+    text: ${output.analyticsPage.mtdTab}
+    enabled: true

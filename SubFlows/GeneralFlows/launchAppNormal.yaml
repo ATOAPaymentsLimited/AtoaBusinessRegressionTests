@@ -4,3 +4,11 @@ appId: ${APP_ID}
     appId: ${output.env.APP_ID}
     stopApp: true
     permissions: { all: allow }
+
+- runFlow:
+    when:
+        visible: ${output.pinPage.enterPinText}
+    file: enterPin.yaml
+    env:
+        PIN: ${output.env.validPin1}
+- waitForAnimationToEnd

@@ -59,3 +59,6 @@ executionOrder:
         - Tests/Tips/tipsPercentageTextFieldValidations.yaml
         - Tests/Tips/supervisorTipsVerification.yaml
         - Tests/Tips/cashierTipsVerification.yaml
+    #Analytics
+        - Tests/Analytics/analyticsPageVerificationHomePage.yaml
+        - Tests/Analytics/analyticsPageVerificationSideMenu.yaml

@@ -4,7 +4,7 @@ output.analyticsPage = {
     reportsTab: 'Reports',
     totalAmountText: ' Total amount',
     avgPaymentValueText: 'Avg. Payment Value',
-    noOfPAymentsText: 'No. of Payments',
+    noOfPaymentsText: 'No. of Payments',
     noOfCustomersText: 'No. of Customers',
 
     oneWeekTab: '1w',
