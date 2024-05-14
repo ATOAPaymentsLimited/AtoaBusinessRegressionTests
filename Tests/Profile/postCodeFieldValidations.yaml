@@ -21,7 +21,7 @@ onFlowStart:
         INDEX: 0
 
 - runFlow:
-    file: ../../PageVerification/businessDetailsPageVerification.yaml
+    file: ../../PageVerification/profileBusinessDetailsPageVerification.yaml
     env:
         BUSINESSTYPE: 'SOLETRADER'
         BUSINESSNAME: ${output.env.BUSINESS_NAME_E}

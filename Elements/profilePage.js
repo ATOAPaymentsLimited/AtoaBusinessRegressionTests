@@ -29,10 +29,10 @@ output.profilePage = {
     updateBusinessDetailsButton: 'Update business details',
     updatePersonalDetailsButton: 'Update personal details',
 
-    email: 'Email Address*',
-    firstName: 'First Name* TextFormField',
-    lastName: 'Last Name* TextFormField',
-    mobileNumber: 'Mobile Number',
+    emailField: 'Email Address* TextFormField',
+    firstNameField: 'First Name* TextFormField',
+    lastNameField: 'Last Name* TextFormField',
+    mobileNumberField: 'Mobile Number TextFormField',
 
     updatedToast: 'Updated successfully',
 

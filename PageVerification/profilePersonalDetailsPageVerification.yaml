@@ -1,0 +1,21 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${output.profilePage.firstNameField}
+    containsDescendants:
+      - ${FNAME}
+
+- assertVisible:
+    text: ${output.profilePage.lastNameField}
+    containsDescendants:
+      - ${LNAME}
+
+- assertVisible:
+    text: ${output.profilePage.mobileNumberField}
+    containsDescendants:
+      - ${MOBILENUMBER}
+
+- assertVisible:
+    text: ${output.profilePage.emailField}
+    containsDescendants:
+      - ${EMAIL}
