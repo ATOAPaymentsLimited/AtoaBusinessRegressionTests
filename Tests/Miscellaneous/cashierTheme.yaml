@@ -1,0 +1,85 @@
+appId: ${APP_ID}
+name: Tests/Miscellaneous/cashierTheme.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.sideMenuPage.lightThemeTab}
+    direction: DOWN
+
+- assertVisible: 
+    text: ${output.sideMenuPage.themeCheckbox}
+    enabled: true 
+
+- assertVisible:
+    text: ${output.sideMenuPage.lightThemeTab}
+   
+- assertVisible:
+    text: ${output.sideMenuPage.darkThemeTab}
+
+# disable system theme
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.themeCheckbox}
+        INDEX: 0
+
+- assertVisible: 
+    text: ${output.sideMenuPage.themeCheckbox}
+    enabled: true 
+
+- assertVisible:
+    text: ${output.sideMenuPage.lightThemeTab}
+    enabled: true 
+- assertVisible:
+    text: ${output.sideMenuPage.darkThemeTab}
+    enabled: true 
+
+# change to dark theme
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.darkThemeTab}
+        INDEX: 0
+
+- assertVisible: 
+    text: ${output.sideMenuPage.themeCheckbox}
+    enabled: true 
+
+- assertVisible:
+    text: ${output.sideMenuPage.lightThemeTab}
+    enabled: true  
+- assertVisible:
+    text: ${output.sideMenuPage.darkThemeTab}
+    enabled: true  
+
+# Switch to system theme again
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.themeCheckbox}
+        INDEX: 0
+
+- assertVisible: 
+    text: ${output.sideMenuPage.themeCheckbox}
+    enabled: true  
+
+- assertVisible:
+    text: ${output.sideMenuPage.lightThemeTab}
+
+- assertVisible:
+    text: ${output.sideMenuPage.darkThemeTab} 
+    

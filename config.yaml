@@ -63,3 +63,10 @@ executionOrder:
     #Analytics
         - Tests/Analytics/analyticsPageVerificationHomePage.yaml
         - Tests/Analytics/analyticsPageVerificationSideMenu.yaml
+    #Miscellaneous
+        - Tests/Miscellaneous/merchantSupport.yaml
+        - Tests/Miscellaneous/merchantTheme.yaml
+        - Tests/Miscellaneous/supervisorSupport.yaml
+        - Tests/Miscellaneous/supervisorTheme.yaml
+        - Tests/Miscellaneous/cashierSupport.yaml
+        - Tests/Miscellaneous/cashierTheme.yaml

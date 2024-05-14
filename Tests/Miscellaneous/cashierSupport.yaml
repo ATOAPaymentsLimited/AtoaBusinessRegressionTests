@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/Miscellaneous/merchantSupport.yaml
+name: Tests/Miscellaneous/cashierSupport.yaml
 tags:
     - dev
 onFlowStart:
