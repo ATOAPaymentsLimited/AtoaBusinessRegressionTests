@@ -1,0 +1,94 @@
+appId: ${APP_ID}
+name: Tests/Profile/address2TextFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.profileText}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/businessDetailsPageVerification.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_E}
+        INDUSTRYTYPE: ${output.profilePage.industry1}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_2}
+        ADDRESS2: ${output.profilePage.addressLine2}
+        CITY: ${output.env.CITY_1}
+        POSTCODE: ${output.env.POST_CODE_1}
+
+- scrollUntilVisible:
+    element: ${output.profilePage.addressLine2Field}
+    direction: UP
+
+# Special characters
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.profilePage.addressLine2Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.profilePage.addressLine2Field}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.profilePage.updateBusinessDetailsButton}
+    direction: DOWN
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.profilePage.updateBusinessDetailsButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.profilePage.addressLine2Field}
+    direction: UP
+
+- assertVisible:
+    text: ${output.profilePage.addressLine2Field}
+    containsDescendants:
+      - ${output.profilePage.addressLine2SpecialCharactersError}
+
+# Valid
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.profilePage.addressLine2Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.profilePage.addressLine2Field}
+        TEXT: ${output.env.ADDRESS_LINE2_2}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.profilePage.updateBusinessDetailsButton}
+    direction: DOWN
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.profilePage.updateBusinessDetailsButton}
+        INDEX: 0
+- waitForAnimationToEnd
+

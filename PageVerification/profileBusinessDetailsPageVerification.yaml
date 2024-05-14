@@ -1,0 +1,194 @@
+appId: ${APP_ID}
+---
+
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'SOLETRADER'}
+    commands:
+      - assertVisible: 
+          text: ${output.profilePage.businessTypeField}
+          containsDescendants:
+            - ${output.profilePage.soleTrader}
+      - assertVisible:
+          text: ${output.profilePage.businessNameField}
+          containsDescendants:
+            - ${BUSINESSNAME}
+      - assertVisible:
+          text: ${output.profilePage.industryField}
+          containsDescendants:
+            - ${INDUSTRYTYPE}     
+      - scrollUntilVisible:
+          element: ${output.profilePage.addressLine2Field}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.addressLine1Field}
+          containsDescendants:
+            - ${ADDRESS1}
+      - assertVisible:
+          text: ${output.profilePage.addressLine2Field}
+          containsDescendants:
+            - ${ADDRESS2}
+      - scrollUntilVisible:
+          element: ${output.profilePage.postCodeField}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.cityField}
+          containsDescendants:
+            - ${CITY}
+      - assertVisible:
+          text: ${output.profilePage.postCodeField}
+          containsDescendants:
+            - ${POSTCODE}
+      - scrollUntilVisible:
+          element: ${output.profilePage.updateBusinessDetailsButton}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.vatToggle}
+          enabled: true
+      - assertVisible:
+          text: ${output.profilePage.serviceChargeToggle}
+          enabled: true
+  
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'LIMITEDCOMPANY'}
+    commands:
+      - assertVisible: 
+          text: ${output.profilePage.businessTypeField}
+          containsDescendants:
+            - ${output.profilePage.limitedCompany}
+      - assertVisible:
+          text: ${output.profilePage.crnField}
+          containsDescendants:
+            - ${CRN}
+      - assertVisible:
+          text: ${output.profilePage.businessNameField}
+          containsDescendants:
+            - ${BUSINESSNAME}
+      - scrollUntilVisible:
+          element: ${output.profilePage.addressLine2Field}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.addressLine1Field}
+          containsDescendants:
+            - ${ADDRESS1}
+      - assertVisible:
+          text: ${output.profilePage.addressLine2Field}
+          containsDescendants:
+            - ${ADDRESS2}
+      - scrollUntilVisible:
+          element: ${output.profilePage.postCodeField}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.cityField}
+          containsDescendants:
+            - ${CITY}
+      - assertVisible:
+          text: ${output.profilePage.postCodeField}
+          containsDescendants:
+            - ${POSTCODE}
+      - scrollUntilVisible:
+          element: ${output.profilePage.turnoverDropdown}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.industryTypeDropdown}
+          containsDescendants:
+            - ${INDUSTRYTYPE}
+      - assertVisible:
+          text: ${output.profilePage.turnoverDropdown}
+          containsDescendants:
+            - ${TURNOVER} 
+      - scrollUntilVisible:
+          element: ${output.profilePage.updateBusinessDetailsButton}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.vatToggle}
+          enabled: true
+      - assertVisible:
+          text: ${output.profilePage.serviceChargeToggle}
+          enabled: true
+        
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'CHARITY'}
+    commands:
+      - assertVisible: 
+          text: ${output.profilePage.businessTypeField}
+          containsDescendants:
+            - ${output.profilePage.charity}
+      - assertVisible:
+          text: ${output.profilePage.charityNumberField}
+          containsDescendants:
+            - ${CRN}
+      - assertVisible:
+          text: ${output.profilePage.charityNameField}
+          containsDescendants:
+            - ${BUSINESSNAME}
+      - scrollUntilVisible:
+          element: ${output.profilePage.addressLine2Field}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.addressLine1Field}
+          containsDescendants:
+            - ${ADDRESS1}
+      - assertVisible:
+          text: ${output.profilePage.addressLine2Field}
+          containsDescendants:
+            - ${ADDRESS2}
+      - scrollUntilVisible:
+          element: ${output.profilePage.postCodeField}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.cityField}
+          containsDescendants:
+            - ${CITY}
+      - assertVisible:
+          text: ${output.profilePage.postCodeField}
+          containsDescendants:
+            - ${POSTCODE}
+      - scrollUntilVisible:
+          element: ${output.profilePage.updateBusinessDetailsButton}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.turnoverDropdown}
+          containsDescendants:
+            - ${TURNOVER} 
+
+- runFlow:
+    when:
+        true: ${INDUSTRYTYPE == 'Other'}
+    commands:
+      - assertVisible:
+          text: ${output.profilePage.describeYourBusiness}
+          containsDescendants:
+            - ${DESCRIPTION}
+
+- runFlow:
+    when:
+        true: ${VAT}
+    commands:
+      - scrollUntilVisible:
+          element: ${output.profilePage.vat}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.vat}
+          containsDescendants:
+            - ${VAT}
+
+- runFlow:
+    when:
+        true: ${SERVICECHARGE}
+    commands:
+      - scrollUntilVisible:
+          element: ${output.profilePage.serviceCharge}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.profilePage.serviceCharge}
+          containsDescendants:
+            - ${SERVICECHARGE}
+
+- scroll
+
+- assertVisible:
+    text: ${output.profilePage.updateBusinessDetailsButton}
+    enabled: true 

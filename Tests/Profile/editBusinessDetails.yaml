@@ -1,0 +1,113 @@
+appId: ${APP_ID}
+name: Tests/Profile/editBusinessDetails.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.profileText}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/businessDetailsPageVerification.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_E}
+        INDUSTRYTYPE: ${output.profilePage.industry1}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_2}
+        ADDRESS2: ${output.profilePage.ADDRESS_LINE1_2}
+        CITY: ${output.env.CITY_2}
+        POSTCODE: ${output.env.POST_CODE_2}
+
+- scrollUntilVisible:
+    element: ${output.profilePage.addressLine1Field}
+    direction: UP
+
+# Original address 1
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.profilePage.addressLine1Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.profilePage.addressLine1Field}
+        TEXT: ${output.env.ADDRESS_LINE1_1}
+        KEYBOARD: true
+
+# original address 2
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.profilePage.addressLine2Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.profilePage.addressLine1Field}
+        TEXT: ${output.env.ADDRESS_LINE2_1}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.profilePage.cityField}
+    direction: DOWN
+
+# Original city
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.profilePage.cityField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.profilePage.cityField}
+        TEXT: ${output.env.CITY_1}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.profilePage.postCodeField}
+    direction: DOWN
+
+# Original post code
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.profilePage.postCodeField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.profilePage.postCodeField}
+        TEXT: ${output.env.POST_CODE_1}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.profilePage.updateBusinessDetailsButton}
+    direction: DOWN
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.profilePage.updateBusinessDetailsButton}
+        INDEX: 0
+- waitForAnimationToEnd
