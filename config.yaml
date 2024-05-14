@@ -3,7 +3,8 @@ flows:
   - "Tests/StaffManagement/*"
   - "Tests/Settings/*"
   - "Tests/Analytics/*"
-
+  - "Tests/Miscellaneous/*"
+  - "Tests/Profile/*"
 
 # includeTags:
 #   - dev
@@ -70,3 +71,12 @@ executionOrder:
         - Tests/Miscellaneous/supervisorTheme.yaml
         - Tests/Miscellaneous/cashierSupport.yaml
         - Tests/Miscellaneous/cashierTheme.yaml
+    #Profile
+        - Tests/Profile/address1TextFieldValidations.yaml
+        - Tests/Profile/address2TextFieldValidations.yaml
+        - Tests/Profile/cityTextFieldValidations.yaml
+        - Tests/Profile/postCodeFieldValidations.yaml
+        - Tests/Profile/editBusinessDetails.yaml
+        - Tests/Profile/firstNameAndLastNameTextFieldValidations.yaml
+        - Tests/Profile/cashierProfileVerification.yaml
+        - Tests/Profile/supervisorProfileVerification.yaml
