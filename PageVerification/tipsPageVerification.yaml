@@ -15,7 +15,7 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-        true: ${DISABLED}
+        true: ${DISABLED && USER == 'BUSINESSOWNER'}
     commands: 
       - assertVisible: 
           text: ${output.tipsPage.allowTipsSwitch}

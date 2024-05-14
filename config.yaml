@@ -54,3 +54,8 @@ executionOrder:
         - Tests/Settings/supervisorHowItWorks.yaml
         - Tests/Settings/supervisorVoiceNotificationToggle.yaml
         - Tests/Settings/supervisorLogout.yaml
+    #Tips
+        - Tests/Tips/tipsAmountTextFieldValidations.yaml
+        - Tests/Tips/tipsPercentageTextFieldValidations.yaml
+        - Tests/Tips/supervisorTipsVerification.yaml
+        - Tests/Tips/cashierTipsVerification.yaml
