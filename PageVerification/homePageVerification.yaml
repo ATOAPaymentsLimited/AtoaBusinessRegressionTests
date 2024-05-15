@@ -1,0 +1,128 @@
+appId: ${APP_ID}
+---
+
+- assertVisible:
+    text: ${output.merchantHomePage.myAccountButton}
+    enabled: true
+
+- assertVisible:
+    text: ${output.merchantHomePage.notificationButton}
+    enabled: true
+
+- assertVisible:
+    text: ${output.merchantHomePage.acceptPaymentButton}
+    enabled: true
+
+- runFlow:
+    when:
+        true: ${KYB == 'PENDING'}
+    commands: 
+      - assertVisible:
+          text: ${output.merchantHomePage.kybBanner}
+          containsDescendants: 
+            - ${output.merchantHomePage.kybBannerHeader}
+          containsDescendants: 
+            - ${output.merchantHomePage.kybBannerText}
+          containsDescendants: 
+            - ${output.merchantHomePage.kybBannerVerifyButton}
+          containsDescendants: 
+            - ${output.merchantHomePage.kybProgressBar}
+          containsDescendants: 
+            - ${output.merchantHomePage.kybProgressBarText}
+
+# - runFlow:
+#     when:
+#         true: ${BACS == 'PENDING' && USER == 'BUSINESSOWNER' && KYB == 'DONE'}
+#     commands: 
+#       - assertVisible:
+#           text: ${output.merchantHomePage.kybBanner}
+#           containsDescendants: 
+#             - ${output.merchantHomePage.kybBannerHeader}
+#           containsDescendants: 
+#             - ${output.merchantHomePage.kybBannerText}
+#           containsDescendants: 
+#             - ${output.merchantHomePage.kybBannerVerifyButton}
+#           containsDescendants: 
+#             - ${output.merchantHomePage.kybProgressBar}
+#           containsDescendants: 
+#             - ${output.merchantHomePage.kybProgressBarText}
+
+- assertVisible:
+    text: ${output.merchantHomePage.paymentsButton}
+    enabled: true
+
+- assertVisible:
+    text: ${output.merchantHomePage.linksButton}
+    enabled: true
+
+- assertVisible:
+    text: ${output.merchantHomePage.tipsButton}
+    enabled: true
+
+- runFlow:
+    when:
+        true: ${QR == 'LINKED' || USER == 'STAFFMEMBER'}
+    commands:
+       - assertVisible:
+            text: ${output.merchantHomePage.showQRButton}
+            enabled: true
+
+- runFlow:
+    when:
+        true: ${QR == 'NOTLINKED' && USER == 'BUSINESSOWNER'}
+    commands:
+       - assertVisible:
+            text: ${output.merchantHomePage.orderQRButton}
+            enabled: true
+
+- runFlow:
+    when:
+        true: ${USER == 'BUSINESSOWNER' || ROLE == 'SUPERVISOR'}
+    commands:
+      - assertVisible:
+          text: ${output.merchantHomePage.employeesButton}
+          enabled: true
+
+- runFlow:
+    when:
+        true: ${ROLE == 'CASHIER'}
+    commands:
+      - assertVisible:
+          text: ${output.employeeHomePage.profileButton}
+          enabled: true
+
+- runFlow:
+    when:
+        true: ${USER == 'BUSINESSOWNER'}
+    commands: 
+      - assertVisible:
+          text: ${output.merchantHomePage.analyticsButton}
+          enabled: true
+      - assertVisible:
+          text: ${output.merchantHomePage.rewardsButton}
+          enabled: true
+
+- runFlow:
+    when:
+        true: ${USER == 'STAFFMEMBER'}
+    commands:
+      - assertVisible:
+          text: ${output.employeeHomePage.settingsButton}
+          enabled: true
+      - assertVisible:
+          text: ${output.employeeHomePage.supportButton}
+          enabled: true
+
+- assertVisible:
+    text: ${output.merchantHomePage.inviteButton}
+    enabled: true
+
+- scroll
+
+# - assertVisible: 
+#     text: ${output.merchantHomePage.offerBanner}
+#     enabled: true
+
+- assertVisible: ${output.merchantHomePage.copyrightText}
+
+

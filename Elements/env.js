@@ -53,6 +53,26 @@ output.env = {
    EMPLOYEE_MOBILE_E2: '9591661661',
    EMPLOYEE_EMAIL_E2: 'emp9591661661@gmail.com',
 
+   MERCHANT_F: 'F',
+   MERCHANT_MOBILE_F: '72183472137',
+   BUSINESS_NAME_F: 'Business 8347',
+   CRN_F: '48248348',
+   MERCHANT_EMAIL_F: 'atoabusiness8347@gmail.com',
+   EMPLOYEE_MOBILE_F: '73773773834',
+
+   MERCHANT_G: 'G',
+   MERCHANT_MOBILE_G: '72183472112',
+   BUSINESS_NAME_G: 'Business 8312',
+   CRN_G: '48248312',
+   MERCHANT_EMAIL_G: 'atoabusiness8312@gmail.com',
+   EMPLOYEE_MOBILE_G: '73773773812',
+
+   MERCHANT_H: 'H',
+   MERCHANT_MOBILE_H: '72183472113',
+   BUSINESS_NAME_H: 'Business 8313',
+   CRN_H: '48248313',
+   MERCHANT_EMAIL_H: 'atoabusiness8313@gmail.com',
+   EMPLOYEE_MOBILE_H: '73773773813',
   //-----------------------------------------------------
   //-----------------------------------------------------
   //-----------------------------------------------------  

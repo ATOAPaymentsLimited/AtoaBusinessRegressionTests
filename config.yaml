@@ -80,3 +80,16 @@ executionOrder:
         - Tests/Profile/firstNameAndLastNameTextFieldValidations.yaml
         - Tests/Profile/cashierProfileVerification.yaml
         - Tests/Profile/supervisorProfileVerification.yaml
+    #HomePage
+        - Tests/HomePage/merchantHomePageApprovedKyb.yaml
+        - Tests/HomePage/merchantHomePagePendingKyb.yaml
+        - Tests/HomePage/supervisorHomePageApprovedKyb.yaml
+        - Tests/HomePage/supervisorHomePagePendingKyb.yaml
+        - Tests/HomePage/cashierHomePageApprovedKyb.yaml
+        - Tests/HomePage/cashierHomePagePendingKyb.yaml
+        - Tests/HomePage/merchantSuspendedPageVerification.yaml
+        - Tests/HomePage/merchantBlockedPageVerification.yaml
+        - Tests/HomePage/merchantFraudulentPageVerification.yaml
+        - Tests/HomePage/employeeSuspendedPageVerification.yaml
+        - Tests/HomePage/employeeBlockedPageVerification.yaml
+        - Tests/HomePage/employeeFraudulentPageVerification.yaml

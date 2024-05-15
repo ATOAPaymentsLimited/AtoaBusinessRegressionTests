@@ -1,0 +1,18 @@
+appId: ${APP_ID}
+name: Tests/HomePage/cashierHomePagePendingKyb.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_B2}
+
+- runFlow:
+    file: ../../PageVerification/homePageVerification.yaml
+    env:
+        KYB: 'PENDING'
+

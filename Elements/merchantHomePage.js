@@ -6,7 +6,7 @@ output.merchantHomePage = {
     myAccountButton: 'My Account button',
     notificationButton: 'Notifications Icon button',
     acceptPaymentButton: 'Accept Payment',
-    transactionsButton: 'Payments',
+    paymentsButton: 'Payments',
     linksButton: 'Links',
     employeesButton: 'Staff',
     inviteButton: 'Invite',

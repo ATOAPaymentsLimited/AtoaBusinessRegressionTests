@@ -20,6 +20,8 @@ appId: ${APP_ID}
         TEXT: ${output.env.validOtp}
 
 - runFlow:
+    when:
+        visible: ${output.secureAtoaPage.enableAppLockTitle}
     file: setAppLock.yaml
     env:
         PIN1: ${output.env.validPin1}

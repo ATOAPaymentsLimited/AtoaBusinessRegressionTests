@@ -1,0 +1,17 @@
+appId: ${APP_ID}
+---
+
+- assertVisible: 
+    text: ${BUSINESS_NAME}
+
+- assertVisible: ${output.fraudulentPage.fraudulentTitle}
+- assertVisible: ${output.fraudulentPage.fraudulentDescription}
+- assertVisible: 
+    text: ${output.fraudulentPage.addInformationButton}
+    enabled: true 
+
+- assertVisible: ${output.fraudulentPage.supportText}
+- assertVisible: 
+    text: ${output.fraudulentPage.supportEmail} 
+    enabled: true   
+- assertVisible: ${output.fraudulentPage.copyrightText}

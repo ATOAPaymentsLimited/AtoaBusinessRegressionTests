@@ -1,0 +1,17 @@
+appId: ${APP_ID}
+name: Tests/HomePage/merchantSuspendedPageVerification.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_F}
+
+- runFlow: 
+    file: ../../PageVerification/suspendedPageVerification.yaml
+    env:
+        BUSINESS_NAME:  ${output.env.BUSINESS_NAME_F}

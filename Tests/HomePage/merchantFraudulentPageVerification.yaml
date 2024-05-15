@@ -1,0 +1,17 @@
+appId: ${APP_ID}
+name: Tests/HomePage/merchantFraudulentPageVerification.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_H}
+
+- runFlow: 
+    file: ../../PageVerification/fraudulentPageVerification.yaml
+    env:
+        BUSINESS_NAME:  ${output.env.BUSINESS_NAME_H}

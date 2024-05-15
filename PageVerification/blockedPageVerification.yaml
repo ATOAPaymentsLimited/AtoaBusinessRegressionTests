@@ -1,0 +1,17 @@
+appId: ${APP_ID}
+---
+- assertVisible: ${output.blockedPage.blockedPageTitle}
+- assertVisible: 
+    text: ${output.blockedPage.loginAnotherBusinessButton}
+    enabled: true
+- assertVisible: ${output.blockedPage.supportText}
+- assertVisible: 
+    text: ${output.blockedPage.supportEmail}
+    enabled: true 
+- assertVisible: ${output.blockedPage.copyrightText}
+
+- tapOn:
+    text: ${output.blockedPage.loginAnotherBusinessButton}
+    enabled: true
+
+- runFlow: userTypeSelectionPageVerification.yaml

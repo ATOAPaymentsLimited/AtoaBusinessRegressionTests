@@ -1,0 +1,20 @@
+appId: ${APP_ID}
+name: Tests/HomePage/merchantHomePagePendingKyb.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_B}
+
+- runFlow:
+    file: ../../PageVerification/homePageVerification.yaml
+    env:
+        KYB: 'PENDING'
+        BACS: 'PENDING'
+        QR: 'NOTLINKED'
+

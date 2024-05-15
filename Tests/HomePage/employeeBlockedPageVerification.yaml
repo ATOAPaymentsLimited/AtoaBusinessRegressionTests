@@ -1,0 +1,17 @@
+appId: ${APP_ID}
+name: Tests/HomePage/merchantBlockedPageVerification.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_G}
+
+- runFlow: 
+    file: ../../PageVerification/blockedPageVerification.yaml
+    env:
+        BUSINESS_NAME:  ${output.env.BUSINESS_NAME_G}

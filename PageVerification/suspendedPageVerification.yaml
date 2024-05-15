@@ -1,0 +1,13 @@
+appId: ${APP_ID}
+---
+- assertVisible: 
+    text: ${output.suspendedPage.refreshButton}
+    enabled: true 
+
+- assertVisible: ${output.suspendedPage.suspendedTitle}
+- assertVisible: ${output.suspendedPage.suspendedDescription}
+- assertVisible: ${output.suspendedPage.supportText}
+- assertVisible: 
+    text: ${output.suspendedPage.supportEmail}
+    enabled: true 
+- assertVisible: ${output.suspendedPage.copyrightText}
