@@ -12,14 +12,19 @@ onFlowStart:
 # - runFlow:
 #     file: SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
 #     env: 
-#         TEXT: ${output.env.MERCHANT_MOBILE_D}
+#         TEXT: ${output.env.MERCHANT_MOBILE_I}
 #         SIGNUP: true
+
+# - runFlow:
+#     file: SubFlows/GeneralFlows/enterOtp.yaml
+#     env: 
+#         TEXT: ${output.env.validOtp}
 
 # - runFlow:
 #     file: SubFlows/GeneralFlows/enterBusinessDetails.yaml
 #     env:
 #         BUSINESSTYPE: 'SOLETRADER'
-#         BUSINESSNAME: ${output.env.BUSINESS_NAME_D}
+#         BUSINESSNAME: ${output.env.BUSINESS_NAME_I}
 #         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
 #         TURNOVER: ${output.env.turnoverOption1}
 #         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
@@ -32,184 +37,27 @@ onFlowStart:
 #     env:
 #         FNAME: ${output.env.MERCHANT_FNAME}
 #         LNAME: ${output.env.MERCHANT_LNAME}
-#         EMAIL: ${output.env.MERCHANT_EMAIL_D}
+#         EMAIL: ${output.env.MERCHANT_EMAIL_I}
 #         SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
 #         CONTINUE: true 
 
-# - runFlow:
-#     file: SubFlows/GeneralFlows/enterBankDetails.yaml
-#     env:
-#         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-#         ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
-#         CONFIRMACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
-#         SORTCODE: ${output.env.SORT_CODE_1}
-
-# - runFlow:
-#     file: ElementActions/tapOn.yaml
-#     env:
-#         ELEMENT: ${output.earnWithTipsPage.finishSetup}
-#         INDEX: 0
-
-# - runFlow:
-#     file: SubFlows/GeneralFlows/setAppLock.yaml
-#     env:
-#         PIN1: ${output.env.validPin1}
-#         PIN2: ${output.env.validPin1}
-# - waitForAnimationToEnd
-
-
-
 - runFlow:
-    file: ElementActions/eraseText.yaml
+    file: SubFlows/GeneralFlows/enterBankDetails.yaml
     env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption1}
-        KEYBOARD: true
-
-- runFlow:
-    file: ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption1}
-        TEXT: ${output.env.amount0}
-        KEYBOARD: true 
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        SORTCODE: ${output.env.SORT_CODE_1}
 
 - runFlow:
     file: ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
+        ELEMENT: ${output.earnWithTipsPage.finishSetup}
         INDEX: 0
 
-- assertVisible: ${output.tipPreferencesPage.emptyTipError}
-
-# Same values in two fields
-
 - runFlow:
-    file: ElementActions/eraseText.yaml
+    file: SubFlows/GeneralFlows/setAppLock.yaml
     env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption1}
-        KEYBOARD: true
-
-- runFlow:
-    file: ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption1}
-        TEXT: ${output.env.amount1}
-        KEYBOARD: true 
-
-- runFlow:
-    file: ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption2}
-        KEYBOARD: true
-
-- runFlow:
-    file: ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption2}
-        TEXT: ${output.env.amount1}
-        KEYBOARD: true 
-
-- runFlow:
-    file: ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
-        INDEX: 0
-
-- assertVisible: ${output.tipPreferencesPage.sameTipError}
-
-# Special characters
-
-- runFlow:
-    file: ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption1}
-        KEYBOARD: true
-
-- runFlow:
-    file: ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption1}
-        TEXT: ${output.env.specialCharacters}
-        KEYBOARD: true 
-
-- runFlow:
-    file: ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption2}
-        KEYBOARD: true
-
-- runFlow:
-    file: ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption2}
-        TEXT: ${output.env.specialCharacters}
-        KEYBOARD: true 
-
-- runFlow:
-    file: ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption3}
-        KEYBOARD: true
-
-- runFlow:
-    file: ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption3}
-        TEXT: ${output.env.specialCharacters}
-        KEYBOARD: true 
-
-- runFlow:
-    file: ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
-        INDEX: 0
-
-- assertVisible: ${output.tipPreferencesPage.emptyTipError}
-
-# Alphabets
-
-- runFlow:
-    file: ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption1}
-        KEYBOARD: true
-
-- runFlow:
-    file: ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption1}
-        TEXT: ${output.env.alphabets}
-        KEYBOARD: true 
-
-- runFlow:
-    file: ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption2}
-        KEYBOARD: true
-
-- runFlow:
-    file: ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption2}
-        TEXT: ${output.env.alphabets}
-        KEYBOARD: true 
-
-- runFlow:
-    file: ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption3}
-        KEYBOARD: true
-
-- runFlow:
-    file: ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.tipOption3}
-        TEXT: ${output.env.alphabets}
-        KEYBOARD: true 
-
-- runFlow:
-    file: ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
-        INDEX: 0
-
-- assertVisible: ${output.tipPreferencesPage.emptyTipError}
+        PIN1: ${output.env.validPin1}
+        PIN2: ${output.env.validPin1}
+- waitForAnimationToEnd

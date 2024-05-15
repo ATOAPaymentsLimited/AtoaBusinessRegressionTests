@@ -1,0 +1,20 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${output.transactionsPage.transactionsSearchBox}
+    enabled: true 
+
+- assertVisible:
+    text: ${output.transactionsPage.exportButton}
+    enabled: true
+
+- assertVisible:
+    text: ${output.transactionsPage.transactionsSearchBox}
+    enabled: true
+
+- assertVisible:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - ${}
+    containsDescendants:
+      - ${}

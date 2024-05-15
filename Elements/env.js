@@ -73,6 +73,16 @@ output.env = {
    CRN_H: '48248313',
    MERCHANT_EMAIL_H: 'atoabusiness8313@gmail.com',
    EMPLOYEE_MOBILE_H: '73773773813',
+
+   MERCHANT_I: 'I',
+   MERCHANT_MOBILE_I: '9151771771',
+   BUSINESS_NAME_I: 'B9151771771',
+   CRN_I: '91517717',
+   MERCHANT_EMAIL_I: 'ab9151771771@gmail.com',
+   EMPLOYEE_MOBILE_I1: '9251771771',
+   EMPLOYEE_EMAIL_I1: 'emp9251771771@gmail.com',
+   EMPLOYEE_MOBILE_I2: '9591771771',
+   EMPLOYEE_EMAIL_I2: 'emp9591771771@gmail.com',
   //-----------------------------------------------------
   //-----------------------------------------------------
   //-----------------------------------------------------  
@@ -386,5 +396,7 @@ output.env = {
    amount5000: '5,000.00',
    amount100: '100.00',
    amountGreaterThan100: '101',
+
+   
   
 }

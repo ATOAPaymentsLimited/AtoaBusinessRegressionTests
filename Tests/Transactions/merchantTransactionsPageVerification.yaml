@@ -1,0 +1,22 @@
+ appId: ${APP_ID}
+name: Tests/Transactions/transactionsPageVerification.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_E}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.paymentsButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/transactionsPageVerification.yaml
+    

@@ -1,7 +1,7 @@
 output.transactionsPage={
     transactionsPageTitle: 'Payments',
     transactionsSearchBox: 'Search Transactions',
-
+    refreshButton: 'Refresh button',
     exportButton: 'Export Transactions button',
     poundSymbol: '£',
     transactionTile: 'Transaction Tile',
