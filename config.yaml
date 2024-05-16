@@ -93,3 +93,5 @@ executionOrder:
         - Tests/HomePage/employeeSuspendedPageVerification.yaml
         - Tests/HomePage/employeeBlockedPageVerification.yaml
         - Tests/HomePage/employeeFraudulentPageVerification.yaml
+    #Transactions
+        - Tests/Transactions/merchantTransactionsPageVerification.yaml
