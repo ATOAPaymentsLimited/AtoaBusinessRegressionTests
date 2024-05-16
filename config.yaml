@@ -95,3 +95,6 @@ executionOrder:
         - Tests/HomePage/employeeFraudulentPageVerification.yaml
     #Transactions
         - Tests/Transactions/merchantTransactionsPageVerification.yaml
+    #OrderQR
+        - Tests/Miscellaneous/orderQRPageWithoutKyb.yaml
+        - Tests/Miscellaneous/orderQRPageApprovedKyb.yaml

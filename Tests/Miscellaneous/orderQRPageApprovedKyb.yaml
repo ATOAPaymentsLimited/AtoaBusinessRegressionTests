@@ -1,0 +1,164 @@
+appId: ${APP_ID}
+name: Tests/Miscellaneous/orderQRPageApprovedKyb.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_A}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.orderQRButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/orderQrPageVerification.yaml
+    env:
+        KYB: 'APPROVED'
+        ADDRESS: ${output.env.ADDRESS_LINE1_1}, ${output.env.POST_CODE_1}.
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.modifyAddressText}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerifications/modifyQROrderAddressPageVerification.yaml
+    env:
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+        ADDRESS2: ${output.env.address2}
+        POSTCODE: ${output.env.POST_CODE_1}
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_A}
+
+# Edit Address
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.address1Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.address1Field}
+        TEXT: ${output.env.ADDRESS_LINE1_2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.address2Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.address2Field}
+        TEXT: ${output.env.ADDRESS_LINE2_2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.postCodeField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.postCodeField}
+        TEXT: ${output.env.POST_CODE_2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.mobileNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.mobileNumberField}
+        TEXT: ${output.env.MERCHANT_MOBILE_B}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.updateButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/orderQrPageVerification.yaml
+    env:
+        KYB: 'APPROVED'
+        ADDRESS: ${output.env.ADDRESS_LINE1_2}, ${output.env.ADDRESS_LINE2_2}, ${output.env.POST_CODE_2}.
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.modifyAddressText}
+        INDEX: 0
+
+# Change address to original
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.address1Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.address1Field}
+        TEXT: ${output.env.ADDRESS_LINE1_1}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.address2Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.postCodeField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.postCodeField}
+        TEXT: ${output.env.POST_CODE_1}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.mobileNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.mobileNumberField}
+        TEXT: ${output.env.MERCHANT_MOBILE_A}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.orderQRPage.updateButton}
+        INDEX: 0
+
+- waitForAnimationToEnd

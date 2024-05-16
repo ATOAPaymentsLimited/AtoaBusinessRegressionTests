@@ -30,4 +30,15 @@ output.orderQRPage = {
 
     helloEmail: 'hello@paywithatoa.co.uk',
 
+    address1Field: 'Address Line 1* TextFormField',
+    address1: 'Address Line 1*',
+    address2Field: 'Address Line 2 (Optional) TextFormField',
+    address2: 'Address Line 2 (Optional)',
+    postCodeField: 'Post Code* TextFormField',
+    postCode: 'Post Code*',
+    mobileNumberField: 'Mobile Number* TextFormField',
+    mobileNumber: 'Mobile Number*',
+
+    updateButton: 'Update Address',
+
 }

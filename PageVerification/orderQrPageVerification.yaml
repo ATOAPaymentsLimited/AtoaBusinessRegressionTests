@@ -1,0 +1,36 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+      true: ${KYB == 'PENDING'}
+    commands:
+      - assertVisible: ${output.orderQRPage.pendingKYBSubtitle}
+      - assertVisible:
+          text: ${output.orderQRPage.kybBanner}
+          containsDescendants:
+            - ${output.orderQRPage.kybBannerHeader}
+          containsDescendants:
+            - ${output.orderQRPage.kybBannerText}
+          containsDescendants:
+            - ${output.orderQRPage.kybBannerVerifyButton}
+          containsDescendants:
+            - ${output.orderQRPage.kybProgressBar}
+          containsDescendants:
+            - ${output.orderQRPage.kybProgressBarText}
+
+- runFlow:
+    when:
+      true: ${KYB == 'APPROVED'}
+    commands:
+      - assertVisible: ${output.orderQRPage.orderedQRText} 
+      - assertVisible: ${output.orderQRPage.deliveringText} ${ADDRESS}   
+      - assertVisible:
+          text: ${output.orderQRPage.modifyAddressText}
+          enabled: true  
+      - assertVisible:  
+          text: ${output.orderQRPage.helloEmail}
+          enabled: true
+        
+
+            
+        

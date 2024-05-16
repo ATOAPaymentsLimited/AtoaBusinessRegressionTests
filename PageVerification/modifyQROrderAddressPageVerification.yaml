@@ -1,0 +1,21 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${output.orderQRPage.address1Field}
+    containsDescendants: 
+      - ${ADDRESS1}
+
+- assertVisible:
+    text: ${output.orderQRPage.address2Field}
+    containsDescendants: 
+      - ${ADDRESS2}
+
+- assertVisible:
+    text: ${output.orderQRPage.postCodeField}
+    containsDescendants: 
+      - ${POSTCODE}
+
+- assertVisible:
+    text: ${output.orderQRPage.mobileNumberField}
+    containsDescendants: 
+      - ${MOBILENUMBER}
