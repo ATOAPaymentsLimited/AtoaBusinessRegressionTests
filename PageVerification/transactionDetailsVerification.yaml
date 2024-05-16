@@ -1,0 +1,98 @@
+appId: ${APP_ID}
+---
+- assertVisible: ${output.env.poundSymbol}${AMOUNT}
+- assertVisible: ${STATUS}
+
+- runFlow:
+    when: 
+        true: ${STATUS == 'Successful' || STATUS == 'Processing' || STATUS == 'Failed'}
+    commands:
+      - scrollUntilVisible:
+          element: ${output.transactionDetailsPage.serviceChargeText}
+          direction: DOWN
+      - assertVisible:
+          text: ${output.env.poundSymbol}${TIP}
+          rightOf: ${output.transactionDetailsPage.tipText}
+      - assertVisible:
+          text: ${output.env.poundSymbol}${VAT}
+          rightOf: ${output.transactionDetailsPage.vatText}
+      - assertVisible:
+          text: ${output.env.poundSymbol}${SERVICECHARGE}
+          rightOf: ${output.transactionDetailsPage.serviceChargeText}
+
+- scrollUntilVisible:
+    element: ${output.transactionDetailsPage.customerText}
+    direction: DOWN
+
+- runFlow:
+    when:
+        true: ${SOURCE == 'QRWITHOUTAMOUNT' || SOURCE == 'QRWITHAMOUNT'}
+    commands:
+      - assertVisible:
+          text: ${output.transactionDetailsPage.paymentSource0}
+          rightOf: ${output.transactionDetailsPage.sourceText}
+
+- runFlow:
+    when:
+        true: ${SOURCE == 'PHYSICALQR'}
+    commands:
+      - assertVisible:
+          text: ${output.transactionDetailsPage.paymentSource2}
+          rightOf: ${output.transactionDetailsPage.sourceText}
+
+- runFlow:
+    when:
+        true: ${SOURCE == 'LINK'}
+    commands:
+      - assertVisible:
+          text: ${output.transactionDetailsPage.paymentSource4}
+          rightOf: ${output.transactionDetailsPage.sourceText}
+
+- runFlow:
+    when:
+        true: ${SOURCE == 'EXTERNALMERCHANT'}
+    commands:
+      - assertVisible:
+          text: ${output.transactionDetailsPage.paymentSource3}
+          rightOf: ${output.transactionDetailsPage.sourceText}
+
+- assertVisible: 
+    text: .*ATOA.*
+    rightOf: ${output.transactionDetailsPage.referenceText}
+
+- runFlow:
+    when: 
+        true: ${STATUS == 'Successful' || STATUS == 'Processing' || STATUS == 'Failed'}
+    commands:
+      - assertVisible:
+          text: ${BANKNAME} - ${ACCOUNTNUMBER}
+          rightOf: ${output.transactionDetailsPage.bankDetailsText}
+
+
+- assertVisible: ${output.transactionDetailsPage.customerText}
+
+- runFlow:
+    when: 
+        true: ${SOURCE == 'EXTERNALMERCHANT'}
+    commands:
+      - assertVisible:
+          text: ${ORDERID}
+          rightOf: ${output.transactionDetailsPage.orderIdText}
+
+- scroll
+
+- runFlow:
+    when: 
+        true: ${STATUS == 'Successful'}
+    commands:
+      - assertVisible:
+          text: ${output.transactionDetailsPage.refundButton}
+          enabled: true 
+
+- assertVisible:
+    text: ${output.transactionDetailsPage.downloadButton}
+    enabled: true 
+
+- assertVisible:
+    text: ${output.transactionDetailsPage.shareButton}
+    enabled: true 

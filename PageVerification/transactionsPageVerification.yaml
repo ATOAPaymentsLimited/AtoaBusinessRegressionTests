@@ -12,9 +12,252 @@ appId: ${APP_ID}
     text: ${output.transactionsPage.transactionsSearchBox}
     enabled: true
 
+- scroll
+
 - assertVisible:
     text: ${output.transactionsPage.transactionTile}
     containsDescendants:
-      - ${}
+      - ${output.transactionsPage.paymentSource0}
     containsDescendants:
-      - ${}
+      - +${output.env.poundSymbol}1.00
+
+- tapOn:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - +${output.env.poundSymbol}1.00
+
+- runFlow:
+    file: transactionDetailsVerification.yaml
+    env:
+        AMOUNT: '1.00'
+        SOURCE: 'QRWITHAMOUNT'
+        STATUS: 'Successful'
+        TIP: '0.00'
+        VAT: '0.00'
+        SERVICECHARGE: '0.00'
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+
+- runFlow:
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.transactionDetailsPage.backButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - ${output.transactionsPage.paymentSource4}
+    containsDescendants:
+      - +${output.env.poundSymbol}2.00
+
+- tapOn:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - +${output.env.poundSymbol}2.00
+
+- runFlow:
+    file: transactionDetailsVerification.yaml
+    env:
+        AMOUNT: '2.00'
+        SOURCE: 'LINK'
+        STATUS: 'Successful'
+        TIP: '0.00'
+        VAT: '0.00'
+        SERVICECHARGE: '0.00'
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+
+- runFlow:
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.transactionDetailsPage.backButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - ${output.transactionsPage.paymentSource1}
+    containsDescendants:
+      - +${output.env.poundSymbol}3.00
+
+- tapOn:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - +${output.env.poundSymbol}3.00
+
+- runFlow:
+    file: transactionDetailsVerification.yaml
+    env:
+        AMOUNT: '3.00'
+        SOURCE: 'QRWITHOUTAMOUNT'
+        STATUS: 'Successful'
+        TIP: '0.00'
+        VAT: '0.00'
+        SERVICECHARGE: '0.00'
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+
+- runFlow:
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.transactionDetailsPage.backButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - ${output.transactionsPage.paymentSource2}
+    containsDescendants:
+      - +${output.env.poundSymbol}4.00
+
+- tapOn:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - +${output.env.poundSymbol}4.00
+
+- runFlow:
+    file: transactionDetailsVerification.yaml
+    env:
+        AMOUNT: '4.00'
+        SOURCE: 'PHYSICALQR'
+        STATUS: 'Successful'
+        TIP: '0.00'
+        VAT: '0.00'
+        SERVICECHARGE: '0.00'
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+
+- runFlow:
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.transactionDetailsPage.backButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - ${output.transactionsPage.paymentSource3}
+    containsDescendants:
+      - +${output.env.poundSymbol}5.00
+
+- tapOn:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - +${output.env.poundSymbol}5.00
+
+- runFlow:
+    file: transactionDetailsVerification.yaml
+    env:
+        AMOUNT: '5.00'
+        SOURCE: 'EXTERNALMERCHANT'
+        STATUS: 'Successful'
+        TIP: '0.00'
+        VAT: '0.00'
+        SERVICECHARGE: '0.00'
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+        ORDERID: ${output.env.testOrderId}
+
+- runFlow:
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.transactionDetailsPage.backButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.transactionsPage.refundedChip}
+    direction: UP
+
+- assertVisible:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - ${output.transactionsPage.paymentSource4}
+    containsDescendants:
+      - ${output.env.poundSymbol}6.00
+    containsDescendants:
+      - ${output.transactionsPage.processingChip}
+
+- tapOn:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - ${output.env.poundSymbol}6.00
+
+- runFlow:
+    file: transactionDetailsVerification.yaml
+    env:
+        AMOUNT: '6.00'
+        SOURCE: 'LINK'
+        STATUS: 'Processing'
+        TIP: '0.00'
+        VAT: '0.00'
+        SERVICECHARGE: '0.00'
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+
+- runFlow:
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.transactionDetailsPage.backButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - ${output.transactionsPage.paymentSource4}
+    containsDescendants:
+      - ${output.env.poundSymbol}7.00
+    containsDescendants:
+      - ${output.transactionsPage.failedChip}
+
+- tapOn:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - ${output.env.poundSymbol}7.00
+
+- runFlow:
+    file: transactionDetailsVerification.yaml
+    env:
+        AMOUNT: '7.00'
+        SOURCE: 'LINK'
+        STATUS: 'Failed'
+        TIP: '0.00'
+        VAT: '0.00'
+        SERVICECHARGE: '0.00'
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+
+- runFlow:
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.transactionDetailsPage.backButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - ${output.transactionsPage.paymentSource4}
+    containsDescendants:
+      - +${output.env.poundSymbol}8.00
+    containsDescendants:
+      - ${output.transactionsPage.refundedChip}
+
+- tapOn:
+    text: ${output.transactionsPage.transactionTile}
+    containsDescendants:
+      - +${output.env.poundSymbol}8.00
+    containsDescendants:
+      - ${output.transactionsPage.refundedChip}
+
+- runFlow:
+    file: transactionDetailsVerification.yaml
+    env:
+        AMOUNT: '8.00'
+        SOURCE: 'LINK'
+        STATUS: 'Refunded'
+
+- runFlow:
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.transactionDetailsPage.backButton}
+        INDEX: 0

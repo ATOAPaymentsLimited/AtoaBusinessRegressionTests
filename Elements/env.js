@@ -304,11 +304,13 @@ output.env = {
    MERCHANT_BANK_NAME_1: 'Lloyds Bank Sandbox',
    MERCHANT_BANK_ACCOUNT_1: '28876851',
    MASKED_BANK_ACCOUNT_NUMBER_1: 'XXXXX851',
+   MERCAHNT_BANK_ACCOUNT_LAST_1: '851',
    SORT_CODE_1: '40-47-65',
    
    MERCHANT_BANK_NAME_2: 'Wise',
    MERCHANT_BANK_ACCOUNT_2: '77347358',
    MASKED_BANK_ACCOUNT_NUMBER_2: 'XXXXX358',
+   MERCAHNT_BANK_ACCOUNT_LAST_2: '358',
    SORT_CODE_2: '04-00-07',
 
    EMPLOYEE_BANK_NAME_1: 'Lloyds Bank Sandbox',
@@ -396,6 +398,8 @@ output.env = {
    amount5000: '5,000.00',
    amount100: '100.00',
    amountGreaterThan100: '101',
+
+   testOrderId: 'test-order-id',
 
    
   

@@ -14,6 +14,7 @@ output.transactionsPage={
     refundedChip: 'Refunded',
     failedChip: 'Failed',
     pendingChip: 'Pending',
+    processingChip: 'Processing',
 
     
     
