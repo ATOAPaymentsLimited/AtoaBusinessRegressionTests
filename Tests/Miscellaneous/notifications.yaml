@@ -1,0 +1,22 @@
+appId: ${APP_ID}
+name: Tests/Miscellaneous/notifications.yaml
+tags:
+  - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_I}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.notificationButton} 
+        INDEX: 0
+
+- runFlow: ../../PageVerification/notificationTrayVerification.yaml
+
+

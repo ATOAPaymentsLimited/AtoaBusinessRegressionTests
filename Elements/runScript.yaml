@@ -68,3 +68,4 @@ appId: ${APP_ID}
 - runScript: linkDetailsPage.js
 - runScript: selectBankAccountPage.js
 - runScript: aipAccessPage.js
+- runScript: notificationTrayPage.js

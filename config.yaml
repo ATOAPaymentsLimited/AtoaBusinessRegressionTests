@@ -71,6 +71,7 @@ executionOrder:
         - Tests/Miscellaneous/supervisorTheme.yaml
         - Tests/Miscellaneous/cashierSupport.yaml
         - Tests/Miscellaneous/cashierTheme.yaml
+        - Tests/Miscellaneous/notifications.yaml
     #Profile
         - Tests/Profile/address1TextFieldValidations.yaml
         - Tests/Profile/address2TextFieldValidations.yaml
@@ -98,3 +99,4 @@ executionOrder:
     #OrderQR
         - Tests/Miscellaneous/orderQRPageWithoutKyb.yaml
         - Tests/Miscellaneous/orderQRPageApprovedKyb.yaml
+        

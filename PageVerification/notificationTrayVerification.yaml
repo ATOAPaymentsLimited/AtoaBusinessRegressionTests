@@ -1,0 +1,67 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${output.notificationTrayPage.notificationTile}
+    containsDescendants:
+      - ${output.notificationTrayPage.refundCompleteTitle}
+    containsDescendants:
+      - A payment of £8.00 has been returned to the customer.
+
+- assertVisible:
+    text: ${output.notificationTrayPage.notificationTile}
+    containsDescendants:
+      - ${output.notificationTrayPage.atoaTitle}
+    containsDescendants:
+      - You've received a £8.00 Atoa Payment
+
+- assertVisible:
+    text: ${output.notificationTrayPage.notificationTile}
+    containsDescendants:
+      - ${output.notificationTrayPage.paymentFailedTitle}
+    containsDescendants:
+      - Payment of £7.00 was declined by the bank. Please ask the customer to pay using another bank app.
+
+- assertVisible:
+    text: ${output.notificationTrayPage.notificationTile}
+    containsDescendants:
+      - ${output.notificationTrayPage.paymentPendingTitle}
+    containsDescendants:
+      - Hang on, your payment of £6.00 is still in progress. We'll be as quick as we can!
+
+- scroll
+
+- assertVisible:
+    text: ${output.notificationTrayPage.notificationTile}
+    containsDescendants:
+      - ${output.notificationTrayPage.atoaTitle}
+    containsDescendants:
+      - You've received a £5.00 Atoa Payment
+
+- assertVisible:
+    text: ${output.notificationTrayPage.notificationTile}
+    containsDescendants:
+      - ${output.notificationTrayPage.atoaTitle}
+    containsDescendants:
+      - You've received a £4.00 Atoa Payment
+
+- assertVisible:
+    text: ${output.notificationTrayPage.notificationTile}
+    containsDescendants:
+      - ${output.notificationTrayPage.atoaTitle}
+    containsDescendants:
+      - You've received a £3.00 Atoa Payment
+
+- assertVisible:
+    text: ${output.notificationTrayPage.notificationTile}
+    containsDescendants:
+      - ${output.notificationTrayPage.atoaTitle}
+    containsDescendants:
+      - You've received a £2.00 Atoa Payment
+
+- assertVisible:
+    text: ${output.notificationTrayPage.notificationTile}
+    containsDescendants:
+      - ${output.notificationTrayPage.atoaTitle}
+    containsDescendants:
+      - You've received a £1.00 Atoa Payment
+
