@@ -42,22 +42,16 @@ onFlowStart:
 #         CONTINUE: true 
 
 - runFlow:
-    file: SubFlows/GeneralFlows/enterBankDetails.yaml
+    file: SubFlows/GeneralFlows/enterAmount.yaml
     env:
-        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
-        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
-        SORTCODE: ${output.env.SORT_CODE_1}
+        AMOUNT: ${output.env.amountLessThan1}
+        PAYMENTLINK: true 
 
-- runFlow:
-    file: ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.earnWithTipsPage.finishSetup}
-        INDEX: 0
+- assertVisible: ${output.enterAmountPage.minAmountError}
 
+#amount 15001
 - runFlow:
-    file: SubFlows/GeneralFlows/setAppLock.yaml
+    file: ElementActions/eraseText.yaml
     env:
-        PIN1: ${output.env.validPin1}
-        PIN2: ${output.env.validPin1}
-- waitForAnimationToEnd
+        ELEMENT: ${output.enterAmountPage.amountTextField} 
+

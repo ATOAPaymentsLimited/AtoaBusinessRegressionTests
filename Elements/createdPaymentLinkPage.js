@@ -9,6 +9,7 @@ output.createdPaymentLinkPage = {
 
     trackableLinkMessage: 'This link is trackable and can only be used to pay once per customer',
 
+    closeButton: 'Close Dialog Sheet Icon',
     sendSMSTitle: 'Send SMS',
     mobileNumberTextField: 'null TextFormField',
     mobileNumber: 'Mobile Number',

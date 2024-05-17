@@ -23,4 +23,4 @@ appId: ${APP_ID}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.createdPaymentLinkPage.sendSMSButton}
-        INDEX: 0
+        INDEX: 1

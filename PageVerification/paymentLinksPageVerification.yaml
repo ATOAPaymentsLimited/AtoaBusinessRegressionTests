@@ -1,0 +1,30 @@
+appId: ${APP_ID}
+---
+- assertVisible: 
+    text: ${output.paymentLinksPage.unpaidButton}
+    enabled: true 
+  
+- assertVisible: 
+    text: ${output.paymentLinksPage.paidButton}
+    enabled: true 
+
+- assertVisible: 
+    text: ${output.paymentLinksPage.searchPayments}
+    enabled: true
+
+- runFlow:
+    when:
+        true: ${LINK == 'NO'}
+    commands:
+      - assertVisible: ${output.paymentLinksPage.unpaidDefaultText}
+
+- runFlow:
+    when:
+        true: ${LINK == 'YES'}
+    commands:
+      - assertVisible: 
+          text: ${output.paymentLinksPage.paymentLinkTile}
+          containsDescendants:
+            - ${output.paymentLinksPage.unpaidChip}
+          containsDescendants:
+            - ${output.env.poundSymbol}${AMOUNT}

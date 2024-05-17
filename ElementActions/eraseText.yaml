@@ -1,5 +1,10 @@
 appId: ${APP_ID}
 ---
+- runFlow:
+    file: tapOn.yaml
+    env:
+        ELEMENT: ${ELEMENT}
+        INDEX: 0
 
 - runFlow:
     file: longPressOn.yaml

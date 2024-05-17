@@ -1,10 +1,18 @@
 flows:
-  - "Tests/Signup/*"
-  - "Tests/StaffManagement/*"
-  - "Tests/Settings/*"
-  - "Tests/Analytics/*"
-  - "Tests/Miscellaneous/*"
-  - "Tests/Profile/*"
+- "Tests/AcceptPayment/*"
+- "Tests/Analytics/*"
+- "Tests/HomePage/*"
+- "Tests/Links/*"
+- "Tests/ManageBanks/*"
+- "Tests/Miscellaneous/*"
+- "Tests/MultiStore/*"
+- "Tests/Profile/*"
+- "Tests/Referral/*"
+- "Tests/Settings/*"
+- "Tests/Signup/*"
+- "Tests/StaffManagement/*"
+- "Tests/Tips/*"
+- "Tests/Transactions/*"
 
 # includeTags:
 #   - dev
@@ -99,4 +107,10 @@ executionOrder:
     #OrderQR
         - Tests/Miscellaneous/orderQRPageWithoutKyb.yaml
         - Tests/Miscellaneous/orderQRPageApprovedKyb.yaml
-        
+    #Links
+        - Tests/Links/merchantCreatePaymentLinkApprovedKyb.yaml
+        - Tests/Links/merchantCreatePaymentLinkPendingKyb.yaml
+        - Tests/Links/supervisorCreatePaymentLinkApprovedKyb.yaml
+        - Tests/Links/supervisorCreatePaymentLinkPendingKyb.yaml
+        - Tests/Links/cashierCreatePaymentLinkApprovedKyb.yaml
+        - Tests/Links/cashierCreatePaymentLinkPendingKyb.yaml
