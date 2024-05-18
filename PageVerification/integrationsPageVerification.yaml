@@ -1,0 +1,49 @@
+appId: ${APP_ID}
+---
+- runFlow:
+      when:
+        true: ${APP_ID == 'com.atoa.merchantdev'}
+      commands:
+        # - assertVisible:
+        #     text: ${output.settingsPage.integration1}
+        #     enabled: true
+        - assertVisible:
+            text: ${output.settingsPage.integration2}
+            enabled: true
+        - assertVisible:
+            text: ${output.settingsPage.integration3}
+            enabled: true
+        # - assertVisible:
+        #     text: ${output.settingsPage.integration4}
+        #     enabled: true
+        - assertVisible:
+            text: ${output.settingsPage.integration5}
+            enabled: true
+
+- runFlow:
+      when:
+        true: ${APP_ID == 'com.atoa.merchantuat'}
+      commands:
+        - assertVisible:
+            text: ${output.settingsPage.integration2}
+            enabled: true
+        - assertVisible:
+            text: ${output.settingsPage.integration3}
+            enabled: true
+        # - assertVisible:
+        #     text: ${output.settingsPage.integration4}
+        #     enabled: true
+
+- runFlow:
+      when:
+        true: ${APP_ID == 'com.atoa.merchant'}
+      commands:
+        - assertVisible:
+            text: ${output.settingsPage.integration2}
+            enabled: true
+        - assertVisible:
+            text: ${output.settingsPage.integration3}
+            enabled: true
+        # - assertVisible:
+        #     text: ${output.settingsPage.integration4}
+        #     enabled: true

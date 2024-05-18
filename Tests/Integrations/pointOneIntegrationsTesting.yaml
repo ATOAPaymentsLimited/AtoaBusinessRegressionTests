@@ -1,0 +1,91 @@
+appId: ${APP_ID}
+name: Tests/Integrations/pointOneIntegrationsTesting.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.sideMenuPage.settingsText}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.settingsText}
+        INDEX: 0   
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.integrations}
+        INDEX: 0 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.integration2}
+        INDEX: 0 
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.settingsPage.pointOneCompanyIdField}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.settingsPage.pointOneSiteIdField}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.settingsPage.apiKeyField}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.continueButton}
+        INDEX: 0 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.doneButton}
+        INDEX: 0 
+- waitForAnimationToEnd
+# Delete integration
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.integration2}
+        INDEX: 0 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.deleteIntegrationButton}
+        INDEX: 0 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.settingsPage.deleteButton}
+        INDEX: 0 
+- waitForAnimationToEnd

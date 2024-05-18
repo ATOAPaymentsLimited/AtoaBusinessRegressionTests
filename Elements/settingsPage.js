@@ -26,11 +26,26 @@ output.settingsPage = {
     hiw3: `This will trigger a payment in the customer's banking app for approval`,
     hiw4: `A 'kerching!' lets you both know payment is complete – funds settled to you in seconds!`,
 
+    integrationsTile: 'Integration Platform Card',
     integration1: 'Keyloop',
     integration2: 'Point One',
     integration3: 'Till Tech',
     integration4: 'Epos Now',
     integration5: 'Xero Invoicing',
+
+    pointOneCompanyIdField: 'Company ID* TextFormField',
+    pointOneSiteIdField: 'Site ID* TextFormField',
+    apiKeyField: 'API Key* TextFormField',
+    continueButton: 'Continue',
+    doneButton: 'Done',
+    deleteIntegrationButton: 'Delete Integration',
+    deleteButton: 'Delete',
+
+    scanTillTechQrButton: 'Scan Till Tech QR',
+    linkManuallyButton: 'Link Manually',
+    urlField: 'URL TextFormField',
+    finishButton: 'Finish Linking',
+    invalidUrlToast: 'URL is invalid',
 
     noteOnBankStatementTitle: 'Notes on Bank Statements',
     noteOnBankStatementToggle: 'Use Notes As Bank Payment Ref Switch',

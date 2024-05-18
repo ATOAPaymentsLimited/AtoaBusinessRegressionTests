@@ -116,3 +116,7 @@ executionOrder:
         - Tests/Links/supervisorCreatePaymentLinkPendingKyb.yaml
         - Tests/Links/cashierCreatePaymentLinkApprovedKyb.yaml
         - Tests/Links/cashierCreatePaymentLinkPendingKyb.yaml
+    #Integrations
+        - Tests/Integrations/integrationsPageVerification.yaml
+        - Tests/Integrations/pointOneIntegrationsTesting.yaml
+        - Tests/Integrations/tillTechIntegrationTesting.yaml
