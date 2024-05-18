@@ -1,0 +1,23 @@
+appId: ${APP_ID}
+name: Tests/Miscellaneous/rewardsVerification.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_A}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.rewardsButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/rewardsPageVerification.yaml
+    env:
+        APP_ID: ${output.env.APP_ID}

@@ -1,0 +1,28 @@
+appId: ${APP_ID}
+---
+- tapOn:
+    text:  ${output.rewardsPage.activeButton}
+    enabled: true
+
+- runFlow:
+    when:
+        true: ${APP_ID == 'com.atoa.merchantdev'| APP_ID == 'com.atoa.merchantuat'}
+    commands:
+        - assertVisible: Win ${output.rewardsPage.poundSymbol}${output.rewardsPage.rewardAmount2}
+        - assertVisible: ${output.rewardsPage.rewardName2}
+        - assertVisible: ${output.rewardsPage.rewardDescription2}
+        - assertVisible: 
+            text: ${output.rewardsPage.activateButton}
+            enabled: true
+
+- tapOn:
+    text:  ${output.rewardsPage.completedButton}
+    enabled: true
+
+- runFlow:
+    when:
+        true: ${APP_ID == 'com.atoa.merchantdev'}
+    commands:
+        - assertVisible: You Won ${output.rewardsPage.poundSymbol}${output.rewardsPage.rewardAmount1}!
+        - assertVisible: ${output.rewardsPage.rewardName1}
+        - assertVisible: ${output.rewardsPage.rewardDescription1}

@@ -81,6 +81,7 @@ executionOrder:
         - Tests/Miscellaneous/cashierTheme.yaml
         - Tests/Miscellaneous/notifications.yaml
         - Tests/Miscellaneous/manageQR.yaml
+        - Tests/Miscellaneous/rewardsVerification.yaml
     #Profile
         - Tests/Profile/address1TextFieldValidations.yaml
         - Tests/Profile/address2TextFieldValidations.yaml
