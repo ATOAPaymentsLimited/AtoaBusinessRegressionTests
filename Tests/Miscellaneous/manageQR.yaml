@@ -1,0 +1,95 @@
+appId: ${APP_ID}
+name: Tests/Miscellaneous/manageQR.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_I}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.manageQRCodesText}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/manageQRPageVerification.yaml
+    env:
+        NICKNAME: ${output.env.qrNickName1}
+
+- tapOn:
+    text: ${output.manageQRCodesPage.qrTile}
+    containsDescendants:
+      - ${output.env.qrNickName1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.manageQRCodesPage.renameButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.manageQRCodesPage.nickNameTextField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.manageQRCodesPage.nickNameTextField}
+        TEXT: ${output.env.qrNickName2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.manageQRCodesPage.updateButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/manageQRPageVerification.yaml
+    env:
+        NICKNAME: ${output.env.qrNickName2}
+
+- tapOn:
+    text: ${output.manageQRCodesPage.qrTile}
+    containsDescendants:
+      - ${output.env.qrNickName2}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.manageQRCodesPage.renameButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.manageQRCodesPage.nickNameTextField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.manageQRCodesPage.nickNameTextField}
+        TEXT: ${output.env.qrNickName1}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.manageQRCodesPage.updateButton}
+        INDEX: 0
+- waitForAnimationToEnd

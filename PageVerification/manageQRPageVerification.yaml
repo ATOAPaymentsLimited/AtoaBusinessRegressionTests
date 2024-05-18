@@ -1,0 +1,18 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${output.manageQRCodesPage.standAloneQRButton}
+    enabled: true
+
+- assertVisible:
+    text: ${output.manageQRCodesPage.integratedQRButton}
+    enabled: true
+
+- assertVisible:
+    text: ${output.manageQRCodesPage.qrTile}
+    containsDescendants:
+      - ${NICKNAME}
+
+- assertVisible:
+    text: ${output.manageQRCodesPage.supportEmail}
+    enabled: true

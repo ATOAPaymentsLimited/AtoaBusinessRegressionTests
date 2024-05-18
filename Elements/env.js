@@ -400,7 +400,7 @@ output.env = {
    amountGreaterThan100: '101',
 
    testOrderId: 'test-order-id',
-
-   
+   qrNickName1: 'test',
+   qrNickName2: 'code',
   
 }
