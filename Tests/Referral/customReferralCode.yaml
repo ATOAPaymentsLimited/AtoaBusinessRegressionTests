@@ -42,6 +42,11 @@ onFlowStart:
         CONTINUE: true 
 
 - runFlow:
+    file: ../../PageVerification/planVerification.yaml
+    env:
+        PLAN: ${output.env.CUSTOM_PLAN_DEV}
+
+- runFlow:
     file: ../../SubFlows/GeneralFlows/enterBankDetails.yaml
     env:
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}

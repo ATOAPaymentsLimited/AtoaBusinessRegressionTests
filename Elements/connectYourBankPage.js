@@ -21,8 +21,12 @@ output.connectYourBankPage = {
     addBankAccountButton: 'Add Bank Account',
 
     yourPlanText: 'Your Plan',
-
+    planDescription1: 'You will be charged a fee of',
+    planDescription2: 'of your monthly transaction volume or',
+    planDescription3: '/month, whichever is higher.\n\nThere are NO hidden fees.',
     perSuccessfulTransactionText: 'per successful payment',
+
+    directDebitConsentText: 'I understand that Atoa has partnered with\nStripe to collect Direct Debits on behalf of\nAtoa. I confirm that I am the account holder\nand the only person required to authorize\ndebits from this account.',
 
     bankAccountEmptyError: 'Bank Account Number should not be empty',
     bankAccountNumberLessThan8Error: 'Bank Account Number should be at least 8 characters long',

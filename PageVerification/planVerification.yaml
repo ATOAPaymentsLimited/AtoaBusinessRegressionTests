@@ -1,6 +1,17 @@
 appId: ${APP_ID}
 ---
 - scrollUntilVisible:
-    element: ${output.connectYourBankPage.
+    element: ${output.connectYourBankPage.directDebitConsentText}
+    direction: DOWN
 
-- assertVisible: 
+- assertVisible: ${PLAN}
+
+- runFlow:
+    when:
+        true: ${MINIMUMINVOICE}
+    commands:
+       - assertVisible: ${output.connectYourBankPage.planDescription1} ${PLAN} ${output.connectYourBankPage.planDescription2} ${MINIMUMINVOICE}${output.connectYourBankPage.planDescription3}
+
+- scrollUntilVisible:
+    element: ${output.connectYourBankPage.selectBankDropdown}
+    direction: UP
