@@ -1,0 +1,71 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+        true: ${STATUS == 'PENDING'}
+    commands:
+      - assertVisible: ${output.billingPage.directDebitPendingHeader}
+      - assertVisible: ${output.billingPage.directDebitPendingDescription}
+      - assertVisible: ${output.billingPage.directDebitSetupButton}
+
+- runFlow:
+    when:
+        true: ${APP_ID == 'com.atoa.merchantdev'}
+    commands:
+        - assertVisible: ${PLAN_TITLE_DEV}
+
+- runFlow:
+    when:
+        true: ${APP_ID == 'com.atoa.merchantuat'}
+    commands:
+        - assertVisible: ${PLAN_TITLE_UAT}
+
+- runFlow:
+    when:
+        true: ${APP_ID == 'com.atoa.merchant'}
+    commands:
+        - assertVisible: ${PLAN_TITLE_PROD}
+
+- assertVisible: ${output.billingPage.viewPlanButton}
+- assertVisible: ${output.billingPage.estimatedCharges}
+- assertVisible: ${output.billingPage.poundSymbol}${ESTIMATED_AMOUNT}
+- assertVisible: ${output.billingPage.grossSales}
+- assertVisible: ${output.billingPage.poundSymbol}${GROSS_SALES}
+- assertVisible: ${output.billingPage.payments}
+- assertVisible: ${PAYMENTS}
+- scroll
+- assertVisible: ${output.billingPage.invoicesTab}
+- assertVisible: ${output.billingPage.refundInvoicesTab}
+
+- runFlow:
+    when:
+        true: ${APP_ID == 'com.atoa.merchantdev' && INVOICE_AMOUNT}
+    commands:
+        - assertVisible: ${output.billingPage.unpaid}
+        - assertVisible: +${output.billingPage.poundSymbol}${INVOICE_AMOUNT}
+
+- swipe:             
+    direction: DOWN
+# - waitForAnimationToEnd
+- tapOn: ${output.billingPage.viewPlanButton}
+
+- runFlow:
+    when:
+        true: ${APP_ID == 'com.atoa.merchantdev'}
+    commands:   
+        - assertVisible: .*${PLAN_DEV}.*
+        # - assertVisible: ${output.env.PLAN_DESCRIPTION_DEV}
+
+- runFlow:
+    when:
+        true: ${APP_ID == 'com.atoa.merchantuat'}
+    commands:   
+        - assertVisible: .*${PLAN_UAT}.*
+        # - assertVisible: ${output.env.PLAN_DESCRIPTION_DEV}
+
+- runFlow:
+    when:
+        true: ${APP_ID == 'com.atoa.merchant'}
+    commands:   
+        - assertVisible: .*${PLAN_PROD}.*
+        # - assertVisible: ${output.env.PLAN_DESCRIPTION_DEV}

@@ -282,6 +282,24 @@ output.env = {
    CUSTOM_REFERRAL_CODE_UAT: 'custom7781',
    CUSTOM_REFERRAL_CODE_PROD: 'custom7781',
 
+   PLAN_TITLE_DEV: 'NEW DEFAULT PLAN',
+   PLAN_TITLE_UAT: 'NEW DEFAULT PLAN',
+   PLAN_TITLE_PROD: 'Atoa Special Plan',
+   PLAN_DEV: '0.60% per successful payment',
+   PLAN_UAT: '0.60% per successful payment',
+   PLAN_PROD: '0.60% per successful payment',
+   PLAN_DESCRIPTION_DEV: 'The minimum monthly charge is £0.30.',
+   INVOICE_AMOUNT_DEV: '3.00',
+   GROSS_SALES_DEV: '500.00',
+   PAYMENTS_DEV: '0',
+
+   PLAN_TITLE_SAAS_DEV: 'TEST SAAS PLAN',
+   PLAN_TITLE_SAAS_UAT: 'TEST SAAS PLAN',
+   PLAN_TITLE_SAAS_PROD: 'TEST SAAS PLAN',
+   PLAN_SAAS_DEV: '£100',
+   PLAN_SAAS_UAT: '£100',
+   PLAN_SAAS_PROD: '£100',
+
    ADD_EMPLOYEE_QR_DEV: 'https://devlinks.atoa.me/employeesignup/?apn=com.atoa.merchantdev&ibi=com.atoa.merchantdev&isi=1618270399&link=https://devlinks.atoa.me/login?qrId=014bdb19-ce73-4087-8226-d5d5cb679d22&employeeSignup=true',
   
    POINTONE_COMPANY_ID: 'A3DC8862-E01E-48C5-AA30-1146E78C54F6', 
