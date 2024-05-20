@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/Links/merchantCreatePaymentLinkApprovedKyb.yaml
+name: Tests/PlanAndPricing/percentageBillingsPageVerification.yaml
 tags:
     - dev
 onFlowStart:
@@ -31,7 +31,6 @@ onFlowStart:
     file: ../../PageVerification/billingsPageVerification.yaml
     env:
         APP_ID: ${output.env.APP_ID}
-        INVOICE_AMOUNT: ${output.env.invoiceAmountPercentage}
         STATUS: DONE
         PLAN_TITLE_DEV: ${output.env.PLAN_TITLE_DEV}
         PLAN_TITLE_UAT: ${output.env.PLAN_TITLE_UAT}

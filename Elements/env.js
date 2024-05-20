@@ -83,6 +83,16 @@ output.env = {
    EMPLOYEE_EMAIL_I1: 'emp9251771771@gmail.com',
    EMPLOYEE_MOBILE_I2: '9591771771',
    EMPLOYEE_EMAIL_I2: 'emp9591771771@gmail.com',
+  
+   MERCHANT_J: 'J',
+   MERCHANT_MOBILE_J: '9151881881',
+   BUSINESS_NAME_J: 'B9151881881',
+   CRN_J: '91518818',
+   MERCHANT_EMAIL_J: 'ab9151881881@gmail.com',
+   EMPLOYEE_MOBILE_J1: '9251881881',
+   EMPLOYEE_EMAIL_J1: 'emp9251881881@gmail.com',
+   EMPLOYEE_MOBILE_J2: '9591881881',
+   EMPLOYEE_EMAIL_J2: 'emp9591881881@gmail.com',
   //-----------------------------------------------------
   //-----------------------------------------------------
   //-----------------------------------------------------  
@@ -299,6 +309,7 @@ output.env = {
    PLAN_SAAS_DEV: '£100',
    PLAN_SAAS_UAT: '£100',
    PLAN_SAAS_PROD: '£100',
+   PAYMENTS_SAAS_DEV: '0',
 
    ADD_EMPLOYEE_QR_DEV: 'https://devlinks.atoa.me/employeesignup/?apn=com.atoa.merchantdev&ibi=com.atoa.merchantdev&isi=1618270399&link=https://devlinks.atoa.me/login?qrId=014bdb19-ce73-4087-8226-d5d5cb679d22&employeeSignup=true',
   

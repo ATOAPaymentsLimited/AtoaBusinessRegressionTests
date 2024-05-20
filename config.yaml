@@ -120,3 +120,8 @@ executionOrder:
         - Tests/Integrations/integrationsPageVerification.yaml
         - Tests/Integrations/pointOneIntegrationsTesting.yaml
         - Tests/Integrations/tillTechIntegrationTesting.yaml
+    #PlanAndPricing
+        - Tests/PlanAndPricing/percentageBillingsPageVerification.yaml
+        - Tests/PlanAndPricing/saasBillingsPageVerification.yaml
+        - Tests/PlanAndPricing/supervisorPercentageBillingsPageVerification.yaml
+        - Tests/PlanAndPricing/cashierPercentageBillingsPageVerification.yaml

@@ -18,10 +18,11 @@ output.employeeDetailsPage = {
     cashierRole1: 'Can accept Payments',
     storeLocationText: 'Store Locations',
 
-    allowBillingCheckbox: 'Allow this employee\nto access billing selected',
+    allowBillingCheckbox: 'Allow this employee \nto access billing selected',
     storeLocationDropdown: 'Select a Location',
     continueButton: 'Continue',
     addEmployeeButton: 'Add Employee',
+    updateEmployeeButton: 'Update Employee Details',
 
     deleteEmployeeButton: 'Delete Employee',
     confirmButton: 'Confirm',
