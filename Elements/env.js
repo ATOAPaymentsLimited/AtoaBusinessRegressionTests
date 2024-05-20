@@ -289,9 +289,9 @@ output.env = {
    PLAN_UAT: '0.60% per successful payment',
    PLAN_PROD: '0.60% per successful payment',
    PLAN_DESCRIPTION_DEV: 'The minimum monthly charge is £0.30.',
-   INVOICE_AMOUNT_DEV: '3.00',
-   GROSS_SALES_DEV: '500.00',
-   PAYMENTS_DEV: '0',
+   INVOICE_AMOUNT_DEV: '0.36',
+   GROSS_SALES_DEV: '23.00',
+   PAYMENTS_DEV: '6',
 
    PLAN_TITLE_SAAS_DEV: 'TEST SAAS PLAN',
    PLAN_TITLE_SAAS_UAT: 'TEST SAAS PLAN',
