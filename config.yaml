@@ -125,3 +125,13 @@ executionOrder:
         - Tests/PlanAndPricing/saasBillingsPageVerification.yaml
         - Tests/PlanAndPricing/supervisorPercentageBillingsPageVerification.yaml
         - Tests/PlanAndPricing/cashierPercentageBillingsPageVerification.yaml
+    #Bacs
+        - Tests/Bacs/bankNameDropdownValidations.yaml
+        - Tests/Bacs/accountNumberAndConfirmAccountNumberFieldValidations.yaml
+        - Tests/Bacs/sortCodeFieldValidations.yaml
+        - Tests/Bacs/nameFieldValidations.yaml
+        - Tests/Bacs/emailAddressFieldValidations.yaml
+        - Tests/Bacs/addressLine1FieldValidations.yaml
+        - Tests/Bacs/addressLine2FieldValidations.yaml
+        - Tests/Bacs/cityFieldValidations.yaml
+        - Tests/Bacs/postCodeFieldValidations.yaml

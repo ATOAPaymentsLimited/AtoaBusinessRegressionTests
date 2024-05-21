@@ -343,6 +343,8 @@ output.env = {
    MERCHANT_BANK_ACCOUNT_LAST_2: '358',
    SORT_CODE_2: '04-00-07',
 
+   MASKED_ACCOUNT_NUMBER: '••••••••',
+
    EMPLOYEE_BANK_NAME_1: 'Lloyds Bank Sandbox',
    EMPLOYEE_BANK_ACCOUNT_1: '38876851',
    

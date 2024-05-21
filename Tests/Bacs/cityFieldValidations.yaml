@@ -1,0 +1,112 @@
+appId: ${APP_ID}
+name: Tests/Bacs/cityFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.cityField}
+    direction: DOWN
+
+# Empty field
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.cityField}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.cityField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.cityField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.cityEmptyError}
+
+# Blank space
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.cityField}
+        TEXT: ${output.env.blankSpace}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.cityField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.cityField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.cityEmptyError}
+
+# Min length
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.cityField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.cityField}
+        TEXT: ${output.env.minLength}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.cityField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.cityField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.cityMinLengthError}
+
+# Valid
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.cityField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.cityField}
+        TEXT: ${output.env.CITY_1}
+        KEYBOARD: true

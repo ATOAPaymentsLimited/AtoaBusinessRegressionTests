@@ -1,0 +1,102 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${output.directDebitDetailsPage.selectBankField}
+    containsDescendants: 
+      - ${BANKNAME}
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.accountNumberField}
+    containsDescendants: 
+      - ${ACCOUNTNUMBER}
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.confirmAccountNumberField}
+    containsDescendants: 
+      - ${CONFIRMACCOUNTNUMBER}
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.sortCodeField}
+    containsDescendants: 
+      - ${SORTCODE}
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.emailField}
+    direction: DOWN
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.nameField}
+    containsDescendants: 
+      - ${NAME}
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.emailField}
+    containsDescendants: 
+      - ${EMAIL}
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.address2Field}
+    direction: DOWN
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.address1Field}
+    containsDescendants: 
+      - ${ADDRESS1}
+
+- runFlow:
+    when: 
+        true: ${ADDRESS2}
+    commands:
+      - assertVisible:
+          text: ${output.directDebitDetailsPage.address2Field}
+          containsDescendants: 
+            - ${ADDRESS2}
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.postCodeField}
+    direction: DOWN
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.cityField}
+    containsDescendants: 
+      - ${CITY}
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.postCodeField}
+    containsDescendants: 
+      - ${POSTCODE}
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.stripeCheckbox}
+    enabled: true 
+
+- assertVisible: ${output.directDebitDetailsPage.consentText}
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.continueSetupButton}
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.privacyText}
+    direction: DOWN
+
+- assertVisible: ${output.directDebitDetailsPage.directDebitText}
+- assertVisible: ${output.directDebitDetailsPage.atoaAddressText}
+- assertVisible: 
+    text: ${output.directDebitDetailsPage.supportEmail}
+    enabled: true 
+
+- assertVisible: 
+    text: ${output.directDebitDetailsPage.powerdByText}
+    enabled: true 
+
+- assertVisible: 
+    text: ${output.directDebitDetailsPage.termsText}
+    enabled: true 
+
+- assertVisible: 
+    text: ${output.directDebitDetailsPage.privacyText}
+    enabled: true 

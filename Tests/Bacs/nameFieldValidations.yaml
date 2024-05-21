@@ -1,0 +1,79 @@
+appId: ${APP_ID}
+name: Tests/Bacs/nameFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.nameField}
+    direction: DOWN
+
+# Empty field
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.nameField}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.nameField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.nameField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.nameEmptyError}
+
+# Blank space
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.nameField}
+        TEXT: ${output.env.blankSpace}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.nameField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.nameField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.nameEmptyError}
+
+# Valid
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.nameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.nameField}
+        TEXT: ${output.env.MERCHANT_FNAME} ${output.env.MERCHANT_LNAME}
+        KEYBOARD: true

@@ -1,0 +1,223 @@
+appId: ${APP_ID}
+name: Tests/Bacs/accountNumberAndConfirmAccountNumberFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.accountNumberField}
+    direction: DOWN
+
+# Empty fields
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.accountNumberField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.accountNumberField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.bankAccountEmptyError}
+- assertVisible:
+    text: ${output.directDebitDetailsPage.confirmAccountNumberField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.confirmBankAccountEmptyError}
+
+# Blank space
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
+        TEXT: ${output.env.blankSpace}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
+        TEXT: ${output.env.blankSpace}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.accountNumberField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.accountNumberField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.bankAccountEmptyError}
+- assertVisible:
+    text: ${output.directDebitDetailsPage.confirmAccountNumberField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.confirmBankAccountEmptyError}
+
+
+# 8 digits and 7 digits
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
+        TEXT: ${output.env.digits8}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
+        TEXT: ${output.env.digits7}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.accountNumberField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.confirmAccountNumberField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.confirmBankAccountMismatchError}
+
+# 7 digits and 8 digits
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
+        TEXT: ${output.env.digits7}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
+        TEXT: ${output.env.digits8}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.accountNumberField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.accountNumberField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.bankAccountNumberLessThan8Error}
+- assertVisible:
+    text: ${output.directDebitDetailsPage.confirmAccountNumberField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.confirmBankAccountMismatchError}
+
+# Valid
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    when:
+        true: ${output.env.APP_ID == 'com.atoa.merchantdev'}
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
+        TEXT: ${output.env.BACS_BANK_ACCOUNT}
+        KEYBOARD: true
+- runFlow:
+    when:
+        true: ${output.env.APP_ID == 'com.atoa.merchantdev'}
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
+        TEXT: ${output.env.BACS_BANK_ACCOUNT}
+        KEYBOARD: true
+
+- runFlow:
+    when:
+        true: ${output.env.APP_ID == 'com.atoa.merchantuat' || output.env.APP_ID == 'com.atoa.merchant'}
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
+        TEXT: ${output.env.MERCHANT_BANK_ACCOUNT_2}
+        KEYBOARD: true
+- runFlow:
+    when:
+        true: ${output.env.APP_ID == 'com.atoa.merchantuat' || output.env.APP_ID == 'com.atoa.merchant'}
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
+        TEXT: ${output.env.MERCHANT_BANK_ACCOUNT_2}
+        KEYBOARD: true

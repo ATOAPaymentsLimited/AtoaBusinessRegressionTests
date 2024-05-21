@@ -1,0 +1,42 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${NAME}
+    rightOf: ${output.directDebitDetailsPage.nameText}
+
+- assertVisible:
+    text: ${SORTCODE}
+    rightOf: ${output.directDebitDetailsPage.sortCodeText}
+
+- assertVisible:
+    text: ${ACCOUNTNUMBER}
+    rightOf: ${output.directDebitDetailsPage.accountNumberText}
+
+- assertVisible:
+    text: ${EMAIL}
+    rightOf: ${output.directDebitDetailsPage.emailText}
+
+- assertVisible: ${output.directDebitDetailsPage.directDebitInfo}
+
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.privacyText}
+    direction: DOWN
+
+- assertVisible: ${output.directDebitDetailsPage.directDebitText}
+- assertVisible: ${output.directDebitDetailsPage.atoaAddressText}
+- assertVisible: 
+    text: ${output.directDebitDetailsPage.supportEmail}
+    enabled: true 
+
+- assertVisible: 
+    text: ${output.directDebitDetailsPage.powerdByText}
+    enabled: true 
+
+- assertVisible: 
+    text: ${output.directDebitDetailsPage.termsText}
+    enabled: true 
+
+- assertVisible: 
+    text: ${output.directDebitDetailsPage.privacyText}
+    enabled: true 

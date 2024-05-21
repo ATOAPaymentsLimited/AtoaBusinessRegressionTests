@@ -1,0 +1,178 @@
+appId: ${APP_ID}
+name: Tests/Bacs/postCodeFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.postCodeField}
+    direction: DOWN
+
+# Empty field
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.postCodeField}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.postCodeField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.postCodeField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.postCodeEmptyError}
+
+# Blank space
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.postCodeField}
+        TEXT: ${output.env.blankSpace}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.postCodeField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.postCodeField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.postCodeEmptyError}
+
+# Min length
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.postCodeField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.postCodeField}
+        TEXT: ${output.env.minLength}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.postCodeField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.postCodeField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.postCodeMinLengthError}
+
+# Special characters
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.postCodeField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.postCodeField}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.postCodeField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.postCodeField}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.postCodeInvalidError}
+
+# Valid
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.postCodeField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.postCodeField}
+        TEXT: ${output.env.CITY_1}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+
+
+- runFlow: 
+    file: ../../PageVerification/confirmDirectDebitPageVerification.yaml
+    env:
+        NAME: ${output.env.MERCHANT_FNAME} ${output.env.MERCHANT_LNAME}
+        SORTCODE: ${output.env.SORT_CODE_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_2}
+        EMAIL: ${output.env.MERCHANT_EMAIL_26}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.setUpDeirctDebitButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.goToHomeButton}
+        INDEX: 0
+
+

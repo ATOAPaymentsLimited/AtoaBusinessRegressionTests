@@ -1,0 +1,79 @@
+appId: ${APP_ID}
+name: Tests/Bacs/addressLine1FieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.address1Field}
+    direction: DOWN
+
+# Empty field
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.address1Field}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.address1Field}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.address1Field}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.addressLine1EmptyError}
+
+# Blank space
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.address1Field}
+        TEXT: ${output.env.blankSpace}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.continueSetupButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
+        INDEX: 0
+- scrollUntilVisible:
+    element: ${output.directDebitDetailsPage.address1Field}
+    direction: UP
+
+- assertVisible:
+    text: ${output.directDebitDetailsPage.address1Field}
+    containsDescendants:
+      - ${output.directDebitDetailsPage.addressLine1EmptyError}
+
+# Valid
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.address1Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.address1Field}
+        TEXT: ${output.env.ADDRESS_LINE1_1}
+        KEYBOARD: true
