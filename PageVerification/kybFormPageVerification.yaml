@@ -1,0 +1,116 @@
+appId: ${APP_ID}
+---
+# ID
+- runFlow:
+    when:
+        true: ${ID != 'UPLOADED'}
+    commands:
+      - assertVisible:
+          text: ${output.idVerificationPage.idProof}
+          enabled: true 
+
+- runFlow:
+    when:
+        true: ${ID == 'UPLOADED'}
+    commands:
+      - assertVisible:
+          text: ${output.idVerificationPage.idProofUploaded}
+          enabled: true 
+
+# Address proof
+- runFlow:
+    when:
+        true: ${ADDRESSPROOF != 'UPLOADED'}
+    commands:
+      - assertVisible:
+          text: ${output.idVerificationPage.addressProof}
+          enabled: true 
+          
+- runFlow:
+    when:
+        true: ${ADDRESSPROOF == 'UPLOADED'}
+    commands:
+      - assertVisible:
+          text: ${output.idVerificationPage.addressProofUploaded}
+          enabled: true 
+
+# Selfie
+
+- runFlow:
+    when:
+        true: ${SELFIE != 'UPLOADED'}
+    commands:
+      - assertVisible:
+          text: ${output.idVerificationPage.selfie}
+          enabled: true 
+          
+- runFlow:
+    when:
+        true: ${SELFIE == 'UPLOADED'}
+    commands:
+      - assertVisible:
+          text: ${output.idVerificationPage.selfieUploaded}
+          enabled: true 
+
+- scrollUntilVisible:
+    element: ${output.idVerificationPage.lastNameField}
+    direction: DOWN
+
+- assertVisible:
+    text: ${output.idVerificationPage.firstNameField}
+    containsDescendants:
+      - ${FNAME}
+
+- assertVisible:
+    text: ${output.idVerificationPage.lastNameField}
+    containsDescendants:
+      - ${LNAME}
+
+- scrollUntilVisible:
+    element: ${output.idVerificationPage.addressLine2Field}
+    direction: DOWN
+
+- assertVisible:
+    text: ${output.idVerificationPage.businessNameField}
+    containsDescendants:
+      - ${BUSINESSNAME}
+
+- assertVisible:
+    text: ${output.idVerificationPage.addressLine1Field}
+    containsDescendants:
+      - ${ADDRESS1}
+
+- assertVisible:
+    text: ${output.idVerificationPage.addressLine2Field}
+    containsDescendants:
+      - ${ADDRESS2}
+
+- scrollUntilVisible:
+    element: ${output.idVerificationPage.supportEmail}
+    direction: DOWN
+
+- assertVisible:
+    text: ${output.idVerificationPage.postCodeField}
+    containsDescendants:
+      - ${POSTCODE}
+
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'SOLETRADER'}
+    commands: 
+      - assertVisible:
+          text: ${output.idVerificationPage.dobField}
+          containsDescendants:
+            - ${DOB}
+
+- runFlow:
+    when:
+        true: ${BUSINESSTYPE == 'LIMITEDCOMPANY' || BUSINESSTYPE == 'CHARITY'}
+    commands: 
+      - assertVisible:
+          text: ${output.idVerificationPage.incorporationDateField}
+          containsDescendants:
+            - ${DOB}
+
+- assertVisible: ${output.idVerificationPage.submitButton}
+

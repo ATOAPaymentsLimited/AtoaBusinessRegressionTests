@@ -1,0 +1,29 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.commonElements.uploadOption1}
+        INDEX: 0
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.commonElements.clickCameraButton}
+        INDEX: 0
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.commonElements.okButton1}
+        INDEX: 0
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.commonElements.okButton2}
+        INDEX: 0
+- waitForAnimationToEnd

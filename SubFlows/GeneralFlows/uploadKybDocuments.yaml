@@ -1,0 +1,18 @@
+appId: ${APP_ID}
+---
+
+- runFlow:
+    when:
+      true: ${ID}
+    file: uploadIdProof.yaml
+
+- runFlow:
+    when:
+      true: ${ADDRESSPROOF}
+    file: uploadAddressProof.yaml
+
+# - runFlow:
+#     when:
+#       true: ${SELFIE}
+#     file: uploadSelfie.yaml
+

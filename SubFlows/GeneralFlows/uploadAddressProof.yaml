@@ -1,0 +1,72 @@
+appId: ${APP_ID}
+---
+
+- runFlow:
+    when:
+        visible: ${output.idVerificationPage.addressProofUploaded}
+    commands:
+      - tapOn:
+          text: ${output.idVerificationPage.uploadTile}
+          containsDescendants: 
+            - ${output.idVerificationPage.addressProofUploaded}
+            
+- runFlow:
+    when:
+        visible: ${output.idVerificationPage.addressProof}
+    commands:
+      - tapOn:
+          text: ${output.idVerificationPage.uploadTile}
+          containsDescendants: 
+            - ${output.idVerificationPage.addressProof}
+
+- scroll
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.iUnderstandButton}
+        INDEX: 0
+
+- runFlow:
+    when:
+        visible: ${output.idVerificationPage.addressProofUploadedButton}
+    commands:
+      - tapOn:
+          text: ${output.idVerificationPage.uploadTile}
+          containsDescendants: 
+            - ${output.idVerificationPage.addressProofUploadedButton}
+
+- runFlow:
+    when:
+        visible: ${output.idVerificationPage.addressProofUploadButton}
+    commands:
+      - tapOn:
+          text: ${output.idVerificationPage.uploadTile}
+          containsDescendants: 
+            - ${output.idVerificationPage.addressProofUploadButton}
+
+- runFlow: takePhoto.yaml
+
+- runFlow:
+    when:
+      visible: ${output.pinPage.enterPinText}
+    file: enterPin.yaml 
+    env:
+        PIN: ${output.env.validPin1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.documentTypeDropdownField}
+        INDEX: 0
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.docType1}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.addDocumentsButton}
+        INDEX: 0

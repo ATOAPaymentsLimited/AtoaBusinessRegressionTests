@@ -1,0 +1,135 @@
+appId: ${APP_ID}
+name: Tests/KYB/businessNameFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- scrollUntilVisible:
+    element: ${output.idVerificationPage.businessNameField}
+    direction: DOWN
+
+# Empty field
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.businessNameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.idVerificationPage.businessNameField}
+    containsDescendants:
+      - ${output.idVerificationPage.businessNameEmptyError}
+
+# Blank spaces
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.businessNameField}
+        TEXT: ${output.env.blankSpace}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.idVerificationPage.businessNameField}
+    containsDescendants:
+      - ${output.idVerificationPage.businessNameEmptyError}
+
+# Special characters
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.businessNameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.businessNameField}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.idVerificationPage.businessNameField}
+    containsDescendants:
+      - ${output.idVerificationPage.businessNameSpecialCharactersError}
+
+# Min length
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.businessNameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.businessNameField}
+        TEXT: ${output.env.digits2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.idVerificationPage.businessNameField}
+    containsDescendants:
+      - ${output.idVerificationPage.businessNameMinLengthError}
+
+# Existing data
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.businessNameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.businessNameField}
+        TEXT: ${output.env.BUSINESS_NAME_A}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible: ${output.idVerificationPage.businessNameAlreadyExistsToast}
+
+# Valid
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.businessNameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.businessNameField}
+        TEXT: ${output.env.BUSINESS_NAME_27}
+        KEYBOARD: true

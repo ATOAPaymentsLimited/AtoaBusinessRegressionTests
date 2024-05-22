@@ -1,0 +1,60 @@
+appId: ${APP_ID}
+---
+
+- runFlow:
+    when:
+        visible: ${output.idVerificationPage.idProofUploaded}
+    commands:
+      - tapOn:
+          text: ${output.idVerificationPage.uploadTile}
+          containsDescendants: 
+            - ${output.idVerificationPage.idProofUploaded}
+            
+- runFlow:
+    when:
+        visible: ${output.idVerificationPage.idProof}
+    commands:
+      - tapOn:
+          text: ${output.idVerificationPage.uploadTile}
+          containsDescendants: 
+            - ${output.idVerificationPage.idProof}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.iUnderstandButton}
+        INDEX: 0
+
+- runFlow:
+    when:
+        visible: ${output.idVerificationPage.uploadedPassportButton}
+    commands:
+      - tapOn:
+          text: ${output.idVerificationPage.uploadTile}
+          containsDescendants: 
+            - ${output.idVerificationPage.uploadedPassportButton}
+
+- runFlow:
+    when:
+        visible: ${output.idVerificationPage.uploadPassportButton}
+    commands:
+      - tapOn:
+          text: ${output.idVerificationPage.uploadTile}
+          containsDescendants: 
+            - ${output.idVerificationPage.uploadPassportButton}
+
+- runFlow: takePhoto.yaml
+
+- runFlow:
+    when:
+      visible: ${output.pinPage.enterPinText}
+    file: enterPin.yaml 
+    env:
+        PIN: ${output.env.validPin1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.addDocumentsButton}
+        INDEX: 0
+

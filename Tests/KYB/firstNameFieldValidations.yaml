@@ -1,0 +1,159 @@
+appId: ${APP_ID}
+name: Tests/KYB/firstNameFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env: 
+        TEXT: ${output.env.MERCHANT_MOBILE_27}
+        SIGNUP: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_27}
+        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
+        TURNOVER: ${output.env.turnoverOption1}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+        CITY: ${output.env.CITY_1}
+        POSTCODE: ${output.env.POST_CODE_1}
+        CONTINUE: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterPersonalDetails.yaml
+    env:
+        FNAME: ${output.env.MERCHANT_FNAME}
+        LNAME: ${output.env.MERCHANT_LNAME}
+        EMAIL: ${output.env.MERCHANT_EMAIL_27}
+        SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
+        CONTINUE: true 
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterBankDetails.yaml
+    env:
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        SORTCODE: ${output.env.SORT_CODE_1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.earnWithTipsPage.finishSetup}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/setAppLock.yaml
+    env:
+        PIN1: ${output.env.validPin1}
+        PIN2: ${output.env.validPin1}
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.kybBannerVerifyButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.kybStepsInfoPage.startVerificationButton}
+        INDEX: 0
+
+# Kyb form page verification
+
+- runFlow:
+    file: ../../PageVerification/kybFormPageVerification.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        ID: 'NO'
+        ADDRESSPROOF: 'NO'
+        SELFIE: 'NO'
+        FNAME: ${output.env.MERCHANT_FNAME}
+        LNAME: ${output.env.MERCHANT_LNAME}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_27}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+        ADDRESS2: ${output.idVerificationPage.addressLine2}
+        POSTCODE: ${output.env.POST_CODE_1}
+        DOB: ${output.idVerificationPage.dob}
+
+- swipe: 
+    direction: DOWN
+
+# Upload all docs
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/uploadKybDocuments.yaml
+    env:
+        ID: true
+        ADDRESSPROOF: true
+
+# Empty field
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.firstNameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.idVerificationPage.firstNameField}
+    containsDescendants:
+      - ${output.idVerificationPage.firstNameEmptyError}
+
+# Blank spaces
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.firstNameField}
+        TEXT: ${output.env.blankSpace}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.idVerificationPage.firstNameField}
+    containsDescendants:
+      - ${output.idVerificationPage.firstNameEmptyError}
+
+# Valid
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.firstNameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.firstNameField}
+        TEXT: ${output.env.MERCHANT_FNAME}
+        KEYBOARD: true

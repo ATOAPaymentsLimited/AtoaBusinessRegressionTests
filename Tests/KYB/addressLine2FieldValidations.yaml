@@ -1,0 +1,49 @@
+appId: ${APP_ID}
+name: Tests/KYB/addressLine2FieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- scrollUntilVisible:
+    element: ${output.idVerificationPage.addressLine2Field}
+    direction: DOWN
+
+# Special characters
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.addressLine2Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.addressLine2Field}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.idVerificationPage.addressLine2Field}
+    containsDescendants:
+      - ${output.idVerificationPage.address2SpecialCharactersError}
+
+# Valid
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.addressLine2Field}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.addressLine2Field}
+        TEXT: ${output.env.ADDRESS_LINE2_1} 
+        KEYBOARD: true  
