@@ -210,7 +210,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        TEXT: ${output.env.EMPLOYEE_MOBILE_A}
+        TEXT: ${output.env.EMPLOYEE_MOBILE_A1}
         SIGNUP: true
 
 - runFlow:
@@ -223,7 +223,7 @@ onFlowStart:
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
     env:
-        FIELDVALUE: ${output.env.EMPLOYEE_MOBILE_A}
+        FIELDVALUE: ${output.env.EMPLOYEE_MOBILE_A1}
         SIGNUP: true
 
 - runFlow:
@@ -236,7 +236,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        TEXT: ${output.env.EMPLOYEE_EMAIL_A}
+        TEXT: ${output.env.EMPLOYEE_EMAIL_A1}
         SIGNUP: true
 
 - runFlow:
@@ -248,7 +248,7 @@ onFlowStart:
 - runFlow:
     file: ../../PageVerification/signupPageVerification.yaml
     env:
-        FIELDVALUE: ${output.env.EMPLOYEE_EMAIL_A}
+        FIELDVALUE: ${output.env.EMPLOYEE_EMAIL_A1}
         SIGNUP: true
 
 - runFlow:

@@ -15,13 +15,13 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_2}
+        TEXT: ${output.env.MERCHANT_MOBILE_A}
         SIGNUP: true
 
 - runFlow:
     file: ../../PageVerification/otpPageVerification.yaml
     env:
-        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_A}
 
 # 5 Digits
 - runFlow: 
@@ -32,7 +32,7 @@ onFlowStart:
 - runFlow:
     file: ../../PageVerification/otpPageVerification.yaml
     env:
-        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_A}
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -48,94 +48,70 @@ onFlowStart:
 - runFlow:
     file: ../../PageVerification/otpPageVerification.yaml
     env:
-        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
-
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_A}
+- waitForAnimationToEnd
 
 # invalid 1
 - runFlow: 
     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
-        TEXT: ${output.env.digits10}
+        TEXT: ${output.env.digits6}
 
 - runFlow:
     file: ../../PageVerification/otpPageVerification.yaml
     env:
-        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_A}
 - assertVisible: ${output.otpPage.invalidOtpError1}
-
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
+- waitForAnimationToEnd
 
 # invalid 2
 - runFlow: 
     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
-        TEXT: ${output.env.digits10}
+        TEXT: ${output.env.digits6}
 - assertVisible: ${output.otpPage.invalidOtpError2}
 
 - runFlow:
     file: ../../PageVerification/otpPageVerification.yaml
     env:
-        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
-
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_A}
+- waitForAnimationToEnd
 
 # invalid 3
 - runFlow: 
     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
-        TEXT: ${output.env.digits10}
+        TEXT: ${output.env.digits6}
 - assertVisible: ${output.otpPage.invalidOtpError3}
 - runFlow:
     file: ../../PageVerification/otpPageVerification.yaml
     env:
-        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
-
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_A}
+- waitForAnimationToEnd
 
 # invalid 4
 - runFlow: 
     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
-        TEXT: ${output.env.digits10}
+        TEXT: ${output.env.digits6}
 - assertVisible: ${output.otpPage.invalidOtpError4}
 - runFlow:
     file: ../../PageVerification/otpPageVerification.yaml
     env:
-        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
-
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_A}
+- waitForAnimationToEnd
 
 # invalid 5
 - runFlow: 
     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
-        TEXT: ${output.env.digits10}
+        TEXT: ${output.env.digits6}
 - assertVisible: ${output.otpPage.invalidOtpError5}
 - runFlow:
     file: ../../PageVerification/otpPageVerification.yaml
     env:
-        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
-
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_A}
+- waitForAnimationToEnd
 
 # valid after 5 invalid
 - runFlow: 
@@ -146,12 +122,8 @@ onFlowStart:
 - runFlow:
     file: ../../PageVerification/otpPageVerification.yaml
     env:
-        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_2}
-
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env: 
-        ELEMENT: ${output.otpPage.otpTextField}
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_A}
+- waitForAnimationToEnd
 
 # valid after Resend code
 - runFlow:
@@ -159,6 +131,8 @@ onFlowStart:
     env:
         ELEMENT: ${output.otpPage.resendButton}
         INDEX: 0
+- waitForAnimationToEnd
+
 - runFlow: 
     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 

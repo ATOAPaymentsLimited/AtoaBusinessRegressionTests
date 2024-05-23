@@ -13,7 +13,6 @@ output.otpPage = {
     invalidOtpError2: 'The entered otp is wrong. 4  attempts left',
     invalidOtpError3: 'The entered otp is wrong. 3  attempts left',
     invalidOtpError4: 'The entered otp is wrong. 2  attempts left',
-    invalidOtpError5: 'The entered otp is wrong. 1  attempts left',
-    invalidOtpError5: 'The entered otp is wrong. 0  attempts left',
+    invalidOtpError5: 'The entered otp is wrong. 1 attempt left',
     invalidOtpError6: 'Maximum number of attempts reached. Please generate a new OTP',
 }
