@@ -9,8 +9,8 @@ flows:
 # - "Tests/Profile/*"
 # - "Tests/Referral/*"
 # - "Tests/Settings/*"
-- "Tests/Signup/*"
-# - "Tests/StaffManagement/*"
+# - "Tests/Signup/*"
+- "Tests/StaffManagement/*"
 # - "Tests/Tips/*"
 # - "Tests/Transactions/*"
 
@@ -22,32 +22,40 @@ flows:
 executionOrder:
     continueOnFailure: true 
     flowsOrder:
-    #Signup and otp page
-        - Tests/Signup/emailOrMobileNumberFieldValidations.yaml
-        - Tests/Signup/otpFieldValidations.yaml  
-    #Signup
-        - Tests/Signup/businessTypeDropdownValidations.yaml
-        - Tests/Signup/businessNameTextFieldValidations.yaml
-        - Tests/Signup/businessNameTextFieldValidationsLimitedCompany.yaml
-        - Tests/Signup/charityNameTextFieldValidations.yaml
-        - Tests/Signup/crnTextFieldValidations.yaml
-        - Tests/Signup/industryTypeDropdownValidations.yaml
-        - Tests/Signup/addressLine1TextFieldValidations.yaml
-        - Tests/Signup/addressLine2TextFieldValidations.yaml
-        - Tests/Signup/cityTextFieldValidations.yaml
-        - Tests/Signup/postCodeTextFieldValidations.yaml
-        - Tests/Signup/utrNumberTextFieldValidations.yaml
-        - Tests/Signup/websiteTextFieldValidations.yaml
-        - Tests/Signup/firstNameTextFieldValidations.yaml
-        - Tests/Signup/lastNameTextFieldValidations.yaml
-        - Tests/Signup/emailTextFieldValidations.yaml
-        - Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
-        - Tests/Signup/sortCodeFieldValidations.yaml
-    # #StaffManagement
-    #     - Tests/StaffManagement/firstNameAndLastNameTextFieldValidations.yaml
-    #     - Tests/StaffManagement/mobileNumberTextFieldValidations.yaml
-    #     - Tests/StaffManagement/emailTextFieldValidations.yaml
-    #     - Tests/StaffManagement/supervisorAddEmployee.yaml
+    # #Signup and otp page
+    #     - Tests/Signup/emailOrMobileNumberFieldValidations.yaml
+    #     - Tests/Signup/otpFieldValidations.yaml  
+    # #Signup
+    #     - Tests/Signup/businessTypeDropdownValidations.yaml
+    #     - Tests/Signup/businessNameTextFieldValidations.yaml
+    #     - Tests/Signup/businessNameTextFieldValidationsLimitedCompany.yaml
+    #     - Tests/Signup/charityNameTextFieldValidations.yaml
+    #     - Tests/Signup/crnTextFieldValidations.yaml
+    #     - Tests/Signup/industryTypeDropdownValidations.yaml
+    #     - Tests/Signup/addressLine1TextFieldValidations.yaml
+    #     - Tests/Signup/addressLine2TextFieldValidations.yaml
+    #     - Tests/Signup/cityTextFieldValidations.yaml
+    #     - Tests/Signup/postCodeTextFieldValidations.yaml
+    #     - Tests/Signup/utrNumberTextFieldValidations.yaml
+    #     - Tests/Signup/websiteTextFieldValidations.yaml
+    #     - Tests/Signup/firstNameTextFieldValidations.yaml
+    #     - Tests/Signup/lastNameTextFieldValidations.yaml
+    #     - Tests/Signup/emailTextFieldValidations.yaml
+    #     - Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
+    #     - Tests/Signup/sortCodeFieldValidations.yaml
+    #Accept payment
+        - Tests/AcceptPayment/merchantAcceptPaymentWithKYB.yaml
+        - Tests/AcceptPayment/merchantAcceptPaymentWithoutKYB.yaml
+        - Tests/AcceptPayment/supervisorAcceptPaymentWithKYB.yaml
+        - Tests/AcceptPayment/supervisorAcceptPaymentWithoutKYB.yaml
+        - Tests/AcceptPayment/cashierAcceptPaymentWithKYB.yaml
+        - Tests/AcceptPayment/cashierAcceptPaymentWithoutKYB.yaml
+    #StaffManagement
+        - Tests/StaffManagement/firstNameAndLastNameTextFieldValidations.yaml
+        - Tests/StaffManagement/mobileNumberTextFieldValidations.yaml
+        - Tests/StaffManagement/emailTextFieldValidations.yaml
+        - Tests/StaffManagement/supervisorAddEmployee.yaml
+        - Tests/StaffManagement/supervisorAcceptEmployeeRequest.yaml
     # #Settings
     #     - Tests/Settings/merchantAbout.yaml
     #     - Tests/Settings/merchantAppLock.yaml
