@@ -1,0 +1,113 @@
+appId: ${APP_ID}
+name: Tests/KYB/postCodeFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- scrollUntilVisible:
+    element: ${output.idVerificationPage.postCodeField}
+    direction: DOWN
+
+# Empty field
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.postCodeField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.idVerificationPage.postCodeField}
+    containsDescendants:
+      - ${output.idVerificationPage.postCodeEmptyError}
+
+# Blank spaces
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.postCodeField}
+        TEXT: ${output.env.blankSpace}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.idVerificationPage.postCodeField}
+    containsDescendants:
+      - ${output.idVerificationPage.postCodeEmptyError}
+
+# Special characters
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.postCodeField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.postCodeField}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.idVerificationPage.postCodeField}
+    containsDescendants:
+      - ${output.idVerificationPage.postCodeSpecialCharactersError}
+
+# Min length
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.postCodeField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.postCodeField}
+        TEXT: ${output.env.digits2}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.submitButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.idVerificationPage.postCodeField}
+    containsDescendants:
+      - ${output.idVerificationPage.postCodeMinLengthError}
+
+# Valid
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.postCodeField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.postCodeField}
+        TEXT: ${output.env.POST_CODE_1} 
+        KEYBOARD: true  

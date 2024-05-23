@@ -135,3 +135,10 @@ executionOrder:
         - Tests/Bacs/addressLine2FieldValidations.yaml
         - Tests/Bacs/cityFieldValidations.yaml
         - Tests/Bacs/postCodeFieldValidations.yaml
+    # Kyb
+        - Tests/KYB/firstNameFieldValidations.yaml
+        - Tests/KYB/lastNameFieldValidations.yaml
+        - Tests/KYB/businessNameFieldValidations.yaml
+        - Tests/KYB/addressLine1FieldValidations.yaml
+        - Tests/KYB/addressLine2FieldValidations.yaml
+        - Tests/KYB/postCodeFieldValidations.yaml

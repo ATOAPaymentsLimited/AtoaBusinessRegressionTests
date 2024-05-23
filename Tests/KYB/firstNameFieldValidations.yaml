@@ -94,6 +94,18 @@ onFlowStart:
         POSTCODE: ${output.env.POST_CODE_1}
         DOB: ${output.idVerificationPage.dob}
 
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.dobField}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.idVerificationPage.okButton}
+        INDEX: 0
+
 - swipe: 
     direction: DOWN
 
