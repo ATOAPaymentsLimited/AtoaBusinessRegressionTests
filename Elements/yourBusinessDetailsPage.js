@@ -64,6 +64,7 @@ output.yourBusinessDetailsPage = {
 
     crnEmptyError: 'Please provide a company number',
     crnMinLengthError: 'Company Registration Number is invalid',
+    crnSpecialCharactersError: 'Company Registration Number is invalid',
     crnExistingError: 'Merchant with this CRN number already exists',
 
     invalidIndustryTypeError: 'No results found!',

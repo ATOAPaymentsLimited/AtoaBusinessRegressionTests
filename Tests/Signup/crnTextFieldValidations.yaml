@@ -77,7 +77,7 @@ onFlowStart:
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.crnField}
     containsDescendants: 
-      - ${output.yourBusinessDetailsPage.crnEmptyError}
+      - ${output.yourBusinessDetailsPage.crnSpecialCharactersError}
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
