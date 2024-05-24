@@ -20,7 +20,7 @@ output.settingsPage = {
     directDebitSetupButton: 'Set Up Direct Debit',
 
     nextButton: 'Next',
-    finishButton: 'Finish',
+    finish: 'Finish',
     hiw1: 'Enter the amount your customer owes and add a note if you like',
     hiw2: 'Ask the customer to scan the QR code using their phone camera or Atoa Pay',
     hiw3: `This will trigger a payment in the customer's banking app for approval`,

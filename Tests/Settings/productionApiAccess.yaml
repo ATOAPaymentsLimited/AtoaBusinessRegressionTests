@@ -173,11 +173,11 @@ onFlowStart:
         INDEX: 0
 
 - assertVisible:
-    text: ${output.apiAccessPage.prodToggle} 
-    checked: true
+    text: ${output.apiAccessPage.sandboxToggle} 
+    checked: false
 - assertVisible:
     text: ${output.apiAccessPage.prodToggle} 
-    checked: false
+    checked: true
 
 - assertVisible: ${output.apiAccessPage.accessIdField}
 - assertVisible: ${output.apiAccessPage.accessSecretField}

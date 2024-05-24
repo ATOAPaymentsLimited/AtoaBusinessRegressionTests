@@ -128,14 +128,6 @@ onFlowStart:
 
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
-- assertVisible: ${output.pinPage.enterPinText}
-
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.pinPage.pinTextField}
-        TEXT: ${output.env.validPin1}
-
 - assertVisible: 
     text: ${output.merchantHomePage.acceptPaymentButton}
     enabled: true

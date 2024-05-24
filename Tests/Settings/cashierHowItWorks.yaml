@@ -64,5 +64,5 @@ onFlowStart:
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.settingsPage.finishButton}
+        ELEMENT: ${output.settingsPage.finish}
         INDEX: 0
