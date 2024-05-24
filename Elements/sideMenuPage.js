@@ -19,7 +19,7 @@ output.sideMenuPage = {
     lightThemeTab: 'Light',
     darkThemeTab: 'Dark',
 
-    supportWebText: 'Atoa Help Center',
+    supportWebText: 'Atoa Help Centre',
 
     addBusinessErrorToastWithoutKYB: 'Please complete your KYB to set up a new business with Atoa.',
 

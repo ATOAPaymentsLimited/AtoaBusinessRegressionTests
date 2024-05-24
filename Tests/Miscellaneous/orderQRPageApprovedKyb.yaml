@@ -30,10 +30,10 @@ onFlowStart:
         INDEX: 0
 
 - runFlow:
-    file: ../../PageVerifications/modifyQROrderAddressPageVerification.yaml
+    file: ../../PageVerification/modifyQROrderAddressPageVerification.yaml
     env:
         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
-        ADDRESS2: ${output.env.address2}
+        ADDRESS2: ${output.orderQRPage.address2}
         POSTCODE: ${output.env.POST_CODE_1}
         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_A}
 

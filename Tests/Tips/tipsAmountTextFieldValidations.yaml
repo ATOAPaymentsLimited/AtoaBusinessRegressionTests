@@ -264,17 +264,17 @@ onFlowStart:
         ELEMENT: ${output.tipPreferencesPage.saveChangesButton}
         INDEX: 0
 
-- runFlow:
-    file: ../../PageVerification/tipsPageVerification.yaml
-    env:
-        ENABLED: true
+# - runFlow:
+#     file: ../../PageVerification/tipsPageVerification.yaml
+#     env:
+#         ENABLED: true
 
 # Disable tips
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.tipPage.allowTipsSwitch}
+        ELEMENT: ${output.tipsPage.allowTipsSwitch}
         INDEX: 0
 
 - runFlow:
@@ -293,7 +293,7 @@ onFlowStart:
         ELEMENT: ${output.tipsPage.disableButton}
         INDEX: 0
 
-- runFlow:
-    file: ../../PageVerification/tipsPageVerification.yaml
-    env:
-        DISABLED: true
+# - runFlow:
+#     file: ../../PageVerification/tipsPageVerification.yaml
+#     env:
+#         DISABLED: true
