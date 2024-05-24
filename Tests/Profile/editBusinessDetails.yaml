@@ -27,7 +27,7 @@ onFlowStart:
         BUSINESSNAME: ${output.env.BUSINESS_NAME_E}
         INDUSTRYTYPE: ${output.profilePage.industry1}
         ADDRESS1: ${output.env.ADDRESS_LINE1_2}
-        ADDRESS2: ${output.profilePage.ADDRESS_LINE1_2}
+        ADDRESS2: ${output.env.ADDRESS_LINE1_2}
         CITY: ${output.env.CITY_2}
         POSTCODE: ${output.env.POST_CODE_2}
 
@@ -61,7 +61,7 @@ onFlowStart:
 - runFlow:
     file: ../../ElementActions/inputText.yaml
     env:
-        ELEMENT: ${output.profilePage.addressLine1Field}
+        ELEMENT: ${output.profilePage.addressLine2Field}
         TEXT: ${output.env.ADDRESS_LINE2_1}
         KEYBOARD: true
 

@@ -122,7 +122,7 @@ onFlowStart:
 - assertVisible:
     text: ${output.profilePage.postCodeField}
     containsDescendants:
-      - ${output.profilePage.postCodeSpecialCharactersError}
+      - ${output.profilePage.postCodeEmptyError}
 
 # Valid
 

@@ -18,7 +18,7 @@ appId: ${APP_ID}
           containsDescendants:
             - ${INDUSTRYTYPE}     
       - scrollUntilVisible:
-          element: ${output.profilePage.addressLine2Field}
+          element: ${output.profilePage.postCodeField}
           direction: DOWN
       - assertVisible:
           text: ${output.profilePage.addressLine1Field}

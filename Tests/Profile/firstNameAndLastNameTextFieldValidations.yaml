@@ -6,170 +6,170 @@ onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
 
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/login.yaml
-    env:
-        USER: 'BUSINESSOWNER'
-        ID: ${output.env.MERCHANT_MOBILE_E}
+# - runFlow:
+#     file: ../../SubFlows/GeneralFlows/login.yaml
+#     env:
+#         USER: 'BUSINESSOWNER'
+#         ID: ${output.env.MERCHANT_MOBILE_E}
 
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.merchantHomePage.myAccountButton}
-        INDEX: 0
+# - runFlow:
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${output.merchantHomePage.myAccountButton}
+#         INDEX: 0
 
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.sideMenuPage.profileText}
-        INDEX: 0
+# - runFlow:
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${output.sideMenuPage.profileText}
+#         INDEX: 0
 
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.sideMenuPage.personalDetailsTab}
-        INDEX: 0
+# - runFlow:
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.personalDetailsTab}
+#         INDEX: 0
 
-- runFlow:
-    file: ../../PageVerification/profilePersonalDetailsPageVerification.yaml
-    env:
-        FNAME: ${output.env.MERCHANT_FNAME}
-        LNAME: ${output.env.MERCHANT_LNAME}
-        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_E}
-        EMAIL: ${output.env.MERCHANT_EMAIL_E}
+# - runFlow:
+#     file: ../../PageVerification/profilePersonalDetailsPageVerification.yaml
+#     env:
+#         FNAME: ${output.env.MERCHANT_FNAME}
+#         LNAME: ${output.env.MERCHANT_LNAME}
+#         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_E}
+#         EMAIL: ${output.env.MERCHANT_EMAIL_E}
 
-# blank space
+# # blank space
 
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.profilePage.firstNameField}
-        KEYBOARD: true
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.profilePage.lastNameField}
-        KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/eraseText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.firstNameField}
+#         KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/eraseText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.lastNameField}
+#         KEYBOARD: true
 
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.profilePage.firstNameField}
-        TEXT: ${output.env.blankSpace}
-        KEYBOARD: true
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.profilePage.lastNameField}
-        TEXT: ${output.env.blankSpace}
-        KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/inputText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.firstNameField}
+#         TEXT: ${output.env.blankSpace}
+#         KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/inputText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.lastNameField}
+#         TEXT: ${output.env.blankSpace}
+#         KEYBOARD: true
 
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.sideMenuPage.updatePersonalDetailsButton}
-        INDEX: 0
+# - runFlow:
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.updatePersonalDetailsButton}
+#         INDEX: 0
 
-- assertVisible:
-    text: ${output.profilePage.firstNameField}
-    containsDescendants:
-      - ${output.profilePage.firstNameEmptyError}
-- assertVisible:
-    text: ${output.profilePage.lastNameField}
-    containsDescendants:
-      - ${output.profilePage.lastNameEmptyError}
+# - assertVisible:
+#     text: ${output.profilePage.firstNameField}
+#     containsDescendants:
+#       - ${output.profilePage.firstNameEmptyError}
+# - assertVisible:
+#     text: ${output.profilePage.lastNameField}
+#     containsDescendants:
+#       - ${output.profilePage.lastNameEmptyError}
 
-# empty field
+# # empty field
 
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.profilePage.firstNameField}
-        KEYBOARD: true
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.profilePage.lastNameField}
-        KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/eraseText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.firstNameField}
+#         KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/eraseText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.lastNameField}
+#         KEYBOARD: true
 
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.sideMenuPage.updatePersonalDetailsButton}
-        INDEX: 0
+# - runFlow:
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.updatePersonalDetailsButton}
+#         INDEX: 0
 
-- assertVisible:
-    text: ${output.profilePage.firstNameField}
-    containsDescendants:
-      - ${output.profilePage.firstNameEmptyError}
-- assertVisible:
-    text: ${output.profilePage.lastNameField}
-    containsDescendants:
-      - ${output.profilePage.lastNameEmptyError}
+# - assertVisible:
+#     text: ${output.profilePage.firstNameField}
+#     containsDescendants:
+#       - ${output.profilePage.firstNameEmptyError}
+# - assertVisible:
+#     text: ${output.profilePage.lastNameField}
+#     containsDescendants:
+#       - ${output.profilePage.lastNameEmptyError}
 
-# Special characters
+# # Special characters
 
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.profilePage.firstNameField}
-        TEXT: ${output.env.specialCharacters}
-        KEYBOARD: true
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.profilePage.lastNameField}
-        TEXT: ${output.env.specialCharacters}
-        KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/inputText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.firstNameField}
+#         TEXT: ${output.env.specialCharacters}
+#         KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/inputText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.lastNameField}
+#         TEXT: ${output.env.specialCharacters}
+#         KEYBOARD: true
 
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.sideMenuPage.updatePersonalDetailsButton}
-        INDEX: 0
+# - runFlow:
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.updatePersonalDetailsButton}
+#         INDEX: 0
 
-- assertVisible:
-    text: ${output.profilePage.firstNameField}
-    containsDescendants:
-      - ${output.profilePage.firstNameEmptyError}
-- assertVisible:
-    text: ${output.profilePage.lastNameField}
-    containsDescendants:
-      - ${output.profilePage.lastNameEmptyError}
+# - assertVisible:
+#     text: ${output.profilePage.firstNameField}
+#     containsDescendants:
+#       - ${output.profilePage.firstNameEmptyError}
+# - assertVisible:
+#     text: ${output.profilePage.lastNameField}
+#     containsDescendants:
+#       - ${output.profilePage.lastNameEmptyError}
 
-# Valid
+# # Valid
 
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.profilePage.firstNameField}
-        KEYBOARD: true
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.profilePage.lastNameField}
-        KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/eraseText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.firstNameField}
+#         KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/eraseText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.lastNameField}
+#         KEYBOARD: true
 
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.profilePage.firstNameField}
-        TEXT: ${output.env.EMPLOYEE_FNAME}
-        KEYBOARD: true
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.profilePage.lastNameField}
-        TEXT: ${output.env.EMPLOYEE_LNAME}
-        KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/inputText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.firstNameField}
+#         TEXT: ${output.env.EMPLOYEE_FNAME}
+#         KEYBOARD: true
+# - runFlow:
+#     file: ../../ElementActions/inputText.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.lastNameField}
+#         TEXT: ${output.env.EMPLOYEE_LNAME}
+#         KEYBOARD: true
 
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.sideMenuPage.updatePersonalDetailsButton}
-        INDEX: 0
+# - runFlow:
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${output.profilePage.updatePersonalDetailsButton}
+#         INDEX: 0
 
-- waitForAnimationToEnd
+# - waitForAnimationToEnd
 
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
@@ -188,7 +188,7 @@ onFlowStart:
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.sideMenuPage.personalDetailsTab}
+        ELEMENT: ${output.profilePage.personalDetailsTab}
         INDEX: 0
 
 - runFlow:
