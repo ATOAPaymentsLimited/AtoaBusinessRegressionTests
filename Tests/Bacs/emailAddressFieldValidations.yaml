@@ -13,7 +13,7 @@ onFlowStart:
 # Empty field
 
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.emailField}
         KEYBOARD: true
@@ -65,7 +65,7 @@ onFlowStart:
 
 # Invalid 1
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.emailField}
         KEYBOARD: true
@@ -97,7 +97,7 @@ onFlowStart:
 
 # Invalid 2
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.emailField}
         KEYBOARD: true
@@ -129,7 +129,7 @@ onFlowStart:
 
 # Invalid 3
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.emailField}
         KEYBOARD: true
@@ -162,7 +162,7 @@ onFlowStart:
 
 # Invalid 4
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.emailField}
         KEYBOARD: true
@@ -194,7 +194,7 @@ onFlowStart:
 
 # Invalid 5
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.emailField}
         KEYBOARD: true
@@ -227,7 +227,7 @@ onFlowStart:
 # Valid
 
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.emailField}
         KEYBOARD: true

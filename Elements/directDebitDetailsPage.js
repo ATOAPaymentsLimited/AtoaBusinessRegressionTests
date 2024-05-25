@@ -47,7 +47,7 @@ output.directDebitDetailsPage = {
     bankAccountEmptyError: 'Account Number should not be empty',
     bankAccountNumberLessThan8Error: 'Account Number should be at least 8 characters long',
 
-    confirmBankAccountEmptyError: 'Confirm Bank Account Number should not be empty',
+    confirmBankAccountEmptyError: 'Confirm Account Number should not be empty',
     confirmBankAccountMismatchError: 'Account Numbers do not match',
 
     sortCodeEmptyError: 'Sort Code should not be empty',

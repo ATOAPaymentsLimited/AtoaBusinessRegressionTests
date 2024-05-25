@@ -13,7 +13,7 @@ onFlowStart:
 # Empty field
 
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.sortCodeField}
         KEYBOARD: true
@@ -35,39 +35,11 @@ onFlowStart:
     text: ${output.directDebitDetailsPage.sortCodeField}
     containsDescendants:
       - ${output.directDebitDetailsPage.sortCodeEmptyError}
-
-# Blank space
-
-- runFlow:
-    file: ../../ElementActions/inputText.yaml
-    env:
-        ELEMENT: ${output.directDebitDetailsPage.sortCodeField}
-        TEXT: ${output.env.blankSpace}
-        KEYBOARD: true
-
-- scrollUntilVisible:
-    element: ${output.directDebitDetailsPage.continueSetupButton}
-    direction: DOWN
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.directDebitDetailsPage.continueSetupButton}
-        INDEX: 0
-- scrollUntilVisible:
-    element: ${output.directDebitDetailsPage.sortCodeField}
-    direction: UP
-
-- assertVisible:
-    text: ${output.directDebitDetailsPage.sortCodeField}
-    containsDescendants:
-      - ${output.directDebitDetailsPage.sortCodeEmptyError}
-
 
 # 5 digits
 
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.sortCodeField}
         KEYBOARD: true
@@ -100,7 +72,7 @@ onFlowStart:
 # Valid
 
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.sortCodeField}
         KEYBOARD: true

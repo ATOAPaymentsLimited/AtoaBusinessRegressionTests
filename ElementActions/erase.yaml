@@ -5,22 +5,10 @@ appId: ${APP_ID}
     env:
         ELEMENT: ${ELEMENT}
         INDEX: 0
-
-- runFlow:
-    file: longPressOn.yaml
-    env:
-        ELEMENT: ${ELEMENT}
-        INDEX: 0
-
-- runFlow:
-    when:
-        visible: 'Select all'
-    commands: 
-        - tapOn: 'Select all'
 - eraseText
-
+- waitForAnimationToEnd
 - runFlow:
-    file: longPressOn.yaml
+    file: tapOn.yaml
     env:
         ELEMENT: ${ELEMENT}
         INDEX: 0
@@ -30,6 +18,4 @@ appId: ${APP_ID}
         true: ${KEYBOARD}
     commands:
         - hideKeyboard
-
-
 

@@ -13,7 +13,7 @@ onFlowStart:
 # special characters
 
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.address2Field}
         KEYBOARD: true
@@ -39,7 +39,7 @@ onFlowStart:
 # Valid
 
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.address2Field}
         KEYBOARD: true

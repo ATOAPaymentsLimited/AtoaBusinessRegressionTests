@@ -13,12 +13,13 @@ onFlowStart:
 # Empty fields
 
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
         KEYBOARD: true
+     
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
         KEYBOARD: true
@@ -86,12 +87,12 @@ onFlowStart:
 # 8 digits and 7 digits
 
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
         KEYBOARD: true
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
         KEYBOARD: true
@@ -130,12 +131,12 @@ onFlowStart:
 # 7 digits and 8 digits
 
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
         KEYBOARD: true
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
         KEYBOARD: true
@@ -178,12 +179,12 @@ onFlowStart:
 # Valid
 
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.accountNumberField}
         KEYBOARD: true
 - runFlow:
-    file: ../../ElementActions/eraseText.yaml
+    file: ../../ElementActions/erase.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.confirmAccountNumberField}
         KEYBOARD: true
