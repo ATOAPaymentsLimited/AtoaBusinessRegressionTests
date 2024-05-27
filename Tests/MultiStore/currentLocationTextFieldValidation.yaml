@@ -19,6 +19,11 @@ onFlowStart:
         SIGNUP: true
 
 - runFlow:
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
     env:
         BUSINESSTYPE: 'SOLETRADER'
@@ -43,8 +48,8 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/enterBankDetails.yaml
     env:
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
-        CONFIRMACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
         SORTCODE: ${output.env.SORT_CODE_1}
 
 - runFlow:

@@ -34,7 +34,7 @@ appId: ${APP_ID}
         true: ${REFERRALCODE}
     file: ../SignupFieldActions/enterReferralCode.yaml
     env:
-        REERRALCODE: ${REFERRALCODE}
+        REFERRALCODE: ${REFERRALCODE}
 - scroll
 - runFlow: ../SignupFieldActions/checkUserAgreement.yaml
 

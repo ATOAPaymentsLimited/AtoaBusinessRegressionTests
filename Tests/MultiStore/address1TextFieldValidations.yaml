@@ -43,8 +43,8 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/enterBankDetails.yaml
     env:
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
-        CONFIRMACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
         SORTCODE: ${output.env.SORT_CODE_1}
 
 - runFlow:
@@ -206,7 +206,7 @@ onFlowStart:
     env:
         STORE: ${output.env.STORE_NAME_2}
         ADDRESS: ${output.env.ADDRESS_LINE1_1} ${output.env.CITY_1} ${output.env.POST_CODE_1}
-        BANKNAME: ${output.env.MERCAHNT_BANK_NAME_1}
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
 
 
 

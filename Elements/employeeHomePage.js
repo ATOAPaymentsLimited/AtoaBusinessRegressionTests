@@ -9,7 +9,7 @@ output.employeeHomePage = {
     profileButton: 'Profile',
     settingsButton: 'Settings',
     supportButton: 'Support',
-    referAndEarnButton: 'Invite',
+    inviteButton: 'Invite',
     showQRButton: 'Show QR',
     tipsButton: 'Tipping',
     offerBanner: 'Offer Banner',

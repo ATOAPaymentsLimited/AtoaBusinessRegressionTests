@@ -36,7 +36,7 @@ appId: ${APP_ID}
         VAT: '0.00'
         SERVICECHARGE: '0.00'
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_LAST_1}
 
 - runFlow:
     file: ../ElementActions/tapOn.yaml
@@ -66,7 +66,7 @@ appId: ${APP_ID}
         VAT: '0.00'
         SERVICECHARGE: '0.00'
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_LAST_1}
 
 - runFlow:
     file: ../ElementActions/tapOn.yaml
@@ -96,7 +96,7 @@ appId: ${APP_ID}
         VAT: '0.00'
         SERVICECHARGE: '0.00'
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_LAST_1}
 
 - runFlow:
     file: ../ElementActions/tapOn.yaml
@@ -126,7 +126,7 @@ appId: ${APP_ID}
         VAT: '0.00'
         SERVICECHARGE: '0.00'
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_LAST_1}
 
 - runFlow:
     file: ../ElementActions/tapOn.yaml
@@ -156,7 +156,7 @@ appId: ${APP_ID}
         VAT: '0.00'
         SERVICECHARGE: '0.00'
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_LAST_1}
         ORDERID: ${output.env.testOrderId}
 
 - runFlow:
@@ -193,7 +193,7 @@ appId: ${APP_ID}
         VAT: '0.00'
         SERVICECHARGE: '0.00'
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_LAST_1}
 
 - runFlow:
     file: ../ElementActions/tapOn.yaml
@@ -225,7 +225,7 @@ appId: ${APP_ID}
         VAT: '0.00'
         SERVICECHARGE: '0.00'
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_LAST_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_LAST_1}
 
 - runFlow:
     file: ../ElementActions/tapOn.yaml

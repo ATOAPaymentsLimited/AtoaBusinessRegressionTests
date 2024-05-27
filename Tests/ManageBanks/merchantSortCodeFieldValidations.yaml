@@ -43,7 +43,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/addBankAccount.yaml
     env:
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_2}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_2}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_2}
         CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_2}
         SORTCODE: ${output.env.digits5}
 

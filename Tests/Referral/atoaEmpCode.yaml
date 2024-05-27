@@ -16,14 +16,19 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_20}
+        TEXT: ${output.env.MERCHANT_MOBILE_4}
         SIGNUP: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
     env:
         BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_20}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_4}
         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
         TURNOVER: ${output.env.turnoverOption1}
         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
@@ -36,17 +41,17 @@ onFlowStart:
     env:
         FNAME: ${output.env.MERCHANT_FNAME}
         LNAME: ${output.env.MERCHANT_LNAME}
-        EMAIL: ${output.env.MERCHANT_EMAIL_20}
+        EMAIL: ${output.env.MERCHANT_EMAIL_4}
         SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
-        REFERRALCODE: ${outut.env.EMP_CODE_DEV}
+        REFERRALCODE: ${output.env.EMP_CODE_DEV}
         CONTINUE: true 
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterBankDetails.yaml
     env:
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
-        CONFIRMACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
         SORTCODE: ${output.env.SORT_CODE_1}
 
 - runFlow:

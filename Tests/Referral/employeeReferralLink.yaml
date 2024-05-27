@@ -8,7 +8,7 @@ onFlowStart:
 - runFlow: 
     file: ../../SubFlows/GeneralFlows/openLink.yaml
     env:
-        LINK: ${output.env.MERCHANT_REFERRAL_LINK_DEV}  
+        LINK: ${output.env.EMPLOYEE_REFERRAL_LINK_DEV}  
 
 - runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
 - runFlow: 
@@ -19,14 +19,19 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_17}
+        TEXT: ${output.env.MERCHANT_MOBILE_6}
         SIGNUP: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
     env:
         BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_17}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_6}
         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
         TURNOVER: ${output.env.turnoverOption1}
         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
@@ -39,7 +44,7 @@ onFlowStart:
     env:
         FNAME: ${output.env.MERCHANT_FNAME}
         LNAME: ${output.env.MERCHANT_LNAME}
-        EMAIL: ${output.env.MERCHANT_EMAIL_17}
+        EMAIL: ${output.env.MERCHANT_EMAIL_6}
         SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
         CONTINUE: true 
 
@@ -47,8 +52,8 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/enterBankDetails.yaml
     env:
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
-        CONFIRMACCOUNTNUMBER: ${output.env.MERCAHNT_BANK_ACCOUNT_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
         SORTCODE: ${output.env.SORT_CODE_1}
 
 - runFlow:
@@ -68,7 +73,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/login.yaml
     env: 
         USER: 'STAFFMEMBER'
-        ID: ${output.env.EMPLOYEE_MOBILE_A1}
+        ID: ${output.env.EMPLOYEE_MOBILE_B1}
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -83,12 +88,12 @@ onFlowStart:
         INDEX: 0
 
 - scrollUntilVisible:
-    element: ${output.env.MERCHANT_MOBILE_17}
+    element: 44${output.env.MERCHANT_MOBILE_6}
     direction: DOWN
 - assertVisible: 
     text: ${output.inviteBusinessesPage.contactTile}
     containsChild: ${output.env.MERCHANT_FNAME} ${output.env.MERCHANT_LNAME}
-    containsChild: 44${output.env.MERCHANT_MOBILE_17}
+    containsChild: 44${output.env.MERCHANT_MOBILE_6}
     containsDescendants:
       - ${output.inviteBusinessesPage.remindButton}
 
