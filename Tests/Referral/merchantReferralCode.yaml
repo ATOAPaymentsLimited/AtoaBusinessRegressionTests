@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: SubTests/Referral/merchantReferralCode.yaml
+name: Tests/Referral/merchantReferralCode.yaml
 tags:
     - dev
 onFlowStart:

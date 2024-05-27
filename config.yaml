@@ -1,18 +1,22 @@
 flows:
-- "Tests/AcceptPayment/*"
-- "Tests/Analytics/*"
-- "Tests/HomePage/*"
-- "Tests/Links/*"
-- "Tests/ManageBanks/*"
-- "Tests/Miscellaneous/*"
-- "Tests/MultiStore/*"
-- "Tests/Profile/*"
-- "Tests/Referral/*"
-- "Tests/Settings/*"
-- "Tests/Signup/*"
-- "Tests/StaffManagement/*"
-- "Tests/Tips/*"
-- "Tests/Transactions/*"
+    - "Tests/AcceptPayment/*"
+    - "Tests/Analytics/*"
+    - "Tests/Bacs/*"
+    - "Tests/HomePage/*"
+    - "Tests/Integrations/*"
+    - "Tests/KYB/*"
+    - "Tests/Links/*"
+    - "Tests/ManageBanks/*"
+    - "Tests/Miscellaneous/*"
+    - "Tests/MultiStore/*"
+    - "Tests/PlanAndPricing/*"
+    - "Tests/Profile/*"
+    - "Tests/Referral/*"
+    - "Tests/Settings/*"
+    - "Tests/Signup/*"
+    - "Tests/StaffManagement/*"
+    - "Tests/Tips/*"
+    - "Tests/Transactions/*"
 
 # includeTags:
 #   - dev
@@ -43,6 +47,12 @@ executionOrder:
         - Tests/Signup/emailTextFieldValidations.yaml
         - Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
         - Tests/Signup/sortCodeFieldValidations.yaml
+    #Referral
+        - Tests/Referral/atoaEmpCode.yaml
+        - Tests/Referral/customReferralCode.yaml
+        - Tests/Referral/employeeReferralLink.yaml
+        - Tests/Referral/merchantReferralCode.yaml
+        - Tests/Referral/merchantReferralLink.yaml
     #Accept payment
         - Tests/AcceptPayment/merchantAcceptPaymentWithKYB.yaml
         - Tests/AcceptPayment/merchantAcceptPaymentWithoutKYB.yaml

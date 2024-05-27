@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: SubTests/Referral/employeeReferralLink.yaml
+name: Tests/Referral/employeeReferralLink.yaml
 tags:
     - dev
 onFlowStart:

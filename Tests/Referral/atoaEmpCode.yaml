@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: SubTests/Referral/atoaEmpCode.yaml
+name: Tests/Referral/atoaEmpCode.yaml
 tags:
     - dev
 onFlowStart:
