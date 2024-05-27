@@ -1,0 +1,13 @@
+appId: ${APP_ID}
+---
+- assertVisible: ${output.manageLocationsPage.manageLocationsPageTitle}
+
+- assertVisible:
+    text: ${output.manageLocationsPage.locationTile}
+    containsDescendants:
+      - ${LOCATIONNAME} 
+    containsDescendants:
+      - ${ADDRESS}
+    containsDescendants:
+      - Connected to ${BANK}
+

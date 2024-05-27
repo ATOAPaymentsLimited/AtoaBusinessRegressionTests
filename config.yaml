@@ -163,3 +163,10 @@ executionOrder:
         - Tests/KYB/addressLine1FieldValidations.yaml
         - Tests/KYB/addressLine2FieldValidations.yaml
         - Tests/KYB/postCodeFieldValidations.yaml
+    #Multistore
+        - Tests/MultiStore/currentLocationTextFieldValidation.yaml
+        - Tests/MultiStore/locationNameTextFieldValidations.yaml
+        - Tests/MultiStore/address1TextFieldValidations.yaml
+        - Tests/MultiStore/address2TextFieldValidations.yaml
+        - Tests/MultiStore/cityTextFieldValidations.yaml
+        - Tests/MultiStore/postCodeTextFieldValidations.yaml

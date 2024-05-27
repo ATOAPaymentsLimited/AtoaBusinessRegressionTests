@@ -35,9 +35,9 @@ output.newLocationPage = {
     specialCharactersAddress2Error: `Only , & : ' - are allowed`,
 
     emptyCityError: 'Town/City should not be empty',
-    minLengthCityError: 'Town/City should be ay least 3 characters long',
+    minLengthCityError: 'Town/City should be at least 3 characters long',
 
     emptyPostCodeError: 'Post Code should not be empty',
-    minLengthPostCodeError: 'Post Code should be ay least 3 characters long',
+    minLengthPostCodeError: 'Post Code should be at least 3 characters long',
 
 }

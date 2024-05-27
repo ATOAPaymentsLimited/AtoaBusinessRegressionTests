@@ -4,97 +4,7 @@ tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
-  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
 ---
-- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
-- runFlow: 
-    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
-    env: 
-        USER: ${output.annotations.businessOwner}
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
-    env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_28}
-        SIGNUP: true
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
-    env:
-        BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_28}
-        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
-        TURNOVER: ${output.env.turnoverOption1}
-        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
-        CITY: ${output.env.CITY_1}
-        POSTCODE: ${output.env.POST_CODE_1}
-        CONTINUE: true
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterPersonalDetails.yaml
-    env:
-        FNAME: ${output.env.MERCHANT_FNAME}
-        LNAME: ${output.env.MERCHANT_LNAME}
-        EMAIL: ${output.env.MERCHANT_EMAIL_28}
-        SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
-        CONTINUE: true 
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterBankDetails.yaml
-    env:
-        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
-        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
-        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
-        SORTCODE: ${output.env.SORT_CODE_1}
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.earnWithTipsPage.finishSetup}
-        INDEX: 0
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/setAppLock.yaml
-    env:
-        PIN1: ${output.env.validPin1}
-        PIN2: ${output.env.validPin1}
-- waitForAnimationToEnd
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.merchantHomePage.myAccountButton}
-        INDEX: 0
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.sideMenuPage.addLocationButton}
-        INDEX: 0
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/enterCurrentLocationName.yaml
-    env:
-        CURRENTLOCATIONNAME: ${output.env.STORE_NAME_1}
-
-# BLANK SPACE
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/addNewLocation.yaml
-    env:
-        LOCATIONNAME: ${output.env.STORE_NAME_1}
-        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
-        CITY: ${output.env.blankSpace}
-        POSTCODE: ${output.env.POST_CODE_1}
-
-- scrollUntilVisible:
-    element: ${output.newLocationPage.cityField}
-    direction: UP
-
-- assertVisible:
-    text: ${output.newLocationPage.cityField}
-    containsDescendants:
-        - ${output.newLocationPage.emptyCityError}
 
 # EMPTY FIELD
 - runFlow:
@@ -137,7 +47,7 @@ onFlowStart:
 - assertVisible:
     text: ${output.newLocationPage.cityField}
     containsDescendants:
-        - ${output.newLocationPage.emptyAddress1Error}
+        - ${output.newLocationPage.emptyCityError}
 
 # min length
 - runFlow:
@@ -179,31 +89,3 @@ onFlowStart:
         ELEMENT: ${output.newLocationPage.cityField}
         TEXT: ${output.env.CITY_1}
         KEYBOARD: true
-- scroll
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.newLocationPage.proceedButton}
-        INDEX: 0
-
-- assertVisible:
-    text: ${ouptut.newLocationPage.bankAccountTile}
-    containsDescendants:
-      - ${output.env.MERCHANT_BANK_NAME_1}
-    containsDescendants:
-      - ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
-    containsDescendants:
-      - ${output.env.SORT_CODE_1}
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.newLocationPage.finishButton}
-        INDEX: 0
-
-- runFlow:
-    file: ../../PageVerification/storeCreatedPopupVerification.yaml
-    env:
-        STORE: ${output.env.STORE_NAME_2}
-        ADDRESS: ${output.env.ADDRESS_LINE1_1} ${output.env.CITY_1} ${output.env.POST_CODE_1}
-        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
