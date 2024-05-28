@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/HomePage/merchantBlockedPageVerification.yaml
+name: Tests/HomePage/employeeBlockedPageVerification.yaml
 tags:
     - dev
 onFlowStart:

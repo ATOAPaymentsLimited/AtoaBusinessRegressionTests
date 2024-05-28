@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/HomePage/cashierSuspendedPageVerification.yaml
+name: Tests/HomePage/employeeSuspendedPageVerification.yaml
 tags:
     - dev
 onFlowStart:

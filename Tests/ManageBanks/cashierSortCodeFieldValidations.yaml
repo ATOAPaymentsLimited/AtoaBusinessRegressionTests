@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/ManageBanks/merchantSortCodeFieldValidations.yaml
+name: Tests/ManageBanks/cashierSortCodeFieldValidations.yaml
 tags:
     - dev
 onFlowStart:

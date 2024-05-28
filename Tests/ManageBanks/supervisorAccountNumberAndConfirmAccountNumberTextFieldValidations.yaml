@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/ManageBanks/merchantAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
+name: Tests/ManageBanks/supervisorAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
 tags:
     - dev
 onFlowStart:

@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/HomePage/cashierFraudulentPageVerification.yaml
+name: Tests/HomePage/employeeFraudulentPageVerification.yaml
 tags:
     - dev
 onFlowStart:
