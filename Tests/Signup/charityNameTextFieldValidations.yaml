@@ -135,7 +135,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/enterBusinessName.yaml
     env:
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_22}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_3}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
