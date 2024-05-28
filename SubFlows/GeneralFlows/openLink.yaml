@@ -1,4 +1,9 @@
 appId: ${APP_ID}
 ---
-- clearState: ${output.env.APP_ID}
+- launchApp:
+    appId: ${output.env.APP_ID}
+    clearState: true
+    stopApp: true
+    permissions: { all: allow }
+- waitForAnimationToEnd
 - openLink: ${LINK}
