@@ -15,7 +15,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
     env: 
-        TEXT: ${output.env.MERCHANT_MOBILE_27}
+        TEXT: ${output.env.MERCHANT_MOBILE_11}
         SIGNUP: true
 
 - runFlow:
@@ -27,7 +27,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
     env:
         BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_27}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_11}
         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
         TURNOVER: ${output.env.turnoverOption1}
         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
@@ -40,7 +40,7 @@ onFlowStart:
     env:
         FNAME: ${output.env.MERCHANT_FNAME}
         LNAME: ${output.env.MERCHANT_LNAME}
-        EMAIL: ${output.env.MERCHANT_EMAIL_27}
+        EMAIL: ${output.env.MERCHANT_EMAIL_11}
         SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
         CONTINUE: true 
 
@@ -88,7 +88,7 @@ onFlowStart:
         SELFIE: 'NO'
         FNAME: ${output.env.MERCHANT_FNAME}
         LNAME: ${output.env.MERCHANT_LNAME}
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_27}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_11}
         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
         ADDRESS2: ${output.idVerificationPage.addressLine2}
         POSTCODE: ${output.env.POST_CODE_1}

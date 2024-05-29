@@ -163,7 +163,7 @@ onFlowStart:
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.selectPaymentModePage.paymentLinkButton}
+        ELEMENT: Create\nPayment Link
         INDEX: 0
 
 - runFlow:

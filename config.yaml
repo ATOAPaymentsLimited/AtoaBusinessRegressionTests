@@ -171,3 +171,18 @@ executionOrder:
         - Tests/MultiStore/address2TextFieldValidations.yaml
         - Tests/MultiStore/cityTextFieldValidations.yaml
         - Tests/MultiStore/postCodeTextFieldValidations.yaml
+    #ManageBanks
+        - Tests/ManageBanks/merchantSelectBankDropdownValidations.yaml
+        - Tests/ManageBanks/merchantAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
+        - Tests/ManageBanks/merchantSortCodeFieldValidations.yaml
+        - Tests/ManageBanks/supervisorSelectBankDropdownValidations.yaml
+        - Tests/ManageBanks/supervisorAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
+        - Tests/ManageBanks/supervisorSortCodeFieldValidations.yaml
+        - Tests/ManageBanks/cashierSelectBankDropdownValidations.yaml
+        - Tests/ManageBanks/cashierAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
+        - Tests/ManageBanks/cashierSortCodeFieldValidations.yaml
+        
+        
+
+       
+        
