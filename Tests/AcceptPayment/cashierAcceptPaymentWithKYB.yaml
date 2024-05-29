@@ -129,7 +129,7 @@ onFlowStart:
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.selectPaymentModePage.QRCodeButton}
+        ELEMENT: Show\nQR Code
         INDEX: 0
 
 - runFlow:

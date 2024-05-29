@@ -10,7 +10,7 @@ onFlowStart:
     env:
         LINK: ${output.env.EMPLOYEE_REFERRAL_LINK_DEV}  
 
-- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+# - runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
 - runFlow: 
     file: ../../SubFlows/GeneralFlows/selectUserType.yaml
     env: 
