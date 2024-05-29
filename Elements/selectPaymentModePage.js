@@ -4,7 +4,7 @@ output.selectPaymentModePage = {
 
     noteTextField: 'Add a note (Optional)',
     selectText: 'Select how to get paid',
-    QRCodeButton: 'Show\n QR Code',
+    QRCodeButton: 'Show\nQR Code',
     paymentLinkButton: 'Create\nPayment Link',
     whatsappButton: 'Whatsapp',
     linkButton: 'Pay by link',
