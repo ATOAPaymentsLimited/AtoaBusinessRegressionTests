@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/Tips/cashierTipsVerification.yaml
+name: Tests/StaffManagement/supervisorAddEmployee.yaml
 tags:
     - dev
 onFlowStart:
