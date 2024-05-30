@@ -91,7 +91,7 @@ onFlowStart:
         INDEX: 0
 
 - scrollUntilVisible:
-    element: ${output.env.MERCHANT_MOBILE_5}
+    element: 44${output.env.MERCHANT_MOBILE_5}
     direction: DOWN
 - assertVisible: 
     text: ${output.inviteBusinessesPage.contactTile}
