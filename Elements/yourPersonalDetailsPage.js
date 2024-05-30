@@ -5,7 +5,7 @@ output.yourPersonalDetailsPage = {
 
     emailField: 'Email Address* TextFormField',
     email: 'Email Address*',
-    mobileNumberField: '',
+    mobileNumberField: 'Mobile Number (Optional) TextFormField',
     mobileNumber: 'Mobile Number (Optional)',
     firstNameField: 'First Name* TextFormField',
     firstName: 'First Name*',

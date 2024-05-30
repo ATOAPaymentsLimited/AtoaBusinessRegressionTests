@@ -76,7 +76,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/login.yaml
     env: 
         USER: 'BUSINESSOWNER'
-        ID: ${output.env.MERCANT_MOBILE_A}
+        ID: ${output.env.MERCHANT_MOBILE_A}
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
