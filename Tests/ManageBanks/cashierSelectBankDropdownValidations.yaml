@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/ManageBanks/merchantSelectBankDropdownValidations.yaml
+name: Tests/ManageBanks/cashierSelectBankDropdownValidations.yaml
 tags:
     - dev
 onFlowStart:
