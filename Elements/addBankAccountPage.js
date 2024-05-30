@@ -2,7 +2,7 @@ output.addBankAccountPage = {
     addBankAccountPageTitle: 'Add Bank Account',
     selectBankField: 'null TextFormField',
     selectBank: 'Select Bank*',
-    searchField: 'null TextFormField',
+    searchField: 'Search',
     search: 'Search',
     accountNumberField: 'Bank Account Number TextFormField',
     accountNumber: 'Bank Account Number*',
@@ -31,6 +31,6 @@ output.addBankAccountPage = {
     mismatchingAccountNumbersError: 'The account numbers do not match',
 
     sortCodeEmptyError: 'Sort Code should not be empty',
-    sortCodeLessThan6Error: 'Sort Code must be at lest 6 characters long',
+    sortCodeLessThan6Error: 'Sort Code must be at least 6 characters long',
 
 }

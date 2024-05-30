@@ -4,6 +4,6 @@ appId: ${APP_ID}
 - runFlow: 
     file: ../../ElementActions/inputText.yaml
     env:
-        ELEMENT: ${output.connectYourBankPage.confirmAccountNumberField}
+        ELEMENT: ${output.connectYourBankPage.sortCodeField}
         TEXT: ${SORTCODE}
         KEYBOARD: true

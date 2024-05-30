@@ -6,6 +6,21 @@ onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
 
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterSortCode.yaml
+    env:
+        SORTCODE: ${output.env.SORT_CODE_1}
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.billingCheckbox}
+        INDEX: 0
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+
 - scrollUntilVisible:
     element: ${output.addBankAccountPage.accountNumberField}
     direction: UP
@@ -13,11 +28,11 @@ onFlowStart:
 - assertVisible:
     text: ${output.addBankAccountPage.accountNumberField}
     containsDescendants:
-      - ${output.addBankAccountPage.bankAccountLessThan8Error}
+      - ${output.addBankAccountPage.bankAccountEmptyError}
 - assertVisible:
     text: ${output.addBankAccountPage.confirmAccountNumberField}
     containsDescendants:
-      - ${output.addBankAccountPage.mismatchingAccountNumbersError}
+      - ${output.addBankAccountPage.confirmBankAccountEmptyError}
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
