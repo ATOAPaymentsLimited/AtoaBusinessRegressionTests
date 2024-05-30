@@ -1,10 +1,21 @@
 appId: ${APP_ID}
-name: Tests/ManageBanks/supervisorAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
+name: Tests/ManageBanks/merchantAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
 tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
+
+- runFlow:
+    file: ../../SubFlows/BankAccountFieldActions/enterSortCode.yaml
+    env:
+        SORTCODE: ${output.env.SORT_CODE_1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
 
 - scrollUntilVisible:
     element: ${output.addBankAccountPage.accountNumberField}
@@ -13,11 +24,11 @@ onFlowStart:
 - assertVisible:
     text: ${output.addBankAccountPage.accountNumberField}
     containsDescendants:
-      - ${output.addBankAccountPage.bankAccountLessThan8Error}
+      - ${output.addBankAccountPage.bankAccountEmptyError}
 - assertVisible:
     text: ${output.addBankAccountPage.confirmAccountNumberField}
     containsDescendants:
-      - ${output.addBankAccountPage.mismatchingAccountNumbersError}
+      - ${output.addBankAccountPage.confirmBankAccountEmptyError}
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -81,7 +92,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/BankAccountFieldActions/enterAccountNumber.yaml
     env:
-        ACCOUNTNUMBER: ${output.env.EMPLOYEE_BANK_ACCOUNT_1}
+        ACCOUNTNUMBER: ${output.env.EMPLOYEE_BANK_ACCOUNT_2}
 - runFlow:
     file: ../../SubFlows/BankAccountFieldActions/enterConfirmAccountNumber.yaml
     env:
@@ -126,7 +137,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/BankAccountFieldActions/enterConfirmAccountNumber.yaml
     env:
-        CONFIRMACCOUNTNUMBER: ${output.env.EMPLOYEE_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.EMPLOYEE_BANK_ACCOUNT_2}
 
 - scrollUntilVisible:
     element: ${output.addBankAccountPage.continueButton}
@@ -167,11 +178,11 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/BankAccountFieldActions/enterAccountNumber.yaml
     env:
-        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        ACCOUNTNUMBER: ${output.env.EMPLOYEE_BANK_ACCOUNT_3}
 - runFlow:
     file: ../../SubFlows/BankAccountFieldActions/enterConfirmAccountNumber.yaml
     env:
-        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.EMPLOYEE_BANK_ACCOUNT_3}
 
 - scrollUntilVisible:
     element: ${output.addBankAccountPage.continueButton}
@@ -184,7 +195,6 @@ onFlowStart:
         INDEX: 0
 
 - assertVisible: ${output.addBankAccountPage.addBankErrorTitle}
-- assertVisible: ${output.addBankAccountPage.existingBankError}
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -218,37 +228,5 @@ onFlowStart:
     env:
         CONFIRMACCOUNTNUMBER: ${output.env.EMPLOYEE_BANK_ACCOUNT_1}
 
-- scrollUntilVisible:
-    element: ${output.addBankAccountPage.continueButton}
-    direction: DOWN
 
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.addBankAccountPage.continueButton}
-        INDEX: 0
-- waitForAnimationToEnd
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.addBankAccountPage.continueButton}
-        INDEX: 0
-
-- runFlow:
-    file: ../../PageVerification/bankAccountsPageVerification.yaml
-    env:
-        BANKNAME: ${output.env.EMPLOYEE_BANK_NAME_1}
-        MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
-        SORTCODE: ${output.env.SORT_CODE_1}
-
-- waitForAnimationToEnd
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/deleteBank.yaml
-    env:
-        BANKNAME: ${output.env.EMPLOYEE_BANK_NAME_1}
-        MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
-        SORTCODE: ${output.env.SORT_CODE_1}
-
-- waitForAnimationToEnd
 

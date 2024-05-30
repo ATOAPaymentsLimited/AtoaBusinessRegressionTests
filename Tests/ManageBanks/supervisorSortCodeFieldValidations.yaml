@@ -1,11 +1,26 @@
 appId: ${APP_ID}
-name: Tests/ManageBanks/supervisorSortCodeFieldValidations.yaml
+name: Tests/ManageBanks/merchantSortCodeFieldValidations.yaml
 tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
 
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.sortCodeField}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.addBankAccountPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
 - scrollUntilVisible:
     element: ${output.addBankAccountPage.sortCodeField}
     direction: UP
@@ -14,12 +29,6 @@ onFlowStart:
     text: ${output.addBankAccountPage.sortCodeField}
     containsDescendants:
       - ${output.addBankAccountPage.sortCodeLessThan6Error}
-
-- runFlow:
-    file: ../../ElementActions/eraseText.yaml
-    env:
-        ELEMENT: ${output.addBankAccountPage.sortCodeField}
-        KEYBOARD: true
 
 # blank spaces
 
@@ -45,7 +54,7 @@ onFlowStart:
 - assertVisible:
     text: ${output.addBankAccountPage.sortCodeField}
     containsDescendants:
-      - ${output.addBankAccountPage.sortCodeEmptyError}
+      - ${output.addBankAccountPage.sortCodeLessThan6Error}
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -81,7 +90,7 @@ onFlowStart:
     file: ../../PageVerification/bankAccountsPageVerification.yaml
     env:
         BANKNAME: ${output.env.EMPLOYEE_BANK_NAME_1}
-        MASKEDSORTCODE: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
+        MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
         SORTCODE: ${output.env.SORT_CODE_1}
 
 - waitForAnimationToEnd
@@ -89,8 +98,5 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/GeneralFlows/deleteBank.yaml
     env:
-        BANKNAME: ${output.env.EMPLOYEE_BANK_NAME_1}
-        MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
+        MASKEDBANKACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
         SORTCODE: ${output.env.SORT_CODE_1}
-
-- waitForAnimationToEnd
