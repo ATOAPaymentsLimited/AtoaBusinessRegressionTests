@@ -168,8 +168,7 @@ onFlowStart:
     env:
         ELEMENT: ${output.profilePage.updatePersonalDetailsButton}
         INDEX: 0
-
-# - waitForAnimationToEnd
+- waitForAnimationToEnd
 
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
@@ -198,3 +197,35 @@ onFlowStart:
         LNAME: ${output.env.EMPLOYEE_LNAME}
         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_E}
         EMAIL: ${output.env.MERCHANT_EMAIL_E}
+
+# Change back to original
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.profilePage.firstNameField}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.profilePage.lastNameField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.profilePage.firstNameField}
+        TEXT: ${output.env.MERCHANT_FNAME}
+        KEYBOARD: true
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.profilePage.lastNameField}
+        TEXT: ${output.env.MERCHANT_LNAME}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.profilePage.updatePersonalDetailsButton}
+        INDEX: 0
+- waitForAnimationToEnd
