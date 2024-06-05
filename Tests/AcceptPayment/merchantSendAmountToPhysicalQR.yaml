@@ -26,6 +26,13 @@ onFlowStart:
         ACCEPTPAYMENT: true 
 
 - runFlow:
+    file: ../../PageVerification/paymentModePageVerification.yaml
+    env:
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_C}
+        AMOUNT: ${output.env.amount15000} 
+        PHYSICALQR: true
+
+- runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.selectPaymentModePage.sendToPhysicalQRButton}

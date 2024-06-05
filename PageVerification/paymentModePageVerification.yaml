@@ -1,7 +1,7 @@
 appId: ${APP_ID}
 ---
 - assertVisible: ${BUSINESSNAME}
-- assertVisible: ${output.selectPaymentModePage.poundSymbol}${AMOUNT}
+- assertVisible: ${output.selectPaymentModePage.poundSymbol} ${AMOUNT}
 - assertVisible:
     text: ${output.selectPaymentModePage.QRCodeButton}
     enabled: true
@@ -9,3 +9,11 @@ appId: ${APP_ID}
 - assertVisible:
     text: ${output.selectPaymentModePage.paymentLinkButton}
     enabled: true  
+
+- runFlow:
+    when:
+        true: ${PHYSICALQR}
+    commands:
+        - assertVisible:
+            text: ${output.selectPaymentModePage.sendToPhysicalQRButton}
+            enabled: true 
