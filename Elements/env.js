@@ -346,5 +346,6 @@ output.env = {
    testOrderId: 'test-order-id',
    qrNickName1: 'test',
    qrNickName2: 'code',
+   QRRefDev: '8tMVfc',
   
 }

@@ -1,0 +1,37 @@
+appId: ${APP_ID}
+---
+- assertVisible: 
+    text: ${output.selectPaymentModePage.searchBox}
+    enabled: true
+
+- assertVisible: 
+    text: ${output.selectPaymentModePage.QRCodeTile}
+    containsDescendants: 
+      - ${QRNAME}
+
+- runFlow:
+    when:
+        true: ${ACTIVE}
+    commands: 
+      - assertVisible: 
+          text: ${output.selectPaymentModePage.QRCodeTile}
+          containsDescendants: 
+            - ${QRNAME}
+          containsDescendants:
+            - ${output.selectPaymentModePage.activeTag}
+          containsDescendants:
+            - ${output.env.poundSymbol} ${AMOUNT}
+
+- runFlow:
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.selectPaymentModePage.qrGuideText}
+        INDEX: 0
+
+- assertVisible: ${output.selectPaymentModePage.qrGuideInfo}
+
+- runFlow:
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.selectPaymentModePage.iUnderstandButton}
+        INDEX: 0

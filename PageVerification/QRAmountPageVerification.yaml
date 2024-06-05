@@ -1,0 +1,12 @@
+appId: ${APP_ID}
+---
+- assertVisible: ${BUSINESSNAME}
+- assertVisible: ${output.env.poundSymbol} ${AMOUNT}
+- assertVisible: Amount sent to QR stand \"${QRNAME}\"
+
+- assertVisible: ${output.selectPaymentModePage.qrPageDescription1}
+- assertVisible: ${output.selectPaymentModePage.qrPageDescription2}
+
+- assertVisible: 
+    text: ${output.selectPaymentModePage.cancelButton}
+    enabled: true

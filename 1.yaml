@@ -67,3 +67,9 @@ onFlowStart:
 #     env:
 #         ELEMENT: ${output.selectPaymentModePage.paymentLinkButton}
 #         INDEX: 0
+
+- runFlow:
+    file: SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_C}

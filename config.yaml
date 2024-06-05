@@ -56,10 +56,13 @@ executionOrder:
     #Accept payment
         - Tests/AcceptPayment/merchantAcceptPaymentWithKYB.yaml
         - Tests/AcceptPayment/merchantAcceptPaymentWithoutKYB.yaml
+        - Tests/AcceptPayment/merchantSendAmountToPhysicalQR.yaml
         - Tests/AcceptPayment/supervisorAcceptPaymentWithKYB.yaml
         - Tests/AcceptPayment/supervisorAcceptPaymentWithoutKYB.yaml
+        - Tests/AcceptPayment/supervisorSendAmountToPhysicalQR.yaml
         - Tests/AcceptPayment/cashierAcceptPaymentWithKYB.yaml
         - Tests/AcceptPayment/cashierAcceptPaymentWithoutKYB.yaml
+        - Tests/AcceptPayment/cashierSendAmountToPhysicalQR.yaml
     #StaffManagement
         - Tests/StaffManagement/firstNameAndLastNameTextFieldValidations.yaml
         - Tests/StaffManagement/mobileNumberTextFieldValidations.yaml

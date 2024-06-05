@@ -1,0 +1,100 @@
+appId: ${APP_ID}
+name: Tests/AcceptPayment/cashierSendAmountToPhysicalQR.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow:
+    file: SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_C2}
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.acceptPaymentButton}
+        INDEX: 0
+
+# enter amount
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
+    env:
+        AMOUNT: ${output.env.amount15000}
+        ACCEPTPAYMENT: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.selectPaymentModePage.sendToPhysicalQRButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/selectQRPageVerification.yaml
+    env:
+        QRNAME: ${output.env.qrNickName1}
+
+- tapOn:
+    text: ${output.selectPaymentModePage.QRCodeTile}
+    containsDescendants:
+      - ${output.env.qrNickName1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.selectPaymentModePage.acceptPaymentButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/QRAmountPageVerification.yaml
+    env:
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_C}
+        AMOUNT: ${output.env.amount15000}
+        QRNAME: ${output.env.qrNickName1}
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.acceptPaymentButton}
+        INDEX: 0
+
+# enter amount
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
+    env:
+        AMOUNT: ${output.env.amount5000}
+        ACCEPTPAYMENT: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.selectPaymentModePage.sendToPhysicalQRButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/selectQRPageVerification.yaml
+    env:
+        QRNAME: ${output.env.qrNickName1}
+        AMOUNT: ${output.env.amount15000}
+        ACTIVE: true
+
+- tapOn:
+    text: ${output.selectPaymentModePage.QRCodeTile}
+    containsDescendants:
+      - ${output.env.qrNickName1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.selectPaymentModePage.acceptPaymentButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/QRAmountPageVerification.yaml
+    env:
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_C}
+        AMOUNT: ${output.env.amount5000}
+        QRNAME: ${output.env.qrNickName1}
