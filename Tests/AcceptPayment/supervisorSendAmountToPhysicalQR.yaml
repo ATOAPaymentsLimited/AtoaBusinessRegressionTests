@@ -7,7 +7,7 @@ onFlowStart:
 ---
 
 - runFlow:
-    file: SubFlows/GeneralFlows/login.yaml
+    file: ../../SubFlows/GeneralFlows/login.yaml
     env: 
         USER: 'STAFFMEMBER'
         ID: ${output.env.EMPLOYEE_MOBILE_C1}
