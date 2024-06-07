@@ -2,7 +2,7 @@ appId: ${APP_ID}
 ---
 - assertVisible: ${BUSINESSNAME}
 
-- assertVisible: ${output.createdPaymentLinkPage.poundSymbol}${AMOUNT}
+- assertVisible: ${output.createdPaymentLinkPage.poundSymbol} ${AMOUNT}
 - assertVisible: ${output.createdPaymentLinkPage.paymentLinkCreatedText}
 
 - assertVisible:
