@@ -40,7 +40,7 @@ onFlowStart:
         AMOUNT: ${output.env.amountGreaterThan15000}
         ACCEPTPAYMENT: true 
 
-- assertVisible: ${output.enterAmountPage.maxAmountError}
+- assertVisible: ${output.enterAmountPage.withoutKYBError}
 
 # amount 99999
 - runFlow:
@@ -145,7 +145,7 @@ onFlowStart:
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: Show\nQR Code
+        ELEMENT: ${output.selectPaymentModePage.QRCodeButton}
         INDEX: 0
 
 - runFlow:
@@ -163,7 +163,7 @@ onFlowStart:
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: Create\nPayment Link
+        ELEMENT: ${output.selectPaymentModePage.paymentLinkButton}
         INDEX: 0
 
 - runFlow:
