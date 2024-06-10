@@ -6,11 +6,7 @@ onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
 
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/login.yaml
-    env:
-        USER: 'BUSINESSOWNER'
-        ID: ${output.env.MERCHANT_MOBILE_E}
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -168,7 +164,9 @@ onFlowStart:
     env:
         ELEMENT: ${output.profilePage.updatePersonalDetailsButton}
         INDEX: 0
-- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: ${output.profilePage.updatedToast}
 
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
@@ -228,4 +226,5 @@ onFlowStart:
     env:
         ELEMENT: ${output.profilePage.updatePersonalDetailsButton}
         INDEX: 0
-- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: ${output.profilePage.updatedToast}

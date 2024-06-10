@@ -147,4 +147,5 @@ onFlowStart:
     env:
         ELEMENT: ${output.profilePage.updateBusinessDetailsButton}
         INDEX: 0
-- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: ${output.profilePage.updatedToast}
