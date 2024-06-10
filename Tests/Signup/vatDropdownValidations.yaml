@@ -1,0 +1,102 @@
+appId: ${APP_ID}
+name: Tests/Signup/vatDropdownValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.vatToggle}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.vatToggle} 
+        INDEX: 0
+
+- assertVisible: 
+    text: ${output.yourBusinessDetailsPage.vat}
+    enabled: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.vat} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.vatOption1} 
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.continueButton} 
+        INDEX: 0
+
+- assertVisible: 
+    text: ${output.yourBusinessDetailsPage.vat}
+    containsDescendants:  
+      - ${output.yourBusinessDetailsPage.emptyVATError}
+
+# Vat 5%
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.vat} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.vatOption2} 
+        INDEX: 0
+
+- assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
+        INDEX: 0
+
+# Vat 20%
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.vat} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.vatOption2} 
+        INDEX: 0
+
+- assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
+        INDEX: 0
+
+# Turn off vat
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.vatToggle} 
+        INDEX: 0
+
+- assertNotVisible: 
+    text: ${output.yourBusinessDetailsPage.vat}
+    enabled: true 

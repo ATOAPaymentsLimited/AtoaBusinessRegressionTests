@@ -1,0 +1,126 @@
+appId: ${APP_ID}
+name: Tests/Signup/serviceChargeTextFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.serviceChargeToggle}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.serviceChargeToggle} 
+        INDEX: 0
+
+- assertVisible: 
+    text: ${output.yourBusinessDetailsPage.serviceCharge}
+    enabled: true 
+
+# alphabets
+
+- runFlow: 
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.serviceCharge}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.continueButton} 
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.yourBusinessDetailsPage.serviceCharge}
+    containsDescendants:
+      - ${output.yourBusinessDetailsPage.emptyServiceChargeError}
+
+# Service charge more than 100
+
+- runFlow: 
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.serviceCharge}
+        KEYBOARD: true
+
+- runFlow: 
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.serviceCharge}
+        TEXT: ${output.env.amountGreaterThan100}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.continueButton} 
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.yourBusinessDetailsPage.serviceCharge}
+    containsDescendants:
+      - ${output.yourBusinessDetailsPage.serviceChargeMoreThan100Error}
+
+# Valid decimal
+
+- runFlow: 
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.serviceCharge}
+        KEYBOARD: true
+
+- runFlow: 
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.serviceCharge}
+        TEXT: ${output.env.amountDecimal}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.continueButton} 
+        INDEX: 0
+
+- assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.backButton}
+        INDEX: 0
+
+# Turn off service charge
+
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.serviceChargeToggle} 
+        INDEX: 0
+
+- assertNotVisible: 
+    text: ${output.yourBusinessDetailsPage.serviceCharge}
+    enabled: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.continueButton} 
+        INDEX: 0

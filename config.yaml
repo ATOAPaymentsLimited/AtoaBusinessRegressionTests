@@ -42,6 +42,8 @@ executionOrder:
         - Tests/Signup/postCodeTextFieldValidations.yaml
         - Tests/Signup/utrNumberTextFieldValidations.yaml
         - Tests/Signup/websiteTextFieldValidations.yaml
+        - Tests/Signup/vatDropdownValidations.yaml
+        - Tests/Signup/serviceChargeTextFieldValidations.yaml
         - Tests/Signup/firstNameTextFieldValidations.yaml
         - Tests/Signup/lastNameTextFieldValidations.yaml
         - Tests/Signup/emailTextFieldValidations.yaml
