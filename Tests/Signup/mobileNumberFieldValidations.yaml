@@ -1,0 +1,255 @@
+appId: ${APP_ID}
+name: Tests/Signup/mobileNumberFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+  - runFlow: ../../SubFlows/GeneralFlows/launchAppClearState.yaml
+---
+
+- runFlow: ../../SubFlows/GeneralFlows/clickGetStartedButton.yaml
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/selectUserType.yaml
+    env: 
+        USER: ${output.annotations.businessOwner}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env: 
+        TEXT: ${output.env.MERCHANT_EMAIL_12}
+        SIGNUP: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterBusinessDetails.yaml
+    env:
+        BUSINESSTYPE: 'SOLETRADER'
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_12}
+        INDUSTRYTYPE: ${output.env.INDUSTRY_1}
+        TURNOVER: ${output.env.turnoverOption1}
+        ADDRESS1: ${output.env.ADDRESS_LINE1_1}
+        CITY: ${output.env.CITY_1}
+        POSTCODE: ${output.env.POST_CODE_1}
+        CONTINUE: true
+
+# 9 digits
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterPersonalDetails.yaml
+    env:
+        FNAME: ${output.env.MERCHANT_FNAME}
+        LNAME: ${output.env.MERCHANT_LNAME}
+        MOBILENUMBER: ${output.env.digits9}
+        SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
+        CONTINUE: true 
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.mobileNumberField}
+    direction: UP
+
+- assertVisible:
+    text: ${output.yourPersonalDetailsPage.mobileNumberField}
+    containsDescendants: 
+      - ${output.yourPersonalDetailsPage.mobileMinLengthError}
+
+# empty field
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.continueButton}
+        INDEX: 0
+
+- assertVisible: ${output.connectYourBankPage.connectYourBankPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.backButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.mobileNumberField}
+    direction: UP
+
+# alphabets
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        TEXT: ${output.env.alphabets}
+        KEYBOARD: true
+
+- assertVisible:
+    text: ${output.yourPersonalDetailsPage.mobileNumberField}
+    containsDescendants: 
+      - ${output.yourPersonalDetailsPage.mobileNumber}
+
+# Special Characters
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        TEXT: ${output.env.specialCharacters}
+        KEYBOARD: true
+
+- assertVisible:
+    text: ${output.yourPersonalDetailsPage.mobileNumberField}
+    containsDescendants: 
+      - ${output.yourPersonalDetailsPage.mobileNumber}
+
+# Existing merchant mobile
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        TEXT: ${output.env.MERCHANT_MOBILE_A}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.continueButton}
+        INDEX: 0
+
+- assertVisible: ${output.yourPersonalDetailsPage.mobileExistingError}
+
+
+# Existing employee error 
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.mobileNumberField}
+    direction: UP
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        TEXT: ${output.env.EMPLOYEE_MOBILE_A1}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.continueButton}
+        INDEX: 0
+
+- assertVisible: ${output.yourPersonalDetailsPage.employeeMobileError}
+
+# Valid 1
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.mobileNumberField}
+    direction: UP
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        TEXT: 0${output.env.MERCHANT_MOBILE_12}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.continueButton}
+        INDEX: 0
+
+- assertVisible: ${output.connectYourBankPage.connectYourBankPageTitle}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.connectYourBankPage.backButton}
+        INDEX: 0
+
+# Valid 2
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.mobileNumberField}
+    direction: UP
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.mobileNumberField}
+        TEXT: ${output.env.MERCHANT_MOBILE_12}
+        KEYBOARD: true
+
+- scrollUntilVisible:
+    element: ${output.yourPersonalDetailsPage.continueButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourPersonalDetailsPage.continueButton}
+        INDEX: 0
+
+
+
+

@@ -47,6 +47,7 @@ executionOrder:
         - Tests/Signup/emailTextFieldValidations.yaml
         - Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
         - Tests/Signup/sortCodeTextFieldValidations.yaml
+        - Tests/Signup/mobileNumberFieldValidations.yaml
     #Referral
         - Tests/Referral/atoaEmpCode.yaml
         - Tests/Referral/customReferralCode.yaml

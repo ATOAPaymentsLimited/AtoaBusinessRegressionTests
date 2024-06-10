@@ -26,4 +26,10 @@ output.yourPersonalDetailsPage = {
 
     firstNameEmptyError: 'Please provide your first name',
     lastNameEmptyError: 'Please provide your last name',
+
+    mobileMinLengthError: 'Mobile Number should be at least 10 characters long',
+    mobileExistingError: 'Merchant with this phone number already exists',
+    employeeMobileError: 'This phone number is already registered to an Employee account. Please use a different phone number or reach out to us at hello@paywithatoa.co.uk',
+
+
 }
