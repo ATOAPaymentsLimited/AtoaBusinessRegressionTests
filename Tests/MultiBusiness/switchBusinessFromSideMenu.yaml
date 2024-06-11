@@ -1,0 +1,82 @@
+appId: ${APP_ID}
+name: Tests/MultiBusiness/switchBusinessFromHomePage.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_K}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_K}
+
+- assertVisible:
+    text: ${output.merchantHomePage.storeLocationTile}
+    containsDescendants:
+      - ${output.env.STORE_NAME_1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.storeDropdownArrow}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.env.BUSINESS_NAME_K}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.env.STORE_NAME_2}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.merchantHomePage.storeLocationTile}
+    containsDescendants:
+      - ${output.env.STORE_NAME_2}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.storeDropdownArrow}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.env.BUSINESS_NAME_K2}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.env.STORE_NAME_1}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.merchantHomePage.storeLocationTile}
+    containsDescendants:
+      - ${output.env.STORE_NAME_1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.storeDropdownArrow}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.env.STORE_NAME_2}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.merchantHomePage.storeLocationTile}
+    containsDescendants:
+      - ${output.env.STORE_NAME_2}
