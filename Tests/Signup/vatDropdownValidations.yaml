@@ -39,7 +39,9 @@ onFlowStart:
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.continueButton} 
         INDEX: 0
-
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.vat}
     containsDescendants:  
@@ -58,7 +60,11 @@ onFlowStart:
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.vatOption2} 
         INDEX: 0
-
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.continueButton} 
+        INDEX: 0
 - assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
 
 - runFlow:
@@ -66,7 +72,9 @@ onFlowStart:
     env:
         ELEMENT: ${output.yourPersonalDetailsPage.backButton}
         INDEX: 0
-
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
 # Vat 20%
 
 - runFlow:
@@ -80,7 +88,11 @@ onFlowStart:
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.vatOption2} 
         INDEX: 0
-
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.continueButton} 
+        INDEX: 0
 - assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}
 
 - runFlow:
@@ -88,7 +100,9 @@ onFlowStart:
     env:
         ELEMENT: ${output.yourPersonalDetailsPage.backButton}
         INDEX: 0
-
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
 # Turn off vat
 
 - runFlow:

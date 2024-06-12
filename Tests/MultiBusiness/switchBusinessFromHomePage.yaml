@@ -7,7 +7,7 @@ onFlowStart:
 ---
 
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/login.yaml
+    file: ../../SubFlows/GeneralFlows/loginMultiBusiness.yaml
     env:
         USER: 'BUSINESSOWNER'
         ID: ${output.env.MERCHANT_MOBILE_K}

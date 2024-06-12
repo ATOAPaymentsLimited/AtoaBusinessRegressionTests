@@ -36,6 +36,9 @@ onFlowStart:
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.continueButton} 
         INDEX: 0
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
 
 - assertVisible:
     text: ${output.yourBusinessDetailsPage.serviceCharge}
@@ -65,6 +68,9 @@ onFlowStart:
     env:
         ELEMENT: ${output.yourBusinessDetailsPage.continueButton} 
         INDEX: 0
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
 
 - assertVisible:
     text: ${output.yourBusinessDetailsPage.serviceCharge}
@@ -102,7 +108,9 @@ onFlowStart:
     env:
         ELEMENT: ${output.yourPersonalDetailsPage.backButton}
         INDEX: 0
-
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
 # Turn off service charge
 
 - scrollUntilVisible:
