@@ -27,10 +27,10 @@ appId: ${APP_ID}
         PIN1: ${output.env.validPin1}
         PIN2: ${output.env.validPin1}
 
-- runFlow:
-    when: 
-        true: ${BUSINESSNAME}
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${BUSINESSNAME}
-        INDEX: 0
+# - runFlow:
+#     when: 
+#         true: ${BUSINESSNAME}
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${BUSINESSNAME}
+#         INDEX: 0

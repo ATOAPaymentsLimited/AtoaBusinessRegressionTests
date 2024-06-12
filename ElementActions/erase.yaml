@@ -6,6 +6,11 @@ appId: ${APP_ID}
         ELEMENT: ${ELEMENT}
         INDEX: 0
 - eraseText
+- runFlow:
+    when:
+        true: ${KEYBOARD}
+    commands:
+        - hideKeyboard
 - waitForAnimationToEnd
 - runFlow:
     file: tapOn.yaml
