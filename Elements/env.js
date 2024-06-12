@@ -227,7 +227,7 @@ output.env = {
    PLAN_DESCRIPTION_DEV: 'The minimum monthly charge is £0.30.',
    INVOICE_AMOUNT_DEV: '0.36',
    GROSS_SALES_DEV: '23.00',
-   PAYMENTS_DEV: '6',
+   PAYMENTS_DEV: '0',
 
    PLAN_TITLE_SAAS_DEV: 'TEST SAAS PLAN',
    PLAN_TITLE_SAAS_UAT: 'TEST SAAS PLAN',
