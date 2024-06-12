@@ -3,8 +3,8 @@ output.linkDetailsPage = {
 
     poundSymbol: '£',
 
-    backButton: 'Back button',
-    refreshButton: 'Refresh button', 
+    backButton: 'Back',
+    refreshButton: 'Refresh', 
 
     unpaidChip: 'Unpaid',
     paidChip: 'Paid',

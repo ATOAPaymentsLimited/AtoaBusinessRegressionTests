@@ -1,7 +1,7 @@
 output.employeeHomePage = {
     storeLocationTile: 'Store Location Tile',
-    myAccountButton: 'My Account button',
-    notificationButton: 'Notification Icon button',
+    myAccountButton: 'My Account Button',
+    notificationButton: 'Notification Icon',
     acceptPaymentButton: 'Accept Payment',
     transactionsButton: 'Payments',
     linksButton: 'Links',

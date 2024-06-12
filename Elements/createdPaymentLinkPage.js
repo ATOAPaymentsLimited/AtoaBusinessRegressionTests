@@ -1,5 +1,5 @@
 output.createdPaymentLinkPage = {
-    backButton: 'Back button',
+    backButton: 'Back',
     paymentLinkCreatedText: 'Payment Link Created',
     sendLinkText: 'Send payment link using',
     smsButton: 'SMS',
@@ -13,7 +13,7 @@ output.createdPaymentLinkPage = {
     sendSMSTitle: 'Send SMS',
     mobileNumberTextField: 'null TextFormField',
     mobileNumber: 'Mobile Number',
-    contactsButton: 'Contacts button',
+    contactsButton: 'Contacts',
     personalNumberTab: 'Personal Number',
     personalNumberText: `Payment links can be difficult to open if the customer doesn't have your contact details. To avoid delay, send the SMS using Atoa's number.`,
     atoaNumberText: 'Send the SMS using a mobile number registered by Atoa to keep your privacy intact.',

@@ -1,7 +1,7 @@
 output.transactionDetailsPage = {
 
     transactionDetailsPageTitle: 'Payment Details',
-    backButton: 'Back Button',
+    backButton: 'Back',
 
     poundSymbol: '£',
     

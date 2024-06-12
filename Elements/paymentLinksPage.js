@@ -1,12 +1,12 @@
 output.paymentLinksPage = {
     paymentLinksPageTitle: 'Payment Links',
-    paymentLinksInfo: 'PaymentLinks Info button',
+    paymentLinksInfo: 'PaymentLinks Info',
     unpaidButton: 'Unpaid',
     paidButton: 'Paid',
     searchPayments: 'Search by',
     newPaymentLinkButton: 'New Payment Link',
     refreshButton: 'Refresh',
-    backButton: 'Back button',
+    backButton: 'Back',
     paymentLinkTile: 'Payment Link Details Tile',
     
     unpaidChip: 'Unpaid',

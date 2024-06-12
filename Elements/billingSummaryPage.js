@@ -1,6 +1,6 @@
 output.billingSummaryPage = {
     billingSummaryPageTitle: 'Billing Summary',
-    backButton: 'Back button',
+    backButton: 'Back',
     pendingChip: 'Payment Pending',
     directDebitMessage: 'Set Up Direct Debit to initiate payment',
     poundSymbol: '£',

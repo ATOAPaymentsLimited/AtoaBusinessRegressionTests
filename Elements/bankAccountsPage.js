@@ -1,6 +1,6 @@
 output.bankAccountsPage = {
     myBankAccountsPageTitle: 'Bank Accounts',
-    backButton: 'Custom Back Button',
+    backButton: 'Back',
     bankAccountTile: 'Bank Account Tile',
     addBankButton: 'Add Bank Account',
     addAnotherBankButton: '+Add Bank Account',

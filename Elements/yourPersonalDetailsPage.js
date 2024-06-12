@@ -1,7 +1,7 @@
 output.yourPersonalDetailsPage = {
     yourPersonalDetailsPageTitle: 'Your Personal Details',
 
-    backButton: 'Back button',
+    backButton: 'Back',
 
     emailField: 'Email Address* TextFormField',
     email: 'Email Address*',
