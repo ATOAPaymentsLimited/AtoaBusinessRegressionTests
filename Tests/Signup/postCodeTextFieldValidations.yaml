@@ -27,7 +27,7 @@ onFlowStart:
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.postCodeField}
-    direction: UP
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.postCodeField}
     containsDescendants: 
@@ -45,7 +45,7 @@ onFlowStart:
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.postCodeField}
-    direction: UP
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.postCodeField}
     containsDescendants: 
@@ -69,7 +69,7 @@ onFlowStart:
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.postCodeField}
-    direction: UP
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.postCodeField}
     containsDescendants: 

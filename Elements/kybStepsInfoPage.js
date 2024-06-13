@@ -1,6 +1,6 @@
 output.kybStepsInfoPage = {
     kybStepsInfoPageTitle: 'Verify Your Business',
-    backButton: 'Back button',
+    backButton: 'Back',
     noteText1: 'Verifying your business and identity\nhelps us keep Atoa safe for everyone.',
     kybStepsHeader: 'How to verify your ID',
     step1Text:'Upload Passport / UK Driving License / Biometric Residence Permit',

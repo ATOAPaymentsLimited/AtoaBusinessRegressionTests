@@ -57,7 +57,7 @@ onFlowStart:
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.utrField}
-    direction: UP
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.utrField}
     containsDescendants: 

@@ -1,7 +1,7 @@
 output.staticQRPage = {
     
     shareButton: 'Share',
-    backButton: 'Back Button',
+    backButton: 'Back',
     QRcode: 'qr code',
     QR: 'qr code',
     scanQRText: 'Scan this QR code to pay',

@@ -38,7 +38,7 @@ onFlowStart:
         PLAN_DEV: ${output.env.PLAN_DEV}
         PLAN_UAT: ${output.env.PLAN_UAT}
         PLAN_PROD: ${output.env.PLAN_PROD}
-        ESTIMATED_AMOUNT: ${output.env.GROSS_SALES_DEV}
-        INVOICE_AMOUNT: ${output.env.INVOICE_AMOUNT_DEV}
-        GROSS_SALES: ${output.env.GROSS_SALES_DEV}
+        ESTIMATED_AMOUNT: ${output.env.amount0}
+        # INVOICE_AMOUNT: ${output.env.INVOICE_AMOUNT_DEV}
+        GROSS_SALES: ${output.env.amount0}
         PAYMENTS: ${output.env.PAYMENTS_DEV}

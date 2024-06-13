@@ -1,5 +1,5 @@
 output.selectPaymentModePage = {
-    backButton: 'Back button',
+    backButton: 'Back',
     totalAmountText: 'Total amount',
 
     noteTextField: 'Add a note (Optional)',

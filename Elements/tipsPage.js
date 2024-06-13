@@ -1,7 +1,7 @@
 output.tipsPage = {
     tipsPageTitle: 'Tips',
-    reloadButton: 'Reload Button',
-    backButton: 'Back Button',
+    reloadButton: 'Reload',
+    backButton: 'Back',
     tipHistoryText: 'Tip Payment History',
     tipPreferencesText: 'Tip Preferences',
     allowTipsText: 'Allow Tips',

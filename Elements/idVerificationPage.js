@@ -79,7 +79,7 @@ output.idVerificationPage = {
 
     addDocumentsButton: 'Add Documents',
 
-    firstNameEmptyError: 'First Name shuld not be empty',
+    firstNameEmptyError: 'First Name should not be empty',
     firstNameBlankSpacesError: 'First Name should not contain only spaces',
     
     lastNameEmptyError: 'Last Name should not be empty',

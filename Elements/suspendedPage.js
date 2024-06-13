@@ -1,6 +1,6 @@
 output.suspendedPage = {
 
-    refreshButton: 'Refresh button',
+    refreshButton: 'Refresh',
     suspendedTitle: 'Your account is suspended',
     suspendedDescription: 'You are unable to receive payments. Please pay your overdue bill to restore your account.',
     supportText: 'Need help? Please reach out to us at\n',

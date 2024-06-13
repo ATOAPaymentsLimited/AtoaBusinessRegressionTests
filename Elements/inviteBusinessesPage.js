@@ -22,7 +22,7 @@ output.inviteBusinessesPage = {
    remindText: 'Remind your friends to download and register to Atoa Business',
    joinedPageText: 'Your friends have joined Atoa! They need to take over £100 in payments for you to earn £200 cashback.',
    shareButton: 'Share',
-   backButton1: 'Back Button',
+   backButton1: 'Back',
    backButton: 'Back',
    processingText: 'Processing',
 }

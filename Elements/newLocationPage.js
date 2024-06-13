@@ -1,6 +1,6 @@
 output.newLocationPage = {
     newLocationPageTitle: 'New Location',
-    backButton: 'Back button',
+    backButton: 'Back',
     defaultStoreImage: 'Default Store Avatar',
     locationNameField: 'Location Name* TextFormField',
     locationName: 'Location Name*',

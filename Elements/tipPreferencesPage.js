@@ -1,5 +1,5 @@
 output.tipPreferencesPage = {
-    backButton: 'Back Button',
+    backButton: 'Back',
     tipPreferencesPageTitle: 'Tip Preferences',
     allowCustomTipText: 'Allow Custom Tip Amount',
     allowCustomTipSwitch: 'Allow Custom Tips Switch',
