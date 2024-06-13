@@ -26,8 +26,8 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.cityField}
-    direction: UP
+    element: ${output.yourBusinessDetailsPage.postCodeField}
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.cityField}
     containsDescendants: 
@@ -50,8 +50,8 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.cityField}
-    direction: UP
+    element: ${output.yourBusinessDetailsPage.postCodeField}
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.cityField}
     containsDescendants: 
@@ -74,8 +74,8 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.cityField}
-    direction: UP
+    element: ${output.yourBusinessDetailsPage.postCodeField}
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.cityField}
     containsDescendants: 

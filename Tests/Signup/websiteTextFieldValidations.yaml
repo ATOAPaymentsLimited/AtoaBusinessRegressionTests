@@ -28,7 +28,7 @@ onFlowStart:
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.websiteField}
-    direction: UP
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.websiteField}
     containsDescendants: 
@@ -51,7 +51,7 @@ onFlowStart:
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.websiteField}
-    direction: UP
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.websiteField}
     containsDescendants: 
@@ -75,7 +75,7 @@ onFlowStart:
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.websiteField}
-    direction: UP
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.websiteField}
     containsDescendants: 
@@ -98,8 +98,8 @@ onFlowStart:
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.websiteField}
-    direction: UP
+    element: ${output.yourBusinessDetailsPage.continueButton}
+    direction: DOWN
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.websiteField}
     containsDescendants: 
