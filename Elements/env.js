@@ -125,7 +125,7 @@ output.env = {
    CRN_3: '98770021',
    UTR_3: '9877960021',
    MERCHANT_EMAIL_3A: 'ab9877960021@gmail.com',
-   MERCHANT_EMAIL_3B: 'ab9877960021@gmail.com',
+   MERCHANT_EMAIL_3B: 'ab9877960021@paywithatoa.co.uk',
    
    MERCHANT_4: '4',
    MERCHANT_MOBILE_4: '9779960021',
