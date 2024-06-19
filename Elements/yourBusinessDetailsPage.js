@@ -1,4 +1,7 @@
 output.yourBusinessDetailsPage = {
+
+    closeButton: 'Close Dialog Sheet Icon',
+
     businessTypeDropDownTile: 'Business Type* TextFormField',    
     businessType: 'Business Type*',
     soleTrader: 'Sole Trader',

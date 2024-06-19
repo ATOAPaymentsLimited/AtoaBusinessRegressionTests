@@ -25,8 +25,14 @@ appId: ${APP_ID}
         ELEMENT: ${INDUSTRYTYPE}
         INDEX: 1
 
-- scrollUntilVisible:
-    element: ${output.yourBusinessDetailsPage.businessNameField}
-    direction: UP
+# - scrollUntilVisible:
+#     element: ${output.yourBusinessDetailsPage.businessNameField}
+#     direction: UP
 
-
+- runFlow:
+    when:
+        visible: ${output.yourBusinessDetailsPage.industryNotFoundText}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.closeButton}
+        INDEX: 0
