@@ -6,34 +6,34 @@ onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
 
-- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+# - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.merchantHomePage.myAccountButton}
-        INDEX: 0
+# - runFlow:
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${output.merchantHomePage.myAccountButton}
+#         INDEX: 0
 
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.sideMenuPage.profileText}
-        INDEX: 0
+# - runFlow:
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${output.sideMenuPage.profileText}
+#         INDEX: 0
 
-- runFlow:
-    file: ../../PageVerification/profileBusinessDetailsPageVerification.yaml
-    env:
-        BUSINESSTYPE: 'SOLETRADER'
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_E}
-        INDUSTRYTYPE: ${output.profilePage.industry1}
-        ADDRESS1: ${output.env.ADDRESS_LINE1_2}
-        ADDRESS2: ${output.env.ADDRESS_LINE1_2}
-        CITY: ${output.env.CITY_2}
-        POSTCODE: ${output.env.POST_CODE_2}
+# - runFlow:
+#     file: ../../PageVerification/profileBusinessDetailsPageVerification.yaml
+#     env:
+#         BUSINESSTYPE: 'SOLETRADER'
+#         BUSINESSNAME: ${output.env.BUSINESS_NAME_E}
+#         INDUSTRYTYPE: ${output.profilePage.industry1}
+#         ADDRESS1: ${output.env.ADDRESS_LINE1_2}
+#         ADDRESS2: ${output.env.ADDRESS_LINE1_2}
+#         CITY: ${output.env.CITY_2}
+#         POSTCODE: ${output.env.POST_CODE_2}
 
-- scrollUntilVisible:
-    element: ${output.profilePage.addressLine1Field}
-    direction: UP
+# - scrollUntilVisible:
+#     element: ${output.profilePage.addressLine1Field}
+#     direction: UP
 
 # Original address 1
 
@@ -102,9 +102,41 @@ onFlowStart:
         TEXT: ${output.env.POST_CODE_1}
         KEYBOARD: true
 
+# Turn off vat
+- scrollUntilVisible:
+    element: ${output.profilePage.vatToggle} 
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.profilePage.vatToggle} 
+        INDEX: 0
+
+- assertNotVisible: 
+    text: ${output.profilePage.vat}
+    enabled: true 
+
+# Turn off service charge
+
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.profilePage.serviceChargeToggle} 
+        INDEX: 0
+
+- assertNotVisible: 
+    text: ${output.profilePage.serviceCharge}
+    enabled: true 
+
+- scrollUntilVisible:
+    element: ${output.profilePage.updateBusinessDetailsButton}
+    direction: DOWN
+
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:

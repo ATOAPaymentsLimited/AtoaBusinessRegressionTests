@@ -24,6 +24,9 @@ output.profilePage = {
     vatOption1: '0.0%',
     vatOption2: '5.0%',
     vatOption3: '20.0%',
+    vatOption1Value: '0.0',
+    vatOption2Value: '5.0',
+    vatOption3Value: '20.0',
     serviceCharge: 'Service Tax TextFormField',
     serviceChargeToggle: 'Service Tax Custom Switch',
     updateBusinessDetailsButton: 'Update business details',
@@ -56,4 +59,9 @@ output.profilePage = {
     postCodeEmptyError: 'Please provide a post code',
     postCodeMinLengthError: 'Post Code should be at least 3 characters long',
     postCodeSpecialCharactersError: `Only , & : ' - are allowed`,
+
+    emptyVATError: `Deactivate VAT if you haven't applied any VAT.`,
+    serviceChargeMoreThan100Error: 'Service charges should not be more than 100%',
+    emptyServiceChargeError: `Turn off service charges if you don't include any service charge.`,
+
 }

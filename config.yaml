@@ -117,6 +117,8 @@ executionOrder:
         - Tests/Profile/address2TextFieldValidations.yaml
         - Tests/Profile/cityTextFieldValidations.yaml
         - Tests/Profile/postCodeFieldValidations.yaml
+        - Tests/Profile/vatDropdownValidations.yaml
+        - Tests/Profile/serviceChargeTextFieldValidations.yaml
         - Tests/Profile/editBusinessDetails.yaml
         - Tests/Profile/firstNameAndLastNameTextFieldValidations.yaml
         - Tests/Profile/cashierProfileVerification.yaml
