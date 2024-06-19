@@ -37,5 +37,7 @@ output.connectYourBankPage = {
     sortCodeEmptyError: 'Sort Code must be at least 6 characters long',
     sortCodeLessThan6Error: 'Sort Code should be at least 6 characters long',
 
+    nameEmptyError: 'Name on account should not be empty',
+
 
 }   

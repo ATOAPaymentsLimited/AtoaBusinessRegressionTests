@@ -92,10 +92,6 @@ onFlowStart:
     env:
         SORTCODE: ${output.env.SORT_CODE_1}
 
-- scrollUntilVisible:
-    element: ${output.connectYourBankPage.addBankAccountButton}
-    direction: DOWN
 
-- runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
 
 
