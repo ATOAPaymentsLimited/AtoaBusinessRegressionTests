@@ -1,0 +1,37 @@
+appId: ${APP_ID}
+name: Tests/Signup/turnoverDropdownValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- scrollUntilVisible:
+    element: ${output.yourBusinessDetailsPage.turnoverDropdown}
+    direction: UP
+
+- runFlow: 
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.yourBusinessDetailsPage.turnoverDropdown}
+        INDEX: 0
+
+- assertVisible: ${output.env.turnoverOption1}
+- assertVisible: ${output.env.turnoverOption2}
+- assertVisible: ${output.env.turnoverOption3}
+- scrollUntilVisible:
+    element: ${output.env.turnoverOption5}
+    direction: DOWN
+- assertVisible: ${output.env.turnoverOption4}
+- assertVisible: ${output.env.turnoverOption5}
+# - assertVisible: ${output.env.turnoverOption6}
+
+- runFlow: 
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.env.turnoverOption4}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.yourBusinessDetailsPage.turnoverDropdown}
+    containsDescendants:
+      - ${output.env.turnoverOption4}

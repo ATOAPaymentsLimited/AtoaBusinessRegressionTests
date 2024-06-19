@@ -36,6 +36,7 @@ executionOrder:
         - Tests/Signup/charityNameTextFieldValidations.yaml
         - Tests/Signup/crnTextFieldValidations.yaml
         - Tests/Signup/industryTypeDropdownValidations.yaml
+        - Tests/Signup/turnoverDropdownValidations.yaml
         - Tests/Signup/addressLine1TextFieldValidations.yaml
         - Tests/Signup/addressLine2TextFieldValidations.yaml
         - Tests/Signup/cityTextFieldValidations.yaml

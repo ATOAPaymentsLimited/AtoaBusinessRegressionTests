@@ -123,6 +123,7 @@ output.env = {
    MERCHANT_MOBILE_3: '9877960021',
    BUSINESS_NAME_3: 'B9877960021',
    CRN_3: '98770021',
+   CRN_3A: 'SC770021',
    UTR_3: '9877960021',
    MERCHANT_EMAIL_3A: 'ab9877960021@gmail.com',
    MERCHANT_EMAIL_3B: 'ab9877960021@paywithatoa.co.uk',
@@ -302,7 +303,8 @@ output.env = {
    turnoverOption2: '£10,000 - £25,000',
    turnoverOption3: '£25,000 - £50,000',
    turnoverOption4: '£50,000 - £100,000',
-   turnoverOption5: '£100,000+',
+   turnoverOption5: '£100,000 - £500,000',
+   turnoverOption6: '£500,000+',
 
    alphabets: 'abcdefgh',
    specialCharacters: '!@#$%^&*',
