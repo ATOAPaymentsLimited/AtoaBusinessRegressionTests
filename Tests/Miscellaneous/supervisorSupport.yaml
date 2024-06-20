@@ -20,6 +20,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.sideMenuPage.supportText}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

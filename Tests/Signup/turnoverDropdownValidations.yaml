@@ -8,6 +8,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.turnoverDropdown}
     direction: UP
+    centerElement: true
 
 - runFlow: 
     file: ../../ElementActions/tapOn.yaml
@@ -21,6 +22,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.env.turnoverOption5}
     direction: DOWN
+    centerElement: true
 - assertVisible: ${output.env.turnoverOption4}
 - assertVisible: ${output.env.turnoverOption5}
 # - assertVisible: ${output.env.turnoverOption6}

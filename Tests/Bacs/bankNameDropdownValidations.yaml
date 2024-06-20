@@ -77,6 +77,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.sideMenuPage.billingText}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -113,6 +114,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.selectBankField}
     direction: UP
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

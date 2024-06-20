@@ -8,6 +8,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
     direction: UP
+    centerElement: true
 
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/selectBusinessType.yaml
@@ -35,10 +36,12 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml     
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
     direction: UP
+    centerElement: true
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.charityNameField}
     containsDescendants: 
@@ -50,11 +53,13 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
     direction: UP
+    centerElement: true
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.charityNameField}
     containsDescendants: 
@@ -69,11 +74,13 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
     direction: UP
+    centerElement: true
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.charityNameField}
     containsDescendants: 
@@ -93,11 +100,13 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
     direction: UP
+    centerElement: true
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.charityNameField}
     containsDescendants: 
@@ -118,6 +127,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - assertVisible: ${output.yourBusinessDetailsPage.charityNameExistingError}
@@ -126,6 +136,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.charityNameField}
     direction: UP
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
     env:
@@ -139,6 +150,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}

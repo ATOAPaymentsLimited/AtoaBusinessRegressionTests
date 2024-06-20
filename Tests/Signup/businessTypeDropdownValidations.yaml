@@ -45,6 +45,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
     direction: UP
+    centerElement: true
 
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/selectBusinessType.yaml

@@ -23,6 +23,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.emailField}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.nameField}
@@ -37,6 +38,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.address2Field}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.address1Field}
@@ -55,6 +57,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.postCodeField}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.cityField}
@@ -69,6 +72,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.continueSetupButton}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.stripeCheckbox}
@@ -82,6 +86,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.privacyText}
     direction: DOWN
+    centerElement: true
 
 - assertVisible: ${output.directDebitDetailsPage.directDebitText}
 - assertVisible: ${output.directDebitDetailsPage.atoaAddressText}

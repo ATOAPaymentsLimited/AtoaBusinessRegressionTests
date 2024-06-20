@@ -88,6 +88,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: 44${output.env.MERCHANT_MOBILE_7}
     direction: DOWN
+    centerElement: true
 - assertVisible: 
     text: ${output.inviteBusinessesPage.contactTile}
     containsChild: ${output.env.MERCHANT_FNAME} ${output.env.MERCHANT_LNAME}

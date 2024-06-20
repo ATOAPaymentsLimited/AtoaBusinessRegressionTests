@@ -22,6 +22,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.privacyText}
     direction: DOWN
+    centerElement: true
 
 - assertVisible: ${output.directDebitDetailsPage.directDebitText}
 - assertVisible: ${output.directDebitDetailsPage.atoaAddressText}

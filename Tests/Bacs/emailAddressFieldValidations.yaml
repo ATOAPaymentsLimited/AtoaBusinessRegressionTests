@@ -9,6 +9,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.emailField}
     direction: DOWN
+    centerElement: true
 
 # Empty field
 
@@ -21,6 +22,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.continueSetupButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -30,6 +32,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.emailField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.emailField}
@@ -48,6 +51,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.continueSetupButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -57,6 +61,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.emailField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.emailField}
@@ -80,6 +85,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.continueSetupButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -89,6 +95,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.emailField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.emailField}
@@ -112,6 +119,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.continueSetupButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -121,6 +129,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.emailField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.emailField}
@@ -144,6 +153,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.continueSetupButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -153,6 +163,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.emailField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.emailField}
@@ -177,6 +188,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.continueSetupButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -186,6 +198,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.emailField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.emailField}
@@ -209,6 +222,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.continueSetupButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -218,6 +232,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.emailField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.emailField}

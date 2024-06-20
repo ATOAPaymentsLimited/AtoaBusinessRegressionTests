@@ -19,6 +19,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.firstNameField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.yourPersonalDetailsPage.firstNameField}
     containsDescendants: 
@@ -39,11 +40,13 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.firstNameField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.yourPersonalDetailsPage.firstNameField}
     containsDescendants: 
@@ -65,6 +68,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - assertVisible: ${output.connectYourBankPage.connectYourBankPageTitle}
@@ -79,6 +83,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.firstNameField}
     direction: UP
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -94,6 +99,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - assertVisible: ${output.connectYourBankPage.connectYourBankPageTitle}

@@ -34,6 +34,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.addressLine2Field}
     direction: UP
+    centerElement: true
 
 # Special characters
 
@@ -53,6 +54,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -61,6 +63,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.addressLine2Field}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.profilePage.addressLine2Field}
@@ -85,6 +88,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:

@@ -23,6 +23,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.newLocationPage.address2Field}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.newLocationPage.address2Field}
     containsDescendants:

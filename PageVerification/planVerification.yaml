@@ -15,3 +15,5 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.selectBankDropdown}
     direction: UP
+    centerElement: true
+    

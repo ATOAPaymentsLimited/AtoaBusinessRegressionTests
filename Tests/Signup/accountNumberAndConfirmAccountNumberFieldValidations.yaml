@@ -17,6 +17,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.accountNumberField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.connectYourBankPage.accountNumberField}
@@ -47,12 +48,14 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
 
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.accountNumberField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.connectYourBankPage.accountNumberField}
@@ -87,12 +90,14 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
 
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.accountNumberField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.connectYourBankPage.accountNumberField}
@@ -127,12 +132,14 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
 
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.accountNumberField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.connectYourBankPage.confirmAccountNumberField}
@@ -163,12 +170,14 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
 
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.accountNumberField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.connectYourBankPage.accountNumberField}
@@ -203,12 +212,14 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
 
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.accountNumberField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.connectYourBankPage.confirmAccountNumberField}
@@ -239,12 +250,14 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
 
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.accountNumberField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.connectYourBankPage.accountNumberField}

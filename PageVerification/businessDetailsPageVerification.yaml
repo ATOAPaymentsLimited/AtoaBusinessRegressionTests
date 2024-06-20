@@ -24,6 +24,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.addressLine2Field}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.addressLine1Field}
           containsDescendants:
@@ -35,6 +36,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.postCodeField}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.cityField}
           containsDescendants:
@@ -46,6 +48,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.websiteField}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.utrField}
           containsDescendants:
@@ -57,6 +60,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.continueButton}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.vatToggle}
           enabled: true
@@ -83,6 +87,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.addressLine2Field}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.addressLine1Field}
           containsDescendants:
@@ -94,6 +99,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.postCodeField}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.cityField}
           containsDescendants:
@@ -105,6 +111,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.turnoverDropdown}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.industryTypeDropdown}
           containsDescendants:
@@ -116,6 +123,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.continueButton}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.vatToggle}
           enabled: true
@@ -142,6 +150,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.addressLine2Field}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.addressLine1Field}
           containsDescendants:
@@ -153,6 +162,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.postCodeField}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.cityField}
           containsDescendants:
@@ -164,6 +174,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.continueButton}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.turnoverDropdown}
           containsDescendants:
@@ -185,6 +196,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.vat}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.vat}
           containsDescendants:
@@ -197,6 +209,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.yourBusinessDetailsPage.serviceCharge}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.yourBusinessDetailsPage.serviceCharge}
           containsDescendants:

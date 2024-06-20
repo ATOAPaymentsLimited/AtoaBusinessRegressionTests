@@ -55,6 +55,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.idVerificationPage.lastNameField}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.idVerificationPage.firstNameField}
@@ -69,6 +70,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.idVerificationPage.addressLine2Field}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.idVerificationPage.businessNameField}
@@ -88,6 +90,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.idVerificationPage.supportEmail}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.idVerificationPage.postCodeField}

@@ -17,6 +17,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.sideMenuPage.settingsText}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -27,6 +28,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.settingsPage.voiceNotificationToggle}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.settingsPage.voiceNotificationToggle}

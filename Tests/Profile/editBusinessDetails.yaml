@@ -34,6 +34,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.addressLine1Field}
     direction: UP
+    centerElement: true
 
 # Original address 1
 
@@ -68,6 +69,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.cityField}
     direction: DOWN
+    centerElement: true
 
 # Original city
 
@@ -87,6 +89,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.postCodeField}
     direction: DOWN
+    centerElement: true
 
 # Original post code
 - runFlow:
@@ -106,6 +109,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.vatToggle} 
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -122,6 +126,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -136,6 +141,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

@@ -168,6 +168,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.transactionsPage.refundedChip}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.transactionsPage.transactionTile}

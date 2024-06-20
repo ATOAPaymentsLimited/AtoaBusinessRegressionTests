@@ -8,6 +8,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.postCodeField}
     direction: DOWN
+    centerElement: true
 
 # Blank space
 - runFlow:
@@ -23,11 +24,13 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.postCodeField}
     direction: DOWN
+    centerElement: true
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.postCodeField}
     containsDescendants: 
@@ -41,11 +44,13 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.postCodeField}
     direction: DOWN
+    centerElement: true
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.postCodeField}
     containsDescendants: 
@@ -65,11 +70,13 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.postCodeField}
     direction: DOWN
+    centerElement: true
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.postCodeField}
     containsDescendants: 
@@ -89,6 +96,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}

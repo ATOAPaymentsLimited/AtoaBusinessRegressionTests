@@ -40,6 +40,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.addressLine2Field}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../SignupFieldActions/enterAddress1.yaml
@@ -56,6 +57,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.postCodeField}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../SignupFieldActions/enterCity.yaml
@@ -70,6 +72,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     when:
@@ -102,6 +105,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     when:

@@ -8,6 +8,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.idVerificationPage.lastNameField}
     direction: DOWN
+    centerElement: true
 # Empty field
 
 - runFlow:

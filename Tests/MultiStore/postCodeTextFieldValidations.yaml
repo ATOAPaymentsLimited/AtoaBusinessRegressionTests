@@ -22,6 +22,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.newLocationPage.postCodeField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.newLocationPage.postCodeField}
     containsDescendants:
@@ -44,6 +45,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.newLocationPage.postCodeField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.newLocationPage.postCodeField}
     containsDescendants:
@@ -71,6 +73,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.newLocationPage.postCodeField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.newLocationPage.postCodeField}
     containsDescendants:

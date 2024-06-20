@@ -9,6 +9,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
     direction: DOWN
+    centerElement: true
 
 # invlaid 1
 
@@ -25,6 +26,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -34,6 +36,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.employeeDetailsPage.emailField}
     containsDescendants:
@@ -54,6 +57,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -63,6 +67,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.employeeDetailsPage.emailField}
     containsDescendants:
@@ -83,6 +88,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -92,6 +98,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.employeeDetailsPage.emailField}
     containsDescendants:
@@ -112,6 +119,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -121,6 +129,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.employeeDetailsPage.emailField}
     containsDescendants:
@@ -141,6 +150,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -150,6 +160,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.employeeDetailsPage.emailField}
     containsDescendants:
@@ -170,6 +181,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -183,6 +195,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
     direction: UP
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -197,6 +210,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -209,6 +223,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
     direction: UP
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -223,6 +238,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:

@@ -3,6 +3,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.turnoverDropdown}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -19,3 +20,4 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.businessNameField}
     direction: UP
+    centerElement: true

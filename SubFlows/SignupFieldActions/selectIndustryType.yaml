@@ -3,6 +3,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.industryTypeDropdown}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

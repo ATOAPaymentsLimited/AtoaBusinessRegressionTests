@@ -8,6 +8,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.businessTypeDropDownTile}
     direction: UP
+    centerElement: true
 
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/selectBusinessType.yaml
@@ -17,6 +18,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.industryTypeDropdown}
     direction: UP
+    centerElement: true
     
 - runFlow:
     file: ../../SubFlows/SignupFieldActions/selectIndustryType.yaml
@@ -35,12 +37,14 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.describeYourBusinessField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.yourBusinessDetailsPage.describeYourBusinessField}
@@ -56,6 +60,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 

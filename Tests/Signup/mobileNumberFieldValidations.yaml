@@ -49,6 +49,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.mobileNumberField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.yourPersonalDetailsPage.mobileNumberField}
@@ -66,7 +67,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.continueButton}
     direction: DOWN
-
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -84,6 +85,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.mobileNumberField}
     direction: UP
+    centerElement: true
 
 # alphabets
 
@@ -143,6 +145,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -158,6 +161,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.mobileNumberField}
     direction: UP
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -175,6 +179,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -189,6 +194,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.mobileNumberField}
     direction: UP
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -206,6 +212,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -226,6 +233,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.mobileNumberField}
     direction: UP
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/eraseText.yaml
@@ -243,6 +251,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourPersonalDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

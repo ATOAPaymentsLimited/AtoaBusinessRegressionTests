@@ -23,6 +23,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.vatToggle}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -49,6 +50,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -57,6 +59,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 - assertVisible: 
     text: ${output.profilePage.vat}
     containsDescendants:  
@@ -85,6 +88,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 # Vat 20%
 
 - runFlow:

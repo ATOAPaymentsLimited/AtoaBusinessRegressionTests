@@ -20,6 +20,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.postCodeField}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.addressLine1Field}
           containsDescendants:
@@ -31,6 +32,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.postCodeField}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.cityField}
           containsDescendants:
@@ -42,6 +44,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.updateBusinessDetailsButton}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.vatToggle}
           enabled: true
@@ -68,6 +71,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.addressLine2Field}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.addressLine1Field}
           containsDescendants:
@@ -79,6 +83,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.postCodeField}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.cityField}
           containsDescendants:
@@ -90,6 +95,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.turnoverDropdown}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.industryTypeDropdown}
           containsDescendants:
@@ -101,6 +107,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.updateBusinessDetailsButton}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.vatToggle}
           enabled: true
@@ -127,6 +134,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.addressLine2Field}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.addressLine1Field}
           containsDescendants:
@@ -138,6 +146,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.postCodeField}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.cityField}
           containsDescendants:
@@ -149,6 +158,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.updateBusinessDetailsButton}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.turnoverDropdown}
           containsDescendants:
@@ -170,6 +180,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.vat}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.vat}
           containsDescendants:
@@ -182,6 +193,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.profilePage.serviceCharge}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.profilePage.serviceCharge}
           containsDescendants:

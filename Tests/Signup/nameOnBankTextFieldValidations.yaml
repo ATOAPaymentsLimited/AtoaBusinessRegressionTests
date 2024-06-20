@@ -8,6 +8,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.nameField}
     direction: DOWN
+    centerElement: true
 
 # Empty field
 - runFlow: 
@@ -19,6 +20,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: 
     file: ../../ElementActions/tapOn.yaml
@@ -29,6 +31,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.nameField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.connectYourBankPage.nameField}
@@ -45,6 +48,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: 
     file: ../../ElementActions/tapOn.yaml
@@ -55,6 +59,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.nameField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.connectYourBankPage.nameField}
@@ -76,6 +81,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: 
     file: ../../ElementActions/tapOn.yaml

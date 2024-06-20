@@ -10,6 +10,7 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${output.transactionDetailsPage.serviceChargeText}
           direction: DOWN
+          centerElement: true
       - assertVisible:
           text: ${output.env.poundSymbol}${TIP}
           rightOf: ${output.transactionDetailsPage.tipText}
@@ -23,6 +24,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.transactionDetailsPage.customerText}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     when:

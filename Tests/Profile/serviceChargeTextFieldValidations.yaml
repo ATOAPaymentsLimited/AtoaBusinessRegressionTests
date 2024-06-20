@@ -23,6 +23,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.serviceChargeToggle}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.profilePage.vat}
@@ -51,6 +52,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -59,6 +61,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.profilePage.serviceCharge}
@@ -83,6 +86,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -91,6 +95,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.profilePage.serviceCharge}
@@ -115,6 +120,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:

@@ -8,6 +8,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.idVerificationPage.addressLine2Field}
     direction: DOWN
+    centerElement: true
 
 # Special characters
 - runFlow:

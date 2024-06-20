@@ -19,6 +19,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.newLocationPage.locationNameField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.newLocationPage.locationNameField}
@@ -41,6 +42,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.newLocationPage.locationNameField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.newLocationPage.locationNameField}
     containsDescendants:
@@ -63,6 +65,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.newLocationPage.locationNameField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.newLocationPage.locationNameField}
     containsDescendants:
@@ -90,6 +93,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.newLocationPage.locationNameField}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.newLocationPage.locationNameField}
     containsDescendants:

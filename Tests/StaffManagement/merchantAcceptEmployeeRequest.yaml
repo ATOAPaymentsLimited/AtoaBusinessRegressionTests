@@ -39,6 +39,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.merchantHomePage.employeeRequestTile}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/approveEmployeeRequest.yaml

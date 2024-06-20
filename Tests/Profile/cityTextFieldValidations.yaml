@@ -34,6 +34,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.cityField}
     direction: UP
+    centerElement: true
 
 # blank Space
 
@@ -53,6 +54,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -61,6 +63,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.cityField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.profilePage.cityField}
@@ -78,6 +81,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -86,6 +90,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.cityField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.profilePage.cityField}
@@ -110,6 +115,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -118,6 +124,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.cityField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.profilePage.cityField}
@@ -142,6 +149,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.updateBusinessDetailsButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:

@@ -13,6 +13,8 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.mobileNumberField}
     direction: DOWN
+    centerElement: true
+
 - runFlow: 
     when:
       true: ${MOBILENUMBER}
@@ -23,6 +25,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
     direction: DOWN
+    centerElement: true
 - runFlow: 
     when:
       true: ${EMAIL}
@@ -30,10 +33,10 @@ appId: ${APP_ID}
     env:
         EMAIL: ${EMAIL}  
 
-
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.supervisorTab}
     direction: DOWN
+    centerElement: true
 - runFlow:
     when:
         true: ${ROLE == 'SUPERVISOR'}
@@ -53,6 +56,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     when:
         true: ${ALLOWBILLINGS}
@@ -64,6 +68,7 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:

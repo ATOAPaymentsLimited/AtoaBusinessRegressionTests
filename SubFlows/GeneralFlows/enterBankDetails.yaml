@@ -23,12 +23,14 @@ appId: ${APP_ID}
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.directDebitSwitch}
     direction: DOWN
+    centerElement: true
 
 - runFlow: ../SignupFieldActions/switchDirectDebitToggle.yaml
 
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: ../SignupFieldActions/clickAddBankButton.yaml
 

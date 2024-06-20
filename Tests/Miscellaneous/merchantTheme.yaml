@@ -16,6 +16,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.sideMenuPage.lightThemeTab}
     direction: DOWN
+    centerElement: true
 
 - assertVisible: 
     text: ${output.sideMenuPage.themeCheckbox}

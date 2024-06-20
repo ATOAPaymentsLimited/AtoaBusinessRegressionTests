@@ -9,6 +9,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.sortCodeField}
     direction: DOWN
+    centerElement: true
 
 # Blank space
 - runFlow:
@@ -40,13 +41,15 @@ onFlowStart:
 
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
-    direction: DOWN
+    direction: 
+    centerElement: true
 
 - runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
 
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.sortCodeField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.connectYourBankPage.sortCodeField}
@@ -68,12 +71,14 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.addBankAccountButton}
     direction: DOWN
+    centerElement: true
 
 - runFlow: ../../SubFlows/SignupFieldActions/clickAddBankButton.yaml
 
 - scrollUntilVisible:
     element: ${output.connectYourBankPage.sortCodeField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.connectYourBankPage.sortCodeField}

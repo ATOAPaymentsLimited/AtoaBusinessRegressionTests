@@ -8,6 +8,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 
 # Invalid 1
 - runFlow:
@@ -24,11 +25,13 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.websiteField}
     direction: DOWN
+    centerElement: true
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.websiteField}
     containsDescendants: 
@@ -47,11 +50,13 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.websiteField}
     direction: DOWN
+    centerElement: true
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.websiteField}
     containsDescendants: 
@@ -71,11 +76,13 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.websiteField}
     direction: DOWN
+    centerElement: true
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.websiteField}
     containsDescendants: 
@@ -95,11 +102,13 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - assertVisible: 
     text: ${output.yourBusinessDetailsPage.websiteField}
     containsDescendants: 
@@ -119,6 +128,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.yourBusinessDetailsPage.continueButton}
     direction: DOWN
+    centerElement: true
 - runFlow: ../../SubFlows/SignupFieldActions/clickContinueButton.yaml
 
 - assertVisible: ${output.yourPersonalDetailsPage.yourPersonalDetailsPageTitle}

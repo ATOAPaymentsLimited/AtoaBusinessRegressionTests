@@ -22,6 +22,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.newLocationPage.address1Field}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.newLocationPage.address1Field}
     containsDescendants:
@@ -44,6 +45,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.newLocationPage.address1Field}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.newLocationPage.address1Field}
     containsDescendants:
@@ -71,6 +73,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.newLocationPage.address1Field}
     direction: UP
+    centerElement: true
 - assertVisible:
     text: ${output.newLocationPage.address1Field}
     containsDescendants:

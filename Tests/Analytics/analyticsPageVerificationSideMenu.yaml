@@ -18,6 +18,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.sideMenuPage.analyticsText}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

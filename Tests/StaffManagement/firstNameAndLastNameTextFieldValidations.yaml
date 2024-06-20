@@ -43,6 +43,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.firstNameField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.employeeDetailsPage.firstNameField}
@@ -69,6 +70,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.addEmployeeButton}
     direction: DOWN
+    centerElement: true
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -78,6 +80,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.firstNameField}
     direction: UP
+    centerElement: true
 
 - assertVisible:
     text: ${output.employeeDetailsPage.firstNameField}

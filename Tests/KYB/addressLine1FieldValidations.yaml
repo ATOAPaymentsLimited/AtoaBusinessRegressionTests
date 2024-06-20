@@ -8,6 +8,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.idVerificationPage.addressLine1Field}
     direction: DOWN
+    centerElement: true
 
 # Empty field
 
