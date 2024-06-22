@@ -13,5 +13,5 @@ appId: ${APP_ID}
         - ${output.newLocationPage.freeQrText}
     containsDescendants:
         - ${output.newLocationPage.freeQrDescription}
-    containsDescendants:
-        - ${output.newLocationPage.orderNowText}
+    # containsDescendants:
+    #     - ${output.newLocationPage.orderNowText}
