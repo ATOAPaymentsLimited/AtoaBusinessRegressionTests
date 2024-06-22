@@ -9,6 +9,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.address2Field}
     direction: DOWN
+    centerElement: true 
 
 # special characters
 
@@ -30,6 +31,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.address2Field}
     direction: UP
+    centerElement: true 
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.address2Field}

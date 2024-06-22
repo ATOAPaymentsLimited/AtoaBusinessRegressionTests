@@ -1,7 +1,7 @@
 output.settingsPage = {
     backButton: 'Back',
     settingsPageTitle: 'Settings',
-    directDebitBanner: 'Set Up',
+    directDebitBanner: 'Set Up Direct Debit',
     appLockToggle: 'App Lock Tile Custom Switch',
     pinTextField: 'App lock pin input',
     logoutButton: 'Log Out',

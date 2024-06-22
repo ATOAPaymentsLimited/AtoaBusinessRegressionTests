@@ -9,6 +9,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.address1Field}
     direction: DOWN
+    centerElement: true 
 
 # Empty field
 
@@ -30,6 +31,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.address1Field}
     direction: UP
+    centerElement: true 
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.address1Field}
@@ -57,6 +59,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.address1Field}
     direction: UP
+    centerElement: true 
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.address1Field}

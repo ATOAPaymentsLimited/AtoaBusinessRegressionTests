@@ -30,6 +30,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.sortCodeField}
     direction: UP
+    centerElement: true 
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.sortCodeField}
@@ -37,12 +38,6 @@ onFlowStart:
       - ${output.directDebitDetailsPage.sortCodeEmptyError}
 
 # 5 digits
-
-- runFlow:
-    file: ../../ElementActions/erase.yaml
-    env:
-        ELEMENT: ${output.directDebitDetailsPage.sortCodeField}
-        KEYBOARD: true
 
 - runFlow:
     file: ../../ElementActions/inputText.yaml
@@ -63,6 +58,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.sortCodeField}
     direction: UP
+    centerElement: true 
 
 - assertVisible:
     text: ${output.directDebitDetailsPage.sortCodeField}
