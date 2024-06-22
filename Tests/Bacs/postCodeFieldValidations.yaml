@@ -164,9 +164,9 @@ onFlowStart:
     file: ../../PageVerification/confirmDirectDebitDetailsPageVerification.yaml
     env:
         NAME: ${output.env.MERCHANT_FNAME} ${output.env.MERCHANT_LNAME}
-        SORTCODE: ${output.env.SORT_CODE_1}
-        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_2}
-        EMAIL: ${output.env.MERCHANT_EMAIL_26}
+        SORTCODE: ${output.env.BACS_SORT_CODE}
+        ACCOUNTNUMBER: ${output.env.BACS_BANK_ACCOUNT}
+        EMAIL: ${output.env.MERCHANT_EMAIL_10}
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

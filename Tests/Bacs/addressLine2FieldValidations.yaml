@@ -19,6 +19,13 @@ onFlowStart:
         ELEMENT: ${output.directDebitDetailsPage.address2Field}
         KEYBOARD: true
 
+- runFlow:
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.directDebitDetailsPage.address2Field}
+        TEXT: ${output.env.ADDRESS_LINE1_1}
+        KEYBOARD: true
+        
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.continueSetupButton}
     direction: DOWN

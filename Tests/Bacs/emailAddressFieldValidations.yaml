@@ -244,5 +244,5 @@ onFlowStart:
     file: ../../ElementActions/inputText.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.emailField}
-        TEXT: ${output.env.MERCHANT_EMAIL_26}
+        TEXT: ${output.env.MERCHANT_EMAIL_10}
         KEYBOARD: true
