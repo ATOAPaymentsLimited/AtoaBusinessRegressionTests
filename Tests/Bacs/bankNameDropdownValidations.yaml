@@ -113,6 +113,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.directDebitDetailsPage.selectBankField}
     direction: UP
+    centerElement: true 
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

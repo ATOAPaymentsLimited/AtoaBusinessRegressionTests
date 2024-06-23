@@ -23,7 +23,7 @@ onFlowStart:
     file: ../../ElementActions/inputText.yaml
     env:
         ELEMENT: ${output.directDebitDetailsPage.address2Field}
-        TEXT: ${output.env.ADDRESS_LINE1_1}
+        TEXT: ${output.env.specialCharacters}
         KEYBOARD: true
         
 - scrollUntilVisible:
