@@ -12,7 +12,7 @@ onFlowStart:
 # - runFlow:
 #     file: SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
 #     env: 
-#         TEXT: ${output.env.MERCHANT_MOBILE_C}
+#         TEXT: ${output.env.MERCHANT_MOBILE_L}
 #         SIGNUP: true
 
 # - runFlow:
@@ -24,7 +24,7 @@ onFlowStart:
 #     file: SubFlows/GeneralFlows/enterBusinessDetails.yaml
 #     env:
 #         BUSINESSTYPE: 'SOLETRADER'
-#         BUSINESSNAME: ${output.env.BUSINESS_NAME_C}
+#         BUSINESSNAME: ${output.env.BUSINESS_NAME_L}
 #         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
 #         TURNOVER: ${output.env.turnoverOption1}
 #         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
@@ -37,7 +37,7 @@ onFlowStart:
 #     env:
 #         FNAME: ${output.env.MERCHANT_FNAME}
 #         LNAME: ${output.env.MERCHANT_LNAME}
-#         EMAIL: ${output.env.MERCHANT_EMAIL_C}
+#         EMAIL: ${output.env.MERCHANT_EMAIL_L}
 #         SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
 #         CONTINUE: true 
 
@@ -68,8 +68,21 @@ onFlowStart:
 #         ELEMENT: ${output.selectPaymentModePage.paymentLinkButton}
 #         INDEX: 0
 
+# - runFlow:
+#     file: SubFlows/GeneralFlows/login.yaml
+#     env: 
+#         USER: 'BUSINESSOWNER'
+#         ID: ${output.env.MERCHANT_MOBILE_C}
+
+# - runFlow:
+#     file: PageVerification/bankAccountsPageVerification.yaml
+#     env:
+#         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+#         MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
+#         SORTCODE: ${output.env.SORT_CODE_1}
+
 - runFlow:
-    file: SubFlows/GeneralFlows/login.yaml
-    env: 
-        USER: 'BUSINESSOWNER'
-        ID: ${output.env.MERCHANT_MOBILE_C}
+    file: SubFlows/GeneralFlows/deleteBank.yaml
+    env:
+        MASKEDBANKACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
+        SORTCODE: ${output.env.SORT_CODE_1}

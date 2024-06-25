@@ -1,7 +1,7 @@
 output.otpPage = {
     otpPageTitle: 'Enter Code',
     enterCodeText: 'Enter the secret code sent to your phone at',
-    countryCode: '+44',
+    countryCodeUK: '+44',
     
     otpTextField: 'OTP input',
 

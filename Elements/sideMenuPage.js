@@ -2,6 +2,7 @@ output.sideMenuPage = {
     sideMenuTitle: 'My Account',
     profileTile: 'Profile Header',
     avatarBlank: 'Default Store Avatar',
+    addBankButton: 'Add Bank Account',
     addBusinessButton: 'Add More\n Businesses',
     addLocationButton: 'Add More\n Locations',
     manageLocationsButton: 'Manage Locations',

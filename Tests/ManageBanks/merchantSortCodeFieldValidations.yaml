@@ -81,6 +81,12 @@ onFlowStart:
 - waitForAnimationToEnd
 
 - runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.validOtp}
+- waitForAnimationToEnd
+
+- runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.addBankAccountPage.continueButton}
