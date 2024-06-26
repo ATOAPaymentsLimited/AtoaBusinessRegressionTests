@@ -9,7 +9,7 @@ onFlowStart:
 - runFlow:
     file: ../../SubFlows/BankAccountFieldActions/enterSortCode.yaml
     env:
-        SORTCODE: ${output.env.SORT_CODE_1}
+        SORTCODE: ${output.env.SORT_CODE_2}
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
