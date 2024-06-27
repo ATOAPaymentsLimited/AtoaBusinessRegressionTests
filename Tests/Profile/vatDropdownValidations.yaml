@@ -23,6 +23,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.vatToggle}
     direction: DOWN
+    centerElement: true
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

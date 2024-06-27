@@ -23,6 +23,7 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.profilePage.serviceChargeToggle}
     direction: DOWN
+    centerElement: true
 
 - assertVisible:
     text: ${output.profilePage.vat}
