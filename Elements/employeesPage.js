@@ -9,5 +9,5 @@ output.employeesPage = {
     cashier: 'Cashier',
 
     addEmployeeManuallyButton: 'Add Employee Manually',
-    
+    doneButton: 'Done',
 }

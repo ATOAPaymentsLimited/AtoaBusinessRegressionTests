@@ -1,0 +1,23 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.roleDropdown}
+        INDEX: 0
+
+- runFlow:
+    when:
+        true: ${ROLE == 'SUPERVISOR'}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.supervisorTab}
+        INDEX: 0
+
+- runFlow:
+    when:
+        true: ${ROLE == 'CASHIER'}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.cashierTab}
+        INDEX: 0

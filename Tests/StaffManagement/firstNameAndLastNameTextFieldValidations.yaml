@@ -39,6 +39,7 @@ onFlowStart:
         FNAME: ${output.env.blankSpace}
         LNAME: ${output.env.blankSpace}
         MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_D1}
+        ROLE: SUPERVISOR
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.firstNameField}
@@ -73,7 +74,7 @@ onFlowStart:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.addEmployeeButton}
-        INDEX: 0
+        INDEX: 1
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.firstNameField}

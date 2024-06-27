@@ -10,6 +10,7 @@ output.employeeDetailsPage = {
     mobileNumber: 'Mobile Number',
     emailField: 'Email Address TextFormField',
     email: 'Email Address',
+    roleDropdown: 'null TextFormField',
     employeeRole: 'Employee Role',
     supervisorTab: 'Supervisor',
     supervisorRole1: 'Can accept Payments',
@@ -21,10 +22,10 @@ output.employeeDetailsPage = {
     allowBillingCheckbox: 'Billing Checkbox',
     storeLocationDropdown: 'Select a Location',
     continueButton: 'Continue',
-    addEmployeeButton: 'Add Employee',
+    addEmployeeButton: 'Add Staff',
     updateEmployeeButton: 'Update Employee Details',
 
-    deleteEmployeeButton: 'Delete Employee',
+    deleteEmployeeButton: 'Delete Button',
     confirmButton: 'Confirm',
 
     emptyFirstNameError: 'Field cannot be empty',
