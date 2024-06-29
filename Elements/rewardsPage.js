@@ -1,6 +1,8 @@
 output.rewardsPage = {
     rewardsPageTitle: 'Rewards',
 
+    addBankButton: 'Add Bank Account',
+
     activeButton: 'Active',
     completedButton: 'Completed',
     expiredButton: 'Expired',

@@ -9,6 +9,8 @@ output.paymentLinksPage = {
     backButton: 'Back',
     paymentLinkTile: 'Payment Link Details Tile',
     
+    addBankButton: 'Add Bank Account',
+
     unpaidChip: 'Unpaid',
     paidChip: 'Paid',
 
