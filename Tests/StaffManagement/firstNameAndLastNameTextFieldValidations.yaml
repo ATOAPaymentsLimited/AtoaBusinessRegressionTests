@@ -67,9 +67,8 @@ onFlowStart:
         ELEMENT: ${output.employeeDetailsPage.lastNameField}
         KEYBOARD: true
 
-- scrollUntilVisible:
-    element: ${output.employeeDetailsPage.addEmployeeButton}
-    direction: DOWN
+- scroll
+
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
