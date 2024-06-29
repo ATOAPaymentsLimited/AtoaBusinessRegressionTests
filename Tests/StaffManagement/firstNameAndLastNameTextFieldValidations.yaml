@@ -39,6 +39,7 @@ onFlowStart:
         FNAME: ${output.env.blankSpace}
         LNAME: ${output.env.blankSpace}
         MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_D1}
+        ROLE: SUPERVISOR
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.firstNameField}
@@ -66,14 +67,13 @@ onFlowStart:
         ELEMENT: ${output.employeeDetailsPage.lastNameField}
         KEYBOARD: true
 
-- scrollUntilVisible:
-    element: ${output.employeeDetailsPage.addEmployeeButton}
-    direction: DOWN
+- scroll
+
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.addEmployeeButton}
-        INDEX: 0
+        INDEX: 1
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.firstNameField}

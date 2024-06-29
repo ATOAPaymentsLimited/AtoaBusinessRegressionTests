@@ -1,5 +1,6 @@
 appId: ${APP_ID}
 ---
+
 - runFlow:
     when:
         true: ${ACCEPT}
@@ -8,12 +9,10 @@ appId: ${APP_ID}
         ELEMENT: ${output.merchantHomePage.acceptButton}
         INDEX: 0
 
-- runFlow:
-    when:
-        true: ${DECLINE}
+- runFlow: 
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.merchantHomePage.declineButton}
+        ELEMENT: ${output.merchantHomePage.roleDropdown}
         INDEX: 0
 
 - runFlow:
@@ -37,7 +36,15 @@ appId: ${APP_ID}
         true: ${ACCEPT}
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.merchantHomePage.acceptButton}
+        ELEMENT: ${output.merchantHomePage.acceptAssignButton}
+        INDEX: 1
+- waitForAnimationToEnd
+- runFlow:
+    when:
+        true: ${DECLINE}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.declineButton}
         INDEX: 0
 
 - runFlow:

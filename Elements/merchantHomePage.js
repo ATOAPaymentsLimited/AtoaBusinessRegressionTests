@@ -53,6 +53,8 @@ output.merchantHomePage = {
     employeeProfileImage: 'Employee Image Blank',
     declineButton: 'Decline',
     acceptButton: 'Accept',
+    acceptAssignButton: 'Accept & Assign',
+    roleDropdown: 'null TextFormField',
     supervisorTab: 'Supervisor',
     cashierTab: 'Cashier',
 

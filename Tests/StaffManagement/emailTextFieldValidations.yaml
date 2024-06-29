@@ -29,7 +29,7 @@ onFlowStart:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.addEmployeeButton}
-        INDEX: 0
+        INDEX: 1
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
@@ -58,7 +58,7 @@ onFlowStart:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.addEmployeeButton}
-        INDEX: 0
+        INDEX: 1
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
@@ -87,7 +87,7 @@ onFlowStart:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.addEmployeeButton}
-        INDEX: 0
+        INDEX: 1
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
@@ -116,7 +116,7 @@ onFlowStart:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.addEmployeeButton}
-        INDEX: 0
+        INDEX: 1
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
@@ -145,7 +145,7 @@ onFlowStart:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.addEmployeeButton}
-        INDEX: 0
+        INDEX: 1
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.emailField}
@@ -174,7 +174,7 @@ onFlowStart:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.addEmployeeButton}
-        INDEX: 0
+        INDEX: 1
 - assertVisible: ${output.employeeDetailsPage.merchantEmailErrorToast}
 
 
@@ -201,7 +201,7 @@ onFlowStart:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.addEmployeeButton}
-        INDEX: 0
+        INDEX: 1
 - assertVisible: ${output.employeeDetailsPage.employeeEmailExistingErrorToast}
 
 # valid
@@ -227,7 +227,13 @@ onFlowStart:
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.addEmployeeButton}
-        INDEX: 0
+        INDEX: 1
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeesPage.doneButton}
+        INDEX: 1
 
 - assertVisible:
     text: ${output.employeesPage.employeesTile}
