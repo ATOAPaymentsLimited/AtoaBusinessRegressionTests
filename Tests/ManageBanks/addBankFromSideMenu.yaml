@@ -27,12 +27,26 @@ onFlowStart:
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/addBankAccount.yaml
-    env: 
+    env:
+        USER: 'BUSINESSOWNER'
         BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
         ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
         CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
         SORTCODE: ${output.env.SORT_CODE_1}
 
+# Valid Otp
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+
+# Verify in Bank Accounts section
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
 - runFlow:
@@ -40,6 +54,11 @@ onFlowStart:
     env:
         ELEMENT: ${output.merchantHomePage.myAccountButton}
         INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.sideMenuPage.bankAccount}
+    direction: DOWN
+    centerElement: true 
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -54,10 +73,10 @@ onFlowStart:
         MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
         SORTCODE: ${output.env.SORT_CODE_1}
 
-- waitForAnimationToEnd
-
 - runFlow:
     file: ../../SubFlows/GeneralFlows/deleteBank.yaml
     env:
         MASKEDBANKACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
         SORTCODE: ${output.env.SORT_CODE_1}
+
+

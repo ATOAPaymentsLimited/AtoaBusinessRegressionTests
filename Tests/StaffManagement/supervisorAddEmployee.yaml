@@ -43,7 +43,7 @@ onFlowStart:
     containsDescendants:
       - ${output.env.EMPLOYEE_FNAME} ${output.env.EMPLOYEE_LNAME}
     containsDescendants:
-      - ${output.env.countryCode} ${output.env.EMPLOYEE_MOBILE_D1}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_D1}
     containsDescendants:
       - ${output.employeesPage.supervisor}
 
@@ -87,5 +87,5 @@ onFlowStart:
 - assertNotVisible:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - ${output.env.countryCode} ${output.env.EMPLOYEE_MOBILE_D1}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_D1}
    

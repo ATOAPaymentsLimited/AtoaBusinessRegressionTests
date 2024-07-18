@@ -21,7 +21,7 @@ onFlowStart:
 - tapOn:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - ${output.env.countryCode} ${output.env.EMPLOYEE_MOBILE_I1}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_I1}
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.allowBillingCheckbox}
@@ -96,7 +96,7 @@ onFlowStart:
 - tapOn:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - ${output.env.countryCode} ${output.env.EMPLOYEE_MOBILE_I1}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_I1}
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.allowBillingCheckbox}

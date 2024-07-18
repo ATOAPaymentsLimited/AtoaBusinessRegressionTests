@@ -3,7 +3,7 @@ appId: ${APP_ID}
 - tapOn:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - ${output.env.countryCode} ${MOBILENUMBER}
+      - ${output.env.countryCodeUK} ${MOBILENUMBER}
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

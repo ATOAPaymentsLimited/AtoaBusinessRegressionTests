@@ -105,12 +105,14 @@ output.env = {
    EMPLOYEE_MOBILE_K2: '9599889889',
    EMPLOYEE_EMAIL_K2: 'emp9599889889@gmail.com',
 
+ 
    MERCHANT_L: 'L',
    MERCHANT_MOBILE_L: '9959119119',
    BUSINESS_NAME_L: 'B9959119119',
    CRN_L: '99591191',
    MERCHANT_EMAIL_L: 'ab9959119119@gmail.com',
 
+ 
   //-----------------------------------------------------
   //-----------------------------------------------------
   //-----------------------------------------------------  
@@ -294,7 +296,7 @@ output.env = {
    POST_CODE_2: 'ATO A81',
    CITY_2: 'London',
 
-   countryCode: '+44',
+   countryCodeUK: '+44',
    EMPLOYEE_ROLE_1: 'Supervisor',
    EMPLOYEE_ROLE_2: 'Cashier',
 

@@ -1,0 +1,201 @@
+appId: ${APP_ID}
+name: Tests/ManageBanks/otpFieldValidations.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_L}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.sideMenuPage.bankAccount}
+    direction: DOWN
+    centerElement: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.bankAccount}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.bankAccountsPage.addBankButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/addBankAccount.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        SORTCODE: ${output.env.SORT_CODE_1}
+
+# - runFlow:
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${output.addBankAccountPage.continueButton}
+#         INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/addBankOtpSheetVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        COUNTRYCODE: ${output.env.countryCodeUK}
+
+# Enter alphabets
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.alphabets}
+
+- runFlow:
+    file: ../../PageVerification/addBankOtpSheetVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        COUNTRYCODE: ${output.env.countryCodeUK}
+
+# Enter 5 digits
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.digits5}
+
+- runFlow:
+    file: ../../PageVerification/addBankOtpSheetVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        COUNTRYCODE: ${output.env.countryCodeUK}
+
+# Enter invalid 1
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.digits6}
+- assertVisible: ${output.addBankAccountPage.invalidOtpError1}
+
+- runFlow:
+    file: ../../PageVerification/addBankOtpSheetVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        COUNTRYCODE: ${output.env.countryCodeUK}
+
+# Enter invalid 2
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.digits6}
+- assertVisible: ${output.addBankAccountPage.invalidOtpError2}
+
+- runFlow:
+    file: ../../PageVerification/addBankOtpSheetVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        COUNTRYCODE: ${output.env.countryCodeUK}
+
+# Enter invalid 3
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.digits6}
+- assertVisible: ${output.addBankAccountPage.invalidOtpError3}
+
+- runFlow:
+    file: ../../PageVerification/addBankOtpSheetVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        COUNTRYCODE: ${output.env.countryCodeUK}
+
+# Enter invalid 4
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.digits6}
+- assertVisible: ${output.addBankAccountPage.invalidOtpError4}
+
+- runFlow:
+    file: ../../PageVerification/addBankOtpSheetVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        COUNTRYCODE: ${output.env.countryCodeUK}
+#----------------------------------------------------------------------------------
+# # Enter invalid 5
+# - runFlow:
+#     file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+#     env:
+#         TEXT: ${output.env.digits6}
+# - assertVisible: ${output.addBankAccountPage.invalidOtpError5}
+
+# - runFlow:
+#     file: ../../PageVerification/addBankOtpSheetVerification.yaml
+#     env:
+#         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+#         COUNTRYCODE: ${output.env.countryCodeUK}
+
+# # Valid after 5 invalid
+# - runFlow:
+#     file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+#     env:
+#         TEXT: ${output.env.validOtp}
+# - assertVisible: ${output.addBankAccountPage.invalidOtpError6}
+
+# - runFlow:
+#     file: ../../PageVerification/addBankOtpSheetVerification.yaml
+#     env:
+#         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+#         COUNTRYCODE: ${output.env.countryCodeUK}
+
+# # Valid after resend code
+
+# - runFlow:
+#     file: ../../ElementActions/tapOn.yaml
+#     env:
+#         ELEMENT: ${output.addBankAccountPage.resendButton}
+#         INDEX: 0
+# - waitForAnimationToEnd
+
+# - runFlow: 
+#     file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+#     env: 
+#         TEXT: ${output.env.validOtp}
+#--------------------------------------------------------------------------
+
+# Valid Otp
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.continueButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../PageVerification/bankAccountsPageVerification.yaml
+    env:
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
+        SORTCODE: ${output.env.SORT_CODE_1}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/deleteBank.yaml
+    env:
+        MASKEDBANKACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
+        SORTCODE: ${output.env.SORT_CODE_1}
+
+
