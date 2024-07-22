@@ -5,15 +5,21 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-        true: ${MOBILENUMBER}
+        true: ${MOBILENUMBER && !EMAIL}
     commands:
       - assertVisible: ${COUNTRYCODE} ${MOBILENUMBER}
 
 - runFlow:
     when:
-        true: ${EMAIL}
+        true: ${EMAIL && !MOBILENUMBER}
     commands:
       - assertVisible: ${EMAIL}
+
+- runFlow:
+    when:
+        true: ${MOBILENUMBER && EMAIL}
+    commands:
+      - assertVisible: ${COUNTRYCODE} ${MOBILENUMBER} ${output.otpPage.andText} ${EMAIL}
 
 - assertVisible: 
     text: ${output.addBankAccountPage.otpTextField}

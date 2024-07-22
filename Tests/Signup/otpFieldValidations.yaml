@@ -113,12 +113,24 @@ onFlowStart:
         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_B}
 - waitForAnimationToEnd
 
-# valid after 5 invalid
+# invalid 6
+- runFlow: 
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env: 
+        TEXT: ${output.env.digits6}
+- assertVisible: ${output.otpPage.invalidOtpError6}
+- runFlow:
+    file: ../../PageVerification/otpPageVerification.yaml
+    env:
+        MOBILENUMBER: ${output.env.MERCHANT_MOBILE_B}
+- waitForAnimationToEnd
+
+# valid after 6 invalid
 - runFlow: 
     file: ../../SubFlows/GeneralFlows/enterOtp.yaml
     env: 
         TEXT: ${output.env.validOtp}
-- assertVisible: ${output.otpPage.invalidOtpError6}
+- assertVisible: ${output.otpPage.invalidOtpError7}
 - runFlow:
     file: ../../PageVerification/otpPageVerification.yaml
     env:

@@ -33,3 +33,10 @@ appId: ${APP_ID}
     env:
         ELEMENT: ${output.addBankAccountPage.continueButton}
         INDEX: 0
+
+- runFlow:
+    when:
+        true: ${OTP}
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env:
+        TEXT: ${OTP}

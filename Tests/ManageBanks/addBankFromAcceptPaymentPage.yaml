@@ -32,6 +32,7 @@ onFlowStart:
         ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
         CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
         SORTCODE: ${output.env.SORT_CODE_1}
+        OTP: ${output.env.validOtp}
 
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 

@@ -54,6 +54,7 @@ onFlowStart:
     file: ../../PageVerification/addBankOtpSheetVerification.yaml
     env:
         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        EMAIL: ${output.env.MERCHANT_EMAIL_L}
         COUNTRYCODE: ${output.env.countryCodeUK}
 
 # Enter alphabets
@@ -66,6 +67,7 @@ onFlowStart:
     file: ../../PageVerification/addBankOtpSheetVerification.yaml
     env:
         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        EMAIL: ${output.env.MERCHANT_EMAIL_L}
         COUNTRYCODE: ${output.env.countryCodeUK}
 
 # Enter 5 digits
@@ -78,6 +80,7 @@ onFlowStart:
     file: ../../PageVerification/addBankOtpSheetVerification.yaml
     env:
         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        EMAIL: ${output.env.MERCHANT_EMAIL_L}
         COUNTRYCODE: ${output.env.countryCodeUK}
 
 # Enter invalid 1
@@ -91,6 +94,7 @@ onFlowStart:
     file: ../../PageVerification/addBankOtpSheetVerification.yaml
     env:
         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        EMAIL: ${output.env.MERCHANT_EMAIL_L}
         COUNTRYCODE: ${output.env.countryCodeUK}
 
 # Enter invalid 2
@@ -104,6 +108,7 @@ onFlowStart:
     file: ../../PageVerification/addBankOtpSheetVerification.yaml
     env:
         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        EMAIL: ${output.env.MERCHANT_EMAIL_L}
         COUNTRYCODE: ${output.env.countryCodeUK}
 
 # Enter invalid 3
@@ -117,6 +122,7 @@ onFlowStart:
     file: ../../PageVerification/addBankOtpSheetVerification.yaml
     env:
         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        EMAIL: ${output.env.MERCHANT_EMAIL_L}
         COUNTRYCODE: ${output.env.countryCodeUK}
 
 # Enter invalid 4
@@ -130,49 +136,9 @@ onFlowStart:
     file: ../../PageVerification/addBankOtpSheetVerification.yaml
     env:
         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
+        EMAIL: ${output.env.MERCHANT_EMAIL_L}
         COUNTRYCODE: ${output.env.countryCodeUK}
-#----------------------------------------------------------------------------------
-# # Enter invalid 5
-# - runFlow:
-#     file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
-#     env:
-#         TEXT: ${output.env.digits6}
-# - assertVisible: ${output.addBankAccountPage.invalidOtpError5}
-
-# - runFlow:
-#     file: ../../PageVerification/addBankOtpSheetVerification.yaml
-#     env:
-#         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
-#         COUNTRYCODE: ${output.env.countryCodeUK}
-
-# # Valid after 5 invalid
-# - runFlow:
-#     file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
-#     env:
-#         TEXT: ${output.env.validOtp}
-# - assertVisible: ${output.addBankAccountPage.invalidOtpError6}
-
-# - runFlow:
-#     file: ../../PageVerification/addBankOtpSheetVerification.yaml
-#     env:
-#         MOBILENUMBER: ${output.env.MERCHANT_MOBILE_L}
-#         COUNTRYCODE: ${output.env.countryCodeUK}
-
-# # Valid after resend code
-
-# - runFlow:
-#     file: ../../ElementActions/tapOn.yaml
-#     env:
-#         ELEMENT: ${output.addBankAccountPage.resendButton}
-#         INDEX: 0
-# - waitForAnimationToEnd
-
-# - runFlow: 
-#     file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
-#     env: 
-#         TEXT: ${output.env.validOtp}
-#--------------------------------------------------------------------------
-
+        
 # Valid Otp
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
