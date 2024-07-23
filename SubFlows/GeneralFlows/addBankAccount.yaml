@@ -37,6 +37,6 @@ appId: ${APP_ID}
 - runFlow:
     when:
         true: ${OTP}
-    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
     env:
         TEXT: ${OTP}
