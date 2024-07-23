@@ -19,4 +19,11 @@ output.otpPage = {
     invalidOtpError5: 'Incorrect code used. 1 attempt remaining',
     invalidOtpError6: 'Incorrect code used. 0 attempts remaining',
     invalidOtpError7: 'Maximum number of attempts reached. Please generate a new OTP',
+
+    errorBottomSheetTitle: 'Too many verification attempts',
+    errorBottomSheetDescription1: `Too many failed attempts. Please try again after 60 mins.`,
+    errorBottomSheetDescription2: `You've entered the incorrect code too many times. Please wait 60 minutes before trying again.`,
+    iUnderstandButton: 'I Understand',
+
+
 }

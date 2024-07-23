@@ -1,0 +1,24 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.storeDropdownArrow}
+        INDEX: 0
+
+- runFlow:
+    when:
+      true: ${BUSINESSNAME}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${BUSINESSNAME}
+        INDEX: 0
+
+- runFlow:
+    when:
+      true: ${STORENAME}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${STORENAME}
+        INDEX: 0
+    

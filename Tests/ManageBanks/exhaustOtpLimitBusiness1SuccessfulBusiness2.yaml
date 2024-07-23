@@ -1,0 +1,147 @@
+appId: ${APP_ID}
+name: Tests/ManageBanks/exhaustOtpLimitBusiness1SuccessfulBusiness2.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/loginMultiBusiness.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_N}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_N1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.sideMenuPage.bankAccount}
+    direction: DOWN
+    centerElement: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.bankAccount}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.bankAccountsPage.addBankButton}
+        INDEX: 0
+
+# Enter invalid OTP 1
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/addBankAccount.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        SORTCODE: ${output.env.SORT_CODE_1}
+        OTP: ${output.env.digits6}
+
+# Enter invalid OTP 2
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.digits6}
+
+# Enter invalid OTP 3
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.digits6}
+
+# Enter invalid OTP 4
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.digits6}
+
+# Enter invalid OTP 5
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.digits6}
+
+# Enter invalid OTP 6
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.digits6}
+
+# Enter invalid OTP 7
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${output.env.digits6}
+
+- assertVisible:
+    text: ${output.otpPage.errorBottomSheetTitle}
+- assertVisible:
+    text: ${output.otpPage.errorBottomSheetDescription1}
+- assertVisible:
+    text: ${output.otpPage.iUnderstandButton}
+    enabled: true 
+
+# Change business
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/switchBusinessSideMenu.yaml
+    env:
+       BUSINESSNAME: ${output.env.BUSINESS_NAME_N2}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.myAccountButton}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${output.sideMenuPage.bankAccount}
+    direction: DOWN
+    centerElement: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.sideMenuPage.bankAccount}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.bankAccountsPage.addBankButton}
+        INDEX: 0
+
+# Enter valid OTP
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/addBankAccount.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        BANKNAME: ${output.env.MERCHANT_BANK_NAME_1}
+        ACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        CONFIRMACCOUNTNUMBER: ${output.env.MERCHANT_BANK_ACCOUNT_1}
+        SORTCODE: ${output.env.SORT_CODE_1}
+
+- assertVisible:
+    text: ${output.otpPage.errorBottomSheetTitle}
+- assertVisible:
+    text: ${output.otpPage.errorBottomSheetDescription2}
+- assertVisible:
+    text: ${output.otpPage.iUnderstandButton}
+    enabled: true 

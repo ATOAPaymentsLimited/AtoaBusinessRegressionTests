@@ -1,0 +1,55 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.accountNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../BankAccountFieldActions/enterAccountNumber.yaml
+    env:
+        ACCOUNTNUMBER: ${ACCOUNTNUMBER}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.confirmAccountNumberField}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../BankAccountFieldActions/enterConfirmAccountNumber.yaml
+    env:
+        CONFIRMACCOUNTNUMBER: ${CONFIRMACCOUNTNUMBER}
+
+- runFlow:
+    file: ../../ElementActions/eraseText.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.sortCodeField}
+        KEYBOARD: true
+        
+- runFlow:
+    file: ../BankAccountFieldActions/enterSortCode.yaml
+    env:
+        SORTCODE: ${SORTCODE}
+
+- runFlow:
+    when:
+        true: ${USER == 'BUSINESSOWNER'}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.billingCheckbox}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.addBankAccountPage.updateButton}
+        INDEX: 0
+
+- runFlow:
+    when:
+        true: ${OTP}
+    file: ../../SubFlows/GeneralFlows/enterAddBankOtp.yaml
+    env:
+        TEXT: ${OTP}
