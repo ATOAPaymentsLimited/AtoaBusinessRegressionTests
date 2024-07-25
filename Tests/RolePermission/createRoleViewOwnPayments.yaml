@@ -1,0 +1,37 @@
+appId: ${APP_ID}
+name: Tests/RolePermission/createRoleViewOwnPayments.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.employeesButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeesPage.rolesTab}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeesPage.createRoleButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/createNewRole.yaml
+    env:
+        ROLENAME: ${output.env.ROLENAME1}
+        ROLE1: ${output.roleDetailsPage.viewOwnPaymentsCheckbox}
+
+- runFlow:
+    file: ../../PageVerification/rolesPageVerification.yaml
+    env:
+        ROLENAME1: ${output.employeesPage.cashier}
+        ROLENAME2: ${output.employeesPage.supervisor}
+        ROLENAME3: ${output.env.ROLENAME1}

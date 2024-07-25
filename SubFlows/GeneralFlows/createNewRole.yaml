@@ -1,0 +1,174 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when: 
+      true: ${ROLENAME}
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.roleDetailsPage.roleNameTextField}
+        TEXT: ${ROLENAME}
+        KEYBOARD: true
+
+- runFlow:
+    when: 
+      true: ${ROLE1}
+    commands:
+      - scrollUntilVisible:
+          element: ${ROLE1}
+          direction: DOWN
+- runFlow:
+    when:
+      true: ${ROLE1}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${ROLE1}
+        INDEX: 0
+
+- runFlow:
+    when: 
+      true: ${ROLE2}
+    commands:
+      - scrollUntilVisible:
+          element: ${ROLE2}
+          direction: DOWN
+- runFlow:
+    when:
+      true: ${ROLE2}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${ROLE2}
+        INDEX: 0
+
+- runFlow:
+    when: 
+      true: ${ROLE3}
+    commands:
+      - scrollUntilVisible:
+          element: ${ROLE3}
+          direction: DOWN
+- runFlow:
+    when:
+      true: ${ROLE3}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${ROLE3}
+        INDEX: 0
+
+- runFlow:
+    when: 
+      true: ${ROLE4}
+    commands:
+      - scrollUntilVisible:
+          element: ${ROLE4}
+          direction: DOWN
+- runFlow:
+    when:
+      true: ${ROLE4}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${ROLE4}
+        INDEX: 0
+
+- runFlow:
+    when: 
+      true: ${ROLE5}
+    commands:
+      - scrollUntilVisible:
+          element: ${ROLE5}
+          direction: DOWN
+- runFlow:
+    when:
+      true: ${ROLE5}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${ROLE5}
+        INDEX: 0
+
+- runFlow:
+    when: 
+      true: ${ROLE6}
+    commands:
+      - scrollUntilVisible:
+          element: ${ROLE6}
+          direction: DOWN
+- runFlow:
+    when:
+      true: ${ROLE6}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${ROLE6}
+        INDEX: 0
+
+- runFlow:
+    when: 
+      true: ${ROLE7}
+    commands:
+      - scrollUntilVisible:
+          element: ${ROLE7}
+          direction: DOWN
+- runFlow:
+    when:
+      true: ${ROLE7}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${ROLE7}
+        INDEX: 0
+
+- runFlow:
+    when: 
+      true: ${ROLE8}
+    commands:
+      - scrollUntilVisible:
+          element: ${ROLE8}
+          direction: DOWN
+- runFlow:
+    when:
+      true: ${ROLE8}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${ROLE8}
+        INDEX: 0
+
+- runFlow:
+    when: 
+      true: ${ROLE9}
+    commands:
+      - scrollUntilVisible:
+          element: ${ROLE9}
+          direction: DOWN
+- runFlow:
+    when:
+      true: ${ROLE9}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${ROLE9}
+        INDEX: 0
+
+- runFlow:
+    when: 
+      true: ${ROLE10}
+    commands:
+      - scrollUntilVisible:
+          element: ${ROLE10}
+          direction: DOWN
+- runFlow:
+    when:
+      true: ${ROLE10}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${ROLE10}
+        INDEX: 0
+
+- scroll 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeesPage.createRoleButton}
+        INDEX: 1
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeesPage.doneButton}
+        INDEX: 0

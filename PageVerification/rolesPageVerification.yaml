@@ -1,0 +1,81 @@
+appId: ${APP_ID}
+---
+- runFlow: 
+    when: 
+      true: ${ROLENAME1} 
+    commands:
+      - assertVisible:
+          text: ${output.employeesPage.roleTile}
+          containsDescendants: ${ROLENAME1} 
+
+- runFlow: 
+    when: 
+      true: ${ROLENAME2} 
+    commands:
+      - assertVisible:
+          text: ${output.employeesPage.roleTile}
+          containsDescendants: ${ROLENAME2} 
+
+- runFlow: 
+    when: 
+      true: ${ROLENAME3} 
+    commands:
+      - assertVisible:
+          text: ${output.employeesPage.roleTile}
+          containsDescendants: ${ROLENAME3} 
+
+- runFlow: 
+    when: 
+      true: ${ROLENAME4} 
+    commands:
+      - assertVisible:
+          text: ${output.employeesPage.roleTile}
+          containsDescendants: ${ROLENAME4} 
+
+- runFlow: 
+    when: 
+      true: ${ROLENAME5} 
+    commands:
+      - assertVisible:
+          text: ${output.employeesPage.roleTile}
+          containsDescendants: ${ROLENAME5} 
+
+- runFlow: 
+    when: 
+      true: ${ROLENAME6} 
+    commands:
+      - assertVisible:
+          text: ${output.employeesPage.roleTile}
+          containsDescendants: ${ROLENAME6} 
+
+- runFlow: 
+    when: 
+      true: ${ROLENAME7} 
+    commands:
+      - assertVisible:
+          text: ${output.employeesPage.roleTile}
+          containsDescendants: ${ROLENAME7} 
+
+- runFlow: 
+    when: 
+      true: ${ROLENAME8} 
+    commands:
+      - assertVisible:
+          text: ${output.employeesPage.roleTile}
+          containsDescendants: ${ROLENAME8} 
+
+- runFlow: 
+    when: 
+      true: ${ROLENAME9} 
+    commands:
+      - assertVisible:
+          text: ${output.employeesPage.roleTile}
+          containsDescendants: ${ROLENAME9} 
+
+- runFlow: 
+    when: 
+      true: ${ROLENAME10} 
+    commands:
+      - assertVisible:
+          text: ${output.employeesPage.roleTile}
+          containsDescendants: ${ROLENAME10} 

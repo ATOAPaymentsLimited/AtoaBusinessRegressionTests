@@ -137,7 +137,12 @@ output.env = {
    CRN_P: '99595595',
    MERCHANT_EMAIL_P: 'ab9959559559@gmail.com',
 
- 
+   MERCHANT_Q: 'Q',
+   MERCHANT_MOBILE_Q: '9969669669',
+   BUSINESS_NAME_Q: 'B9969669669',
+   CRN_Q: '99696696',
+   MERCHANT_EMAIL_Q: 'ab9969669669@gmail.com',
+
   //-----------------------------------------------------
   //-----------------------------------------------------
   //-----------------------------------------------------  
@@ -400,5 +405,16 @@ output.env = {
    qrNickName1: 'test',
    qrNickName2: 'code',
    QRRefDev: '8tMVfc',
+
+   ROLENAME1: 'R1',
+   ROLENAME2: 'R2',
+   ROLENAME3: 'R3',
+   ROLENAME4: 'R4',
+   ROLENAME5: 'R5',
+   ROLENAME6: 'R6',
+   ROLENAME7: 'R7',
+   ROLENAME8: 'R8',
+   ROLENAME9: 'R9',
+   ROLENAME10: 'R10',
   
 }
