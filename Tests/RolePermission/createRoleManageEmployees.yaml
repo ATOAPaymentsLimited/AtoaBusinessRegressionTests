@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/RolePermission/createRoleViewAllPayments.yaml
+name: Tests/RolePermission/createRoleManageEmployees.yaml
 tags:
     - dev
 onFlowStart:
@@ -27,7 +27,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/createNewRole.yaml
     env:
         ROLENAME: ${output.env.ROLENAME1}
-        ROLE1: ${output.roleDetailsPage.viewAllPaymentsCheckbox}
+        ROLE1: ${output.roleDetailsPage.manageEmployeesCheckbox}
 
 - runFlow:
     file: ../../PageVerification/rolesPageVerification.yaml

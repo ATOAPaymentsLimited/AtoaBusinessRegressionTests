@@ -191,6 +191,15 @@ executionOrder:
         - Tests/ManageBanks/cashierSelectBankDropdownValidations.yaml
         - Tests/ManageBanks/cashierAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
         - Tests/ManageBanks/cashierSortCodeFieldValidations.yaml
+    #RolePermissions
+        - Tests/RolePermission/createRoleLogin.yaml
+        - Tests/RolePermission/createRoleViewOwnPayments.yaml
+        - Tests/RolePermission/createRoleViewAllPayments.yaml
+        - Tests/RolePermission/createRoleViewEmployees.yaml
+        - Tests/RolePermission/createRoleManageEmployees.yaml
+        - Tests/RolePermission/createRoleBulkPayments.yaml
+        - Tests/RolePermission/createRoleBillings.yaml
+
         
         
 

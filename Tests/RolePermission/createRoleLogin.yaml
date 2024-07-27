@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/RolePermission/createRoleViewOwnPayments.yaml
+name: Tests/RolePermission/createRoleLogin.yaml
 tags:
     - dev
 onFlowStart:
