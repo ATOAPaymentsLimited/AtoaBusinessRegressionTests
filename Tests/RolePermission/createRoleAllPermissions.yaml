@@ -1,0 +1,54 @@
+appId: ${APP_ID}
+name: Tests/RolePermission/createRoleBulkPaymentsAndBilling.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.employeesButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeesPage.rolesTab}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeesPage.createRoleButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/createNewRole.yaml
+    env:
+        ROLENAME: ${output.env.ROLENAME1}
+        ROLE1: ${output.roleDetailsPage.viewOwnPaymentsCheckbox}
+        ROLE2: ${output.roleDetailsPage.viewAllPaymentsCheckbox}
+        ROLE3: ${output.roleDetailsPage.viewEmployeesCheckbox}
+        ROLE4: ${output.roleDetailsPage.manageEmployeesCheckbox}
+        ROLE5: ${output.roleDetailsPage.bulkPaymentsCheckbox}
+        ROLE6: ${output.roleDetailsPage.billingsCheckbox}
+
+- runFlow:
+    file: ../../PageVerification/rolesPageVerification.yaml
+    env:
+        ROLENAME1: ${output.employeesPage.cashier}
+        ROLENAME2: ${output.employeesPage.supervisor}
+        ROLENAME3: ${output.env.ROLENAME1}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/deleteRole.yaml
+    env:
+        ROLENAME: ${output.env.ROLENAME1}
+
+- runFlow:
+    file: ../../PageVerification/rolesPageVerification.yaml
+    env:
+        ROLENAME1: ${output.employeesPage.cashier}
+        ROLENAME2: ${output.employeesPage.supervisor}
+        ROLENAME01: ${output.env.ROLENAME1}
