@@ -1,0 +1,25 @@
+appId: ${APP_ID}
+---
+- tapOn:  
+    text: ${output.employeesPage.roleTile}
+    containsDescendants: 
+      - ${ROLENAME}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.roleDetailsPage.deleteButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.roleDetailsPage.confirmButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.roleDetailsPage.confirmButton}
+        INDEX: 0
+- waitForAnimationToEnd

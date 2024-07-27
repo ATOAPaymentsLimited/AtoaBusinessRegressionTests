@@ -2,6 +2,7 @@ output.roleDetailsPage = {
 
     createRolePageTitle: 'Create Role',
     roleDetailsPageTitle: 'Role Details',
+    deleteButton: 'Delete button',
 
     roleNameTextField: 'null TextFormField',
 
@@ -23,6 +24,9 @@ output.roleDetailsPage = {
     billingsCheckbox: 'Can view and download billing invoices Check Box',
     billingsText: 'Can view and download billing invoices',
 
+    confirmButton: 'Confirm',
     
+
+
 
 }
