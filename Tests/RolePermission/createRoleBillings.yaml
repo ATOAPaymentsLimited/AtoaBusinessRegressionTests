@@ -5,6 +5,8 @@ tags:
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:

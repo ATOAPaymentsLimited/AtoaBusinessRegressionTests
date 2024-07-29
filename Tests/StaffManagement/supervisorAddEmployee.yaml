@@ -36,7 +36,7 @@ onFlowStart:
         FNAME: ${output.env.EMPLOYEE_FNAME}
         LNAME: ${output.env.EMPLOYEE_LNAME}
         MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_D1}
-        ROLE: SUPERVISOR
+        ROLE: ${output.env.supervisor}
 
 - assertVisible:
     text: ${output.employeesPage.employeesTile}

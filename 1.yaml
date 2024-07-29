@@ -12,7 +12,7 @@ onFlowStart:
 # - runFlow:
 #     file: SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
 #     env: 
-#         TEXT: ${output.env.MERCHANT_MOBILE_L}
+#         TEXT: ${output.env.MERCHANT_MOBILE_R}
 #         SIGNUP: true
 
 # - runFlow:
@@ -24,7 +24,7 @@ onFlowStart:
 #     file: SubFlows/GeneralFlows/enterBusinessDetails.yaml
 #     env:
 #         BUSINESSTYPE: 'SOLETRADER'
-#         BUSINESSNAME: ${output.env.BUSINESS_NAME_L}
+#         BUSINESSNAME: ${output.env.BUSINESS_NAME_R}
 #         INDUSTRYTYPE: ${output.env.INDUSTRY_1}
 #         TURNOVER: ${output.env.turnoverOption1}
 #         ADDRESS1: ${output.env.ADDRESS_LINE1_1}
@@ -37,7 +37,7 @@ onFlowStart:
 #     env:
 #         FNAME: ${output.env.MERCHANT_FNAME}
 #         LNAME: ${output.env.MERCHANT_LNAME}
-#         EMAIL: ${output.env.MERCHANT_EMAIL_L}
+#         EMAIL: ${output.env.MERCHANT_EMAIL_R}
 #         SIGNUPSOURCE: ${output.yourPersonalDetailsPage.source1}
 #         CONTINUE: true 
 
@@ -81,8 +81,25 @@ onFlowStart:
 #         MASKEDACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
 #         SORTCODE: ${output.env.SORT_CODE_1}
 
-- runFlow:
-    file: SubFlows/GeneralFlows/deleteBank.yaml
-    env:
-        MASKEDBANKACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
-        SORTCODE: ${output.env.SORT_CODE_1}
+# - runFlow:
+#     file: SubFlows/GeneralFlows/deleteBank.yaml
+#     env:
+#         MASKEDBANKACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
+#         SORTCODE: ${output.env.SORT_CODE_1}
+
+
+- assertVisible:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - +44 ${output.env.EMPLOYEE_MOBILE_QS}
+   
+
+- assertVisible:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - +44 ${output.env.EMPLOYEE_MOBILE_QC}
+
+- assertVisible:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - +44 8868668668

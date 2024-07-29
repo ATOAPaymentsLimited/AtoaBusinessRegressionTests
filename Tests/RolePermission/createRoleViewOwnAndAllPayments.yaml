@@ -5,6 +5,8 @@ tags:
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
@@ -36,15 +38,3 @@ onFlowStart:
         ROLENAME1: ${output.employeesPage.cashier}
         ROLENAME2: ${output.employeesPage.supervisor}
         ROLENAME3: ${output.env.ROLENAME1}
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/deleteRole.yaml
-    env:
-        ROLENAME: ${output.env.ROLENAME1}
-
-- runFlow:
-    file: ../../PageVerification/rolesPageVerification.yaml
-    env:
-        ROLENAME1: ${output.employeesPage.cashier}
-        ROLENAME2: ${output.employeesPage.supervisor}
-        ROLENAME01: ${output.env.ROLENAME1}

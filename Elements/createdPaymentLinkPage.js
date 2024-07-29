@@ -2,7 +2,7 @@ output.createdPaymentLinkPage = {
     backButton: 'Back',
     paymentLinkCreatedText: 'Payment Link Created',
     sendLinkText: 'Send payment link using',
-    smsButton: 'SMS',
+    smsButton: 'Send SMS',
     copyLinkButton: 'Copy Link',
     shareLinkButton: 'Share Link',
     poundSymbol: '£',

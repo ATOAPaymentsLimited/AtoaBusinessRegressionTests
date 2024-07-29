@@ -23,7 +23,7 @@ output.employeeDetailsPage = {
     storeLocationDropdown: 'Select a Location',
     continueButton: 'Continue',
     addEmployeeButton: 'Add Staff',
-    updateEmployeeButton: 'Update Employee Details',
+    saveChangesButton: 'Save Changes',
 
     deleteEmployeeButton: 'Delete Button',
     confirmButton: 'Confirm',

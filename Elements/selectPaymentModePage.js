@@ -9,7 +9,7 @@ output.selectPaymentModePage = {
     sendToPhysicalQRButton: 'Send to QR Stand',
     whatsappButton: 'Whatsapp',
     linkButton: 'Pay by link',
-    smsButton: 'SMS',
+    smsButton: 'Send SMS',
 
     searchBox: 'Search by nickname or ref',
     QRCodeTile: 'Custom Menu Item Tile',

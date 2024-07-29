@@ -6,7 +6,7 @@ output.enterAmountPage = {
     poundSymbol: '£',
     noteTextField: 'Add a note (Optional)',
     continueButton: 'Continue',
-    createPaymentLinkButton: 'Create Payment Link',
+    createPaymentLinkButton: 'Create',
 
     minAmountError: 'Min amount of £1.00 is required per single payment.',
     maxAmountError: 'Max amount of £15,000.00 only is allowed per single payment.',

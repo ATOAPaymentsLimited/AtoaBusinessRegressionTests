@@ -1,0 +1,40 @@
+appId: ${APP_ID}
+name: Tests/RolePermission/verifyViewOwnPaymentsPermission.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+# Login to employee's account and verify permissions
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_QS}
+
+# Verify home page
+
+- runFlow:
+    file: ../../PageVerification/homePageVerification.yaml
+    env:
+        USER: 'STAFFMEMBER'
+        ROLE: 'SUPERVISOR'
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeHomePage.employeesButton}
+        INDEX: 0
+
+- assertVisible:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - +44 ${output.env.EMPLOYEE_MOBILE_QS}
+
+- assertVisible:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - +44 ${output.env.EMPLOYEE_MOBILE_QC}
+

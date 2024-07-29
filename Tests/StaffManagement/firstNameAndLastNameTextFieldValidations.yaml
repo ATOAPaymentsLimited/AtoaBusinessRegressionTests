@@ -39,7 +39,7 @@ onFlowStart:
         FNAME: ${output.env.blankSpace}
         LNAME: ${output.env.blankSpace}
         MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_D1}
-        ROLE: SUPERVISOR
+        ROLE: ${output.env.supervisor}
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.firstNameField}
