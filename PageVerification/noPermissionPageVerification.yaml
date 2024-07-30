@@ -1,0 +1,7 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${output.commonElements.noPermissionTitle}
+    enabled: true 
+- assertVisible: ${output.commonElements.noPermissionTitle}
+- assertVisible: ${output.commonElements.noPermissionDescription}

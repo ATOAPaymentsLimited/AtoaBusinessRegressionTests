@@ -26,6 +26,12 @@ appId: ${APP_ID}
     commands:
         - assertVisible: ${PLAN_TITLE_PROD}
 
+- runFlow:
+    when:
+        true: ${ADDON}
+    commands: 
+        - assertVisible: ${ADDON}
+
 - assertVisible: ${output.billingPage.viewPlanButton}
 - assertVisible: ${output.billingPage.estimatedCharges}
 - assertVisible: ${output.billingPage.poundSymbol}${ESTIMATED_AMOUNT}
@@ -69,3 +75,4 @@ appId: ${APP_ID}
     commands:   
         - assertVisible: .*${PLAN_PROD}.*
         # - assertVisible: ${output.env.PLAN_DESCRIPTION_DEV}
+

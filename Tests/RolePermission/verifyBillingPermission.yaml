@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/RolePermission/verifyViewAllPaymentsPermission.yaml
+name: Tests/RolePermission/verifyBillingPermission.yaml
 tags:
     - dev
 onFlowStart:
@@ -14,47 +14,7 @@ onFlowStart:
         USER: 'STAFFMEMBER'
         ID: ${output.env.EMPLOYEE_MOBILE_QS}
 
-# Verify home page
-
-- runFlow:
-    file: ../../PageVerification/homePageVerification.yaml
-    env:
-        USER: 'STAFFMEMBER'
-        ROLE: 'CASHIER'
-
-- scrollUntilVisible:
-    element: ${output.employeeHomePage.acceptPaymentButton}
-    direction: UP
-    centerElement: true 
-    
-# Verify accept payment permission
-
-# Dynamic QR
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.employeeHomePage.acceptPaymentButton}
-        INDEX: 0
-
-- runFlow:
-    file: ../../Subflows/GeneralFlows/enterAmount.yaml
-    env:
-        ACCEPTPAYMENT: true
-        AMOUNT: ${output.env.amount15000}
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.selectPaymentModePage.QRCodeButton}
-        INDEX: 0
-
-- runFlow:
-    file: ../../PageVerification/QRcodePageVerification.yaml
-    env:
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_Q} 
-        AMOUNT: ${output.env.amount15000}
-
-# Share link
+# Accept payment
 
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
@@ -64,33 +24,45 @@ onFlowStart:
         ELEMENT: ${output.employeeHomePage.acceptPaymentButton}
         INDEX: 0
 
-- runFlow:
-    file: ../../Subflows/GeneralFlows/enterAmount.yaml
-    env:
-        ACCEPTPAYMENT: true
-        AMOUNT: ${output.env.amount15000}
+- runFlow: ../../PageVerification/noPermissionPageVerification.yaml
+
+# Payments
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.selectPaymentModePage.paymentLinkButton}
+        ELEMENT: ${output.employeeHomePage.transactionsButton}
         INDEX: 0
+
+- runFlow: ../../PageVerification/noPermissionPageVerification.yaml
+
+# Static QR
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.createdPaymentLinkPage.smsButton}
+        ELEMENT: ${output.employeeHomePage.showQRButton}
         INDEX: 0
 
+- runFlow: ../../PageVerification/noPermissionPageVerification.yaml
+
+# Links
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/sendSms.yaml
+    file: ../../ElementActions/tapOn.yaml
     env:
-        ATOA: true 
-        MOBILENUMBER: ${output.env.TEST_NUMBER}
+        ELEMENT: ${output.employeeHomePage.linksButton}
+        INDEX: 0
 
-- assertVisible: ${output.createdPaymentLinkPage.smsSentToast}
+- runFlow: ../../PageVerification/noPermissionPageVerification.yaml
 
-# Side menu
+# Billing
 
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
@@ -100,65 +72,25 @@ onFlowStart:
         ELEMENT: ${output.employeeHomePage.myAccountButton}
         INDEX: 0
 
-- assertNotVisible:
-    text: ${output.sideMenuPage.billingText}
-    enabled: true 
-    
-# Show Static QR
-
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.employeeSideMenu.showQRText}
-        INDEX: 0
-
-- runFlow: 
-    file: ../../PageVerification/staticQRPageVerification.yaml
-    env:
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_Q}
-
-# Create link
-- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.employeeHomePage.linksButton}
+        ELEMENT: ${output.sideMenuPage.billingText}
         INDEX: 0
 
 - runFlow:
-    file: ../../ElementActions/tapOn.yaml
+    file: ../../PageVerification/billingsPageVerification.yaml
     env:
-        ELEMENT: ${output.paymentLinksPage.newPaymentLinkButton}
-        INDEX: 0
-
-- runFlow:
-    file: ../../Subflows/GeneralFlows/enterAmount.yaml
-    env:
-        PAYMENTLINK: true
-        AMOUNT: ${output.env.amount15000}
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.createdPaymentLinkPage.smsButton}
-        INDEX: 0
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/sendSms.yaml
-    env:
-        ATOA: true 
-        MOBILENUMBER: ${output.env.TEST_NUMBER}
-
-- assertVisible: ${output.createdPaymentLinkPage.smsSentToast}
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.createdPaymentLinkPage.backButton}
-        INDEX: 0
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/deletePaymentlink.yaml
-    env:
-        AMOUNT: ${output.env.amount15000}
+        APP_ID: ${output.env.APP_ID}
+        STATUS: DONE
+        PLAN_TITLE_DEV: ${output.env.PLAN_TITLE_DEV}
+        PLAN_TITLE_UAT: ${output.env.PLAN_TITLE_UAT}
+        PLAN_TITLE_PROD: ${output.env.PLAN_TITLE_PROD}
+        PLAN_DEV: ${output.env.PLAN_DEV}
+        PLAN_UAT: ${output.env.PLAN_UAT}
+        PLAN_PROD: ${output.env.PLAN_PROD}
+        ADDON: ${output.billingPage.addOnAdvancedText}
+        ESTIMATED_AMOUNT: ${output.env.amount0}
+        # INVOICE_AMOUNT: ${output.env.INVOICE_AMOUNT_DEV}
+        GROSS_SALES: ${output.env.amount0}
+        PAYMENTS: ${output.env.PAYMENTS_DEV}

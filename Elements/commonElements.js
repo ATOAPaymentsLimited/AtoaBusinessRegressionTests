@@ -8,4 +8,8 @@ output.commonElements = {
     clickCameraButton: 'Shutter',
     okButton1: 'Done',
     okButton2: 'Crop',
+
+    backButton: 'Back',
+    noPermissionTitle: `You don't have permission to view this page`,
+    noPermissionDescription: 'Please request access from the business owner.',
 }

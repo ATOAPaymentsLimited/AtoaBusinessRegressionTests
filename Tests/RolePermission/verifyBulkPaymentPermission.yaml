@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/RolePermission/verifyViewAllPaymentsPermission.yaml
+name: Tests/RolePermission/verifyViewOwnPaymentsPermission.yaml
 tags:
     - dev
 onFlowStart:
@@ -14,47 +14,7 @@ onFlowStart:
         USER: 'STAFFMEMBER'
         ID: ${output.env.EMPLOYEE_MOBILE_QS}
 
-# Verify home page
-
-- runFlow:
-    file: ../../PageVerification/homePageVerification.yaml
-    env:
-        USER: 'STAFFMEMBER'
-        ROLE: 'CASHIER'
-
-- scrollUntilVisible:
-    element: ${output.employeeHomePage.acceptPaymentButton}
-    direction: UP
-    centerElement: true 
-    
-# Verify accept payment permission
-
-# Dynamic QR
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.employeeHomePage.acceptPaymentButton}
-        INDEX: 0
-
-- runFlow:
-    file: ../../Subflows/GeneralFlows/enterAmount.yaml
-    env:
-        ACCEPTPAYMENT: true
-        AMOUNT: ${output.env.amount15000}
-
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.selectPaymentModePage.QRCodeButton}
-        INDEX: 0
-
-- runFlow:
-    file: ../../PageVerification/QRcodePageVerification.yaml
-    env:
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_Q} 
-        AMOUNT: ${output.env.amount15000}
-
-# Share link
+# Accept payment
 
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
@@ -64,31 +24,31 @@ onFlowStart:
         ELEMENT: ${output.employeeHomePage.acceptPaymentButton}
         INDEX: 0
 
-- runFlow:
-    file: ../../Subflows/GeneralFlows/enterAmount.yaml
-    env:
-        ACCEPTPAYMENT: true
-        AMOUNT: ${output.env.amount15000}
+- runFlow: ../../PageVerification/noPermissionPageVerification.yaml
+
+# Payments
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.selectPaymentModePage.paymentLinkButton}
+        ELEMENT: ${output.employeeHomePage.transactionsButton}
         INDEX: 0
+
+- runFlow: ../../PageVerification/noPermissionPageVerification.yaml
+
+# Static QR
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.createdPaymentLinkPage.smsButton}
+        ELEMENT: ${output.employeeHomePage.showQRButton}
         INDEX: 0
 
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/sendSms.yaml
-    env:
-        ATOA: true 
-        MOBILENUMBER: ${output.env.TEST_NUMBER}
-
-- assertVisible: ${output.createdPaymentLinkPage.smsSentToast}
+- runFlow: ../../PageVerification/noPermissionPageVerification.yaml
 
 # Side menu
 
@@ -103,21 +63,9 @@ onFlowStart:
 - assertNotVisible:
     text: ${output.sideMenuPage.billingText}
     enabled: true 
-    
-# Show Static QR
 
-- runFlow:
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.employeeSideMenu.showQRText}
-        INDEX: 0
+# Links
 
-- runFlow: 
-    file: ../../PageVerification/staticQRPageVerification.yaml
-    env:
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_Q}
-
-# Create link
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
 - runFlow:
@@ -162,3 +110,5 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/deletePaymentlink.yaml
     env:
         AMOUNT: ${output.env.amount15000}
+
+

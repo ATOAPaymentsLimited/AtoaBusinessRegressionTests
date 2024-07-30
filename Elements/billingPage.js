@@ -12,6 +12,10 @@ output.billingPage = {
 
     viewPlanButton: 'View Plan',
 
+    addOnBasicText: 'Basic',
+    addOnGrowthText: 'Growth (monthly)',
+    addOnAdvancedText: 'Advanced (monthly)',
+
     estimatedCharges: 'Estimated Charges',
 
     grossSales: 'Gross Sales',
