@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/RolePermission/verifyViewOwnPaymentsPermission.yaml
+name: Tests/RolePermission/verifyBulkPaymentPermission.yaml
 tags:
     - dev
 onFlowStart:

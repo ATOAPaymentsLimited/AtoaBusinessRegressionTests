@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/RolePermission/verifyViewOwnPaymentsPermission.yaml
+name: Tests/RolePermission/verifyViewEmployeesPermission.yaml
 tags:
     - dev
 onFlowStart:
@@ -32,42 +32,42 @@ onFlowStart:
 - assertVisible:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - +44 ${output.env.EMPLOYEE_MOBILE_QS}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_QS}
 
 - assertVisible:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - +44 ${output.env.EMPLOYEE_MOBILE_QC}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_QC}
 
 - tapOn:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - +44 ${output.env.EMPLOYEE_MOBILE_QS}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_QS}
 
 - assertVisible:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - +44 ${output.env.EMPLOYEE_MOBILE_QS}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_QS}
 
 - assertVisible:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - +44 ${output.env.EMPLOYEE_MOBILE_QC}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_QC}
 
 - tapOn:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - +44 ${output.env.EMPLOYEE_MOBILE_QS}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_QS}
 
 - assertVisible:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - +44 ${output.env.EMPLOYEE_MOBILE_QS}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_QS}
 
 - assertVisible:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - +44 ${output.env.EMPLOYEE_MOBILE_QC}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_QC}
 
 # Accept payment
 

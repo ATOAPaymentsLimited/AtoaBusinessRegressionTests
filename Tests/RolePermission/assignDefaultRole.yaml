@@ -14,7 +14,7 @@ onFlowStart:
 - tapOn:
     text: ${output.employeesPage.employeesTile}
     containsDescendants: 
-      - +44 ${output.env.EMPLOYEE_MOBILE_QS}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_QS}
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.roleDropdown}
