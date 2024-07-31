@@ -1,0 +1,7 @@
+appId: ${APP_ID}
+name: Tests/LinkReminder/setLinkReminder.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---

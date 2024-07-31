@@ -105,12 +105,17 @@ output.env = {
    EMPLOYEE_MOBILE_K2: '9599889889',
    EMPLOYEE_EMAIL_K2: 'emp9599889889@gmail.com',
 
- 
    MERCHANT_L: 'L',
    MERCHANT_MOBILE_L: '9959119119',
    BUSINESS_NAME_L: 'B9959119119',
    CRN_L: '99591191',
    MERCHANT_EMAIL_L: 'ab9959119119@gmail.com',
+
+   MERCHANT_M: 'M',
+   MERCHANT_MOBILE_M: '9959339339',
+   BUSINESS_NAME_M: 'B9959339339',
+   CRN_M: '99593393',
+   MERCHANT_EMAIL_M: 'ab9959339339@gmail.com',
 
  
   //-----------------------------------------------------
