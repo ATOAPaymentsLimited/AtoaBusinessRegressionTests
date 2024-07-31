@@ -4,6 +4,13 @@ tags:
     - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
+  - runFlow: createRoleLogin.yaml
+  - runFlow: createRoleAllPermissions.yaml
+  - runFlow: assignCustomRole.yaml
+onFlowComplete:
+  - runFlow: createRoleLogin.yaml
+  - runFlow: assignDefaultRole.yaml
+  - runFlow: deleteRole.yaml
 ---
 
 # Login to employee's account and verify permissions

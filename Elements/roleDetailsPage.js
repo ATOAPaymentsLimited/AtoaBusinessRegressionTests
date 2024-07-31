@@ -2,7 +2,7 @@ output.roleDetailsPage = {
 
     createRolePageTitle: 'Create Role',
     roleDetailsPageTitle: 'Role Details',
-    deleteButton: 'Delete button',
+    deleteButton: 'Delete Role Button',
 
     roleNameTextField: 'null TextFormField',
 

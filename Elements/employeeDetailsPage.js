@@ -25,7 +25,7 @@ output.employeeDetailsPage = {
     addEmployeeButton: 'Add Staff',
     saveChangesButton: 'Save Changes',
 
-    deleteEmployeeButton: 'Delete Button',
+    deleteEmployeeButton: 'Delete Employee Button',
     confirmButton: 'Confirm',
 
     emptyFirstNameError: 'Field cannot be empty',
