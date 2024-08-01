@@ -112,10 +112,10 @@ output.env = {
    MERCHANT_EMAIL_L: 'ab9959119119@gmail.com',
 
    MERCHANT_M: 'M',
-   MERCHANT_MOBILE_M: '9959339339',
-   BUSINESS_NAME_M: 'B9959339339',
-   CRN_M: '99593393',
-   MERCHANT_EMAIL_M: 'ab9959339339@gmail.com',
+   MERCHANT_MOBILE_M: '9959333221',
+   BUSINESS_NAME_M: 'B9959333221',
+   CRN_M: '8333221',
+   MERCHANT_EMAIL_M: 'ab9959333221@gmail.com',
 
  
   //-----------------------------------------------------
@@ -380,5 +380,7 @@ output.env = {
    qrNickName1: 'test',
    qrNickName2: 'code',
    QRRefDev: '8tMVfc',
+
+   testDueDate: '30, Friday, August 30, 2024',
   
 }

@@ -79,6 +79,31 @@ function getDateAfter15Days() {
     return `${day} ${month} ${year}`;
 }
 
+function getFormatted21thOfCurrentMonth() {
+    // Create a new Date object for the 21th of the current month
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth();
+    const date = new Date(year, month, 21);
+  
+    // Array of weekday names
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    
+    // Array of month names
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    // Get the day of the week
+    const weekdayName = weekdays[date.getDay()];
+    
+    // Get the month name
+    const monthName = months[date.getMonth()];
+    
+    // Format the date as '21, Weekday, Month 21, Year'
+    const formattedDate = `21, ${weekdayName}, ${monthName} 21, ${year}`;
+    
+    return formattedDate;
+  }
+
 output.getCurrentDate =
 {
     monthYear: getCurrentMonthAndYear(),
@@ -86,5 +111,6 @@ output.getCurrentDate =
     currentDate: getCurrentDate(),
     firstDateOfMonth: getFirstDateOfMonth(),
     date15DaysFromCurrentDate: getDateAfter15Days(),
+    get21thOfEachMonth: getFormatted21thOfCurrentMonth(),
     
 }

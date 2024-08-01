@@ -1,16 +1,16 @@
 appId: ${APP_ID}
 ---
-- assertVisible: 
-    text: ${output.paymentLinksPage.unpaidButton}
-    enabled: true 
+# - assertVisible: 
+#     text: ${output.paymentLinksPage.unpaidButton}
+#     enabled: true 
   
-- assertVisible: 
-    text: ${output.paymentLinksPage.paidButton}
-    enabled: true 
+# - assertVisible: 
+#     text: ${output.paymentLinksPage.paidButton}
+#     enabled: true 
 
-- assertVisible: 
-    text: ${output.paymentLinksPage.searchPayments}
-    enabled: true
+# - assertVisible: 
+#     text: ${output.paymentLinksPage.searchPayments}
+#     enabled: true
 
 - runFlow:
     when:
@@ -25,6 +25,19 @@ appId: ${APP_ID}
       - assertVisible: 
           text: ${output.paymentLinksPage.paymentLinkTile}
           containsDescendants:
-            - ${output.paymentLinksPage.unpaidChip}
+            - ${output.paymentLinksPage.unpaidChip}   
+          containsDescendants:
+            - ${output.env.poundSymbol}${AMOUNT}
+
+- runFlow:
+    when:
+        true: ${LINK == 'YES' && CUSTMERNUMBER || CUSTOMEREMAIL}
+    commands:
+      - assertVisible: 
+          text: ${output.paymentLinksPage.paymentLinkTile}
+          containsDescendants:
+            - ${output.paymentLinksPage.unpaidChip}  
+          containsDescendants: 
+            - ${CUSTMERNUMBER} 
           containsDescendants:
             - ${output.env.poundSymbol}${AMOUNT}

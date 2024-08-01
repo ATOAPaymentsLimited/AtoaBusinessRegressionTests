@@ -1,0 +1,26 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+        true: ${CUSTOMEREMAIL}
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.emailField}
+        TEXT: ${CUSTOMEREMAIL}
+        KEYBOARD: true
+
+- runFlow:
+    when:
+        true: ${CUSTOMERNUMBER}
+    file: ../../ElementActions/inputText.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.mobileNumberField}
+        TEXT: ${CUSTOMERNUMBER}
+        KEYBOARD: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.createAndSendButton}
+        INDEX: 0
+

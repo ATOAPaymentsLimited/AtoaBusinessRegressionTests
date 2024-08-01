@@ -9,7 +9,17 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-        true: ${ACCEPTPAYMENT}
+        true: ${DUEDATE}
+    file: ../../SubFlows/GeneralFlows/selectDueDate.yaml  
+
+- runFlow:
+    when:
+        true: ${REMINDER1}
+    file: ../../SubFlows/GeneralFlows/selectReminderOption.yaml
+
+- runFlow:
+    when:
+        visible: ${output.enterAmountPage.continueButton}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.enterAmountPage.continueButton}
@@ -17,8 +27,9 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-        true: ${PAYMENTLINK}
+        visible: ${output.enterAmountPage.createPaymentLinkButton}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.enterAmountPage.createPaymentLinkButton}
         INDEX: 0
+

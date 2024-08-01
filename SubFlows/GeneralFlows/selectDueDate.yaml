@@ -1,0 +1,21 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+        notVisible: ${output.enterAmountPage.addDueDateText}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.customizeLinkText}
+        INDEX: 0
+
+- runFlow:
+    when:
+      true: ${DUEDATE}
+    commands:
+      - tapOn: 
+          text: ${output.enterAmountPage.addButton}
+          rightOf: ${output.enterAmountPage.addDueDateText}
+      - tapOn: 
+          text: ${output.getCurrentDate.get21thOfEachMonth}
+      - tapOn:
+          text: ${output.enterAmountPage.okButton}

@@ -1,0 +1,55 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+        notVisible: ${output.enterAmountPage.setReminderText}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.customizeLinkText}
+        INDEX: 0
+
+- runFlow:
+    when:
+      true: ${REMINDER1}
+    commands:
+      - tapOn: 
+          text: ${output.enterAmountPage.addButton}
+          rightOf: ${output.enterAmountPage.setReminderText}
+
+- runFlow:
+    when: 
+      true: ${BEFOREDUEDATE}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.beforeDueDate}
+        INDEX: 0
+
+- runFlow:
+    when:
+        true: ${REMINDER1}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${REMINDER1}
+        INDEX: 0
+
+- runFlow:
+    when: 
+      true: ${AFTERDUEDATE}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.afterDueDate}
+        INDEX: 0
+
+- runFlow:
+    when:
+        true: ${REMINDER2}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${REMINDER2}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.doneButton}
+        INDEX: 0
