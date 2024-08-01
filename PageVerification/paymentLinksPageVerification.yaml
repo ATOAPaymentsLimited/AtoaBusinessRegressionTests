@@ -31,7 +31,7 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-        true: ${LINK == 'YES' && CUSTMERNUMBER || CUSTOMEREMAIL}
+        true: ${LINK == 'YES' && CUSTOMERNUMBER || CUSTOMEREMAIL}
     commands:
       - assertVisible: 
           text: ${output.paymentLinksPage.paymentLinkTile}

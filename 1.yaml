@@ -87,5 +87,4 @@ onFlowStart:
 #         MASKEDBANKACCOUNTNUMBER: ${output.env.MASKED_BANK_ACCOUNT_NUMBER_1}
 #         SORTCODE: ${output.env.SORT_CODE_1}
 
-- tapOn: 
-      text: ${output.getCurrentDate.get28thOfEachMonth}
+- runScript: Elements/getCurrentDate.js

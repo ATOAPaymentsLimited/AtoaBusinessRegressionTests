@@ -104,7 +104,82 @@ function getFormatted21thOfCurrentMonth() {
     return formattedDate;
   }
 
-output.getCurrentDate =
+  function getFormattedDateAfterDays(days) {
+    // Get the current date
+    const today = new Date();
+    
+    // Calculate the future date by adding the specified number of days
+    const futureDate = new Date(today);
+    futureDate.setDate(today.getDate() + days);
+    
+    // Define arrays for weekday and month names
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    // Extract components
+    const dayOfMonth = futureDate.getDate();
+    const weekday = weekdays[futureDate.getDay()];
+    const month = months[futureDate.getMonth()];
+    const year = futureDate.getFullYear();
+    
+    // Format the result
+    return `${dayOfMonth}, ${weekday}, ${month} ${dayOfMonth}, ${year}`;
+  }
+  
+  function getCurrentDateFormatted() {
+    // Get the current date
+    const today = new Date();
+    
+    // Define arrays for weekday and month names
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    // Extract components
+    const dayOfMonth = today.getDate();
+    const weekday = weekdays[today.getDay()];
+    const month = months[today.getMonth()];
+    const year = today.getFullYear();
+    
+    // Format the result
+    return `${dayOfMonth}, ${weekday}, ${month} ${dayOfMonth}, ${year}`;
+  }
+
+  function getCurrentDateMonDateYear() {
+    // Get the current date
+    const today = new Date();
+  
+    // Define an array for abbreviated month names
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    
+    // Extract components
+    const month = months[today.getMonth()];  // Get abbreviated month name
+    const dayOfMonth = String(today.getDate()).padStart(2, '0');  // Get day of the month with leading zero
+    const year = today.getFullYear();  // Get full year
+    
+    // Format the result
+    return `${month} ${dayOfMonth} ${year}`;
+  }
+
+  function getDaysAfterMonDateYear(days) {
+    const today = new Date();
+  
+  // Calculate the future date by adding 3 days
+  const futureDate = new Date(today);
+  futureDate.setDate(today.getDate() + days);
+  
+  // Define arrays for abbreviated month names
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  
+  // Extract components
+  const month = months[futureDate.getMonth()];  // Get abbreviated month name
+  const dayOfMonth = String(futureDate.getDate()).padStart(2, '0');  // Get day of the month with leading zero
+  const year = futureDate.getFullYear();  // Get full year
+  
+  // Format the result
+  return `${month} ${dayOfMonth} ${year}`;
+  }
+  
+  output.getCurrentDate =
 {
     monthYear: getCurrentMonthAndYear(),
     lastDateOfMonth: getLastDateOfMonth(),
@@ -112,5 +187,13 @@ output.getCurrentDate =
     firstDateOfMonth: getFirstDateOfMonth(),
     date15DaysFromCurrentDate: getDateAfter15Days(),
     get21thOfEachMonth: getFormatted21thOfCurrentMonth(),
-    
+
+    currentDate: getCurrentDateMonDateYear(),
+    dateAfter5DaysFromCurrentDate: getFormattedDateAfterDays(5),
+    dateAfter3DaysBeforeDueDate: getFormattedDateAfterDays(2),
+    dateAfter3DaysAfterDueDate: getFormattedDateAfterDays(8),
+
+    getDueDateMonDateYear: getDaysAfterMonDateYear(5),
+    getDate3DaysBeforeMonDateYear: getDaysAfterMonDateYear(2),
+    getDate3DaysAfterMonDateYear: getDaysAfterMonDateYear(8),
 }

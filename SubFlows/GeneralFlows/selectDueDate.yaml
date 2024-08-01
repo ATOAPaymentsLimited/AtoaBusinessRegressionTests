@@ -16,6 +16,6 @@ appId: ${APP_ID}
           text: ${output.enterAmountPage.addButton}
           rightOf: ${output.enterAmountPage.addDueDateText}
       - tapOn: 
-          text: ${output.getCurrentDate.get21thOfEachMonth}
+          text: ${DUEDATE}
       - tapOn:
           text: ${output.enterAmountPage.okButton}
