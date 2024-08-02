@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/LinkReminder/merchantSetDueDateOnly.yaml
+name: Tests/LinkReminder/supervisorSetDueDateOnly.yaml
 tags:
     - dev
 onFlowStart:

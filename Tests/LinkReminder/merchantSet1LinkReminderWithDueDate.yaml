@@ -5,7 +5,11 @@ tags:
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
-- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_M}
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

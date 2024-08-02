@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/LinkReminder/merchantSetDueDateOnly.yaml
+name: Tests/LinkReminder/supervisorSet2LinkRemindersWithDueDate.yaml
 tags:
     - dev
 onFlowStart:
@@ -25,11 +25,15 @@ onFlowStart:
     env:
         AMOUNT: ${output.env.amount15000}
         DUEDATE: ${output.getCurrentDate.dateAfter7DaysFromCurrentDateCalendar}
+        BEFOREDUEDATE: true
+        REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
+        AFTERDUEDATE: true
+        REMINDER2: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterDueDateText}
 
-# - runFlow:
-#     file: ../../SubFlows/GeneralFlows/createAndSendLink.yaml
-#     env:
-#         CUSTOMERNUMBER: ${output.env.TEST_NUMBER}
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/createAndSendLink.yaml
+    env:
+        CUSTOMERNUMBER: ${output.env.TEST_NUMBER}
 
 # Verify created link and Reminder
 
@@ -63,9 +67,21 @@ onFlowStart:
         STATUS: ${output.linkDetailsPage.unpaidChip}
         CREATEDDATE: ${output.getCurrentDate.currentDate}
         DUEDATE: ${output.getCurrentDate.getDueDateMonDateYear}
+        REMINDERDATE1: ${output.getCurrentDate.getDate3DaysBeforeDueMonDateYear}
+        REMINDERDATE2: ${output.getCurrentDate.getDate3DaysAfterDueMonDateYear}
+
 
 # Delete link
 - runFlow:
     file: ../../SubFlows/GeneralFlows/deletePaymentLink.yaml
     env:
         AMOUNT: ${output.env.amount15000}
+
+
+
+
+
+
+
+
+

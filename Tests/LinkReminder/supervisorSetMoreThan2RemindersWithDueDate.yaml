@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/LinkReminder/merchantSetMoreThan2RemindersWithDueDate.yaml
+name: Tests/LinkReminder/supervisorSetMoreThan2RemindersWithDueDate.yaml
 tags:
     - dev
 onFlowStart:

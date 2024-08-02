@@ -1,35 +1,34 @@
 appId: ${APP_ID}
-name: Tests/LinkReminder/merchantSetDueDateOnly.yaml
-tags:
-    - dev
+name: Tests/LinkReminder/supervisorSet1LinkReminderWithoutDueDate.yaml
+tags: 
+  - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
-
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.merchantHomePage.linksButton} 
+        ELEMENT: ${output.merchantHomePage.linksButton}
         INDEX: 0
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.paymentLinksPage.newPaymentLinkButton} 
+        ELEMENT: ${output.paymentLinksPage.newPaymentLinkButton}
         INDEX: 0
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterAmount.yaml
     env:
         AMOUNT: ${output.env.amount15000}
-        DUEDATE: ${output.getCurrentDate.dateAfter7DaysFromCurrentDateCalendar}
-
-# - runFlow:
-#     file: ../../SubFlows/GeneralFlows/createAndSendLink.yaml
-#     env:
-#         CUSTOMERNUMBER: ${output.env.TEST_NUMBER}
+        REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterLinkCreationText}
+  
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/createAndSendLink.yaml
+    env:
+        CUSTOMERNUMBER: ${output.env.TEST_NUMBER}
 
 # Verify created link and Reminder
 
@@ -62,9 +61,10 @@ onFlowStart:
         AMOUNT: ${output.env.amount15000}
         STATUS: ${output.linkDetailsPage.unpaidChip}
         CREATEDDATE: ${output.getCurrentDate.currentDate}
-        DUEDATE: ${output.getCurrentDate.getDueDateMonDateYear}
+        REMINDERDATE1: ${output.getCurrentDate.getDate3DaysAfterCurrentDateMonDateYear}
 
 # Delete link
+
 - runFlow:
     file: ../../SubFlows/GeneralFlows/deletePaymentLink.yaml
     env:

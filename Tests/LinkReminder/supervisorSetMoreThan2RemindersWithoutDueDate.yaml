@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/LinkReminder/merchantSetMoreThan2RemindersWithDueDate.yaml
+name: Tests/LinkReminder/supervisorSetMoreThan2RemindersWithoutDueDate.yaml
 tags:
     - dev
 onFlowStart:
@@ -33,17 +33,10 @@ onFlowStart:
         INDEX: 0
 
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/selectDueDate.yaml
-    env:
-        DUEDATE: ${output.getCurrentDate.dateAfter7DaysFromCurrentDateCalendar}
-
-- runFlow:
     file: ../../SubFlows/GeneralFlows/selectReminderOption.yaml
     env:
-        BEFOREDUEDATE: true
-        REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
-        AFTERDUEDATE: true
-        REMINDER2: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterDueDateText}
-        REMINDER3: ${output.enterAmountPage.day2} ${output.enterAmountPage.daysAfterDueDateText}
+        REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterLinkCreationText}
+        REMINDER2: ${output.enterAmountPage.day2} ${output.enterAmountPage.daysAfterLinkCreationText}
+        REMINDER3: ${output.enterAmountPage.day3} ${output.enterAmountPage.daysAfterLinkCreationText}
 
 - assertVisible: ${output.enterAmountPage.reminderLimitError}
