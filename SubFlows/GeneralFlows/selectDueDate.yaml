@@ -13,7 +13,7 @@ appId: ${APP_ID}
       true: ${DUEDATE}
     commands:
       - tapOn: 
-          text: ${output.enterAmountPage.addButton}
+          text: ${output.enterAmountPage.addDueDateButton}
           rightOf: ${output.enterAmountPage.addDueDateText}
       - tapOn: 
           text: ${DUEDATE}

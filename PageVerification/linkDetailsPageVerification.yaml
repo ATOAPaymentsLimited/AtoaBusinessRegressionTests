@@ -16,7 +16,7 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-      true: .*${DUEDATE}.*
+      true: ${DUEDATE}
     commands:
       - assertVisible:
           text: .*${DUEDATE}.*
@@ -28,7 +28,7 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-      true: .${REMINDERDATE1}
+      true: ${REMINDERDATE1}
     commands:
       -  assertVisible:
             text: ${REMINDERDATE1}
@@ -44,7 +44,7 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-      true: .*${DUEDATE}.*
+      true: ${DUEDATE}
     commands:
       - assertVisible:
           text: .*${DUEDATE}.*

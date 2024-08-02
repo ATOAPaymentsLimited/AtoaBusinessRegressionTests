@@ -1,39 +1,32 @@
 appId: ${APP_ID}
-name: Tests/LinkReminder/setLinkReminder.yaml
-tags:
-    - dev
+name: Tests/LinkReminder/merchantSet1LinkReminderWithDueDate.yaml
+tags: 
+  - dev
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
-
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/login.yaml
-    env: 
-        USER: 'BUSINESSOWNER'
-        ID: ${output.env.MERCHANT_MOBILE_M}
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.merchantHomePage.linksButton} 
+        ELEMENT: ${output.merchantHomePage.linksButton}
         INDEX: 0
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
     env:
-        ELEMENT: ${output.paymentLinksPage.newPaymentLinkButton} 
+        ELEMENT: ${output.paymentLinksPage.newPaymentLinkButton}
         INDEX: 0
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/enterAmount.yaml
     env:
         AMOUNT: ${output.env.amount15000}
-        DUEDATE: ${output.getCurrentDate.dateAfter5DaysFromCurrentDate}
+        DUEDATE: ${output.getCurrentDate.dateAfter7DaysFromCurrentDateCalendar}
         BEFOREDUEDATE: true
         REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
-        AFTERDUEDATE: true
-        REMINDER2: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterDueDateText}
-
+  
 - runFlow:
     file: ../../SubFlows/GeneralFlows/createAndSendLink.yaml
     env:
@@ -71,21 +64,11 @@ onFlowStart:
         STATUS: ${output.linkDetailsPage.unpaidChip}
         CREATEDDATE: ${output.getCurrentDate.currentDate}
         DUEDATE: ${output.getCurrentDate.getDueDateMonDateYear}
-        REMINDERDATE1: ${output.getCurrentDate.getDate3DaysBeforeMonDateYear}
-        REMINDERDATE2: ${output.getCurrentDate.getDate3DaysAfterMonDateYear}
-
+        REMINDERDATE1: ${output.getCurrentDate.getDate3DaysBeforeDueMonDateYear}
 
 # Delete link
+
 - runFlow:
     file: ../../SubFlows/GeneralFlows/deletePaymentLink.yaml
     env:
         AMOUNT: ${output.env.amount15000}
-
-
-
-
-
-
-
-
-

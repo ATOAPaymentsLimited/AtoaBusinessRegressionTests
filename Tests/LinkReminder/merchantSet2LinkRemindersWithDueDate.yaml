@@ -1,5 +1,5 @@
 appId: ${APP_ID}
-name: Tests/LinkReminder/editLinkReminder.yaml
+name: Tests/LinkReminder/merchantSet2LinkRemindersWithDueDate.yaml
 tags:
     - dev
 onFlowStart:
@@ -28,7 +28,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/enterAmount.yaml
     env:
         AMOUNT: ${output.env.amount15000}
-        DUEDATE: ${output.getCurrentDate.dateAfter5DaysFromCurrentDate}
+        DUEDATE: ${output.getCurrentDate.dateAfter7DaysFromCurrentDateCalendar}
         BEFOREDUEDATE: true
         REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
         AFTERDUEDATE: true
@@ -39,7 +39,7 @@ onFlowStart:
     env:
         CUSTOMERNUMBER: ${output.env.TEST_NUMBER}
 
-# Edit link reminder
+# Verify created link and Reminder
 
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
 
@@ -49,23 +49,43 @@ onFlowStart:
         ELEMENT: ${output.merchantHomePage.linksButton} 
         INDEX: 0
 
+# - runFlow:
+#     file: ../../PageVerification/paymentLinksPageVerification.yaml
+#     env:
+#         LINK: YES 
+#         CUSTOMERNUMBER: ${output.env.TEST_NUMBER}
+#         AMOUNT: ${output.env.amount15000}
+#         STATUS: ${output.linkDetailsPage.unpaidChip}
+        
+# Link Details page verification
+
 - tapOn:
     text: ${output.paymentLinksPage.paymentLinkTile}
-    containsDescendants: 
+    containsDescendants:
       - ${output.env.poundSymbol}${output.env.amount15000}
 
 - runFlow:
-    file: ../../ElementActions/tapOn.yaml
+    file: ../../PageVerification/linkDetailsPageVerification.yaml
     env:
-        ELEMENT: ${output.linkDetailsPage.editButton}
-        INDEX: 1
+        AMOUNT: ${output.env.amount15000}
+        STATUS: ${output.linkDetailsPage.unpaidChip}
+        CREATEDDATE: ${output.getCurrentDate.currentDate}
+        DUEDATE: ${output.getCurrentDate.getDueDateMonDateYear}
+        REMINDERDATE1: ${output.getCurrentDate.getDate3DaysBeforeDueMonDateYear}
+        REMINDERDATE2: ${output.getCurrentDate.getDate3DaysAfterDueMonDateYear}
 
+
+# Delete link
 - runFlow:
-    file: ../../PageVerification/linkReminderBottomSheetVerification.yaml
+    file: ../../SubFlows/GeneralFlows/deletePaymentLink.yaml
     env:
-        REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
-        REMINDER2: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterDueDateText}
+        AMOUNT: ${output.env.amount15000}
 
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/set
+
+
+
+
+
+
+
 

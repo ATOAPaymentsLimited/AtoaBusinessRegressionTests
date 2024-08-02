@@ -1,22 +1,6 @@
 appId: ${APP_ID}
 ---
 - runFlow:
-    when:
-        notVisible: ${output.enterAmountPage.setReminderText}
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${output.enterAmountPage.customizeLinkText}
-        INDEX: 0
-
-- runFlow:
-    when:
-      true: ${REMINDER1}
-    commands:
-      - tapOn: 
-          text: ${output.enterAmountPage.addReminderButton}
-          rightOf: ${output.enterAmountPage.setReminderText}
-
-- runFlow:
     when: 
       true: ${BEFOREDUEDATE}
     file: ../../ElementActions/tapOn.yaml
@@ -49,16 +33,6 @@ appId: ${APP_ID}
         INDEX: 0
 
 - runFlow:
-    when:
-        true: ${REMINDER3}
-    file: ../../ElementActions/tapOn.yaml
-    env:
-        ELEMENT: ${REMINDER3}
-        INDEX: 0
-
-- runFlow:
-    when:
-        visible: ${output.enterAmountPage.doneButton}
     file: ../../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.enterAmountPage.doneButton}

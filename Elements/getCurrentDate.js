@@ -178,6 +178,26 @@ function getFormatted21thOfCurrentMonth() {
   // Format the result
   return `${month} ${dayOfMonth} ${year}`;
   }
+
+  function getDateDaysAfterMonDateYear(days) {
+    // Get the current date
+    const today = new Date();
+    
+    // Calculate the future date by adding 3 days
+    const futureDate = new Date(today);
+    futureDate.setDate(today.getDate() + days);
+    
+    // Define an array for abbreviated month names
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    
+    // Extract components
+    const month = months[futureDate.getMonth()];  // Get abbreviated month name
+    const dayOfMonth = String(futureDate.getDate()).padStart(2, '0');  // Get day of the month with leading zero
+    const year = futureDate.getFullYear();  // Get full year
+    
+    // Format the result
+    return `${month} ${dayOfMonth} ${year}`;
+  }
   
   output.getCurrentDate =
 {
@@ -189,11 +209,16 @@ function getFormatted21thOfCurrentMonth() {
     get21thOfEachMonth: getFormatted21thOfCurrentMonth(),
 
     currentDate: getCurrentDateMonDateYear(),
-    dateAfter5DaysFromCurrentDate: getFormattedDateAfterDays(5),
-    dateAfter3DaysBeforeDueDate: getFormattedDateAfterDays(2),
-    dateAfter3DaysAfterDueDate: getFormattedDateAfterDays(8),
+    dateAfter7DaysFromCurrentDateCalendar: getFormattedDateAfterDays(7),
+    dateAfter3DaysBeforeDueDateCalendar: getFormattedDateAfterDays(4),
+    dateAfter3DaysAfterDueDateCalendar: getFormattedDateAfterDays(10),
 
-    getDueDateMonDateYear: getDaysAfterMonDateYear(5),
-    getDate3DaysBeforeMonDateYear: getDaysAfterMonDateYear(2),
-    getDate3DaysAfterMonDateYear: getDaysAfterMonDateYear(8),
+    getDueDateMonDateYear: getDaysAfterMonDateYear(7),
+    getDate3DaysBeforeDueMonDateYear: getDaysAfterMonDateYear(4),
+    getDate3DaysAfterDueMonDateYear: getDaysAfterMonDateYear(10),
+
+    getDate3DaysAfterCurrentDateMonDateYear: getDateDaysAfterMonDateYear(3),
+    getDate5DaysAfterCurrentDateMonDateYear: getDateDaysAfterMonDateYear(5),
+    getDate7DaysAfterCurrentDateMonDateYear: getDateDaysAfterMonDateYear(7),
+
 }

@@ -7,15 +7,9 @@ appId: ${APP_ID}
         TEXT: ${AMOUNT}
         KEYBOARD: true
 
-- runFlow:
-    when:
-        true: ${DUEDATE}
-    file: ../../SubFlows/GeneralFlows/selectDueDate.yaml  
+- runFlow: ../../SubFlows/GeneralFlows/selectDueDate.yaml  
 
-- runFlow:
-    when:
-        true: ${REMINDER1}
-    file: ../../SubFlows/GeneralFlows/selectReminderOption.yaml
+- runFlow: ../../SubFlows/GeneralFlows/selectReminderOption.yaml
 
 - runFlow:
     when:

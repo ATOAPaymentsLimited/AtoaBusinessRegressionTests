@@ -24,9 +24,11 @@ output.enterAmountPage = {
     beforeDueDate: 'Before due date',
     afterDueDate: 'After due date',
 
-    addButton: 'Add',
+    addDueDateButton: 'Add Due Date Button',
+    addReminderButton: 'Add Reminder Button',
     okButton: 'OK',
     doneButton: 'Done',
+    cancelButton: 'Cancel',
 
     daysAfterLinkCreationText: 'days after link creation',
     daysBeforeDueDateText: 'days before due date',
@@ -41,5 +43,6 @@ output.enterAmountPage = {
     mobileNumberField: 'Mobile Number TextFormField',
     createAndSendButton: 'Create & send payment link',
 
+    reminderLimitError: 'Maximum of 2 reminders per link reached',
 
 }

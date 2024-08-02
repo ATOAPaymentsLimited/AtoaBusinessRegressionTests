@@ -29,6 +29,8 @@ output.linkDetailsPage = {
     deleteLinkButton: 'Delete Link',
     sendReminderButton: 'Send Reminder',
 
+    editButton: 'Edit',
+
     keepButton: 'Keep',
     deleteButton: 'Delete',
 

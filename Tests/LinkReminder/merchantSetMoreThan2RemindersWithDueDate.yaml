@@ -1,0 +1,49 @@
+appId: ${APP_ID}
+name: Tests/LinkReminder/setLinkReminder.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow: 
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.linksButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_M}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.linksButton} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.paymentLinksPage.newPaymentLinkButton} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/selectDueDate.yaml
+    env:
+        DUEDATE: ${output.getCurrentDate.dateAfter7DaysFromCurrentDateCalendar}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/selectReminderOption.yaml
+    env:
+        BEFOREDUEDATE: true
+        REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
+        AFTERDUEDATE: true
+        REMINDER2: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterDueDateText}
+        REMINDER3: ${output.enterAmountPage.day2} ${output.enterAmountPage.daysAfterDueDateText}
+
+- assertVisible: ${output.enterAmountPage.reminderLimitError}
