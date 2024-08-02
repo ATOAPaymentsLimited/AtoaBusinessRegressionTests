@@ -17,6 +17,7 @@ flows:
     - "Tests/StaffManagement/*"
     - "Tests/Tips/*"
     - "Tests/Transactions/*"
+    - "Tests/LinkReminder/*"
 
 # includeTags:
 #   - dev
@@ -191,7 +192,29 @@ executionOrder:
         - Tests/ManageBanks/cashierSelectBankDropdownValidations.yaml
         - Tests/ManageBanks/cashierAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
         - Tests/ManageBanks/cashierSortCodeFieldValidations.yaml
-        
+    #LinkReminder
+        - Tests/LinkReminder/merchantSet1LinkReminderWithDueDate.yaml
+        - Tests/LinkReminder/merchantSet1LinkReminderWithoutDueDate.yaml
+        - Tests/LinkReminder/merchantSet2LinkRemindersWithDueDate.yaml
+        - Tests/LinkReminder/merchantSet2LinkRemindersWithoutDueDate.yaml
+        - Tests/LinkReminder/merchantSetDueDateOnly.yaml
+        - Tests/LinkReminder/merchantSetMoreThan2RemindersWithDueDate.yaml
+        - Tests/LinkReminder/merchantSetMoreThan2RemindersWithoutDueDate.yaml
+        - Tests/LinkReminder/supervisorSet1LinkReminderWithDueDate.yaml
+        - Tests/LinkReminder/supervisorSet1LinkReminderWithoutDueDate.yaml
+        - Tests/LinkReminder/supervisorSet2LinkRemindersWithDueDate.yaml
+        - Tests/LinkReminder/supervisorSet2LinkRemindersWithoutDueDate.yaml
+        - Tests/LinkReminder/supervisorSetDueDateOnly.yaml
+        - Tests/LinkReminder/supervisorSetMoreThan2RemindersWithDueDate.yaml
+        - Tests/LinkReminder/supervisorSetMoreThan2RemindersWithoutDueDate.yaml
+        - Tests/LinkReminder/cashierSet1LinkReminderWithDueDate.yaml
+        - Tests/LinkReminder/cashierSet1LinkReminderWithoutDueDate.yaml
+        - Tests/LinkReminder/cashierSet2LinkRemindersWithDueDate.yaml
+        - Tests/LinkReminder/cashierSet2LinkRemindersWithoutDueDate.yaml
+        - Tests/LinkReminder/cashierSetDueDateOnly.yaml
+        - Tests/LinkReminder/cashierSetMoreThan2RemindersWithDueDate.yaml
+        - Tests/LinkReminder/cashierSetMoreThan2RemindersWithoutDueDate.yaml
+                    
         
 
        
