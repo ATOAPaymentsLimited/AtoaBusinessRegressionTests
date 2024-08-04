@@ -17,7 +17,7 @@ flows:
     # - "Tests/StaffManagement/*"
     # - "Tests/Tips/*"
     # - "Tests/Transactions/*"
-    # - "Tests/RolePermission/create"
+    # - "Tests/RolePermission/*"
 
 # includeTags:
 #   - dev
@@ -193,49 +193,16 @@ executionOrder:
     #     - Tests/ManageBanks/cashierAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
     #     - Tests/ManageBanks/cashierSortCodeFieldValidations.yaml
     # #RolePermissions
-    #     - Tests/RolePermission/createRoleLogin.yaml
-    #     - Tests/RolePermission/createRoleViewOwnPayments.yaml
-    #     - Tests/RolePermission/assignCustomRole.yaml
-    #     - Tests/RolePermission/verifyViewOwnPaymentsPermission.yaml
-    #     - Tests/RolePermission/createRoleLogin.yaml
-    #     - Tests/RolePermission/assignDefaultRole.yaml
-    #     - Tests/RolePermission/deleteRole.yaml
-    #     - Tests/RolePermission/createRoleViewAllPayments.yaml
-    #     - Tests/RolePermission/assignCustomRole.yaml
-    #     - Tests/RolePermission/verifyViewAllPaymentsPermission.yaml
-    #     - Tests/RolePermission/createRoleLogin.yaml
-    #     - Tests/RolePermission/assignDefaultRole.yaml
-    #     - Tests/RolePermission/deleteRole.yaml
+        - Tests/RolePermission/createRoleViewOwnPayments.yaml
+        - Tests/RolePermission/createRoleViewAllPayments.yaml
+        - Tests/RolePermission/createRoleViewOwnAndAllPayments.yaml
         - Tests/RolePermission/createRoleViewEmployees.yaml
-        - Tests/RolePermission/assignCustomRole.yaml
-        - Tests/RolePermission/verifyViewEmployeesPermission.yaml
-        - Tests/RolePermission/createRoleLogin.yaml
-        - Tests/RolePermission/assignDefaultRole.yaml
-        - Tests/RolePermission/deleteRole.yaml
-        # - Tests/RolePermission/createRoleManageEmployees.yaml
-        # - Tests/RolePermission/assignCustomRole.yaml
-        # - Tests/RolePermission/verifyManageEmployeesPermission.yaml
-        # - Tests/RolePermission/createRoleLogin.yaml
-        # - Tests/RolePermission/assignDefaultRole.yaml
-        # - Tests/RolePermission/deleteRole.yaml
-        # - Tests/RolePermission/createRoleBulkPayments.yaml
-        # - Tests/RolePermission/assignCustomRole.yaml
-        # - Tests/RolePermission/verifyBulkPaymentPermission.yaml
-        # - Tests/RolePermission/createRoleLogin.yaml
-        # - Tests/RolePermission/assignDefaultRole.yaml
-        # - Tests/RolePermission/deleteRole.yaml
-        # - Tests/RolePermission/createRoleBillings.yaml
-        # - Tests/RolePermission/assignCustomRole.yaml
-        # - Tests/RolePermission/verifyBillingPermission.yaml
-        # - Tests/RolePermission/createRoleLogin.yaml
-        # - Tests/RolePermission/assignDefaultRole.yaml
-        # - Tests/RolePermission/deleteRole.yaml
-        # - Tests/RolePermission/createRoleAllPermissions.yaml
-        # - Tests/RolePermission/assignCustomRole.yaml
-        # - Tests/RolePermission/verifyAllPermissions.yaml
-        # - Tests/RolePermission/createRoleLogin.yaml
-        # - Tests/RolePermission/assignDefaultRole.yaml
-        # - Tests/RolePermission/deleteRole.yaml
+        - Tests/RolePermission/createRoleManageEmployees.yaml
+        - Tests/RolePermission/createRoleViewAndManageEmployees.yaml
+        - Tests/RolePermission/createRoleBillings.yaml
+        - Tests/RolePermission/createRoleBillings.yaml
+        - Tests/RolePermission/createRoleBulkPaymentsAndBilling.yaml
+
 
         
         

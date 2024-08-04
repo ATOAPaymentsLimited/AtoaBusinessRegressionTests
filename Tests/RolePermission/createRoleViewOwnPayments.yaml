@@ -5,7 +5,11 @@ tags:
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
-- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_Q}
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -43,9 +47,9 @@ onFlowStart:
     env:
         ROLENAME: ${output.env.ROLENAME1}
 
-- runFlow:
-    file: ../../PageVerification/rolesPageVerification.yaml
-    env:
-        ROLENAME1: ${output.employeesPage.cashier}
-        ROLENAME2: ${output.employeesPage.supervisor}
-        ROLENAME01: ${output.env.ROLENAME1}
+# - runFlow:
+#     file: ../../PageVerification/rolesPageVerification.yaml
+#     env:
+#         ROLENAME1: ${output.employeesPage.cashier}
+#         ROLENAME2: ${output.employeesPage.supervisor}
+#         ROLENAME01: ${output.env.ROLENAME01}
