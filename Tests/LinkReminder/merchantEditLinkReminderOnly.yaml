@@ -28,7 +28,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/enterAmount.yaml
     env:
         AMOUNT: ${output.env.amount15000}
-        DUEDATE: ${output.getCurrentDate.dateAfter5DaysFromCurrentDate}
+        DUEDATE: ${output.getCurrentDate.dateAfter7DaysFromCurrentDateCalendar}
         BEFOREDUEDATE: true
         REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
         AFTERDUEDATE: true
@@ -66,6 +66,6 @@ onFlowStart:
         REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
         REMINDER2: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterDueDateText}
 
-- runFlow:
-    file: ../../SubFlows/GeneralFlows/set
+# - runFlow:
+#     file: ../../SubFlows/GeneralFlows/set
 
