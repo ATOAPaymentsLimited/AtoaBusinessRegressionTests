@@ -202,10 +202,7 @@ executionOrder:
         - Tests/RolePermission/createRoleViewAndManageEmployees.yaml
         - Tests/RolePermission/createRoleBillings.yaml
         - Tests/RolePermission/createRoleBillings.yaml
-        - Tests/RolePermission/createRoleBulkPaymentsAndBilling.yaml
-
-
-        
+        - Tests/RolePermission/createRoleBulkPaymentsAndBilling.yaml       
     #LinkReminder
         - Tests/LinkReminder/merchantSet1LinkReminderWithDueDate.yaml
         - Tests/LinkReminder/merchantSet1LinkReminderWithoutDueDate.yaml
