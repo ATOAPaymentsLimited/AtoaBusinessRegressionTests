@@ -1,23 +1,23 @@
 flows:
-    # - "Tests/AcceptPayment/*"
-    # - "Tests/Analytics/*"
-    # - "Tests/Bacs/*"
-    # - "Tests/HomePage/*"
-    # - "Tests/Integrations/*"
-    # - "Tests/KYB/*"
-    # - "Tests/Links/*"
-    # - "Tests/ManageBanks/*"
-    # - "Tests/Miscellaneous/*"
-    # - "Tests/MultiStore/*"
-    # - "Tests/PlanAndPricing/*"
-    # - "Tests/Profile/*"
-    # - "Tests/Referral/*"
-    # - "Tests/Settings/*"
-    # - "Tests/Signup/*"
-    # - "Tests/StaffManagement/*"
-    # - "Tests/Tips/*"
-    # - "Tests/Transactions/*"
-    # - "Tests/RolePermission/*"
+    - "Tests/AcceptPayment/*"
+    - "Tests/Analytics/*"
+    - "Tests/Bacs/*"
+    - "Tests/HomePage/*"
+    - "Tests/Integrations/*"
+    - "Tests/KYB/*"
+    - "Tests/Links/*"
+    - "Tests/ManageBanks/*"
+    - "Tests/Miscellaneous/*"
+    - "Tests/MultiStore/*"
+    - "Tests/PlanAndPricing/*"
+    - "Tests/Profile/*"
+    - "Tests/Referral/*"
+    - "Tests/Settings/*"
+    - "Tests/Signup/*"
+    - "Tests/StaffManagement/*"
+    - "Tests/Tips/*"
+    - "Tests/Transactions/*"
+    - "Tests/RolePermission/*"
 
 # includeTags:
 #   - dev
@@ -27,172 +27,172 @@ flows:
 executionOrder:
     continueOnFailure: true 
     flowsOrder:
-    # #Signup and otp page
-    #     - Tests/Signup/emailOrMobileNumberFieldValidations.yaml
-    #     - Tests/Signup/otpFieldValidations.yaml  
-    # #Signup
-    #     - Tests/Signup/businessTypeDropdownValidations.yaml
-    #     - Tests/Signup/businessNameTextFieldValidations.yaml
-    #     - Tests/Signup/businessNameTextFieldValidationsLimitedCompany.yaml
-    #     - Tests/Signup/charityNameTextFieldValidations.yaml
-    #     - Tests/Signup/crnTextFieldValidations.yaml
-    #     - Tests/Signup/industryTypeDropdownValidations.yaml
-    #     - Tests/Signup/turnoverDropdownValidations.yaml
-    #     - Tests/Signup/addressLine1TextFieldValidations.yaml
-    #     - Tests/Signup/addressLine2TextFieldValidations.yaml
-    #     - Tests/Signup/cityTextFieldValidations.yaml
-    #     - Tests/Signup/postCodeTextFieldValidations.yaml
-    #     - Tests/Signup/utrNumberTextFieldValidations.yaml
-    #     - Tests/Signup/websiteTextFieldValidations.yaml
-    #     - Tests/Signup/vatDropdownValidations.yaml
-    #     - Tests/Signup/serviceChargeTextFieldValidations.yaml
-    #     - Tests/Signup/firstNameTextFieldValidations.yaml
-    #     - Tests/Signup/lastNameTextFieldValidations.yaml
-    #     - Tests/Signup/emailTextFieldValidations.yaml
-    #     - Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
-    #     - Tests/Signup/sortCodeTextFieldValidations.yaml
-    #     - Tests/Signup/nameOnBankTextFieldValidations.yaml
-    #     - Tests/Signup/mobileNumberFieldValidations.yaml
-    # #Referral
-    #     - Tests/Referral/atoaEmpCode.yaml
-    #     - Tests/Referral/customReferralCode.yaml
-    #     - Tests/Referral/employeeReferralLink.yaml
-    #     - Tests/Referral/merchantReferralCode.yaml
-    #     - Tests/Referral/merchantReferralLink.yaml
-    # #Accept payment
-    #     - Tests/AcceptPayment/merchantAcceptPaymentWithKYB.yaml
-    #     - Tests/AcceptPayment/merchantAcceptPaymentWithoutKYB.yaml
-    #     - Tests/AcceptPayment/merchantSendAmountToPhysicalQR.yaml
-    #     - Tests/AcceptPayment/supervisorAcceptPaymentWithKYB.yaml
-    #     - Tests/AcceptPayment/supervisorAcceptPaymentWithoutKYB.yaml
-    #     - Tests/AcceptPayment/supervisorSendAmountToPhysicalQR.yaml
-    #     - Tests/AcceptPayment/cashierAcceptPaymentWithKYB.yaml
-    #     - Tests/AcceptPayment/cashierAcceptPaymentWithoutKYB.yaml
-    #     - Tests/AcceptPayment/cashierSendAmountToPhysicalQR.yaml
-    # #StaffManagement
-    #     - Tests/StaffManagement/firstNameAndLastNameTextFieldValidations.yaml
-    #     - Tests/StaffManagement/mobileNumberTextFieldValidations.yaml
-    #     - Tests/StaffManagement/emailTextFieldValidations.yaml
-    #     - Tests/StaffManagement/merchantAcceptEmployeeRequest.yaml
-    #     - Tests/StaffManagement/supervisorAddEmployee.yaml
-    #     - Tests/StaffManagement/supervisorAcceptEmployeeRequest.yaml
-    # #Settings
-    #     - Tests/Settings/merchantAbout.yaml
-    #     - Tests/Settings/merchantAppLock.yaml
-    #     - Tests/Settings/merchantHowItWorks.yaml
-    #     - Tests/Settings/merchantVoiceNotificationToggle.yaml
-    #     - Tests/Settings/notesOnBankStatementToggle.yaml
-    #     - Tests/Settings/sandboxApiAccess.yaml
-    #     - Tests/Settings/productionApiAccess.yaml
-    #     - Tests/Settings/merchantLogout.yaml
-    #     - Tests/Settings/cashierAbout.yaml
-    #     - Tests/Settings/cashierAppLock.yaml
-    #     - Tests/Settings/cashierHowItWorks.yaml
-    #     - Tests/Settings/cashierVoiceNotificationToggle.yaml
-    #     - Tests/Settings/cashierLogout.yaml
-    #     - Tests/Settings/supervisorAbout.yaml
-    #     - Tests/Settings/supervisorAppLock.yaml
-    #     - Tests/Settings/supervisorHowItWorks.yaml
-    #     - Tests/Settings/supervisorVoiceNotificationToggle.yaml
-    #     - Tests/Settings/supervisorLogout.yaml
-    # #Tips
-    #     - Tests/Tips/tipsAmountTextFieldValidations.yaml
-    #     - Tests/Tips/tipsPercentageTextFieldValidations.yaml
-    #     - Tests/Tips/supervisorTipsVerification.yaml
-    #     - Tests/Tips/cashierTipsVerification.yaml
-    # #Analytics
-    #     - Tests/Analytics/analyticsPageVerificationHomePage.yaml
-    #     - Tests/Analytics/analyticsPageVerificationSideMenu.yaml
-    # #Miscellaneous
-    #     - Tests/Miscellaneous/merchantSupport.yaml
-    #     - Tests/Miscellaneous/merchantTheme.yaml
-    #     - Tests/Miscellaneous/supervisorSupport.yaml
-    #     - Tests/Miscellaneous/supervisorTheme.yaml
-    #     - Tests/Miscellaneous/cashierSupport.yaml
-    #     - Tests/Miscellaneous/cashierTheme.yaml
-    #     - Tests/Miscellaneous/notifications.yaml
-    #     - Tests/Miscellaneous/manageQR.yaml
-    #     - Tests/Miscellaneous/rewardsVerification.yaml
-    # #Profile
-    #     - Tests/Profile/address1TextFieldValidations.yaml
-    #     - Tests/Profile/address2TextFieldValidations.yaml
-    #     - Tests/Profile/cityTextFieldValidations.yaml
-    #     - Tests/Profile/postCodeFieldValidations.yaml
-    #     - Tests/Profile/vatDropdownValidations.yaml
-    #     - Tests/Profile/serviceChargeTextFieldValidations.yaml
-    #     - Tests/Profile/editBusinessDetails.yaml
-    #     - Tests/Profile/firstNameAndLastNameTextFieldValidations.yaml
-    #     - Tests/Profile/cashierProfileVerification.yaml
-    #     - Tests/Profile/supervisorProfileVerification.yaml
-    # #HomePage
-    #     - Tests/HomePage/merchantHomePageApprovedKyb.yaml
-    #     - Tests/HomePage/merchantHomePagePendingKyb.yaml
-    #     - Tests/HomePage/supervisorHomePageApprovedKyb.yaml
-    #     - Tests/HomePage/supervisorHomePagePendingKyb.yaml
-    #     - Tests/HomePage/cashierHomePageApprovedKyb.yaml
-    #     - Tests/HomePage/cashierHomePagePendingKyb.yaml
-    #     - Tests/HomePage/merchantSuspendedPageVerification.yaml
-    #     - Tests/HomePage/merchantBlockedPageVerification.yaml
-    #     - Tests/HomePage/merchantFraudulentPageVerification.yaml
-    #     - Tests/HomePage/employeeSuspendedPageVerification.yaml
-    #     - Tests/HomePage/employeeBlockedPageVerification.yaml
-    #     - Tests/HomePage/employeeFraudulentPageVerification.yaml
-    # #Transactions
-    #     - Tests/Transactions/merchantTransactionsPageVerification.yaml
-    # #OrderQR
-    #     - Tests/Miscellaneous/orderQRPageWithoutKyb.yaml
-    #     - Tests/Miscellaneous/orderQRPageApprovedKyb.yaml
-    # #Links
-    #     - Tests/Links/merchantCreatePaymentLinkApprovedKyb.yaml
-    #     - Tests/Links/merchantCreatePaymentLinkPendingKyb.yaml
-    #     - Tests/Links/supervisorCreatePaymentLinkApprovedKyb.yaml
-    #     - Tests/Links/supervisorCreatePaymentLinkPendingKyb.yaml
-    #     - Tests/Links/cashierCreatePaymentLinkApprovedKyb.yaml
-    #     - Tests/Links/cashierCreatePaymentLinkPendingKyb.yaml
-    # #Integrations
-    #     - Tests/Integrations/integrationsPageVerification.yaml
-    #     - Tests/Integrations/pointOneIntegrationsTesting.yaml
-    #     - Tests/Integrations/tillTechIntegrationTesting.yaml
-    # #PlanAndPricing
-    #     - Tests/PlanAndPricing/percentageBillingsPageVerification.yaml
-    #     - Tests/PlanAndPricing/saasBillingsPageVerification.yaml
-    #     - Tests/PlanAndPricing/supervisorPercentageBillingsPageVerification.yaml
-    #     - Tests/PlanAndPricing/cashierPercentageBillingsPageVerification.yaml
-    # #Bacs
-    #     - Tests/Bacs/bankNameDropdownValidations.yaml
-    #     - Tests/Bacs/accountNumberAndConfirmAccountNumberFieldValidations.yaml
-    #     - Tests/Bacs/sortCodeFieldValidations.yaml
-    #     - Tests/Bacs/nameFieldValidations.yaml
-    #     - Tests/Bacs/emailAddressFieldValidations.yaml
-    #     - Tests/Bacs/addressLine1FieldValidations.yaml
-    #     - Tests/Bacs/addressLine2FieldValidations.yaml
-    #     - Tests/Bacs/cityFieldValidations.yaml
-    #     - Tests/Bacs/postCodeFieldValidations.yaml
-    # # Kyb
-    #     - Tests/KYB/firstNameFieldValidations.yaml
-    #     - Tests/KYB/lastNameFieldValidations.yaml
-    #     - Tests/KYB/businessNameFieldValidations.yaml
-    #     - Tests/KYB/addressLine1FieldValidations.yaml
-    #     - Tests/KYB/addressLine2FieldValidations.yaml
-    #     - Tests/KYB/postCodeFieldValidations.yaml
-    # #Multistore
-    #     - Tests/MultiStore/currentLocationTextFieldValidation.yaml
-    #     - Tests/MultiStore/locationNameTextFieldValidations.yaml
-    #     - Tests/MultiStore/address1TextFieldValidations.yaml
-    #     - Tests/MultiStore/address2TextFieldValidations.yaml
-    #     - Tests/MultiStore/cityTextFieldValidations.yaml
-    #     - Tests/MultiStore/postCodeTextFieldValidations.yaml
-    # #ManageBanks
-    #     - Tests/ManageBanks/merchantSelectBankDropdownValidations.yaml
-    #     - Tests/ManageBanks/merchantAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
-    #     - Tests/ManageBanks/merchantSortCodeFieldValidations.yaml
-    #     - Tests/ManageBanks/supervisorSelectBankDropdownValidations.yaml
-    #     - Tests/ManageBanks/supervisorAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
-    #     - Tests/ManageBanks/supervisorSortCodeFieldValidations.yaml
-    #     - Tests/ManageBanks/cashierSelectBankDropdownValidations.yaml
-    #     - Tests/ManageBanks/cashierAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
-    #     - Tests/ManageBanks/cashierSortCodeFieldValidations.yaml
-    # #RolePermissions
+    #Signup and otp page
+        - Tests/Signup/emailOrMobileNumberFieldValidations.yaml
+        - Tests/Signup/otpFieldValidations.yaml  
+    #Signup
+        - Tests/Signup/businessTypeDropdownValidations.yaml
+        - Tests/Signup/businessNameTextFieldValidations.yaml
+        - Tests/Signup/businessNameTextFieldValidationsLimitedCompany.yaml
+        - Tests/Signup/charityNameTextFieldValidations.yaml
+        - Tests/Signup/crnTextFieldValidations.yaml
+        - Tests/Signup/industryTypeDropdownValidations.yaml
+        - Tests/Signup/turnoverDropdownValidations.yaml
+        - Tests/Signup/addressLine1TextFieldValidations.yaml
+        - Tests/Signup/addressLine2TextFieldValidations.yaml
+        - Tests/Signup/cityTextFieldValidations.yaml
+        - Tests/Signup/postCodeTextFieldValidations.yaml
+        - Tests/Signup/utrNumberTextFieldValidations.yaml
+        - Tests/Signup/websiteTextFieldValidations.yaml
+        - Tests/Signup/vatDropdownValidations.yaml
+        - Tests/Signup/serviceChargeTextFieldValidations.yaml
+        - Tests/Signup/firstNameTextFieldValidations.yaml
+        - Tests/Signup/lastNameTextFieldValidations.yaml
+        - Tests/Signup/emailTextFieldValidations.yaml
+        - Tests/Signup/accountNumberAndConfirmAccountNumberFieldValidations.yaml
+        - Tests/Signup/sortCodeTextFieldValidations.yaml
+        - Tests/Signup/nameOnBankTextFieldValidations.yaml
+        - Tests/Signup/mobileNumberFieldValidations.yaml
+    #Referral
+        - Tests/Referral/atoaEmpCode.yaml
+        - Tests/Referral/customReferralCode.yaml
+        - Tests/Referral/employeeReferralLink.yaml
+        - Tests/Referral/merchantReferralCode.yaml
+        - Tests/Referral/merchantReferralLink.yaml
+    #Accept payment
+        - Tests/AcceptPayment/merchantAcceptPaymentWithKYB.yaml
+        - Tests/AcceptPayment/merchantAcceptPaymentWithoutKYB.yaml
+        - Tests/AcceptPayment/merchantSendAmountToPhysicalQR.yaml
+        - Tests/AcceptPayment/supervisorAcceptPaymentWithKYB.yaml
+        - Tests/AcceptPayment/supervisorAcceptPaymentWithoutKYB.yaml
+        - Tests/AcceptPayment/supervisorSendAmountToPhysicalQR.yaml
+        - Tests/AcceptPayment/cashierAcceptPaymentWithKYB.yaml
+        - Tests/AcceptPayment/cashierAcceptPaymentWithoutKYB.yaml
+        - Tests/AcceptPayment/cashierSendAmountToPhysicalQR.yaml
+    #StaffManagement
+        - Tests/StaffManagement/firstNameAndLastNameTextFieldValidations.yaml
+        - Tests/StaffManagement/mobileNumberTextFieldValidations.yaml
+        - Tests/StaffManagement/emailTextFieldValidations.yaml
+        - Tests/StaffManagement/merchantAcceptEmployeeRequest.yaml
+        - Tests/StaffManagement/supervisorAddEmployee.yaml
+        - Tests/StaffManagement/supervisorAcceptEmployeeRequest.yaml
+    #Settings
+        - Tests/Settings/merchantAbout.yaml
+        - Tests/Settings/merchantAppLock.yaml
+        - Tests/Settings/merchantHowItWorks.yaml
+        - Tests/Settings/merchantVoiceNotificationToggle.yaml
+        - Tests/Settings/notesOnBankStatementToggle.yaml
+        - Tests/Settings/sandboxApiAccess.yaml
+        - Tests/Settings/productionApiAccess.yaml
+        - Tests/Settings/merchantLogout.yaml
+        - Tests/Settings/cashierAbout.yaml
+        - Tests/Settings/cashierAppLock.yaml
+        - Tests/Settings/cashierHowItWorks.yaml
+        - Tests/Settings/cashierVoiceNotificationToggle.yaml
+        - Tests/Settings/cashierLogout.yaml
+        - Tests/Settings/supervisorAbout.yaml
+        - Tests/Settings/supervisorAppLock.yaml
+        - Tests/Settings/supervisorHowItWorks.yaml
+        - Tests/Settings/supervisorVoiceNotificationToggle.yaml
+        - Tests/Settings/supervisorLogout.yaml
+    #Tips
+        - Tests/Tips/tipsAmountTextFieldValidations.yaml
+        - Tests/Tips/tipsPercentageTextFieldValidations.yaml
+        - Tests/Tips/supervisorTipsVerification.yaml
+        - Tests/Tips/cashierTipsVerification.yaml
+    #Analytics
+        - Tests/Analytics/analyticsPageVerificationHomePage.yaml
+        - Tests/Analytics/analyticsPageVerificationSideMenu.yaml
+    #Miscellaneous
+        - Tests/Miscellaneous/merchantSupport.yaml
+        - Tests/Miscellaneous/merchantTheme.yaml
+        - Tests/Miscellaneous/supervisorSupport.yaml
+        - Tests/Miscellaneous/supervisorTheme.yaml
+        - Tests/Miscellaneous/cashierSupport.yaml
+        - Tests/Miscellaneous/cashierTheme.yaml
+        - Tests/Miscellaneous/notifications.yaml
+        - Tests/Miscellaneous/manageQR.yaml
+        - Tests/Miscellaneous/rewardsVerification.yaml
+    #Profile
+        - Tests/Profile/address1TextFieldValidations.yaml
+        - Tests/Profile/address2TextFieldValidations.yaml
+        - Tests/Profile/cityTextFieldValidations.yaml
+        - Tests/Profile/postCodeFieldValidations.yaml
+        - Tests/Profile/vatDropdownValidations.yaml
+        - Tests/Profile/serviceChargeTextFieldValidations.yaml
+        - Tests/Profile/editBusinessDetails.yaml
+        - Tests/Profile/firstNameAndLastNameTextFieldValidations.yaml
+        - Tests/Profile/cashierProfileVerification.yaml
+        - Tests/Profile/supervisorProfileVerification.yaml
+    #HomePage
+        - Tests/HomePage/merchantHomePageApprovedKyb.yaml
+        - Tests/HomePage/merchantHomePagePendingKyb.yaml
+        - Tests/HomePage/supervisorHomePageApprovedKyb.yaml
+        - Tests/HomePage/supervisorHomePagePendingKyb.yaml
+        - Tests/HomePage/cashierHomePageApprovedKyb.yaml
+        - Tests/HomePage/cashierHomePagePendingKyb.yaml
+        - Tests/HomePage/merchantSuspendedPageVerification.yaml
+        - Tests/HomePage/merchantBlockedPageVerification.yaml
+        - Tests/HomePage/merchantFraudulentPageVerification.yaml
+        - Tests/HomePage/employeeSuspendedPageVerification.yaml
+        - Tests/HomePage/employeeBlockedPageVerification.yaml
+        - Tests/HomePage/employeeFraudulentPageVerification.yaml
+    #Transactions
+        - Tests/Transactions/merchantTransactionsPageVerification.yaml
+    #OrderQR
+        - Tests/Miscellaneous/orderQRPageWithoutKyb.yaml
+        - Tests/Miscellaneous/orderQRPageApprovedKyb.yaml
+    #Links
+        - Tests/Links/merchantCreatePaymentLinkApprovedKyb.yaml
+        - Tests/Links/merchantCreatePaymentLinkPendingKyb.yaml
+        - Tests/Links/supervisorCreatePaymentLinkApprovedKyb.yaml
+        - Tests/Links/supervisorCreatePaymentLinkPendingKyb.yaml
+        - Tests/Links/cashierCreatePaymentLinkApprovedKyb.yaml
+        - Tests/Links/cashierCreatePaymentLinkPendingKyb.yaml
+    #Integrations
+        - Tests/Integrations/integrationsPageVerification.yaml
+        - Tests/Integrations/pointOneIntegrationsTesting.yaml
+        - Tests/Integrations/tillTechIntegrationTesting.yaml
+    #PlanAndPricing
+        - Tests/PlanAndPricing/percentageBillingsPageVerification.yaml
+        - Tests/PlanAndPricing/saasBillingsPageVerification.yaml
+        - Tests/PlanAndPricing/supervisorPercentageBillingsPageVerification.yaml
+        - Tests/PlanAndPricing/cashierPercentageBillingsPageVerification.yaml
+    #Bacs
+        - Tests/Bacs/bankNameDropdownValidations.yaml
+        - Tests/Bacs/accountNumberAndConfirmAccountNumberFieldValidations.yaml
+        - Tests/Bacs/sortCodeFieldValidations.yaml
+        - Tests/Bacs/nameFieldValidations.yaml
+        - Tests/Bacs/emailAddressFieldValidations.yaml
+        - Tests/Bacs/addressLine1FieldValidations.yaml
+        - Tests/Bacs/addressLine2FieldValidations.yaml
+        - Tests/Bacs/cityFieldValidations.yaml
+        - Tests/Bacs/postCodeFieldValidations.yaml
+    # Kyb
+        - Tests/KYB/firstNameFieldValidations.yaml
+        - Tests/KYB/lastNameFieldValidations.yaml
+        - Tests/KYB/businessNameFieldValidations.yaml
+        - Tests/KYB/addressLine1FieldValidations.yaml
+        - Tests/KYB/addressLine2FieldValidations.yaml
+        - Tests/KYB/postCodeFieldValidations.yaml
+    #Multistore
+        - Tests/MultiStore/currentLocationTextFieldValidation.yaml
+        - Tests/MultiStore/locationNameTextFieldValidations.yaml
+        - Tests/MultiStore/address1TextFieldValidations.yaml
+        - Tests/MultiStore/address2TextFieldValidations.yaml
+        - Tests/MultiStore/cityTextFieldValidations.yaml
+        - Tests/MultiStore/postCodeTextFieldValidations.yaml
+    #ManageBanks
+        - Tests/ManageBanks/merchantSelectBankDropdownValidations.yaml
+        - Tests/ManageBanks/merchantAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
+        - Tests/ManageBanks/merchantSortCodeFieldValidations.yaml
+        - Tests/ManageBanks/supervisorSelectBankDropdownValidations.yaml
+        - Tests/ManageBanks/supervisorAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
+        - Tests/ManageBanks/supervisorSortCodeFieldValidations.yaml
+        - Tests/ManageBanks/cashierSelectBankDropdownValidations.yaml
+        - Tests/ManageBanks/cashierAccountNumberAndConfirmAccountNumberTextFieldValidations.yaml
+        - Tests/ManageBanks/cashierSortCodeFieldValidations.yaml
+    #RolePermissions
         - Tests/RolePermission/createRoleViewOwnPayments.yaml
         - Tests/RolePermission/createRoleViewAllPayments.yaml
         - Tests/RolePermission/createRoleViewOwnAndAllPayments.yaml
