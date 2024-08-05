@@ -1,0 +1,21 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+        notVisible: ${output.enterAmountPage.addDueDateText}
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.customizeLinkText}
+        INDEX: 0
+
+- runFlow:
+    when:
+      true: ${DUEDATE}
+    commands:
+      - tapOn: 
+          text: ${output.enterAmountPage.addDueDateButton}
+          rightOf: ${output.enterAmountPage.addDueDateText}
+      - tapOn: 
+          text: ${DUEDATE}
+      - tapOn:
+          text: ${output.enterAmountPage.okButton}

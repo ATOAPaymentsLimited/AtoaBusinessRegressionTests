@@ -153,6 +153,14 @@ output.env = {
    MERCHANT_EMAIL_R: 'ab9979779779@gmail.com',
    
 
+   MERCHANT_MOBILE_M: '9959333221',
+   BUSINESS_NAME_M: 'B9959333221',
+   CRN_M: '8333221',
+   MERCHANT_EMAIL_M: 'ab9959333221@gmail.com',
+   EMPLOYEE_MOBILE_M1: '8858333221',
+   EMPLOYEE_MOBILE_M2: '8898333221',
+
+ 
   //-----------------------------------------------------
   //-----------------------------------------------------
   //-----------------------------------------------------  
@@ -428,5 +436,6 @@ output.env = {
    ROLENAME8: 'R8',
    ROLENAME9: 'R9',
    ROLENAME10: 'R10',
+   testDueDate: '30, Friday, August 30, 2024',
   
 }

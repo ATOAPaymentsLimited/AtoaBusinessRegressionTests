@@ -1,0 +1,71 @@
+appId: ${APP_ID}
+name: Tests/LinkReminder/supervisorSetDueDateOnly.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.linksButton} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.paymentLinksPage.newPaymentLinkButton} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
+    env:
+        AMOUNT: ${output.env.amount15000}
+        DUEDATE: ${output.getCurrentDate.dateAfter7DaysFromCurrentDateCalendar}
+
+# - runFlow:
+#     file: ../../SubFlows/GeneralFlows/createAndSendLink.yaml
+#     env:
+#         CUSTOMERNUMBER: ${output.env.TEST_NUMBER}
+
+# Verify created link and Reminder
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.linksButton} 
+        INDEX: 0
+
+# - runFlow:
+#     file: ../../PageVerification/paymentLinksPageVerification.yaml
+#     env:
+#         LINK: YES 
+#         CUSTOMERNUMBER: ${output.env.TEST_NUMBER}
+#         AMOUNT: ${output.env.amount15000}
+#         STATUS: ${output.linkDetailsPage.unpaidChip}
+        
+# Link Details page verification
+
+- tapOn:
+    text: ${output.paymentLinksPage.paymentLinkTile}
+    containsDescendants:
+      - ${output.env.poundSymbol}${output.env.amount15000}
+
+- runFlow:
+    file: ../../PageVerification/linkDetailsPageVerification.yaml
+    env:
+        AMOUNT: ${output.env.amount15000}
+        STATUS: ${output.linkDetailsPage.unpaidChip}
+        CREATEDDATE: ${output.getCurrentDate.currentDate}
+        DUEDATE: ${output.getCurrentDate.getDueDateMonDateYear}
+
+# Delete link
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/deletePaymentLink.yaml
+    env:
+        AMOUNT: ${output.env.amount15000}

@@ -1,9 +1,13 @@
 appId: ${APP_ID}
 ---
-- tapOn:
-    text: ${output.paymentLinksPage.paymentLinkTile}
-    containsDescendants:
-        - ${output.env.poundSymbol}${AMOUNT}
+- runFlow:
+    when:
+        notVisible: ${output.linkDetailsPage.linkDetailsPageTitle}
+    commands: 
+        - tapOn:
+            text: ${output.paymentLinksPage.paymentLinkTile}
+            containsDescendants:
+                - ${output.env.poundSymbol}${AMOUNT}
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml

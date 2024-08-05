@@ -1,0 +1,78 @@
+appId: ${APP_ID}
+name: Tests/LinkReminder/supervisorSet1LinkReminderWithDueDate.yaml
+tags: 
+  - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_M1}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.linksButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.paymentLinksPage.newPaymentLinkButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
+    env:
+        AMOUNT: ${output.env.amount15000}
+        DUEDATE: ${output.getCurrentDate.dateAfter7DaysFromCurrentDateCalendar}
+        BEFOREDUEDATE: true
+        REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
+  
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/createAndSendLink.yaml
+    env:
+        CUSTOMERNUMBER: ${output.env.TEST_NUMBER}
+
+# Verify created link and Reminder
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.linksButton} 
+        INDEX: 0
+
+# - runFlow:
+#     file: ../../PageVerification/paymentLinksPageVerification.yaml
+#     env:
+#         LINK: YES 
+#         CUSTOMERNUMBER: ${output.env.TEST_NUMBER}
+#         AMOUNT: ${output.env.amount15000}
+#         STATUS: ${output.linkDetailsPage.unpaidChip}
+        
+# Link Details page verification
+
+- tapOn:
+    text: ${output.paymentLinksPage.paymentLinkTile}
+    containsDescendants:
+      - ${output.env.poundSymbol}${output.env.amount15000}
+
+- runFlow:
+    file: ../../PageVerification/linkDetailsPageVerification.yaml
+    env:
+        AMOUNT: ${output.env.amount15000}
+        STATUS: ${output.linkDetailsPage.unpaidChip}
+        CREATEDDATE: ${output.getCurrentDate.currentDate}
+        DUEDATE: ${output.getCurrentDate.getDueDateMonDateYear}
+        REMINDERDATE1: ${output.getCurrentDate.getDate3DaysBeforeDueMonDateYear}
+
+# Delete link
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/deletePaymentLink.yaml
+    env:
+        AMOUNT: ${output.env.amount15000}

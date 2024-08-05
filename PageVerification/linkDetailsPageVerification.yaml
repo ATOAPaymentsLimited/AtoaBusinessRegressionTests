@@ -1,0 +1,52 @@
+appId: ${APP_ID}
+---
+- assertVisible: ${output.env.poundSymbol}${AMOUNT}
+
+- assertVisible: 
+    text: ${STATUS}
+    rightOf: ${output.linkDetailsPage.paymentStatusText}
+
+- assertVisible:
+    text: ${output.linkDetailsPage.copyLinkButton}
+    rightOf: ${output.linkDetailsPage.linkText}
+
+- assertVisible:
+    text: .*${CREATEDDATE}.*
+    rightOf: ${output.linkDetailsPage.createdOnText}
+
+- runFlow:
+    when:
+      true: ${DUEDATE}
+    commands:
+      - assertVisible:
+          text: .*${DUEDATE}.*
+          rightOf: ${output.linkDetailsPage.dueByText}
+
+- assertVisible:
+    text: .*${CREATEDDATE}.*
+    below: ${output.linkDetailsPage.paymentLinkCreatedOnText}
+
+- runFlow:
+    when:
+      true: ${REMINDERDATE1}
+    commands:
+      -  assertVisible:
+            text: ${REMINDERDATE1}
+            below: ${output.linkDetailsPage.paymentReminder1Text}
+
+- runFlow:
+    when:
+      true: ${REMINDERDATE2}
+    commands:
+      -  assertVisible:
+            text: ${REMINDERDATE2}
+            below: ${output.linkDetailsPage.paymentReminder2text}
+
+- runFlow:
+    when:
+      true: ${DUEDATE}
+    commands:
+      - assertVisible:
+          text: .*${DUEDATE}.*
+          below: ${output.linkDetailsPage.paymentDueText}
+

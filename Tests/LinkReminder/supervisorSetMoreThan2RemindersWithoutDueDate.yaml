@@ -1,0 +1,30 @@
+appId: ${APP_ID}
+name: Tests/LinkReminder/supervisorSetMoreThan2RemindersWithoutDueDate.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.linksButton} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.paymentLinksPage.newPaymentLinkButton} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/selectReminderOption.yaml
+    env:
+        REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterLinkCreationText}
+        REMINDER2: ${output.enterAmountPage.day2} ${output.enterAmountPage.daysAfterLinkCreationText}
+        REMINDER3: ${output.enterAmountPage.day3} ${output.enterAmountPage.daysAfterLinkCreationText}
+
+- assertVisible: ${output.enterAmountPage.reminderLimitError}

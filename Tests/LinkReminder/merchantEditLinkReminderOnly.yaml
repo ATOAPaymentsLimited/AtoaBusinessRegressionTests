@@ -1,0 +1,71 @@
+appId: ${APP_ID}
+name: Tests/LinkReminder/editLinkReminder.yaml
+tags:
+    - dev
+onFlowStart:
+  - runFlow: ../../Elements/runScript.yaml
+---
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_M}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.linksButton} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.paymentLinksPage.newPaymentLinkButton} 
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
+    env:
+        AMOUNT: ${output.env.amount15000}
+        DUEDATE: ${output.getCurrentDate.dateAfter7DaysFromCurrentDateCalendar}
+        BEFOREDUEDATE: true
+        REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
+        AFTERDUEDATE: true
+        REMINDER2: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterDueDateText}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/createAndSendLink.yaml
+    env:
+        CUSTOMERNUMBER: ${output.env.TEST_NUMBER}
+
+# Edit link reminder
+
+- runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.linksButton} 
+        INDEX: 0
+
+- tapOn:
+    text: ${output.paymentLinksPage.paymentLinkTile}
+    containsDescendants: 
+      - ${output.env.poundSymbol}${output.env.amount15000}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.linkDetailsPage.editButton}
+        INDEX: 1
+
+- runFlow:
+    file: ../../PageVerification/linkReminderBottomSheetVerification.yaml
+    env:
+        REMINDER1: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
+        REMINDER2: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterDueDateText}
+
+# - runFlow:
+#     file: ../../SubFlows/GeneralFlows/set
+

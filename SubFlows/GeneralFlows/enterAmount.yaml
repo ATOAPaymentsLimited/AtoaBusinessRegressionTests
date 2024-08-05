@@ -7,6 +7,10 @@ appId: ${APP_ID}
         TEXT: ${AMOUNT}
         KEYBOARD: true
 
+- runFlow: ../../SubFlows/GeneralFlows/selectDueDate.yaml  
+
+- runFlow: ../../SubFlows/GeneralFlows/selectReminderOption.yaml
+
 - runFlow:
     when:
         visible: ${output.enterAmountPage.continueButton}
@@ -22,3 +26,4 @@ appId: ${APP_ID}
     env:
         ELEMENT: ${output.enterAmountPage.createPaymentLinkButton}
         INDEX: 0
+

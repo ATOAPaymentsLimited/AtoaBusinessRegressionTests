@@ -1,0 +1,26 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+      notVisible: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysBeforeDueDateText}
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.beforeDueDate}
+        INDEX: 0
+
+- assertVisible:
+    text: ${REMINDER1}
+    checked: true 
+
+- runFlow:
+    when:
+      notVisible: ${output.enterAmountPage.day1} ${output.enterAmountPage.daysAfterDueDateText}
+    file: ../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.enterAmountPage.afterDueDate}
+        INDEX: 0
+
+- assertVisible:
+    text: ${REMINDER2}
+    checked: true 
+
