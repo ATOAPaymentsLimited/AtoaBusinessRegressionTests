@@ -3,7 +3,7 @@ output.otpPage = {
     enterCodeText: 'Enter the secret code sent to your phone at',
     countryCodeUK: '+44',
 
-    enterCodeText: 'To keep your account secure, please enter the 6-digit code sent to',
+    enterCodeText2: 'To keep your account secure, please enter the 6-digit code sent to',
     andText: 'and',
     
     otpTextField: 'OTP input',
