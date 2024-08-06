@@ -1,0 +1,35 @@
+appId: ${APP_ID}
+---
+- scrollUntilVisible:
+    element: ${output.employeeDetailsPage.roleDropdown}
+    direction: DOWN
+    centerElement: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.roleDropdown}
+        INDEX: 0
+
+- scrollUntilVisible:
+    element: ${ROLE}
+    direction: DOWN
+    centerElement: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${ROLE}
+        INDEX: 0
+
+
+- scrollUntilVisible:
+    element: ${output.employeeDetailsPage.saveChangesButton}
+    direction: DOWN
+    centerElement: true 
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.saveChangesButton}
+        INDEX: 0
