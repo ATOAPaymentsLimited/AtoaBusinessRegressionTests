@@ -35,7 +35,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/login.yaml
     env: 
         USER: 'STAFFMEMBER'
-        ID: ${output.env.EMPLOYEE_MOBILE_QS}
+        ID: ${output.env.EMPLOYEE_MOBILE_R1}
 
 # Accept payment
 

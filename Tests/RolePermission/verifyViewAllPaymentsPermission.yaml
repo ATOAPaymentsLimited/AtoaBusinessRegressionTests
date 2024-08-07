@@ -5,7 +5,7 @@ tags:
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
-# Assign the role
+# # Assign the role
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/login.yaml
@@ -35,7 +35,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/login.yaml
     env: 
         USER: 'STAFFMEMBER'
-        ID: ${output.env.EMPLOYEE_MOBILE_QS}
+        ID: ${output.env.EMPLOYEE_MOBILE_R1}
 
 # Verify home page
 
@@ -48,7 +48,6 @@ onFlowStart:
 - scrollUntilVisible:
     element: ${output.employeeHomePage.acceptPaymentButton}
     direction: UP
-    centerElement: true 
     
 # Verify accept payment permission
 
@@ -74,7 +73,7 @@ onFlowStart:
 - runFlow:
     file: ../../PageVerification/QRcodePageVerification.yaml
     env:
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_Q} 
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_R} 
         AMOUNT: ${output.env.amount15000}
 
 # Share link
@@ -138,7 +137,7 @@ onFlowStart:
 - runFlow: 
     file: ../../PageVerification/staticQRPageVerification.yaml
     env:
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_Q}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_R}
 
 # Create link
 - runFlow: ../../SubFlows/GeneralFlows/launchAppNormal.yaml

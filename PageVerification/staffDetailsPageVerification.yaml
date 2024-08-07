@@ -1,0 +1,43 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    text: ${output.employeeDetailsPage.firstNameField}
+    containsDescendats: 
+      - ${FNAME}
+
+- assertVisible:
+    text: ${output.employeeDetailsPage.firstNameField}
+    containsDescendats: 
+      - ${LNAME}
+
+- runFlow:
+    when:
+        true: ${MOBILENUMBER}
+    commands:
+      - assertVisible:
+          text: ${output.employeeDetailsPage.mobileNumberField}
+          containsDescendants:
+            - ${MOBILENUMBER}
+
+- runFlow:
+    when:
+        true: ${EMAIL}
+    commands:
+      - assertVisible:
+          text: ${output.employeeDetailsPage.emailField}
+          containsDescendants:
+            - ${EMAIL}
+
+- scrollUntilVisible:
+    element: ${output.employeeDetailsPage.roleDropdown}
+    direction: DOWN
+    centerElement: true
+
+- assertVisible:
+    text: ${output.employeeDetailsPage.roleDropdown}
+    containsDescendants:
+      - ${ROLE}
+
+- scrollUntilVisible:
+    element: ${output.employeeDetailsPage.viewRolePermissionsText}
+

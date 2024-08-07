@@ -11,12 +11,13 @@ output.employeeDetailsPage = {
     emailField: 'Email Address TextFormField',
     email: 'Email Address',
     roleDropdown: 'null TextFormField',
-    employeeRole: 'Employee Role',
+    employeeRoleText: 'Employee Role',
     supervisorTab: 'Supervisor',
-    supervisorRole1: 'Can accept Payments',
-    supervisorRole2: 'Manage Employees',
     cashierTab: 'Cashier',
-    cashierRole1: 'Can accept Payments',
+
+    viewRolePermissionsButton: 'View All Permissions',
+    hideRolePermissionsButton: 'Hide All Permissions',
+    
     storeLocationText: 'Store Locations',
 
     allowBillingCheckbox: 'Billing Checkbox',

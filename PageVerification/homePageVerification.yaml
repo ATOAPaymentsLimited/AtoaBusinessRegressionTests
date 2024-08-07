@@ -77,7 +77,7 @@ appId: ${APP_ID}
 
 - runFlow:
     when:
-        true: ${USER == 'BUSINESSOWNER' || ROLE == 'SUPERVISOR'}
+        true: ${ROLE != 'CASHIER' && USER == 'BUSINESSOWNER' || ROLE == 'SUPERVISOR' }
     commands:
       - assertVisible:
           text: ${output.merchantHomePage.employeesButton}

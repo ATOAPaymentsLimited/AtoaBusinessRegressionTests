@@ -35,7 +35,7 @@ onFlowStart:
     file: ../../SubFlows/GeneralFlows/login.yaml
     env: 
         USER: 'STAFFMEMBER'
-        ID: ${output.env.EMPLOYEE_MOBILE_QS}
+        ID: ${output.env.EMPLOYEE_MOBILE_R1}
 
 # Verify accept payment permission
 
@@ -61,7 +61,7 @@ onFlowStart:
 - runFlow:
     file: ../../PageVerification/QRcodePageVerification.yaml
     env:
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_Q} 
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_R} 
         AMOUNT: ${output.env.amount15000}
 
 # Share link
@@ -159,7 +159,7 @@ onFlowStart:
 - runFlow: 
     file: ../../PageVerification/staticQRPageVerification.yaml
     env:
-        BUSINESSNAME: ${output.env.BUSINESS_NAME_Q}
+        BUSINESSNAME: ${output.env.BUSINESS_NAME_R}
 
 # Billing
 
