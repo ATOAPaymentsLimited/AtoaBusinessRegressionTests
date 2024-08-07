@@ -85,6 +85,10 @@ onFlowStart:
 - runFlow:
     file: ../../PageVerification/staffDetailsPageVerification.yaml
     env:
+        FNAME: ${output.env.EMPLOYEE_FNAME}
+        LNAME: ${output.env.EMPLOYEE_LNAME}
+        MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_R1}
+        ROLE: ${output.env.ROLENAME3}
         
 
 # Accept payment

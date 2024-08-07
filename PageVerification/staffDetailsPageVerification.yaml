@@ -39,5 +39,24 @@ appId: ${APP_ID}
       - ${ROLE}
 
 - scrollUntilVisible:
-    element: ${output.employeeDetailsPage.viewRolePermissionsText}
+    element: ${output.employeeDetailsPage.viewRolePermissionsButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.viewRolePermissionsButton}
+        INDEX: 0
+
+- runFlow: ../../PageVerification/verifyPermissions.yaml
+
+- scrollUntilVisible:
+    element: ${output.employeeDetailsPage.hideRolePermissionsButton}
+    direction: DOWN
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeDetailsPage.hideRolePermissionsButton}
+        INDEX: 0
 
