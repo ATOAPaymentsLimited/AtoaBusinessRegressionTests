@@ -2,12 +2,12 @@ appId: ${APP_ID}
 ---
 - assertVisible:
     text: ${output.employeeDetailsPage.firstNameField}
-    containsDescendats: 
+    containsDescendants: 
       - ${FNAME}
 
 - assertVisible:
-    text: ${output.employeeDetailsPage.firstNameField}
-    containsDescendats: 
+    text: ${output.employeeDetailsPage.lastNameField}
+    containsDescendants: 
       - ${LNAME}
 
 - runFlow:
@@ -43,19 +43,19 @@ appId: ${APP_ID}
     direction: DOWN
 
 - runFlow:
-    file: ../../ElementActions/tapOn.yaml
+    file: ../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.viewRolePermissionsButton}
         INDEX: 0
 
-- runFlow: ../../PageVerification/verifyPermissions.yaml
+- runFlow: verifyPermissions.yaml
 
 - scrollUntilVisible:
     element: ${output.employeeDetailsPage.hideRolePermissionsButton}
     direction: DOWN
 
 - runFlow:
-    file: ../../ElementActions/tapOn.yaml
+    file: ../ElementActions/tapOn.yaml
     env:
         ELEMENT: ${output.employeeDetailsPage.hideRolePermissionsButton}
         INDEX: 0

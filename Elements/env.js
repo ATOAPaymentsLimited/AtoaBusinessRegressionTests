@@ -151,7 +151,7 @@ output.env = {
    MERCHANT_EMAIL_R: 'ab9979779779@gmail.com',
    EMPLOYEE_MOBILE_R1: '8878778778',
    EMPLOYEE_MOBILE_RS: '8868668668',
-   // EMPLOYEE_MOBILE_RC: '8886886686',
+   EMPLOYEE_MOBILE_RC: '8438843843',
 
    MERCHANT_MOBILE_M: '9959333221',
    BUSINESS_NAME_M: 'B9959333221',
@@ -297,6 +297,8 @@ output.env = {
 
    ADD_EMPLOYEE_QR_DEV: 'https://devlinks.atoa.me/employeesignup/?apn=com.atoa.merchantdev&ibi=com.atoa.merchantdev&isi=1618270399&link=https://devlinks.atoa.me/login?qrId=014bdb19-ce73-4087-8226-d5d5cb679d22&employeeSignup=true',
   
+   ADD_EMPLOYEE_QR_DEV_2: 'https://devurl.atoa.me/employeesignup/eV3G5h72',
+
    POINTONE_COMPANY_ID: 'A3DC8862-E01E-48C5-AA30-1146E78C54F6', 
    POINTONE_API_KEY: 'EC389AAD-B244-428D-BD8B-CEC6C34C87E8',
 

@@ -46,6 +46,9 @@ onFlowStart:
         ROLE: 'SUPERVISOR'
 
 # Accept payment
+- scrollUntilVisible:
+    element: ${output.employeeHomePage.acceptPaymentButton}
+    direction: UP
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
@@ -134,20 +137,81 @@ onFlowStart:
     env:
         FNAME: ${output.env.EMPLOYEE_FNAME}
         LNAME: ${output.env.EMPLOYEE_LNAME}
-        MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_QC1}
+        MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_RC}
         ROLE: ${output.env.cashier}
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeesPage.doneButton}
+        INDEX: 0
 
 - runFlow:
     file: ../../SubFlows/GeneralFlows/deleteEmployee.yaml
     env:
-        MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_QC1}
+        MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_RC}
 
 - assertNotVisible:
     text: ${output.employeesPage.employeesTile}
     containsDescendants:
-      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_QC1}
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_RC}
+
+# Send employee request
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/openLink.yaml
+    env:
+        LINK: ${output.env.ADD_EMPLOYEE_QR_DEV_2}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterEmailOrMobileNumber.yaml
+    env:
+        TEXT: ${output.env.EMPLOYEE_MOBILE_RC}
+        SIGNUP: true
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/enterOtp.yaml
+    env:
+        TEXT: ${output.env.validOtp}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/sendEmployeeRequest.yaml
+    env:
+        FNAME: ${output.env.EMPLOYEE_FNAME}
+        LNAME: ${output.env.EMPLOYEE_LNAME}
 
 # Accept employee request
 
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/openLink.yaml
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_R1}
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/approveEmployeeRequest.yaml
+    env:
+        ACCEPT: true
+        CASHIER: true
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeesPage.doneButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.employeesButton}
+        INDEX: 0
+
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/deleteEmployee.yaml
+    env:
+        MOBILENUMBER: ${output.env.EMPLOYEE_MOBILE_RC}
+
+- assertNotVisible:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_RC}

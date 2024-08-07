@@ -7,15 +7,10 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${PERMISSION1}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION1}
-    commands:
       - assertVisible:
           text: ${PERMISSION1}
           checked: true
-
+      
 - runFlow:
     when:
         true: ${PERMISSION2}
@@ -23,11 +18,6 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${PERMISSION2}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION2}
-    commands:
       - assertVisible:
           text: ${PERMISSION2}
           checked: true
@@ -39,11 +29,6 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${PERMISSION3}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION3}
-    commands:
       - assertVisible:
           text: ${PERMISSION3}
           checked: true
@@ -55,11 +40,6 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${PERMISSION4}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION4}
-    commands:
       - assertVisible:
           text: ${PERMISSION4}
           checked: true
@@ -71,155 +51,175 @@ appId: ${APP_ID}
       - scrollUntilVisible:
           element: ${PERMISSION5}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION5}
-    commands:
       - assertVisible:
           text: ${PERMISSION5}
           checked: true
 
 - runFlow:
     when:
-        true: ${PERMISSION1}
+        true: ${PERMISSION6}
     commands:
       - scrollUntilVisible:
-          element: ${PERMISSION1}
+          element: ${PERMISSION6}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION1}
-    commands:
       - assertVisible:
-          text: ${PERMISSION1}
+          text: ${PERMISSION6}
           checked: true
 
 - runFlow:
     when:
-        true: ${PERMISSION1}
+        true: ${PERMISSION7}
     commands:
       - scrollUntilVisible:
-          element: ${PERMISSION1}
+          element: ${PERMISSION7}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION1}
-    commands:
       - assertVisible:
-          text: ${PERMISSION1}
+          text: ${PERMISSION7}
           checked: true
 
 - runFlow:
     when:
-        true: ${PERMISSION1}
+        true: ${PERMISSION8}
     commands:
       - scrollUntilVisible:
-          element: ${PERMISSION1}
+          element: ${PERMISSION8}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION1}
-    commands:
       - assertVisible:
-          text: ${PERMISSION1}
+          text: ${PERMISSION8}
           checked: true
 
 - runFlow:
     when:
-        true: ${PERMISSION1}
+        true: ${PERMISSION9}
     commands:
       - scrollUntilVisible:
-          element: ${PERMISSION1}
+          element: ${PERMISSION9}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION1}
-    commands:
       - assertVisible:
-          text: ${PERMISSION1}
+          text: ${PERMISSION9}
           checked: true
 
 - runFlow:
     when:
-        true: ${PERMISSION1}
+        true: ${PERMISSION10}
     commands:
       - scrollUntilVisible:
-          element: ${PERMISSION1}
+          element: ${PERMISSION10}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION1}
-    commands:
       - assertVisible:
-          text: ${PERMISSION1}
+          text: ${PERMISSION10}
           checked: true
 
+# Checked false
+
 - runFlow:
     when:
-        true: ${PERMISSION1}
+        true: ${PERMISSION01}
     commands:
       - scrollUntilVisible:
-          element: ${PERMISSION1}
+          element: ${PERMISSION01}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION1}
-    commands:
       - assertVisible:
-          text: ${PERMISSION1}
-          checked: true
+          text: ${PERMISSION01}
+          checked: false
+      
 
 - runFlow:
     when:
-        true: ${PERMISSION1}
+        true: ${PERMISSION02}
     commands:
       - scrollUntilVisible:
-          element: ${PERMISSION1}
+          element: ${PERMISSION02}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION1}
-    commands:
       - assertVisible:
-          text: ${PERMISSION1}
-          checked: true
+          text: ${PERMISSION02}
+          checked: false
 
 - runFlow:
     when:
-        true: ${PERMISSION1}
+        true: ${PERMISSION03}
     commands:
       - scrollUntilVisible:
-          element: ${PERMISSION1}
+          element: ${PERMISSION03}
           direction: DOWN
-
-- runFlow:
-    when:
-        true: ${PERMISSION1}
-    commands:
       - assertVisible:
-          text: ${PERMISSION1}
-          checked: true
+          text: ${PERMISSION03}
+          checked: false
 
 - runFlow:
     when:
-        true: ${PERMISSION1}
+        true: ${PERMISSION04}
     commands:
       - scrollUntilVisible:
-          element: ${PERMISSION1}
+          element: ${PERMISSION04}
           direction: DOWN
+      - assertVisible:
+          text: ${PERMISSION04}
+          checked: false
 
 - runFlow:
     when:
-        true: ${PERMISSION1}
+        true: ${PERMISSION05}
     commands:
+      - scrollUntilVisible:
+          element: ${PERMISSION05}
+          direction: DOWN
       - assertVisible:
-          text: ${PERMISSION1}
-          checked: true
+          text: ${PERMISSION05}
+          checked: false
+
+- runFlow:
+    when:
+        true: ${PERMISSION06}
+    commands:
+      - scrollUntilVisible:
+          element: ${PERMISSION06}
+          direction: DOWN
+      - assertVisible:
+          text: ${PERMISSION06}
+          checked: false
+
+- runFlow:
+    when:
+        true: ${PERMISSION07}
+    commands:
+      - scrollUntilVisible:
+          element: ${PERMISSION07}
+          direction: DOWN
+      - assertVisible:
+          text: ${PERMISSION07}
+          checked: false
+
+- runFlow:
+    when:
+        true: ${PERMISSION08}
+    commands:
+      - scrollUntilVisible:
+          element: ${PERMISSION08}
+          direction: DOWN
+      - assertVisible:
+          text: ${PERMISSION08}
+          checked: false
+
+- runFlow:
+    when:
+        true: ${PERMISSION09}
+    commands:
+      - scrollUntilVisible:
+          element: ${PERMISSION09}
+          direction: DOWN
+      - assertVisible:
+          text: ${PERMISSION09}
+          checked: false
+
+- runFlow:
+    when:
+        true: ${PERMISSION010}
+    commands:
+      - scrollUntilVisible:
+          element: ${PERMISSION010}
+          direction: DOWN
+      - assertVisible:
+          text: ${PERMISSION010}
+          checked: false
+

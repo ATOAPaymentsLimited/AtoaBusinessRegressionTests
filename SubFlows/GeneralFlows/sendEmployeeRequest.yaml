@@ -10,19 +10,19 @@ appId: ${APP_ID}
     env:
         LNAME: ${LNAME}
 
-- runFlow:
-    when:
-        true: ${EMAIL}
-    file: ../AddEmployeeFieldActions/enterEmailId.yaml
-    env:
-        EMAIL: ${EMAIL}
+# - runFlow:
+#     when:
+#         true: ${EMAIL}
+#     file: ../AddEmployeeFieldActions/enterEmailId.yaml
+#     env:
+#         EMAIL: ${EMAIL}
 
-- runFlow:
-    when:
-        true: ${MOBILENUMBER}
-    file: ../AddEmployeeFieldActions/enterMobile.yaml
-    env:
-        MOBILENUMBER: ${MOBILENUMBER}
+# - runFlow:
+#     when:
+#         true: ${MOBILENUMBER}
+#     file: ../AddEmployeeFieldActions/enterMobile.yaml
+#     env:
+#         MOBILENUMBER: ${MOBILENUMBER}
 
 - runFlow:
     file: ../../ElementActions/tapOn.yaml
