@@ -182,6 +182,6 @@ onFlowStart:
         INDEX: 0
 
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/deletePaymentlink.yaml
+    file: ../../SubFlows/GeneralFlows/deletePaymentLink.yaml
     env:
         AMOUNT: ${output.env.amount15000}

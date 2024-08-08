@@ -115,7 +115,7 @@ onFlowStart:
       AMOUNT: ${output.env.amountDecimal}
 
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/deletePaymentlink.yaml
+    file: ../../SubFlows/GeneralFlows/deletePaymentLink.yaml
     env:
         AMOUNT: ${output.env.amountDecimal}
 

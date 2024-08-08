@@ -59,7 +59,7 @@ onFlowStart:
         INDEX: 0
 
 - runFlow:
-    file: ../../Subflows/GeneralFlows/enterAmount.yaml
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
     env:
         ACCEPTPAYMENT: true
         AMOUNT: ${output.env.amount15000}
@@ -87,7 +87,7 @@ onFlowStart:
         INDEX: 0
 
 - runFlow:
-    file: ../../Subflows/GeneralFlows/enterAmount.yaml
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
     env:
         ACCEPTPAYMENT: true
         AMOUNT: ${output.env.amount15000}
@@ -155,7 +155,7 @@ onFlowStart:
         INDEX: 0
 
 - runFlow:
-    file: ../../Subflows/GeneralFlows/enterAmount.yaml
+    file: ../../SubFlows/GeneralFlows/enterAmount.yaml
     env:
         PAYMENTLINK: true
         AMOUNT: ${output.env.amount15000}
@@ -181,6 +181,6 @@ onFlowStart:
         INDEX: 0
 
 - runFlow:
-    file: ../../SubFlows/GeneralFlows/deletePaymentlink.yaml
+    file: ../../SubFlows/GeneralFlows/deletePaymentLink.yaml
     env:
         AMOUNT: ${output.env.amount15000}
