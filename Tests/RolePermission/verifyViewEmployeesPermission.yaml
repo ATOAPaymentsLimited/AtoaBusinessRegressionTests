@@ -5,82 +5,82 @@ tags:
 onFlowStart:
   - runFlow: ../../Elements/runScript.yaml
 ---
-# # Assign the role
+# Assign the role
 
-# - runFlow:
-#     file: ../../SubFlows/GeneralFlows/login.yaml
-#     env:
-#         USER: 'BUSINESSOWNER'
-#         ID: ${output.env.MERCHANT_MOBILE_R}
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env:
+        USER: 'BUSINESSOWNER'
+        ID: ${output.env.MERCHANT_MOBILE_R}
 
-# - runFlow:
-#     file: ../../ElementActions/tapOn.yaml
-#     env:
-#         ELEMENT: ${output.merchantHomePage.employeesButton}
-#         INDEX: 0
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.merchantHomePage.employeesButton}
+        INDEX: 0
 
-# - tapOn:
-#     text: ${output.employeesPage.employeesTile}
-#     containsDescendants:
-#         - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_R1}
+- tapOn:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+        - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_R1}
 
-# - runFlow:
-#     file: ../../SubFlows/GeneralFlows/changeRole.yaml
-#     env:
-#         ROLE: ${output.env.ROLENAME3}
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/changeRole.yaml
+    env:
+        ROLE: ${output.env.ROLENAME3}
 
-# # Login to employee's account and verify permissions
+# Login to employee's account and verify permissions
 
-# - runFlow:
-#     file: ../../SubFlows/GeneralFlows/login.yaml
-#     env: 
-#         USER: 'STAFFMEMBER'
-#         ID: ${output.env.EMPLOYEE_MOBILE_R1}
+- runFlow:
+    file: ../../SubFlows/GeneralFlows/login.yaml
+    env: 
+        USER: 'STAFFMEMBER'
+        ID: ${output.env.EMPLOYEE_MOBILE_R1}
 
-# # Verify home page
+# Verify home page
 
-# - runFlow:
-#     file: ../../PageVerification/homePageVerification.yaml
-#     env:
-#         USER: 'STAFFMEMBER'
-#         ROLE: 'SUPERVISOR'
+- runFlow:
+    file: ../../PageVerification/homePageVerification.yaml
+    env:
+        USER: 'STAFFMEMBER'
+        ROLE: 'SUPERVISOR'
 
-# # Verify employees
-# - runFlow:
-#     file: ../../ElementActions/tapOn.yaml
-#     env:
-#         ELEMENT: ${output.employeeHomePage.employeesButton}
-#         INDEX: 0
+# Verify employees
+- runFlow:
+    file: ../../ElementActions/tapOn.yaml
+    env:
+        ELEMENT: ${output.employeeHomePage.employeesButton}
+        INDEX: 0
 
-# - assertVisible:
-#     text: ${output.employeesPage.employeesTile}
-#     containsDescendants:
-#       - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_RS}
+- assertVisible:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_RS}
 
-# - assertVisible:
-#     text: ${output.employeesPage.employeesTile}
-#     containsDescendants:
-#       - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_R1}
+- assertVisible:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_R1}
 
-# - tapOn:
-#     text: ${output.employeesPage.employeesTile}
-#     containsDescendants:
-#       - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_R1}
+- tapOn:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_R1}
 
-# - assertVisible:
-#     text: ${output.employeesPage.employeesTile}
-#     containsDescendants:
-#       - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_RS}
+- assertVisible:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_RS}
 
-# - assertVisible:
-#     text: ${output.employeesPage.employeesTile}
-#     containsDescendants:
-#       - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_R1}
+- assertVisible:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_R1}
 
-# - tapOn:
-#     text: ${output.employeesPage.employeesTile}
-#     containsDescendants:
-#       - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_RS}
+- tapOn:
+    text: ${output.employeesPage.employeesTile}
+    containsDescendants:
+      - ${output.env.countryCodeUK} ${output.env.EMPLOYEE_MOBILE_RS}
 
 - runFlow:
     file: ../../PageVerification/staffDetailsPageVerification.yaml
